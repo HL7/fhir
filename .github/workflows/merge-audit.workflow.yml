@@ -1,0 +1,79 @@
+# Merge-loss guard
+#
+# Re-merges merge commits mechanically (git --remerge-diff) and flags content
+# that a recorded merge dropped even though the file was not conflicted. Those
+# "silent drops" are almost always accidents — a conflict resolution that kept
+# one side's whole file and thereby reverted other people's changes (see
+# tools/merge-audit.py for details).
+#
+# Runs in two modes:
+#  - pull_request: STRICT. Audits the PR's own commits (including any
+#    "merge master into my branch" commits) and FAILS the check if one of them
+#    silently dropped content that is still missing at the PR head. Fix by
+#    restoring the dropped content in a new commit; if the drop was deliberate,
+#    say so in the PR and a maintainer can merge past the failed check.
+#  - push to master: advisory. Warns and writes a job summary, never fails.
+#  - workflow_dispatch: manual sweep over a longer window.
+
+name: merge-audit
+
+on:
+  pull_request:
+    branches: [master]
+  push:
+    branches: [master]
+  workflow_dispatch:
+    inputs:
+      since:
+        description: "Audit all merges since this date (YYYY-MM-DD) instead of just the pushed range"
+        required: false
+        default: ""
+
+permissions:
+  contents: read
+
+jobs:
+  merge-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # remerge-diff needs full history to find merge bases
+
+      - name: Audit merges for silently dropped content
+        shell: bash
+        run: |
+          set -uo pipefail
+          STRICT=0
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            STRICT=1
+            ARGS=(--range "${{ github.event.pull_request.base.sha }}..${{ github.event.pull_request.head.sha }}" \
+                  --tip "${{ github.event.pull_request.head.sha }}")
+          elif [ -n "${{ github.event.inputs.since || '' }}" ]; then
+            ARGS=(--since "${{ github.event.inputs.since }}" --tip master)
+          elif [ "${{ github.event_name }}" = "push" ] && [ "${{ github.event.before }}" != "0000000000000000000000000000000000000000" ] && git cat-file -e "${{ github.event.before }}" 2>/dev/null; then
+            ARGS=(--range "${{ github.event.before }}..${{ github.sha }}" --tip master)
+          else
+            # forced push or unknown base: fall back to the last 2 weeks
+            ARGS=(--since "$(date -d '14 days ago' +%Y-%m-%d)" --tip master)
+          fi
+
+          python3 tools/merge-audit.py . "${ARGS[@]}" --path-prefix source/ > audit.txt
+          STATUS=$?
+
+          cat audit.txt
+          {
+            echo '## Merge-loss audit'
+            echo '```'
+            cat audit.txt
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+          if [ $STATUS -ne 0 ]; then
+            if [ $STRICT -eq 1 ]; then
+              echo "::error title=Content lost in a merge in this PR::A merge commit in this PR dropped content that a mechanical merge would have kept, in a file that was NOT conflicted — this usually means a conflict resolution reverted other people's changes. See the job summary for the exact lines, and inspect locally with: git show --remerge-diff <merge-sha>. Restore the dropped content in a new commit, or state in the PR that the drop is deliberate."
+              exit 1
+            fi
+            echo "::warning title=Possible content lost in a merge::A merge in this push dropped content that a mechanical merge would have kept, in a file that was NOT conflicted. See the job summary of the merge-audit workflow run, and inspect with: git show --remerge-diff <merge-sha>"
+          fi
+          exit 0
