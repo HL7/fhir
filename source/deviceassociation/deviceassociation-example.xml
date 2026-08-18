@@ -11,7 +11,7 @@
   </device>
   <relationship>
     <coding>
-      <system value="http://hl7.org/fhir/deviceassociation-relationship"/>
+      <system value="http://terminology.hl7.org/CodeSystem/deviceassociation-relationship"/>
       <code value="implanted-in"/>
       <display value="Implanted In"/>
     </coding>
@@ -20,7 +20,7 @@
   <!-- Relationship lifecycle state moved here -->
   <relationshipStatus>
     <coding>
-      <system value="http://hl7.org/fhir/deviceassociation-relationship-status"/>
+      <system value="http://terminology.hl7.org/CodeSystem/deviceassociation-relationship-status"/>
       <code value="removed"/>
       <display value="Removed"/>
     </coding>
