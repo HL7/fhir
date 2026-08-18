@@ -118,7 +118,7 @@
           <valueBoolean value="true"/>
         </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice-explanation">
-          <valueMarkdown value="For a recurring series of appointments, the originating appointment should have the recurrenceTemplate defining the details of the overall recurrence.  Each occurence should refer back to the originatingAppointment as the single source of truth for the details of the recurrence."/>
+          <valueMarkdown value="For a recurring series of appointments, the originating appointment should have the recurrenceTemplate defining the details of the overall recurrence.  Each occurrence should refer back to the originatingAppointment as the single source of truth for the details of the recurrence."/>
         </extension>
         <key value="app-6"/>
         <severity value="warning"/>
