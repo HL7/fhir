@@ -25,6 +25,7 @@
 			<p><b>Changes since 6.0.0-ballot5:</b></p>
 			<ul>
 				<li><a href="https://jira.hl7.org/browse/FHIR-58295">FHIR-58295</a> - Added the triggering ServiceRequest reference to the Free T4 reflex-order example</li>
+				<li><a href="https://jira.hl7.org/browse/FHIR-58294">FHIR-58294</a> - Added a LOINC code to the glucose test ServiceRequest example</li>
 			</ul>
 		</blockquote>
 		<a name="scope"></a>
