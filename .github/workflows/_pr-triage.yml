@@ -233,7 +233,13 @@ jobs:
               if (comment.user.login !== prAuthor) {
                 // Admin /triage command: forces a cold triage when the normal
                 // pull_request_target event was skipped (e.g. fork PRs held
-                // by GitHub's approval gate). Only admin comments are checked.
+                // by GitHub's approval gate). Only admin comments are honored.
+                //
+                // An admin issuing /triage is itself the safety judgment —
+                // the admin has already vetted the content/submitter — so
+                // /triage ALSO bypasses the Tier 1 diff safety scan (same
+                // effect as the standalone "securityok" command). Non-admin
+                // /triage comments are ignored entirely.
                 if (/\/triage\b/i.test(comment.body || '')) {
                   let commenterPerm = 'none';
                   try {
@@ -246,9 +252,9 @@ jobs:
                   }
 
                   if (commenterPerm === 'admin') {
-                    core.notice(`Admin ${comment.user.login} requested /triage.`);
+                    core.notice(`Admin ${comment.user.login} requested /triage — Tier 1 scan will be bypassed.`);
                     core.setOutput('should_triage', 'true');
-                    core.setOutput('security_override', 'false');
+                    core.setOutput('security_override', 'true');
                     core.setOutput('pr_number', String(prNumber));
                     core.setOutput('head_sha', pr.head.sha);
                     core.setOutput('base_sha', pr.base.sha);
@@ -1538,20 +1544,31 @@ jobs:
       - name: Claude analyzes PR
         id: claude
         if: steps.scan.outputs.suspicious != 'true' && steps.jira.outputs.auth_failure != 'true'
-        # Note: anthropics/claude-code-action@v1 still bundles Node 20 via
-        # oven-sh/setup-bun. As of June 2026 GitHub runners default to Node 24
-        # and emit deprecation warnings; Node 20 is removed entirely in
-        # September 2026. We are waiting on Anthropic to ship a Node 24 build
-        # (tracked in anthropics/claude-code-action#1050). The @v1 tag will
-        # pick up the fix automatically once released — no change needed here.
-        uses: anthropics/claude-code-action@v1
+        # We use claude-code-base-action (a pure execution wrapper), NOT the
+        # unified claude-code-action. The unified action runs a built-in
+        # security gate that aborts unless the *triggering actor*
+        # (github.actor) has write permission to the repo:
+        #   "Actor does not have write permissions to the repository"
+        # That is fundamentally incompatible with this workflow's purpose:
+        # triaging external contributors' PRs and their comment replies —
+        # actors who by definition lack write access (e.g. fork PRs via
+        # pull_request_target, and author-response issue_comment events).
+        # Eligibility is already gated by the `eligibility` job above, Claude
+        # is told not to post comments, and we parse the execution log
+        # ourselves, so none of the unified action's GitHub-trigger features
+        # are needed here. The base action has no actor permission check.
+        #
+        # GH_TOKEN is exposed as an env var so Claude's `Bash(gh:*)` calls are
+        # authenticated (the unified action's `github_token` input did this;
+        # the base action does not take a github_token input).
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: anthropics/claude-code-base-action@main
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
-          github_token: ${{ secrets.GITHUB_TOKEN }}
           claude_args: >-
             --model claude-opus-4-7
             --allowedTools "Read,Bash(gh:*),Glob,Grep"
-          show_full_output: true
           prompt: |
             Read REVIEW_PROFILE.md for the user's review patterns.
             Analyze PR #${{ needs.eligibility.outputs.pr_number }} against those patterns.
@@ -1562,7 +1579,8 @@ jobs:
               - "pr_updated": PR was opened non-draft or received new commits.
               - "ready_for_review": a draft was just marked ready.
               - "author_responded": the PR author replied to a prior admin comment.
-              - "admin_triage": an admin used /triage to manually request triage.
+              - "admin_triage": an admin used /triage to manually request
+                triage; this also bypasses the Tier 1 diff safety scan.
               - "security_override": an admin bypassed the security scan.
 
             === Review context ===
@@ -1660,10 +1678,14 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REVIEW_MODE: ${{ inputs.review_mode }}
         run: |
-          LOG_FILE="/home/runner/work/_temp/claude-execution-output.json"
-          if [ ! -f "$LOG_FILE" ]; then
-            echo "ERROR: Claude execution log not found at $LOG_FILE"
-            ls -la /home/runner/work/_temp/ || true
+          # claude-code-base-action exposes the execution log path via its
+          # `execution_file` output. (The unified action wrote to a fixed
+          # $RUNNER_TEMP path; the base action's output is the robust way to
+          # locate it.)
+          LOG_FILE="${{ steps.claude.outputs.execution_file }}"
+          if [ -z "$LOG_FILE" ] || [ ! -f "$LOG_FILE" ]; then
+            echo "ERROR: Claude execution log not found at '$LOG_FILE'"
+            ls -la "${RUNNER_TEMP:-/home/runner/work/_temp}/" || true
             exit 1
           fi
 
