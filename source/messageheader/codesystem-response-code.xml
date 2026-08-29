@@ -60,6 +60,11 @@
   <concept>
     <code value="fatal-error"/>
     <display value="Fatal Error"/>
-    <definition value="The message was rejected because of a problem with the content. There is no point in re-sending without change. The response narrative SHALL describe the issue."/>
+    <definition value="The message was rejected because of a problem with the content. There is no point in re-sending without change. The response narrative in MessageHeader.response.details SHALL describe the issue."/>
+  </concept>
+  <concept>
+    <code value="non-fatal-error"/>
+    <display value="Non-Fatal Error"/>
+    <definition value="The message was accepted and processed but with one or more errors. The narrative in MessageHeader.response.details SHALL describe the issue."/>
   </concept>
 </CodeSystem>
