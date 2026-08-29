@@ -6,7 +6,11 @@
     <valueCode value="fhir"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="normative"/>
+    <valueCode value="deprecated">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status-reason">
+        <valueMarkdown value="Use `interaction.code = read-conditional-modified-since` and `interaction.code = read-conditional-not-match` instead"/>
+      </extension>
+    </valueCode>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="5"/>
@@ -38,7 +42,7 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="A code that indicates how the server supports conditional read."/>
+  <description value="DEPRECATED: A code that indicates how the server supports conditional read. Use interaction codes read-conditional-modified-since and read-conditional-not-match instead."/>
   <immutable value="true"/>
   <compose>
     <include>

@@ -58,6 +58,11 @@ resource. The sequence works this way:
 <li>All interactions between the client and server use the same version</li>
 </ul>
 <p>
+Note that the binding for <code>CapabilityStatement.fhirVersion</code> is to be interpreted as
+version-independent. Tooling should apply this interpretation consistently,
+including when processing prior releases.
+</p>
+<p>
 Clients are advised to check the server's capability statement before first using the
 server, but how often is at the discretion of the implementer, and this varies
 wildly. Some implementers only check the statement during the development cycle,

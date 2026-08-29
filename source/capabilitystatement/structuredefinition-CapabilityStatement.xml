@@ -488,7 +488,8 @@
 		<element id="CapabilityStatement.kind">
 			<path value="CapabilityStatement.kind"/>
 			<short value="instance | capability | requirements"/>
-			<definition value="The way that this statement is intended to be used, to describe an actual running instance of software, a particular product (kind, not instance of software) or a class of implementation (e.g. a desired purchase)."/>
+			<definition value="The way that this statement is intended to be used, to describe an actual running instance of software, a particular product (kind, not instance of software) or a general statement of implementation expectations (e.g. a desired purchase, a formal specification, etc.)."/>
+			<comment value="Unless knowledge of a specific system or implementation are known, use 'requirements'."/>
 			<requirements value="Allow searching the 3 modes."/>
 			<min value="1"/>
 			<max value="1"/>
@@ -642,7 +643,7 @@
 			<path value="CapabilityStatement.fhirVersion"/>
 			<short value="FHIR Version the system supports"/>
 			<definition value="The version of the FHIR specification that this CapabilityStatement describes (which SHALL be the same as the FHIR version of the CapabilityStatement itself). There is no default value."/>
-			<comment value="Servers may implement multiple versions (see [Managing Multiple Versions](versioning.html), and the [$versions](capabilitystatement-operation-versions.html) operation). If they do, and the CapabilityStatement is requested from the server, then this fhirVersion will be either the version requested, or the server's default version."/>
+			<comment value="Servers may implement multiple versions (see [Managing Multiple Versions](versioning.html), and the [$versions](capabilitystatement-operation-versions.html) operation). If they do, and the CapabilityStatement is requested from the server, then this fhirVersion will be either the version requested, or the server's default version. Tooling should treat this binding as version-independent, including for prior releases."/>
 			<min value="1"/>
 			<max value="1"/>
 			<type>
@@ -655,6 +656,9 @@
 				</extension>
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
 					<valueBoolean value="true"/>
+				</extension>
+				<extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
+					<valueString value="This binding is version-independent. Use codes from the FHIR Version value set and interpret prior releases using the same version-independent binding semantics."/>
 				</extension>
 				<strength value="required"/>
 				<description value="All published FHIR Versions."/>
@@ -987,7 +991,7 @@
 		</element>
 		<element id="CapabilityStatement.rest.resource.interaction.code">
 			<path value="CapabilityStatement.rest.resource.interaction.code"/>
-			<short value="read | vread | update | update-conditional | patch | patch-conditional | delete | delete-conditional-single | delete-conditional-multiple | delete-history | delete-history-version | history-instance | history-type | create | create-conditional | search-type"/>
+			<short value="read | vread | read-conditional-modified-since | read-conditional-not-match | update | update-conditional | patch | patch-conditional | delete | delete-conditional-single | delete-conditional-multiple | delete-history | delete-history-version | history-instance | history-type | create | create-conditional | search-type | other"/>
 			<definition value="Coded identifier of the interaction, supported by the system resource."/>
 			<min value="1"/>
 			<max value="1"/>
@@ -1059,10 +1063,17 @@
 			</type>
 		</element>
 		<element id="CapabilityStatement.rest.resource.conditionalCreate">
+			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+				<valueCode value="deprecated">
+					<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status-reason">
+						<valueMarkdown value="Use `interaction.code = create-conditional` instead"/>
+					</extension>
+				</valueCode>
+			</extension>
 			<path value="CapabilityStatement.rest.resource.conditionalCreate"/>
-			<short value="If allows/uses conditional create"/>
-			<definition value="A flag that indicates that the server supports conditional create."/>
-			<comment value="Conditional Create is mainly appropriate for interface engine scripts converting from other formats, such as v2."/>
+			<short value="DEPRECATED: If allows/uses conditional create"/>
+			<definition value="DEPRECATED: A flag that indicates that the server supports conditional create. Use interaction.code = create-conditional instead."/>
+			<comment value="DEPRECATED: Use interaction.code = create-conditional instead. Conditional Create is mainly appropriate for interface engine scripts converting from other formats, such as v2."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -1070,10 +1081,17 @@
 			</type>
 		</element>
 		<element id="CapabilityStatement.rest.resource.conditionalRead">
+			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+				<valueCode value="deprecated">
+					<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status-reason">
+						<valueMarkdown value="Use `interaction.code = read-conditional-modified-since` and `interaction.code = read-conditional-not-match` instead"/>
+					</extension>
+				</valueCode>
+			</extension>
 			<path value="CapabilityStatement.rest.resource.conditionalRead"/>
-			<short value="not-supported | modified-since | not-match | full-support"/>
-			<definition value="A code that indicates how the server supports conditional read."/>
-			<comment value="Conditional Read is mainly appropriate for interface engine scripts converting from other formats, such as v2."/>
+			<short value="DEPRECATED: not-supported | modified-since | not-match | full-support"/>
+			<definition value="DEPRECATED: A code that indicates how the server supports conditional read. Use interaction codes read-conditional-modified-since and read-conditional-not-match instead."/>
+			<comment value="DEPRECATED: Use interaction codes read-conditional-modified-since and read-conditional-not-match instead. Conditional Read is mainly appropriate for interface engine scripts converting from other formats, such as v2."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -1089,10 +1107,17 @@
 			</binding>
 		</element>
 		<element id="CapabilityStatement.rest.resource.conditionalUpdate">
+			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+				<valueCode value="deprecated">
+					<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status-reason">
+						<valueMarkdown value="Use `interaction.code = update-conditional` instead"/>
+					</extension>
+				</valueCode>
+			</extension>
 			<path value="CapabilityStatement.rest.resource.conditionalUpdate"/>
-			<short value="If allows/uses conditional update"/>
-			<definition value="A flag that indicates that the server supports conditional update."/>
-			<comment value="Conditional Update is mainly appropriate for interface engine scripts converting from other formats, such as v2."/>
+			<short value="DEPRECATED: If allows/uses conditional update"/>
+			<definition value="DEPRECATED: A flag that indicates that the server supports conditional update. Use interaction.code = update-conditional instead."/>
+			<comment value="DEPRECATED: Use interaction.code = update-conditional instead. Conditional Update is mainly appropriate for interface engine scripts converting from other formats, such as v2."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -1100,10 +1125,17 @@
 			</type>
 		</element>
 		<element id="CapabilityStatement.rest.resource.conditionalPatch">
+			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+				<valueCode value="deprecated">
+					<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status-reason">
+						<valueMarkdown value="Use `interaction.code = patch-conditional` instead"/>
+					</extension>
+				</valueCode>
+			</extension>
 			<path value="CapabilityStatement.rest.resource.conditionalPatch"/>
-			<short value="If allows/uses conditional patch"/>
-			<definition value="A flag that indicates that the server supports conditional patch."/>
-			<comment value="Conditional Patch is mainly appropriate for interface engine scripts converting from other formats, such as v2."/>
+			<short value="DEPRECATED: If allows/uses conditional patch"/>
+			<definition value="DEPRECATED: A flag that indicates that the server supports conditional patch. Use interaction.code = patch-conditional instead."/>
+			<comment value="DEPRECATED: Use interaction.code = patch-conditional instead. Conditional Patch is mainly appropriate for interface engine scripts converting from other formats, such as v2."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -1111,10 +1143,17 @@
 			</type>
 		</element>
 		<element id="CapabilityStatement.rest.resource.conditionalDelete">
+			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+				<valueCode value="deprecated">
+					<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status-reason">
+						<valueMarkdown value="Use `interaction.code = delete-conditional-single` and `interaction.code = delete-conditional-multiple` instead"/>
+					</extension>
+				</valueCode>
+			</extension>
 			<path value="CapabilityStatement.rest.resource.conditionalDelete"/>
-			<short value="not-supported | single | multiple - how conditional delete is supported"/>
-			<definition value="A code that indicates how the server supports conditional delete."/>
-			<comment value="Conditional Delete is mainly appropriate for interface engine scripts converting from other formats, such as v2."/>
+			<short value="DEPRECATED: not-supported | single | multiple - how conditional delete is supported"/>
+			<definition value="DEPRECATED: A code that indicates how the server supports conditional delete. Use interaction codes delete-conditional-single and delete-conditional-multiple instead."/>
+			<comment value="DEPRECATED: Use interaction codes delete-conditional-single and delete-conditional-multiple instead. Conditional Delete is mainly appropriate for interface engine scripts converting from other formats, such as v2."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -1212,7 +1251,7 @@
 			<path value="CapabilityStatement.rest.resource.searchParam.type"/>
 			<short value="number | date | string | token | reference | composite | quantity | uri | special | resource"/>
 			<definition value="The type of value a search parameter refers to, and how the content is interpreted."/>
-			<comment value="While this can be looked up from the definition, it is included here as a convenience for systems that autogenerate a query interface based on the server capability statement.  It SHALL be the same as the type in the search parameter definition."/>
+			<comment value="While this can be looked up from the definition, it is included here as a convenience for systems that autogenerate a query interface based on the server capability statement.  It SHALL be the same as the type in the search parameter definition. If down-converting from a version of FHIR that has additional types, they would map to 'special'."/>
 			<min value="1"/>
 			<max value="1"/>
 			<type>
@@ -1311,7 +1350,7 @@
 		</element>
 		<element id="CapabilityStatement.rest.interaction.code">
 			<path value="CapabilityStatement.rest.interaction.code"/>
-			<short value="transaction | batch | search-system | history-system"/>
+			<short value="transaction | batch | search-system | history-system | other"/>
 			<definition value="A coded identifier of the interaction, supported by the system."/>
 			<min value="1"/>
 			<max value="1"/>
@@ -1347,7 +1386,7 @@
 			<path value="CapabilityStatement.rest.searchParam"/>
 			<short value="Search parameters for searching all resources"/>
 			<definition value="Search parameters that are supported for searching all resources for implementations to support and/or make use of - either references to ones defined in the specification, or additional ones defined for/by the implementation. This is only for searches executed against the system-level endpoint."/>
-			<comment value="Typically, the only search parameters supported for all searches are those that apply to all resources - tags, profiles, text search etc. These search parameters should include the control search parameters such as _sort, _count, etc. that also apply to this resource (though many will be listed at [CapabilityStatement.rest.searchParam](capabilitystatement-definitions.html#CapabilityStatement.rest.searchParam)). The behavior of some search parameters may be further described by other code or extension elements, or narrative within the capability statement or linked [SearchParameter](searchparameter.html#) definitions. &#xA;If documenting a parameter that is not a 'true' SearchParameter (such as _format, _count, etc.), the .definition element SHALL be omitted and the type SHOULD be 'special'."/>
+			<comment value="Typically, the only search parameters supported for all searches are those that apply to all resources - tags, profiles, text search etc. These search parameters should include the control search parameters such as _sort, _count, etc. that apply to all resources. The behavior of some search parameters may be further described by other code or extension elements, or narrative within the capability statement or linked [SearchParameter](searchparameter.html#) definitions. &#xA;If documenting a parameter that is not a 'true' SearchParameter (such as _format, _count, etc.), the .definition element SHALL be omitted and the type SHOULD be 'special'."/>
 			<min value="0"/>
 			<max value="*"/>
 			<contentReference value="#CapabilityStatement.rest.resource.searchParam"/>
