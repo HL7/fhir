@@ -24,6 +24,7 @@
   <ul>
     <li><a href="https://jira.hl7.org/browse/FHIR-58415">FHIR-58415</a> - Corrected the <code>BodyStructure.includedStructure.morphology</code> definition to describe the included structure without referencing the removed <code>BodyStructure.location</code> element</li>
     <li><a href="https://jira.hl7.org/browse/FHIR-57931">FHIR-57931</a> - Clarified that a body landmark description locates the corresponding structure</li>
+    <li><a href="https://jira.hl7.org/browse/FHIR-57930">FHIR-57930</a> - Corrected a grammatical typo in the clock-face position definition</li>
   </ul>
 </blockquote>
 <a name="scope"></a>
