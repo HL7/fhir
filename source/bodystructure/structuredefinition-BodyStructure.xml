@@ -249,7 +249,7 @@
     <element id="BodyStructure.includedStructure.bodyLandmarkOrientation.landmarkDescription">
       <path value="BodyStructure.includedStructure.bodyLandmarkOrientation.landmarkDescription"/>
       <short value="Explanation of landmark"/>
-      <definition value="Body landmark description used as a reference to locate something else."/>
+      <definition value="Body landmark description used as a reference to locate the corresponding structure."/>
       <min value="0"/>
       <max value="*"/>
       <type>
