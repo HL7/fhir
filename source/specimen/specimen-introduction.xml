@@ -21,6 +21,12 @@
 		  <li>Revised the narrative around nesting specimen containers <a href="https://jira.hl7.org/browse/FHIR-54598">FHIR-54598</a></li>
 		</ul>
 	</blockquote>
+	<blockquote class="stu-note" style="background-color: lightblue">
+		<p><b>Changes since 6.0.0-ballot5:</b></p>
+		<ul>
+			<li><a href="https://jira.hl7.org/browse/FHIR-58416">FHIR-58416</a> - Corrected the <code>Specimen.collection.fastingStatus[x]</code> guidance for representing fasting status with an Observation component</li>
+		</ul>
+	</blockquote>
 	<a name="scope"></a>
 	<h2>Scope and Usage</h2>
 
