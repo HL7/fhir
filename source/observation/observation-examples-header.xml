@@ -156,6 +156,12 @@
 			<a href="observation-example-sample-data.html">EKG Example using SampledData data type</a>
 		</li>
 		<li>
+			<a href="observation-example-ekg-abnormal-period.html">EKG annotation using a paired Observation with valuePeriod</a>
+		</li>
+		<li>
+			<a href="observation-example-ekg-coded-annotations.html">EKG annotation using coded SampledData and a ConceptMap</a>
+		</li>
+		<li>
 			<a href="observation-example-devicemetricfocus.html">IV Pump Flow Rate (Device)</a>
 		</li>
 	</ul>

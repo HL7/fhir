@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- A paired Observation uses coded SampledData to annotate each sample in the referenced EKG waveform. -->
+<Observation xmlns="http://hl7.org/fhir">
+  <id value="ekg-coded-annotations"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>This Observation annotates samples in the EKG waveform referenced by derivedFrom. SampledData code 426783006 indicates sinus rhythm; code 5370000 indicates atrial flutter. The contained ConceptMap maps those SNOMED CT codes to LOINC answer codes.</p>
+    </div>
+  </text>
+  <contained>
+    <ConceptMap>
+      <id value="ekg-annotation-map"/>
+      <status value="draft"/>
+      <experimental value="true"/>
+      <group>
+        <source value="http://snomed.info/sct"/>
+        <target value="http://loinc.org"/>
+        <element>
+          <code value="426783006"/>
+          <display value="ECG: sinus rhythm"/>
+          <target>
+            <code value="LA17718-0"/>
+            <display value="Sinus rhythm"/>
+            <relationship value="equivalent"/>
+          </target>
+        </element>
+        <element>
+          <code value="5370000"/>
+          <display value="Atrial flutter"/>
+          <target>
+            <code value="LA17085-4"/>
+            <display value="Atrial flutter"/>
+            <relationship value="equivalent"/>
+          </target>
+        </element>
+      </group>
+    </ConceptMap>
+  </contained>
+  <status value="final"/>
+  <code>
+    <coding>
+      <system value="http://loinc.org"/>
+      <code value="76281-5"/>
+      <display value="Type of arrhythmia on EKG"/>
+    </coding>
+  </code>
+  <subject>
+    <reference value="Patient/f001"/>
+    <display value="P. van de Heuvel"/>
+  </subject>
+  <effectiveDateTime value="2015-02-19T09:30:35+01:00"/>
+  <performer>
+    <reference value="Practitioner/f005"/>
+    <display value="A. Langeveld"/>
+  </performer>
+  <valueSampledData>
+    <origin>
+      <value value="2048"/>
+    </origin>
+    <interval value="10"/>
+    <intervalUnit value="ms"/>
+    <dimensions value="1"/>
+    <codeMap value="#ekg-annotation-map"/>
+    <data value="426783006 426783006 426783006 426783006 426783006 426783006 426783006 426783006 426783006 426783006 426783006 426783006 426783006 426783006 426783006 426783006 426783006 426783006 426783006 426783006 426783006 426783006 426783006 426783006 5370000 5370000 5370000 5370000 5370000 5370000 5370000 5370000 5370000 426783006 426783006 426783006 426783006 426783006 426783006 426783006"/>
+  </valueSampledData>
+  <derivedFrom>
+    <reference value="Observation/ekg"/>
+    <display value="EKG waveform"/>
+  </derivedFrom>
+</Observation>
