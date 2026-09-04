@@ -1,7 +1,7 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
   <div>
     <blockquote class="ballot-note" id="bn1">
-        <p><b>Note to Balloters for Ballot5</b>: Observation changes in this window include structural updates to observation context, status reason, supporting device traceability, and Vital Signs Panel organizer handling, plus Vital Signs profile, terminology, mapping, and narrative cleanup.</p>
+        <p><b>Note to Balloters for Ballot5</b>: Observation changes in this window include structural updates to observation context, status reason, supporting device traceability, and Vital Signs Panel organizer handling, plus Vital Signs profile, example, terminology, mapping, and narrative updates.</p>
         <p>Reviewers should pay particular attention to the organizer/grouping guidance for Observation and DiagnosticReport, including use of organizer Observations and consistency with the Diagnostics Module guidance.</p>
         <p>This resource is referenced from the <a href="diagnostics-module.html">Diagnostics Module</a>; reviewers should also consider related module-page ballot content when reviewing this resource.</p>
         <p><b>Non-compatible</b></p>
@@ -27,6 +27,7 @@
             <li>Observation narrative and mapping text were clarified for goal extension awareness, obsolete core-extension references, subject guidance, 5Ws mappings, and value-set display names. <a href="https://jira.hl7.org/browse/FHIR-57447">FHIR-57447</a>, <a href="https://jira.hl7.org/browse/FHIR-54040">FHIR-54040</a>, <a href="https://jira.hl7.org/browse/FHIR-54036">FHIR-54036</a>, <a href="https://jira.hl7.org/browse/FHIR-54961">FHIR-54961</a></li>
 			<li>Guidance has been added to clarify intent behind DiagnosticReport and Observation organizer/grouping <a href="https://jira.hl7.org/browse/FHIR-54887">FHIR-54887</a></li>
 			<li>Narrative text providing guidance on the TermInfo pattern has been removed as this content is out of date <a href="https://jira.hl7.org/browse/FHIR-56188">FHIR-56188</a></li>
+            <li>Added paired-Observation examples showing how to annotate an interval or coded samples in an EKG <code>SampledData</code> Observation without adding an extension <a href="https://jira.hl7.org/browse/FHIR-24662">FHIR-24662</a></li>
         </ul>
     </blockquote>
     <h2>Scope and Usage</h2>
