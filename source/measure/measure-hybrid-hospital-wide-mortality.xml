@@ -60,7 +60,7 @@
             <description
                 value="All encounters age 65 to 94 years at the start of an inpatient admission, who are discharged during the measurement period (length of stay &lt;365 days).&#xA;&#xA;NOTE: All encounters meeting the above criteria should be included."/>
             <criteria>
-                <language value="text/cql-identifier"/>
+                <language value="text/plain"/>
                 <expression value="Initial Population"/>
             </criteria>
         </population>
@@ -74,7 +74,7 @@
         </usage>
         <description value="Results"/>
         <criteria>
-            <language value="text/cql-identifier"/>
+            <language value="text/plain"/>
             <expression value="Results"/>
         </criteria>
     </supplementalData>
