@@ -246,7 +246,7 @@
        class="diagram-class-detail"><a
    id="n640"
    xlink:href="coverage-definitions.html#Coverage.insurer"><title
-   id="title18675">The program or plan underwriter, payor, insurance company</title>insurer</a> : <a
+   id="title18675">The program or plan underwriter, payer, insurance company</title>insurer</a> : <a
    id="n641"
    xlink:href="references.html#Reference">Reference</a> [0..1] « <a
    id="n642"

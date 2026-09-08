@@ -17,7 +17,7 @@
 
   <contained>
     <Organization>
-      <id value="payor"/>
+      <id value="payer"/>
       <identifier>
         <system value="http://www.jurisdiction.com/insurer"/>
         <value value="123456"/>
@@ -62,7 +62,7 @@
   
   <sent value="2016-06-12T18:01:10-08:00"/>
   <recipient>
-    <reference value="#payor"/>
+    <reference value="#payer"/>
   </recipient>
   <sender>
     <reference value="#provider"/>

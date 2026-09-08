@@ -3498,7 +3498,7 @@
         <ns4:element name="dependent" elementType="FHIR.string"/>
         <ns4:element name="relationship" elementType="FHIR.CodeableConcept"/>
         <ns4:element name="period" elementType="FHIR.Period"/>
-        <ns4:element name="payor">
+        <ns4:element name="payer">
             <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.Reference"/>
         </ns4:element>
         <ns4:element name="class">
