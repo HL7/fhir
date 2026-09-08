@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- A paired Observation annotates an abnormal interval in the referenced EKG waveform. -->
+<Observation xmlns="http://hl7.org/fhir">
+  <id value="ekg-abnormal-period"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>This Observation identifies the abnormal interval from 09:30:35.240 to 09:30:35.320 in the EKG waveform referenced by derivedFrom.</p>
+    </div>
+  </text>
+  <status value="final"/>
+  <code>
+    <text value="Abnormal EKG period"/>
+  </code>
+  <subject>
+    <reference value="Patient/f001"/>
+    <display value="P. van de Heuvel"/>
+  </subject>
+  <effectiveDateTime value="2015-02-19T10:00:00+01:00"/>
+  <performer>
+    <reference value="Practitioner/f005"/>
+    <display value="A. Langeveld"/>
+  </performer>
+  <valuePeriod>
+    <start value="2015-02-19T09:30:35.240+01:00"/>
+    <end value="2015-02-19T09:30:35.320+01:00"/>
+  </valuePeriod>
+  <derivedFrom>
+    <reference value="Observation/ekg"/>
+    <display value="EKG waveform"/>
+  </derivedFrom>
+</Observation>

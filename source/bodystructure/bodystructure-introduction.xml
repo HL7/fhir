@@ -17,6 +17,9 @@
     <li>Added a mammography breast-mass example and linked it from the BodyStructure examples list <a href="https://jira.hl7.org/browse/FHIR-57518">FHIR-57518</a>, <a href="https://jira.hl7.org/browse/FHIR-54747">FHIR-54747</a></li>
     <li>Updated the BodyStructure Five Ws mapping exceptions <a href="https://jira.hl7.org/browse/FHIR-54961">FHIR-54961</a></li>
 	<li>Guidance text for the usage of <code>BodyStructure.active</code> has been clarified <a href="https://jira.hl7.org/browse/FHIR-54873">FHIR-54873</a></li>
+    <li>Corrected the <code>BodyStructure.includedStructure.morphology</code> definition to describe the included anatomical or pathological structure without referring to the removed <code>BodyStructure.location</code> element <a href="https://jira.hl7.org/browse/FHIR-58415">FHIR-58415</a></li>
+    <li>Clarified that <code>BodyStructure.includedStructure.bodyLandmarkOrientation.landmarkDescription</code> locates the corresponding structure <a href="https://jira.hl7.org/browse/FHIR-57931">FHIR-57931</a></li>
+    <li>Corrected a grammatical typo in the <code>BodyStructure.includedStructure.bodyLandmarkOrientation.clockFacePosition</code> definition <a href="https://jira.hl7.org/browse/FHIR-57930">FHIR-57930</a></li>
   </ul>
 </blockquote>
 <a name="scope"></a>

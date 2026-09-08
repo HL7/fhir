@@ -1,7 +1,7 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 	<div>
 		<blockquote class="ballot-note" id="bn1">
-			<p><b>Note to Balloters for Ballot5</b>: Changes update ServiceRequest order-detail/focus terminology, remove the deprecated specimen element, align reference targets, and include structural and terminology corrections for this ballot window.</p>
+			<p><b>Note to Balloters for Ballot5</b>: Changes update ServiceRequest order-detail/focus terminology, remove the deprecated specimen element, expand reference targets, and include subject, request-code, narrative, and example corrections for this ballot window.</p>
 			<p>This resource is referenced from the <a href="diagnostics-module.html">Diagnostics Module</a> and <a href="workflow-module.html">Workflow Module</a>; reviewers should also consider related module-page ballot content when reviewing this resource.</p>
 			<p><b>Non-compatible</b></p>
 			<ul>
@@ -15,20 +15,17 @@
 			  <li>Marked <code>codesystem-servicerequest-status-reason</code> as experimental as a part of evaluation for THO/UTG promotion <a href="https://jira.hl7.org/browse/FHIR-55273">FHIR-55273</a></li>
 			  <li>Marked <code>valueset-request-orderdetail-parameter-code</code> as experimental as a part of evaluation for THO/UTG promotion <a href="https://jira.hl7.org/browse/FHIR-55261">FHIR-55261</a></li>
 			  <li>Cardinality of <code>ServiceRequest.bodyStructure</code> has been changed to 0..* as a part of broader OO alignment on supporting bodyStructure reference through multiple codings or, where necessary from a modeling standpoint, multiple instances <a href="https://jira.hl7.org/browse/FHIR-54843">FHIR-54843</a></li>
+			  <li>Added <code>FamilyMemberHistory</code>, <code>MedicationAdministration</code>, <code>MedicationRequest</code>, and <code>AllergyIntolerance</code> as reference targets for <code>ServiceRequest.reason</code> <a href="https://jira.hl7.org/browse/FHIR-58530">FHIR-58530</a></li>
 			</ul>
 			<p><b>Non-substantive</b></p>
 			<ul>
 			  <li>Corrected the <code>ServiceRequest.statusReason</code> definition to remove a reference to a non-existent status <a href="https://jira.hl7.org/browse/FHIR-54624">FHIR-54624</a></li>
-			</ul>
-		</blockquote>
-		<blockquote class="stu-note" style="background-color: lightblue">
-			<p><b>Changes since 6.0.0-ballot5:</b></p>
-			<ul>
-				<li><a href="https://jira.hl7.org/browse/FHIR-58295">FHIR-58295</a> - Added the triggering ServiceRequest reference to the Free T4 reflex-order example</li>
-				<li><a href="https://jira.hl7.org/browse/FHIR-58294">FHIR-58294</a> - Added a LOINC code to the glucose test ServiceRequest example</li>
-				<li><a href="https://jira.hl7.org/browse/FHIR-58293">FHIR-58293</a> - Added the standard LOINC panel code to the lipid panel ServiceRequest example</li>
-				<li><a href="https://jira.hl7.org/browse/FHIR-58287">FHIR-58287</a> - Clarified that each ServiceRequest contains only one requested code</li>
-				<li><a href="https://jira.hl7.org/browse/FHIR-58530">FHIR-58530</a> - Added FamilyMemberHistory, MedicationAdministration, MedicationRequest, and AllergyIntolerance as reference targets on ServiceRequest.reason</li>
+			  <li>Added a <code>basedOn</code> reference from the Free T4 reflex-order example to the triggering ServiceRequest <a href="https://jira.hl7.org/browse/FHIR-58295">FHIR-58295</a></li>
+			  <li>Added the appropriate LOINC code to the glucose test ServiceRequest example <a href="https://jira.hl7.org/browse/FHIR-58294">FHIR-58294</a></li>
+			  <li>Added the standard LOINC panel code to the lipid panel ServiceRequest example <a href="https://jira.hl7.org/browse/FHIR-58293">FHIR-58293</a></li>
+			  <li>Clarified that each ServiceRequest contains one requested code, avoiding language that implied every request represents a procedure <a href="https://jira.hl7.org/browse/FHIR-58287">FHIR-58287</a></li>
+			  <li>Clarified that <code>ServiceRequest.subject</code> identifies the individual or entity whose record contains the requested service <a href="https://jira.hl7.org/browse/FHIR-58291">FHIR-58291</a></li>
+			  <li>Added guidance to use LOINC or the SNOMED CT Observable Entity hierarchy for laboratory and radiology request codes <a href="https://jira.hl7.org/browse/FHIR-58290">FHIR-58290</a></li>
 			</ul>
 		</blockquote>
 		<a name="scope"></a>
