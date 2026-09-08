@@ -91,7 +91,7 @@
     </requester>
     
     <dosageInstruction>
-      <simple>
+      <step><component>
         <text value="Dopamine 4mcg/kg/min" />
         <timing>
             <repeat>
@@ -120,7 +120,7 @@
                 <system value="http://unitsofmeasure.org"/>
             </rateQuantity>
         </doseAndRate>
-      </simple>  
+      </component></step>  
         
     </dosageInstruction> 
     

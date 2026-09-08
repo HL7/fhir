@@ -59,7 +59,7 @@
   </note>
 
   <dosageInstruction>
-    <simple>
+    <step><component>
       <text value="One tablet daily"/>
       <additionalInstruction>
         <coding>
@@ -106,7 +106,7 @@
           <code value="TAB"/>
         </doseQuantity>
       </doseAndRate>
-    </simple>  
+    </component></step>  
   </dosageInstruction>
 
   <dispenseRequest>

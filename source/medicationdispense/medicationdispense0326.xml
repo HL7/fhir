@@ -46,7 +46,7 @@
     </daysSupply>
     <whenPrepared value="2015-01-15T10:20:00Z"/>
     <dosageInstruction>
-        <simple>
+        <step><component>
         <text value="500mg daily for 5 days" />
         <additionalInstruction>
             <coding>
@@ -84,7 +84,7 @@
                 <code value="mg"/>
             </doseQuantity>
         </doseAndRate>
-			</simple>
+			</component></step>
 
     </dosageInstruction> 
 </MedicationDispense>

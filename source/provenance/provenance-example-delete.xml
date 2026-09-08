@@ -7,12 +7,10 @@
 
 	<recorded value="2015-06-27T08:39:24+10:00"/>
     <authorization>
-		<concept>
-			<coding>
-				<system value="http://terminology.hl7.org/CodeSystem/v3-ActReason"/>
-				<code value="METAMGT"/>
-			</coding>
-		</concept>
+		<coding>
+			<system value="http://terminology.hl7.org/CodeSystem/v3-ActReason"/>
+			<code value="METAMGT"/>
+		</coding>
     </authorization>
 	<activity>
 		<coding>

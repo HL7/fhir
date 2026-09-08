@@ -26,7 +26,7 @@
   <codeSystem>
     <uri value="http://loinc.org"/>
     <version>
-      <code value="2.73"/>
+      <value value="2.73"/>
     </version>
     <content value="complete"/>
   </codeSystem>

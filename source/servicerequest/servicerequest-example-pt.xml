@@ -38,12 +38,14 @@
         <text value="assessment of mobility limitations due to osteoarthritis"/>
     </concept>
   </reason>
-  <bodySite>
-    <coding>
-      <system value="http://snomed.info/sct"/>
-      <code value="36701003"/>
-      <display value="Both knees (body structure)"/>
-    </coding>
-    <text value="Both knees"/>
-  </bodySite>
+  <bodyStructure>
+    <concept>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="36701003"/>
+        <display value="Both knees (body structure)"/>
+      </coding>
+      <text value="Both knees"/>
+    </concept>
+  </bodyStructure>
 </ServiceRequest>

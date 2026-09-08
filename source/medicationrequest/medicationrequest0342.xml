@@ -46,7 +46,7 @@
         </requester>
 
     <dosageInstruction>
-      <simple>
+      <step><component>
         <text
             value="2.5mg rectally twice daily as needed for nausea or vomiting"/>
         <timing>
@@ -78,7 +78,7 @@
                 <code value="mg"/>
             </doseQuantity>
         </doseAndRate>
-      </simple>
+      </component></step>
     </dosageInstruction>
 
 </MedicationRequest>

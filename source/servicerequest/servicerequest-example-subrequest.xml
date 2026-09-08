@@ -56,11 +56,13 @@ This example is used for DetectedIssue/Duplicate Therapy example will need to ed
   		<text value="Check for Peanut Allergy"/>
     </concept>
 	</reason>
-	<bodySite>
-			<coding>
-					<display value='Right arm'/>
-			</coding>
-			<text value='Right arm'/>
-	</bodySite>    <!-- insert contents here -->
+	<bodyStructure>
+			<concept>
+					<coding>
+							<display value='Right arm'/>
+					</coding>
+					<text value='Right arm'/>
+			</concept>
+	</bodyStructure>    <!-- insert contents here -->
 
 </ServiceRequest>

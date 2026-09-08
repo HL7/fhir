@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir">
   <id value="example-intensional"/>
-  <meta>
-    
-  </meta>
   <text>
     <status value="additional"/>
     <div xmlns="http://www.w3.org/1999/xhtml">

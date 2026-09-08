@@ -153,6 +153,7 @@
         </definitionUnmatched>
     </divergentElement>
     <divergentElement patternPath="Request.product" resourcePath="NutritionOrder.enteralFormula.type">
+        <upperCardinality _pattern="1" _resource="*" reason="Unknown"/>
         <bindingExistence _pattern="false" _resource="true" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Product requested/ordered"/>
@@ -350,7 +351,6 @@
     <unmappedElement patternPath="Request.insurance" reason="Unknown"/>
     <unmappedElement patternPath="Request.deliverTo" reason="Unknown"/>
     <unmappedElement patternPath="Request.replaces" reason="Unknown"/>
-    <unmappedElement patternPath="Request.category" reason="Unknown"/>
     <unmappedElement patternPath="Request.reason" reason="Unknown"/>
     <unmappedElement patternPath="Request.reported" reason="Unknown"/>
     <unmappedElement patternPath="Request.relevantHistory" reason="Unknown"/>

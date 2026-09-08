@@ -13,11 +13,11 @@
   <title value="Screening for Depression"/>
   <status value="draft"/>
   <description value="Screening for Depression"/>
-  <scoring>
+  <!--<scoring>
     <coding>
       <code value="proportion"/>
     </coding>
-  </scoring>
+  </scoring>-->
   <group id="Main">
     <population>
       <code>

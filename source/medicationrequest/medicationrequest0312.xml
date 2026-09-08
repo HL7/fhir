@@ -45,7 +45,7 @@
     </note>
     
     <dosageInstruction>
-        <simple>
+        <step><component>
         <text value="100mg (4ml) three times daily" />
         <timing>
             <repeat>
@@ -76,7 +76,7 @@
                 <code value="mg"/>
             </doseQuantity>
         </doseAndRate>
-      </simple>
+      </component></step>
 
     </dosageInstruction> 
     

@@ -24,9 +24,9 @@
     </document>
   </relatedArtifact>
   <library value="http://ohie.org/Library/hiv-indicators"/>
-  <scoring>
+  <!--<scoring>
     <coding><code value="cohort"/></coding>
-  </scoring>
+  </scoring>-->
   <!-- Option 1: Mashup -->
   <group>
     <code><coding><system value="http://ihe.net/qrph/adx/"/><code value="QRPH_ADX_ART1_N"/></coding></code>

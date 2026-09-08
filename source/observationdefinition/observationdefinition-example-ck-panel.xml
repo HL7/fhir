@@ -30,13 +30,6 @@
   
   <!-- Panel-level qualified value for cardiac assessment -->
   <qualifiedValue>
-    <condition>
-      <coding>
-        <system value="http://snomed.info/sct"/>
-        <code value="21134002"/>
-        <display value="Myocardial infarction"/>
-      </coding>
-    </condition>
     <context>
       <coding>
         <system value="http://terminology.hl7.org/CodeSystem/referencerange-meaning"/>
@@ -44,10 +37,9 @@
         <display value="Normal Range"/>
       </coding>
     </context>
+    <condition value="Myocardial infarction"/>
     <rangeCategory value="reference"/>
-    <validCodedValueSet>
-      <reference value="http://hl7.org/fhir/ValueSet/observation-status"/>
-    </validCodedValueSet>
+    <validCodedValueSet value="http://hl7.org/fhir/ValueSet/observation-status"/>
   </qualifiedValue>
   
   <!-- Component 1: Total Creatine Kinase -->
@@ -67,13 +59,6 @@
       <display value="U/L"/>
     </permittedUnit>
     <qualifiedValue>
-      <condition>
-        <coding>
-          <system value="http://snomed.info/sct"/>
-          <code value="21134002"/>
-          <display value="Myocardial infarction"/>
-        </coding>
-      </condition>
       <context>
         <coding>
           <system value="http://terminology.hl7.org/CodeSystem/referencerange-meaning"/>
@@ -81,6 +66,7 @@
           <display value="Normal Range"/>
         </coding>
       </context>
+      <condition value="Myocardial infarction"/>
       <rangeCategory value="reference"/>
       <range>
         <low>
@@ -116,13 +102,6 @@
       <display value="ng/mL"/>
     </permittedUnit>
     <qualifiedValue>
-      <condition>
-        <coding>
-          <system value="http://snomed.info/sct"/>
-          <code value="21134002"/>
-          <display value="Myocardial infarction"/>
-        </coding>
-      </condition>
       <context>
         <coding>
           <system value="http://terminology.hl7.org/CodeSystem/referencerange-meaning"/>
@@ -130,6 +109,7 @@
           <display value="Normal Range"/>
         </coding>
       </context>
+      <condition value="Myocardial infarction"/>
       <rangeCategory value="reference"/>
       <range>
         <low>
@@ -165,13 +145,6 @@
       <display value="%"/>
     </permittedUnit>
     <qualifiedValue>
-      <condition>
-        <coding>
-          <system value="http://snomed.info/sct"/>
-          <code value="21134002"/>
-          <display value="Myocardial infarction"/>
-        </coding>
-      </condition>
       <context>
         <coding>
           <system value="http://terminology.hl7.org/CodeSystem/referencerange-meaning"/>
@@ -179,6 +152,7 @@
           <display value="Normal Range"/>
         </coding>
       </context>
+      <condition value="Myocardial infarction"/>
       <rangeCategory value="reference"/>
       <range>
         <low>

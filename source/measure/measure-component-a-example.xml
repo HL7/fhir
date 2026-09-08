@@ -13,11 +13,13 @@
   <title value="Screening for Alcohol Misuse"/>
   <status value="draft"/>
   <description value="Screening for Alcohol Misuse"/>
+  <!--
   <scoring>
     <coding>
       <code value="proportion"/>
     </coding>
   </scoring>
+  -->
   <group id="Main">
     <population>
       <code>

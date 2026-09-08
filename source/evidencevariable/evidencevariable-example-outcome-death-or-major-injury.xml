@@ -71,7 +71,13 @@
 			<text value="Major or Fatal (in the context of severity of traumatic injury)"/>
 		</valueCodeableConcept>
 	</definitionModifier>
-	<handling value="boolean"/>
+	<handling>
+        <coding>
+            <system value="https://fevir.net/sevco"/>
+            <code value="STATO:0000724"/>
+            <display value="boolean variable"/>
+        </coding>  
+    </handling>
 	<timing>
 		<contextCode>
 			<text value="impact"/>

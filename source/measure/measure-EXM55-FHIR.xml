@@ -218,7 +218,7 @@
   <library value="#EXM55"/>
 
   <group id="group-1">
-    <linkId value-="primary"/>
+    <linkId value="primary"/>
     <type>
       <coding>
         <system value="http://terminology.hl7.org/CodeSystem/measure-type"/>

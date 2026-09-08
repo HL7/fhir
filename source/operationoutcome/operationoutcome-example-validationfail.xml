@@ -13,7 +13,6 @@
     <details>
       <text value="Error parsing resource XML (Unknown Content &quot;label&quot;"/>
     </details> 
-    <location value="/f:Patient/f:identifier"/>
     <expression value="Patient.identifier"/>
   </issue>
 </OperationOutcome>
