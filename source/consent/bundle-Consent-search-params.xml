@@ -231,14 +231,14 @@
           <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Consent.provision.period"/>
+          <valueString value="Consent.period"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Consent-period"/>
         <status value="active"/>
-        <description value="Time frame for this rule"/>
+        <description value="Time frame for the consent"/>
         <code value="period"/>
         <type value="date"/>
-        <expression value="Consent.repeat(provision).period"/>
+        <expression value="Consent.period"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
