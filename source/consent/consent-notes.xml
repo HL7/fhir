@@ -57,7 +57,7 @@ Consent expiry is handled implicitly via the <code>period</code> element rather 
 an active consent is considered expired once it is outside its valid timeframe and it ceases to apply.
 Changes to consent status are commonly managed either by leveraging FHIR versioning or by creating
  a successor Consent resource while marking the predecessor as <code>inactive</code>. 
- A <code>Provenance</code> resources may be used to record an accounting of the status 
+ A <code>Provenance</code> resource may be used to record an accounting of the status 
  transitions and the reasons for the change.
   </p>
 
