@@ -169,9 +169,9 @@ This is further discussed in the <a href="consent.html#provision">Provisions sec
         (c) evaluating the consent rules against the context of access to reach a decision, and 
         (d) ensuring that the decision is applied (e.g., data access is permitted or denied). 
         The first three steps are sometimes recognized as a distinct function, known as "consent decision."
-        <p>
-
         </p>
+
+        <p>
         Common data access control mechanisms and technologies (e.g., 
         <a href="https://www.rfc-editor.org/info/rfc6749/">OAuth</a> and 
         <a href="https://www.hl7.org/fhir/smart-app-launch/scopes-and-launch-context.html">SMART-on-FHIR scopes</a>, 
