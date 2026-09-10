@@ -162,7 +162,7 @@ This is further discussed in the <a href="consent.html#provision">Provisions sec
 
         <p>
         Consent enforcement is the process of ensuring that the rules of pertinent consents are applied 
-        to data access (or other actions such a procedure in the case of treatment consents). This requires 
+        to data access (or other actions such as procedure in the case of treatment consents). This requires 
         (a) identifying the parameters of the action and its context (e.g., the actor, the purpose of use, 
         the requested data, etc.), 
         (b) finding consents that are applicable to the context of requested access, 
@@ -177,8 +177,8 @@ This is further discussed in the <a href="consent.html#provision">Provisions sec
         <a href="https://www.hl7.org/fhir/smart-app-launch/scopes-and-launch-context.html">SMART-on-FHIR scopes</a>, 
         <a href="https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-en.html">XACML</a>, 
         <a href="https://www.w3.org/TR/odrl/">ODRL</a>, etc.) may be leveraged in the process of 
-        consent enforcement. The details of consent enforcement is often deeply entangled with the 
+        consent enforcement. The details of consent enforcement are often deeply entangled with the 
         specifics of the data access workflow and technology stack, therefore generally out of the scope
-        this specification.
+        of this specification.
         </p>
 </div>
