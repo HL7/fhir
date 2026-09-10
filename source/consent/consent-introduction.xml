@@ -154,17 +154,31 @@ make rules about what signatures are required, and how they are to be shared and
         <a name="bnc"></a>
         <h2>Background and Context</h2>
         <p>
-The computable rules in the Consent resource are structured as a base <code>permit</code> or <code>deny</code> decision (<code>Consent.decision</code>), followed by a hierarchical provision structure. 
+The computable rules in the Consent resource are structured as a base <code>permit</code> or <code>deny</code> decision (<code>Consent.decision</code>),
+followed by a hierarchical provision structure. 
 The child provisions at each level of this hierarchy narrow down the parent rule by articulating further exceptions or constraints. 
 This is further discussed in the <a href="consent.html#provision">Provisions section</a> below.
         </p>
+
         <p>
-The enforcement of the Privacy Consent Directive is not included but is expected that 
-enforcement can be done using a mix of the various Access Control enforcement methodologies 
-(e.g. <a href="https://datatracker.ietf.org/doc/html/rfc6749">OAuth</a>, <a href="https://docs.kantarainitiative.org/uma/wg/rec-oauth-uma-grant-2.0.html">UMA</a>, and <a href="https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-en.html">XACML</a>).
-This enforcement includes the details of the enforcement meaning of the elements of the Privacy Consent Directive, 
-such as the rules in place when there is an opt-in consent would be specific about which 
-organizational roles have access to what kinds of resources (e.g. role-based access control (RBAC) and attribute-based access control (ABAC)). 
-The specification of these details is not in scope for the Consent resource.
+        Consent enforcement is the process of ensuring that the rules of pertinent consents are applied 
+        to data access (or other actions such a procedure in the case of treatment consents). This requires 
+        (a) identifying the parameters of the action and its context (e.g., the actor, the purpose of use, 
+        the requested data, etc.), 
+        (b) finding consents that are applicable to the context of requested access, 
+        (c) evaluating the consent rules against the context of access to reach a decision, and 
+        (d) ensuring that the decision is applied (e.g., data access is permitted or denied). 
+        The first three steps are sometimes recognized as a distinct function, known as "consent decision."
+        <p>
+
+        </p>
+        Common data access control mechanisms and technologies (e.g., 
+        <a href="https://www.rfc-editor.org/info/rfc6749/">OAuth</a> and 
+        <a href="https://www.hl7.org/fhir/smart-app-launch/scopes-and-launch-context.html">SMART-on-FHIR scopes</a>, 
+        <a href="https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-en.html">XACML</a>, 
+        <a href="https://www.w3.org/TR/odrl/">ODRL</a>, etc.) may be leveraged in the process of 
+        consent enforcement. The details of consent enforcement is often deeply entangled with the 
+        specifics of the data access workflow and technology stack, therefore generally out of the scope
+        this specification.
         </p>
 </div>
