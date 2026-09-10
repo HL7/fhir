@@ -1643,6 +1643,13 @@
     <Cell><Data ss:Type="String">6.0.0-ballot5</Data></Cell>
     <Cell ss:StyleID="s102"><Data ss:Type="String">R6 2nd Normative Ballot</Data></Cell>
    </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">62</Data></Cell>
+    <Cell><Data ss:Type="String">6.0.0-snapshot1</Data></Cell>
+    <Cell><Data ss:Type="String">6.0.0</Data></Cell>
+    <Cell><Data ss:Type="String">6.0.0-snapshot1</Data></Cell>
+    <Cell ss:StyleID="s102"><Data ss:Type="String">R6 Stable Version</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
