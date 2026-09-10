@@ -35,13 +35,15 @@
       <display value="NSCLC - Non-small cell lung cancer"/>
     </coding>
   </code>
-  <bodySite>
-    <coding>
-      <system value="http://snomed.info/sct"/>
-      <code value="51185008"/>
-      <display value="Thorax"/>
-    </coding>
-  </bodySite>
+  <bodyStructure>
+    <concept>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="51185008"/>
+        <display value="Thorax"/>
+      </coding>
+    </concept>
+  </bodyStructure>
   <subject>
     <reference value="Patient/f001"/>
     <display value="P. van de Heuvel"/>

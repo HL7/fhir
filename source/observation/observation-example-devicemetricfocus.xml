@@ -75,23 +75,6 @@
 				<id value="example-iv-pump-flowratemetric"/>
 				<status value="active"/>
 				<operationalStatus value="on"/>
-				<type>
-					<coding>
-						<system value="urn:iso:std:iso:11073:10101"/>
-						<code value="157784"/>
-						<display value="MDC_FLOW_FLUID_PUMP"/>
-					</coding>
-				</type>
-				<unit>
-					<coding>
-						<system value="http://unitsofmeasure.org"/>
-						<code value="mL/(8.h)"/>
-						<display value="mL/(8.h)"/>
-					</coding>
-				</unit>
-				<device>
-					<reference value="Device/example-IV-pump"/>
-				</device>
 				<category>
 					<coding>
 						<system value="http://hl7.org/fhir/metric-category"/>
@@ -99,6 +82,23 @@
 						<display value="Measurement"/>
 					</coding>
 				</category>
+				<type>
+					<coding>
+						<system value="urn:iso:std:iso:11073:10101"/>
+						<code value="157784"/>
+						<display value="MDC_FLOW_FLUID_PUMP"/>
+					</coding>
+				</type>
+				<device>
+					<reference value="Device/example-IV-pump"/>
+				</device>
+				<unit>
+					<coding>
+						<system value="http://unitsofmeasure.org"/>
+						<code value="mL/(8.h)"/>
+						<display value="mL/(8.h)"/>
+					</coding>
+				</unit>
 			</DeviceMetric>
 		</resource>
 	</entry>

@@ -43,7 +43,7 @@
     </requester>
     
     <dosageInstruction>
-        <simple>
+        <step><component>
         <text value="Instil one drop in each eye twice daily" />
         <timing>
             <repeat>
@@ -81,7 +81,7 @@
                 <code value="OPDROP"/> 
             </doseQuantity>
         </doseAndRate>
-        </simple>
+        </component></step>
     </dosageInstruction>
     
     <dispenseRequest>

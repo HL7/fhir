@@ -46,14 +46,16 @@
       <display value="Fever"/>
     </coding>
   </code>
-  <bodySite>
-    <!--Fever applies to whole body-->
-    <coding>
-      <system value="http://snomed.info/sct"/>
-      <code value="38266002"/>
-      <display value="Entire body as a whole"/>
-    </coding>
-  </bodySite>
+  <bodyStructure>
+    <concept>
+      <!--Fever applies to whole body-->
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="38266002"/>
+        <display value="Entire body as a whole"/>
+      </coding>
+    </concept>
+  </bodyStructure>
   <subject>
     <!--It entails Roel's problem-->
     <reference value="Patient/f201"/>

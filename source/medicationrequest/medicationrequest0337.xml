@@ -88,7 +88,7 @@
     </requester>
     
     <dosageInstruction>
-        <simple>
+        <step><component>
         <text value="Dopamine 4mcg/kg/min" />
         <timing>
             <repeat>
@@ -118,7 +118,7 @@
             </rateQuantity>
         </doseAndRate>
         
-        </simple>
+        </component></step>
     </dosageInstruction> 
     
 </MedicationRequest>

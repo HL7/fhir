@@ -4,7 +4,7 @@
   <contained>
     <Substance>
       <id value="sub03"/>
-      <instance value="false"/>
+      <!-- <instance value="false"/> -->
       <code>
         <concept>
           <coding>

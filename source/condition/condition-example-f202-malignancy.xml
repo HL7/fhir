@@ -42,14 +42,16 @@
       <display value="Malignant neoplastic disease"/>
     </coding>
   </code>
-  <bodySite>
-    <!--Head and neck malignancy-->
-    <coding>
-      <system value="http://snomed.info/sct"/>
-      <code value="361355005"/>
-      <display value="Entire head and neck"/>
-    </coding>
-  </bodySite>
+  <bodyStructure>
+    <concept>
+      <!--Head and neck malignancy-->
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="361355005"/>
+        <display value="Entire head and neck"/>
+      </coding>
+    </concept>
+  </bodyStructure>
   <subject>
     <!--It entails Roel's problem-->
     <reference value="Patient/f201"/>

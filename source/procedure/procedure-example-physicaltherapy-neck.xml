@@ -37,14 +37,16 @@
             </coding>
         </concept>
     </reason>
-    <bodySite>
-		<coding>
-			<system value="http://snomed.info/sct"/>
-			<code value="410737007"/>
-			<display value="Joint structure of sixth cervical vertebra (body structure)"/>
-		</coding>
-		<text value="Cervical spine C6 joint"/>
-    </bodySite>
+    <bodyStructure>
+    	<concept>
+			<coding>
+				<system value="http://snomed.info/sct"/>
+				<code value="410737007"/>
+				<display value="Joint structure of sixth cervical vertebra (body structure)"/>
+			</coding>
+			<text value="Cervical spine C6 joint"/>
+    	</concept>
+    </bodyStructure>
     <outcome>
 		<concept>
 			<coding>

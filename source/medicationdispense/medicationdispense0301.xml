@@ -71,7 +71,7 @@
         <display value="Donald Duck"/>
     </receiver>
     <dosageInstruction>
-        <simple>
+        <step><component>
         <text value="500mg IV q6h x 3 days" />
         <timing>
             <repeat>
@@ -109,7 +109,7 @@
                 <code value="mg"/>
             </doseQuantity>
         </doseAndRate>
-			</simple>
+			</component></step>
 
     </dosageInstruction>
 </MedicationDispense>

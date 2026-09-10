@@ -45,7 +45,7 @@
     </daysSupply>
     <whenPrepared value="2015-01-15T10:20:00Z"/>
     <dosageInstruction>
-        <simple>
+        <step><component>
         <text value="Use two sprays twice daily"/>
         <additionalInstruction>
             <text value="Shake Well"/>
@@ -72,7 +72,7 @@
                 <code value="NASINHL"/>
             </doseQuantity>
         </doseAndRate>
-			</simple>
+			</component></step>
 
     </dosageInstruction>
 </MedicationDispense>

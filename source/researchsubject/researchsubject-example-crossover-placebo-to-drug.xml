@@ -6,6 +6,7 @@
 		<value value="ecsr45"/>
 	</identifier>
 	<status value="active"/>
+	<!--
 	<progress>
 		<type>
 			<coding>
@@ -37,7 +38,7 @@
 			<text value="Informed consent signed"/>
 		</reason>
 		<startDate value="2022-06-10"/>
-	</progress>
+	</progress>-->
 	<period>
 		<start value="2022-06-10"/>
 	</period>

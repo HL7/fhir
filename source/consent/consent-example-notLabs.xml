@@ -57,10 +57,12 @@
         <code value="correct"/>
       </coding>
     </action>
-    <class>
+    <code>
+    <coding>
       <system value="http://terminology.hl7.org/CodeSystem/observation-category"/>
       <code value="laboratory"/>
-    </class>
+    </coding>
+    </code>
   </provision>
 
 </Consent>

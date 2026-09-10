@@ -301,7 +301,6 @@
   <contained>
 	<Group>
 	  <id value="Cancer"/>
-	  <resourceType value="Group"/>
 	  <title value="Cancer of any kind (except basal cell skin cancer or cancer in situ) unless documented to be disease-free for five years"/>
 	  <description value="Cancer of any kind (except basal cell skin cancer or cancer in situ) unless documented to be disease-free for five years. This combination logic fails if the patient has both a basal cell skin cancer or cancer in situ and a cancer of another kind. Placeholder for now to represent &apos;screened surgical candidate&apos;."/>
 	  <membership value="conceptual"/>

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="file://Mac/Home/Documents/FHIRBuild/reorder-nodes-template.xslt"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <NutritionOrder xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 <id value="chfdiet"/>
 	<identifier>
@@ -15,10 +15,10 @@
 		<display value="Inpatient"/>
 	</encounter>
 	<dateTime value="2014-09-17"/>
-	<orderer>
+	<requester>
 		<reference value="Practitioner/example"/>
 		<display value="Dr Adam Careful"/>
-	</orderer>
+	</requester>
 	<allergyIntolerance>
 		<reference value="AllergyIntolerance/example"/>
 		<display value="Cashew Nuts"/>

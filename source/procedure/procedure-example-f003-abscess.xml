@@ -39,15 +39,17 @@
          <text value="abcess in retropharyngeal area"/>
        </concept>
     </reason>
-    <bodySite>
-       
-            <coding>
-                <system value="http://snomed.info/sct"/>
-                <code value="83030008"/>
-                <display value="Retropharyngeal area"/>
-            </coding>
-        
-    </bodySite>
+    <bodyStructure>
+            <concept>
+               
+                    <coding>
+                        <system value="http://snomed.info/sct"/>
+                        <code value="83030008"/>
+                        <display value="Retropharyngeal area"/>
+                    </coding>
+                
+            </concept>
+    </bodyStructure>
     <outcome>
 		<concept>
 			<text value="removal of the retropharyngeal abscess"/>

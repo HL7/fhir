@@ -58,9 +58,9 @@
 		</coding>
 	</priority>
 
-	<prescription>
+	<request>
 		<reference value="http://www.optdocs.com/prescription/12345"/>
-	</prescription>
+	</request>
 
 	<payee>
 		<type>

@@ -39,7 +39,7 @@
     </reason>
 
     <dosageInstruction>
-        <simple>
+        <step><component>
             <text value="Insert one suppository rectally twice daily as needed for fever to a maximim of 3 per day"/>
             <additionalInstruction>
                 <coding>
@@ -92,7 +92,7 @@
                     </period>
                 </doseLimit>
             </safety>
-        </simple>
+        </component></step>
     </dosageInstruction>
 
     <dispenseRequest>

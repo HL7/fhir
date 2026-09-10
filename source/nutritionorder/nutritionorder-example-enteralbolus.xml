@@ -16,10 +16,10 @@ Tube feedings are given in boluses several times a day   edited by Eric Haas Hea
 		<display value="Inpatient"/>
 	</encounter>
 	<dateTime value="2014-09-17"/>
-	<orderer>
+	<requester>
 		<reference value="Practitioner/example"/>
 		<display value="Dr Adam Careful"/>
-	</orderer>
+	</requester>
 	<allergyIntolerance>
 		<reference value="AllergyIntolerance/example"/>
 		<display value="Cashew Nuts"/>
@@ -47,30 +47,18 @@ Tube feedings are given in boluses several times a day   edited by Eric Haas Hea
         </coding>
       </concept>
     </type>
-		<baseFormulaType>
-			<concept>
-			<coding>
-				<!--EH:  bolus tube feeding instruction in text-->
-				<system value="http://snomed.info/sct"/>
-				<code value="442991000124104"/>
-				<display value="Adult high protein formula"/>
-			</coding>
-		</concept>
-		</baseFormulaType>
-		<baseFormulaProductName value="Acme High Protein Formula"/>
-
-		<additive>
 		<type>
 			<concept>
-			<coding>
-				<system value="http://terminology.hl7.org/CodeSystem/entformula-additive"/>
-				<code value="lipid"/>
-				<display value="Lipid"/>
-			</coding>
-		</concept>
+				<coding>
+					<!--EH:  bolus tube feeding instruction in text-->
+					<system value="http://snomed.info/sct"/>
+					<code value="442991000124104"/>
+					<display value="Adult high protein formula"/>
+				</coding>
+			</concept>
 		</type>
-		<productName value="Acme Lipid Additive"/>
-	</additive>
+		<productName value="Acme High Protein Formula"/>
+
 		<caloricDensity>
 			<value value="1.5"/>
 			<unit value="calories per milliliter"/>
@@ -104,12 +92,25 @@ Tube feedings are given in boluses several times a day   edited by Eric Haas Hea
 				<code value="mL"/>
 			</quantity>
 		</administration>
-		<maxVolumeToDeliver>
+		<maxVolumeToAdminister>
 			<value value="1440"/>
 			<unit value="milliliter/day"/>
 			<system value="http://unitsofmeasure.org"/>
 			<code value="mL/d"/>
-		</maxVolumeToDeliver>
+		</maxVolumeToAdminister>
 		<administrationInstruction value="240 mls every 4hrs"/>
 	</enteralFormula>
+	
+	<additive>
+		<modularType>
+			<concept>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/entformula-additive"/>
+				<code value="lipid"/>
+				<display value="Lipid"/>
+			</coding>
+		</concept>
+		</modularType>
+		<productName value="Acme Lipid Additive"/>
+	</additive>
 </NutritionOrder>

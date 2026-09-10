@@ -8,14 +8,14 @@
 	</text>
 	<identifier>
 		<use value="official"/>
-		<system value="urn:dicom:uid"/>
-		<value value="urn:oid:2.16.124.113543.6003.1154777499.30246.19789.3503430046"/>
 		<type>
 			<coding>
 				<system value="http://dicom.nema.org/resources/ontology/DCM"/>
 				<code value="110180"/>
 			</coding>
 		</type>
+		<system value="urn:dicom:uid"/>
+		<value value="urn:oid:2.16.124.113543.6003.1154777499.30246.19789.3503430046"/>
 	</identifier>
 	<identifier>
 		<use value="secondary"/>
@@ -56,15 +56,15 @@
 	<basedOn>
 		<reference value="ServiceRequest/example"/>
 	</basedOn>
+	<procedure>
+			<reference value="Procedure/example"/>
+	</procedure>
 	<referrer>
 		<reference value="Practitioner/example"/>
 	</referrer>
 	<endpoint>
 		<reference value="Endpoint/example-wadors"/>
 	</endpoint>
-	<procedure>
-			<reference value="Procedure/example"/>
-	</procedure>
 	<reason>
 		<concept>
 			<coding>

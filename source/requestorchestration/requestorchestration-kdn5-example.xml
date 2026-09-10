@@ -24,8 +24,7 @@
       <subject>
         <reference value="Patient/example"/>
       </subject>
-      <dosage>
-        <simple>
+      <dosageInstruction><step><component>
           <text value="1250 mg/m² IV over 30 minutes" />
           <timing>
             <repeat>
@@ -49,8 +48,7 @@
               <unit value="mg/m²" />
             </doseQuantity>
           </doseAndRate>
-        </simple>
-      </dosage>
+      </component></step></dosageInstruction>
     </MedicationRequest>
   </contained>
   <contained>
@@ -71,8 +69,7 @@
       <subject>
         <reference value="Patient/example"/>
       </subject>
-      <dosage>
-        <simple>
+      <dosageInstruction><step><component>
           <text value="AUC 5 IV over 30 minutes" />
           <timing>
             <repeat>
@@ -102,9 +99,9 @@
           <code value="413573002" /> -->
             </doseQuantity>
           </doseAndRate>
-        </simple>
+        </component></step>
 
-      </dosage>
+      </dosageInstruction>
     </MedicationRequest>
   </contained>
   <identifier>

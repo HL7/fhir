@@ -94,7 +94,9 @@
 
 	<order value="2"/> <!-- Second after the national medical coverage -->
 
-	<network value="5"/>
+	<network>
+	  <reference value="Organization/hl7pay"/>
+	</network>
 
 	<costToBeneficiary>
 		<type>
@@ -120,9 +122,9 @@
 			</period>
 		</exception>
 	</costToBeneficiary>
-
+<!--
 	<contract>
 		<reference value="Contract/INS-101"/>
 	</contract>
-
+-->
 </Coverage>

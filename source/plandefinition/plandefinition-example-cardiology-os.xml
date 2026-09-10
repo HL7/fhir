@@ -52,7 +52,7 @@
       <productReference>
         <reference value="#metoprololTartrate25Medication"/>
       </productReference>
-      <dosage>
+      <dosageInstruction><step><component>
         <text value="1 tablet oral 2 time daily"/>
         <timing>
           <repeat>
@@ -81,7 +81,7 @@
             <unit value="{tbl}"/>
           </doseQuantity>
         </doseAndRate>
-      </dosage>
+      </component></step></dosageInstruction>
       <dynamicValue>
         <path value="medicationRequest.priority"/>
         <expression>
@@ -131,7 +131,7 @@
   <contained>
     <Substance>
       <id value="metoprololTartrate25Substance"/>
-      <instance value="false"/>
+      <!-- <instance value="false"/> -->
       <code>
         <concept>
           <coding>
@@ -151,7 +151,7 @@
       <productReference>
         <reference value="#metoprololTartrate50Medication"/>
       </productReference>
-      <dosage>
+     <dosageInstruction><step><component>
         <text value="1 tablet oral 2 time daily"/>
         <timing>
           <repeat>
@@ -180,7 +180,7 @@
             <unit value="{tbl}"/>
           </doseQuantity>
         </doseAndRate>
-      </dosage>
+      </component></step></dosageInstruction>
       <dynamicValue>
         <path value="medicationRequest.priority"/>
         <expression>
@@ -230,7 +230,7 @@
   <contained>
     <Substance>
       <id value="metoprololTartrate50Substance"/>
-      <instance value="false"/>
+      <!-- <instance value="false"/> -->
       <code>
         <concept>
           <coding>
@@ -250,7 +250,7 @@
       <productReference>
         <reference value="#amlodipineMedication" />
       </productReference>
-      <dosage>
+      <dosageInstruction><step><component>
         <text value="1 tablet oral 1 time daily" />
         <timing>
           <repeat>
@@ -279,7 +279,7 @@
             <unit value="{tbl}" />
           </doseQuantity>
         </doseAndRate>
-      </dosage>
+      </component></step></dosageInstruction>
       <dynamicValue>
         <path value="medicationRequest.priority" />
         <expression>
@@ -299,21 +299,21 @@
         </coding>
         <text value="amLODIPine 5 MG" />
       </code>
-      <form>
+      <doseForm>
         <coding>
           <system value="http://snomed.info/sct" />
           <code value="385055001" />
           <display value="Tablet (basic dose form)" />
         </coding>
         <text value="Tablet dose form" />
-      </form>
+      </doseForm>
       <ingredient>
         <item>
           <reference>
             <reference value="#amlodipineSubstance" />
           </reference>
         </item>
-        <amount>
+        <strengthRatio>
           <numerator>
             <value value="5" />
             <unit value="mg" />
@@ -322,13 +322,13 @@
             <value value="1" />
             <unit value="{tbl}" />
           </denominator>
-        </amount>
+        </strengthRatio>
       </ingredient>
     </Medication>
   </contained>
   <contained>
     <Substance>
- 		<instance value="false"/>
+ 		<!-- <instance value="false"/> -->
      <id value="amlodipineSubstance" />
       <code>
         <concept>
@@ -349,7 +349,7 @@
       <productReference>
         <reference value="#nitroglycerinMedication"/>
       </productReference>
-      <dosage>
+      <dosageInstruction><step><component>
         <text value="nitroglycerin 0.4 mg tablet sub-lingual every 5 minutes as needed for chest pain; maximum 3 tablets"/>
         <timing>
           <repeat>
@@ -387,7 +387,7 @@
             <scope value="administration"/>
           </doseLimit>
         </safety>
-      </dosage>
+      </component></step></dosageInstruction>
       <dynamicValue>
         <path value="medicationRequest.priority"/>
         <expression>
@@ -437,7 +437,7 @@
   <contained>
     <Substance>
       <id value="nitroglycerinSubstance"/>
-      <instance value="false"/>
+      <!-- <instance value="false"/> -->
       <code>
         <concept>
           <coding>

@@ -28,12 +28,12 @@
     <reference value="Practitioner/f007" />
     <display value="Simone Heps"/>
   </grantee>
-  <controller>
-    <reference value="Organization/f203"/>
-  </controller>
   <manager>
     <reference value="Organization/f203"/>
   </manager>
+  <controller>
+    <reference value="Organization/f203"/>
+  </controller>
   <!-- the text terms of the consent in lawyer speak -->
   <sourceAttachment>
     <title value="The terms of the consent in lawyer speak."/>
