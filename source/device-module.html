@@ -28,6 +28,18 @@ in order to support consistent definitions for schema and UML derived code.
     <blockquote class="stu-note">
         <p><b>Note to Implementers:</b> This module page describes the context and usage of the Devices and related resources. HL7 seeks specific feedback on the usefulness of this module page and the implementability of the referenced resources.</p>
     </blockquote>
+
+    <blockquote class="stu-note" style="background-color: lightblue">
+	<p><b>Changes since 6.0.0-ballot5:</b></p>
+    <ul>
+        <li><a href="https://jira.hl7.org/browse/FHIR-58277">FHIR-58277</a> - Added descriptions for DeviceAlert, DeviceMetric, and DeviceRequest.</li>
+        <li><a href="https://jira.hl7.org/browse/FHIR-58276">FHIR-58276</a> - Removed the unsupported remote device settings control use case.</li>
+        <li><a href="https://jira.hl7.org/browse/FHIR-58273">FHIR-58273</a> - Clarified that implementation guides define linkage to originating orders for DeviceAssociation.</li>
+        <li><a href="https://jira.hl7.org/browse/FHIR-58270">FHIR-58270</a> - Clarified Observation status guidance for suspected device-related quality concerns.</li>
+        <li><a href="https://jira.hl7.org/browse/FHIR-58237">FHIR-58237</a> - Added DeviceAssociation context to the Device instance workflow.</li>
+        <li><a href="https://jira.hl7.org/browse/FHIR-58235">FHIR-58235</a> - Clarified the distinction between Device and DeviceDefinition.</li>
+    </ul>
+	</blockquote>
     
     <a name="intro"></a>
     <h3>Introduction</h3>
@@ -35,9 +47,9 @@ in order to support consistent definitions for schema and UML derived code.
 
     <p>Device-related resources include:</p>
     <ul>
-        <li>Resources providing the <b>definition and documenting the capabilities</b> of the device include: Device, DeviceDefinition, DeviceMetric</li>
-        <li>Resources documenting the <b>supply or clinical workflow</b> (e.g., order, fulfillment, and use) of devices include: DeviceAssociation, DeviceRequest, DeviceDispense, DeviceUsage</li>
-        <li>Resources related to the <b>actual clinical use and/or behavior</b> of the device include: Observation, DeviceAlert, Procedure.</li>
+        <li>Resources providing the <b>definition and documenting the capabilities</b> of the device include: Device, DeviceDefinition, DeviceMetric (a measurable, calculable, or configurable device channel, setting, or metric).</li>
+        <li>Resources documenting the <b>supply or clinical workflow</b> (e.g., order, fulfillment, and use) of devices include: DeviceAssociation, DeviceRequest (a request that a patient use or be provided with a device), DeviceDispense, DeviceUsage</li>
+        <li>Resources related to the <b>actual clinical use and/or behavior</b> of the device include: Observation, DeviceAlert (an alert or alarm condition detected by a health device and requiring awareness or action), Procedure.</li>
     </ul>
 
     <a name="index"></a>
@@ -71,6 +83,8 @@ in order to support consistent definitions for schema and UML derived code.
     <p><b>Resources:</b> <a href="device.html">Device</a>, <a href="devicedefinition.html">Device Definition</a></p>
 
     <p>When working with a specific <b>INSTANCE</b> of a device (that can be uniquely identified for example: Company Z Super Ventilator, model SV, serial #123xyz456), a <a href="device.html">Device</a> resource is used. A <a href="device.html">Device</a> may reference a single <a href="devicedefinition.html">DeviceDefinition</a> when additional definitional information about the device is necessary to exchange.</p>
+    <p><a href="device.html">Device</a> represents a physical or virtual device instance. <a href="devicedefinition.html">DeviceDefinition</a> represents the catalog-level definition of a device type or product model.</p>
+    <p>In many clinical workflows, the <a href="device.html">Device</a> resource is used together with <a href="deviceassociation.html">DeviceAssociation</a> to capture the time-bounded relationship between a specific device instance and a patient, location, practitioner or another device.</p>
 
     <a name="commonusecases"></a>
     <h4>Common Use Cases</h4>
@@ -120,7 +134,7 @@ in order to support consistent definitions for schema and UML derived code.
         </tr>
         <tr bgcolor="#EFEFEF">
             <td valign="top"><b>Implementation Guidance</b></td>
-            <td><ul><li>Use <a href="device.html"><code>Device</code></a> to represent the specific INSTANCE of the blood pressure monitor (uniquely identified, e.g., by UDI or serial number). Use <a href="devicedefinition.html"><code>DeviceDefinition</code></a> only when catalog-level information (make/model capabilities) is needed in addition to the instance.</li><li>Each measurement is recorded as an <a href="observation.html"><code>Observation</code></a> with <code>Observation.device</code> referencing the <code>Device</code> instance and <code>Observation.subject</code> referencing the <code>Patient</code>. This is the primary linkage used to locate suspect measurements.</li><li>For spot measurements with non-communicating devices, <a href="deviceassociation.html"><code>DeviceAssociation</code></a> records the time-bounded association of the device with each patient; <a href="https://build.fhir.org/ig/HL7/oo-incubator/StructureDefinition-DeviceUsage.html"><code>DeviceUsage</code></a> can additionally capture details of how the device was used.</li><li>Distinguish <a href="devicemetric.html"><code>DeviceMetric</code></a> (device-reported settings/metric definitions for communicating devices) from <a href="observation.html"><code>Observation</code></a> (the clinical measurement value). For a simple non-communicating BPM, <code>Observation</code> alone is typically sufficient.</li><li>For longitudinal traceability, bound queries by the device's last inspection/maintenance event and query <code>Observation</code>, <code>DeviceAssociation</code>, and <code>DeviceUsage</code> records referencing the <code>Device</code> within that interval.</li><li>Mark affected <code>Observation</code> records as suspect using <code>Observation.status</code> (e.g., <code>entered-in-error</code>) or by amending with corrected results, preserving audit trail.</li></ul></td>
+            <td><ul><li>Use <a href="device.html"><code>Device</code></a> to represent the specific INSTANCE of the blood pressure monitor (uniquely identified, e.g., by UDI or serial number). Use <a href="devicedefinition.html"><code>DeviceDefinition</code></a> only when catalog-level information (make/model capabilities) is needed in addition to the instance.</li><li>Each measurement is recorded as an <a href="observation.html"><code>Observation</code></a> with <code>Observation.device</code> referencing the <code>Device</code> instance and <code>Observation.subject</code> referencing the <code>Patient</code>. This is the primary linkage used to locate suspect measurements.</li><li>For spot measurements with non-communicating devices, <a href="deviceassociation.html"><code>DeviceAssociation</code></a> records the time-bounded association of the device with each patient; <a href="https://build.fhir.org/ig/HL7/oo-incubator/StructureDefinition-DeviceUsage.html"><code>DeviceUsage</code></a> can additionally capture details of how the device was used.</li><li>Distinguish <a href="devicemetric.html"><code>DeviceMetric</code></a> (device-reported settings/metric definitions for communicating devices) from <a href="observation.html"><code>Observation</code></a> (the clinical measurement value). For a simple non-communicating BPM, <code>Observation</code> alone is typically sufficient.</li><li>For longitudinal traceability, bound queries by the device's last inspection/maintenance event and query <code>Observation</code>, <code>DeviceAssociation</code>, and <code>DeviceUsage</code> records referencing the <code>Device</code> within that interval.</li><li>Mark affected <code>Observation</code> records using the appropriate correction specified in <code>Observation.status</code>. Use <code>amended</code> or <code>corrected</code> when the observation remains part of the clinical record but has been superseded. Use <code>entered-in-error</code> only when the <code>Observation</code> should no longer be considered a valid clinical record. Also consider using <code>Observation.statusReason</code>, <code>Provenance</code>, or implementation-guide specific mechanisms to indicate suspected device-related quality concerns.</li></ul></td>
         </tr>
         <tr>
             <td valign="top"><b>Example Artifacts / References</b></td>
@@ -312,7 +326,7 @@ in order to support consistent definitions for schema and UML derived code.
         </tr>
         <tr bgcolor="#EFEFEF">
             <td valign="top"><b>Implementation Guidance</b></td>
-            <td><ul><li>Use <a href="servicerequest.html"><code>ServiceRequest</code></a> as the primary resource to represent the monitoring order. <code>ServiceRequest.code</code> specifies the type of monitoring (e.g., continuous cardiac monitoring); <code>ServiceRequest.occurrence</code> captures the 72-hour duration.</li><li>Where the order must specify a device type rather than a specific instance, use a coded service or a related <a href="devicerequest.html"><code>DeviceRequest</code></a> that references the relevant <a href="devicedefinition.html"><code>DeviceDefinition</code></a> or specific <a href="device.html"><code>Device</code></a>.</li><li>Once a device is allocated, use <a href="deviceassociation.html"><code>DeviceAssociation</code></a> to record the time-bounded association of the specific <a href="device.html"><code>Device</code></a> instance with the patient, referencing the fulfilling order where supported.</li><li>Where a device is formally dispensed (e.g., attached or handed over by biomedical staff), use <a href="https://build.fhir.org/ig/HL7/oo-incubator/StructureDefinition-DeviceDispense.html"><code>DeviceDispense</code></a> to record the dispense event.</li><li>Each <a href="observation.html"><code>Observation</code></a> produced during the monitoring period should reference the device via <code>Observation.device</code> and may reference the order via <code>Observation.basedOn</code> to maintain full traceability.</li></ul></td>
+            <td><ul><li>Use <a href="servicerequest.html"><code>ServiceRequest</code></a> as the primary resource to represent the monitoring order. <code>ServiceRequest.code</code> specifies the type of monitoring (e.g., continuous cardiac monitoring); <code>ServiceRequest.occurrence</code> captures the 72-hour duration.</li><li>Where the order must specify a device type rather than a specific instance, use a coded service or a related <a href="devicerequest.html"><code>DeviceRequest</code></a> that references the relevant <a href="devicedefinition.html"><code>DeviceDefinition</code></a> or specific <a href="device.html"><code>Device</code></a>.</li><li>Once a device is allocated, use <a href="deviceassociation.html"><code>DeviceAssociation</code></a> to record the time-bounded association of the specific <a href="device.html"><code>Device</code></a> instance with the patient, referencing the fulfilling order where supported. Any linkage to the originating order should be defined by the applicable implementation guide because DeviceAssociation does not currently provide a native order-reference mechanism.</li><li>Where a device is formally dispensed (e.g., attached or handed over by biomedical staff), use <a href="https://build.fhir.org/ig/HL7/oo-incubator/StructureDefinition-DeviceDispense.html"><code>DeviceDispense</code></a> to record the dispense event.</li><li>Each <a href="observation.html"><code>Observation</code></a> produced during the monitoring period should reference the device via <code>Observation.device</code> and may reference the order via <code>Observation.basedOn</code> to maintain full traceability.</li></ul></td>
         </tr>
         <tr>
             <td valign="top"><b>Example Artifacts / References</b></td>
@@ -325,54 +339,6 @@ in order to support consistent definitions for schema and UML derived code.
         <tr>
             <td valign="top"><b>Core FHIR Resources</b></td>
             <td><code>Patient</code>, <code>ServiceRequest</code> (optional: <code>DeviceRequest</code>, <code>DeviceDefinition</code>, <code>Device</code>, <code>DeviceAssociation</code>, <code>DeviceDispense</code>, <code>Observation</code>, <code>Practitioner</code>)</td>
-        </tr>
-    </table>
-
-    <h5>Detailed Use Case: F - Controlling Device Settings via Remote Control</h5>
-    <table class="bare device-use-case">
-        <tr>
-            <th>Section</th>
-            <th>Details</th>
-        </tr>
-        <tr bgcolor="#EFEFEF">
-            <td valign="top"><b>Title</b></td>
-            <td>Controlling Device Settings via Remote Control (F1: PHD Reporting Frequency; F2: PoCD Infusion Pump Bolus)</td>
-        </tr>
-        <tr>
-            <td valign="top"><b>Scope</b></td>
-            <td>F1 - Outpatient / home care / Personal health devices (Holter monitors, weight scales, blood pressure devices) with configurable reporting schedules. F2 - Inpatient / central monitoring unit / Point-of-care device (benzodiazepine infusion pump) with remotely configurable bolus delivery.</td>
-        </tr>
-        <tr bgcolor="#EFEFEF">
-            <td valign="top"><b>Scenario / Storyboard</b></td>
-            <td><p><b>F1 (PHD scenario):</b> Deborah manages a cohort of outpatient cardiac monitoring patients who wear Holter monitors and take daily weight and blood pressure measurements at home. Following recent incidents of rapid clinical deterioration, her employer decides that all weight scale and blood pressure devices in the field should upload their stored readings daily rather than three times per week. Deborah remotely reconfigures the reporting schedule on all affected device types so that any stored readings are transmitted every day.</p><p><b>F2 (PoCD scenario):</b> Rob is a nurse working at a central monitoring unit overseeing dozens of patients in two hospital wards. He notices that post-surgery patient Jingze has all vitals within normal range but appears restless in the video feed. Given that Jingze's sedation dosage has been low for the past 12 hours, Rob raises a remote command to configure the benzodiazepine infusion pump at Jingze's bedside to administer a bolus dose. The command is issued through the clinical system, delivered to the pump, and the resulting administration is recorded as an observation.</p></td>
-        </tr>
-        <tr>
-            <td valign="top"><b>Primary Goal / Problem Statement</b></td>
-            <td>Enable authorized clinicians or administrators to issue structured remote commands that change the operating configuration or trigger an action on a device, and to record those commands and their outcomes in a way that is auditable, traceable to the issuing clinician, and linked to the affected patient and device.</td>
-        </tr>
-        <tr bgcolor="#EFEFEF">
-            <td valign="top"><b>Operational / Additional Requirements</b></td>
-            <td><ul><li>Support issuance of device configuration commands (e.g., change reporting frequency, trigger bolus) by authorized users only, with appropriate access control.</li><li>Record each command with its originating clinician, target device, target patient (where applicable), requested setting or action, and timestamp.</li><li>Capture the outcome of the command (accepted, rejected, executed, failed) and link it back to the original command record.</li><li>For F1: support bulk reconfiguration of all devices of a given type across a patient cohort.</li><li>For F2: ensure that drug administration commands are subject to clinical safety checks (dosage limits, allergy checks) before execution.</li><li>Preserve an immutable audit trail of all remote configuration changes for safety and regulatory purposes.</li></ul></td>
-        </tr>
-        <tr>
-            <td valign="top"><b>Interoperability Considerations</b></td>
-            <td><ul><li>Remote commands must be expressed in a standardized format that can be interpreted by the receiving device gateway or device management system.</li><li>Device identity must be consistently represented across the clinical system, the device gateway, and the device itself.</li><li>For F2, the command and its resulting drug administration must integrate with medication administration and clinical decision support systems.</li><li><code>Observation</code> resources reflecting the outcome of a configuration change (e.g., confirmed new reporting schedule, bolus delivered) must reference the originating command for traceability.</li><li>Possible integration with alarm and escalation systems if a command fails or the device does not respond.</li></ul></td>
-        </tr>
-        <tr bgcolor="#EFEFEF">
-            <td valign="top"><b>Implementation Guidance</b></td>
-            <td><ul><li>Use <a href="device.html"><code>Device</code></a> to represent the specific instance (F2) or the device type cohort (F1) targeted by the command. For F1, where the command targets a device type rather than a single instance, reference a <a href="devicedefinition.html"><code>DeviceDefinition</code></a>.</li><li>Use <a href="servicerequest.html"><code>ServiceRequest</code></a> to represent the remote configuration command or action request. <code>ServiceRequest.code</code> identifies the action (e.g., change reporting schedule, administer bolus); <code>ServiceRequest.subject</code> references the patient; the target device is identified by the request details or by a related <code>DeviceRequest</code> or <code>DeviceAssociation</code>, as appropriate.</li><li>Where the command targets a specific metric or operational channel of the device, reference the relevant <a href="devicemetric.html"><code>DeviceMetric</code></a> to provide the configuration context.</li><li>Record the outcome of the command (e.g., confirmed new setting, bolus administered) as an <a href="observation.html"><code>Observation</code></a> with <code>Observation.basedOn</code> referencing the <code>ServiceRequest</code>, providing end-to-end traceability from command to clinical effect.</li><li>For F2, ensure the <code>ServiceRequest</code> is routed through the appropriate clinical safety and authorization workflow before the command is delivered to the device gateway.</li><li>For F1 bulk reconfiguration, one <code>ServiceRequest</code> per device instance (or a group-level request if the implementation supports it) should be created to maintain per-device audit records.</li></ul></td>
-        </tr>
-        <tr>
-            <td valign="top"><b>Example Artifacts / References</b></td>
-            <td><ul><li><a href="servicerequest-examples.html">ServiceRequest examples</a></li><li><a href="device-examples.html">Device examples</a></li><li><a href="devicemetric-examples.html">DeviceMetric examples</a></li><li><a href="observation-examples.html">Observation examples</a></li></ul></td>
-        </tr>
-        <tr bgcolor="#EFEFEF">
-            <td valign="top"><b>Data Requirements</b></td>
-            <td><ul><li>Device instance or device type identifier for the target device(s)</li><li>Patient identity (where the command is patient-specific, as in F2)</li><li><code>ServiceRequest</code> encoding the command type, target setting or action, and requested value</li><li>Authorizing clinician or administrator identity</li><li>Timestamp of command issuance and outcome timestamp</li><li>Command outcome status (accepted, executed, failed, rejected)</li><li><code>Observation</code> recording the resulting device state or clinical effect (e.g., updated reporting schedule, bolus administered), referencing the originating <code>ServiceRequest</code></li><li>For F2: medication details (drug, dose, route) for the bolus command</li></ul></td>
-        </tr>
-        <tr>
-            <td valign="top"><b>Core FHIR Resources</b></td>
-            <td><code>Device</code>, <code>ServiceRequest</code> (optional: <code>DeviceMetric</code>, <code>Observation</code>, <code>DeviceDefinition</code>, <code>Patient</code>, <code>Practitioner</code>)</td>
         </tr>
     </table>
 
@@ -397,7 +363,7 @@ in order to support consistent definitions for schema and UML derived code.
             <td valign="top">
                 <a href="devicealert.html">Device Alert</a>
             </td>
-            <td></td>
+            <td>Represents an alert or alarm condition detected by a health device and requiring awareness or action.</td>
         </tr>
         <tr bgcolor="#EFEFEF">
             <td valign="top">
@@ -426,13 +392,13 @@ in order to support consistent definitions for schema and UML derived code.
             <td valign="top">
                 <a href="devicemetric.html">Device Metric</a>
             </td>
-            <td></td>
+            <td>Describes a measurable, calculable, or configurable device channel, setting, or metric.</td>
         </tr>
         <tr bgcolor="#EFEFEF">
             <td valign="top">
                 <a href="devicerequest.html">Device Request</a>
             </td>
-            <td></td>
+            <td>Represents a request that a patient use or be provided with a device.</td>
         </tr>
         <tr>
             <td valign="top">

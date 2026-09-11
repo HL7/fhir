@@ -230,7 +230,21 @@
     </mapping>
   </element>
 
-    <element id="VisionPrescription.priority">
+   <element id="VisionPrescription.category">
+    <path value="VisionPrescription.category"/>
+    <short value="Classification of prescription"/>
+    <definition value="A code that classifies the vision prescription for searching, sorting and display purposes. Example values include safety wear, cosmetic, orthocorrective, and orthokeratology."/>
+    <min value="0"/>
+    <max value="*"/>
+    <type><code value="CodeableConcept"/></type>
+    <isSummary value="true"/>
+    <binding>
+      <strength value="example"/>
+      <description value="Classification of the vision prescription."/>
+    </binding>
+    <mapping><identity value="workflow"/><map value="Request.category"/></mapping>
+  </element>
+   <element id="VisionPrescription.priority">
     <path value="VisionPrescription.priority"/>
     <short value="routine | urgent | asap | stat"/>
     <definition value="Indicates how quickly the vision prescription should be addressed with respect to other requests."/>

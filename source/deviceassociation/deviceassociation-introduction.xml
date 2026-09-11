@@ -30,6 +30,8 @@
 	<p><b>Changes since 6.0.0-ballot5:</b></p>
 	<ul>
 		<li><a href="https://jira.hl7.org/browse/FHIR-55254">FHIR-55254</a> - Binding relationship-status, relationship, and status-reason valuesets to THO equivalent code systems</li>
+		<li><a href="https://jira.hl7.org/browse/FHIR-58278">FHIR-58278</a> - Corrected the DeviceAssociation device search parameter description.</li>
+		<li><a href="https://jira.hl7.org/browse/FHIR-58242">FHIR-58242</a> - Clarified that focus supplements the required subject.</li>
 	</ul>
 </blockquote>
 <a name="bnc"></a>
@@ -37,7 +39,7 @@
 <blockquote class="stu-note">
 <p><b>Note to Implementers:</b> For an overview of this resource and others in the Device domain, also see the <a href="device-module.html">module page</a>.</p>
 </blockquote>
-<p>DeviceAssociation records a relationship between a device and a subject (or alternatively a focus entity). The relationship might be as an owner, user, maintainer, etc. of the device. The scope covers all devices including, but not limited to: implantables, wheelchairs, RTLS, personal health and point of care devices, diagnostic, imaging and durable medical equipment. This resource is intended to apply to any delivery environment and discipline where a device association is useful to record.</p>
+<p>DeviceAssociation records a relationship between a device and a required subject, with an optional focus entity where additional context is needed. The relationship might be as an owner, user, maintainer, etc. of the device. The scope covers all devices including, but not limited to: implantables, wheelchairs, RTLS, personal health and point of care devices, diagnostic, imaging and durable medical equipment. This resource is intended to apply to any delivery environment and discipline where a device association is useful to record.</p>
 <p>The subjects may include:</p>
 <ul>
 <li><strong>Patient</strong> - the following are often associated with a specific patient: implantables, prosthetics, activity trackers, mobility assistance, care monitoring, etc.</li>
