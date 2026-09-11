@@ -40,7 +40,7 @@
     </reason>
     
     <dosageInstruction>
-        <simple>
+        <step><component>
         <text value="75mcg daily" />
         <timing>
             <repeat>
@@ -71,7 +71,7 @@
                 <code value="ug"/>
             </doseQuantity>
         </doseAndRate>
-      </simple>
+      </component></step>
     </dosageInstruction> 
     
     <dispenseRequest>

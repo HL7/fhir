@@ -55,11 +55,13 @@
       </coding>
     </type>
     <schedule>
-      <repeat>
-        <frequency value='3'/>
-        <period value='1'/>
-        <periodUnit value='d'/>
-      </repeat>
+      <timing>
+        <repeat>
+          <frequency value='3'/>
+          <period value='1'/>
+          <periodUnit value='d'/>
+        </repeat>
+      </timing>
     </schedule>
     <nutrient>
       <modifier>

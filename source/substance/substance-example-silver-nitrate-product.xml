@@ -5,7 +5,7 @@
 		<system value="http://acme.org/identifiers/substances/lot"/>
 		<value value="AB94687"/>
 	</identifier>
-	<instance value="true"/>
+	
 	<category>
 		<coding>
 			<system value="http://terminology.hl7.org/CodeSystem/substance-category"/>

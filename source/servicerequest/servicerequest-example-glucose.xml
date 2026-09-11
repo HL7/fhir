@@ -20,9 +20,7 @@
 	
 	<asNeeded value="true"/>
 	<asNeededFor>
-      <concept>
-  	   	<text value="Series of elevated glucose levels"/>
-      </concept>
+      <text value="Series of elevated glucose levels"/>
 	</asNeededFor>
 	<requester>
 			<reference value="Practitioner/example"/>

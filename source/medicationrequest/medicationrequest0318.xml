@@ -55,7 +55,7 @@
     </note>
 
     <dosageInstruction>
-        <simple>
+        <step><component>
             <text value="500mg IV q6h x 3 days" />
             <timing>
                 <event value="2020-01-01"></event>
@@ -98,7 +98,7 @@
                     <code value="mg"/>
                 </doseQuantity>
             </doseAndRate>
-        </simple>
+        </component></step>
     </dosageInstruction>
 
 </MedicationRequest>

@@ -36,12 +36,14 @@
         <text value="HCT transplant"/>
     </concept>
   </reason>
-  <bodySite>
-    <coding>
-      <system value="http://snomed.info/sct"/>
-      <code value="12123001"/>
-      <display value="Internal jugular vein structure (body structure)"/>
-    </coding>
-    <text value="Internal jugular vein"/>
-  </bodySite>
+  <bodyStructure>
+    <concept>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="12123001"/>
+        <display value="Internal jugular vein structure (body structure)"/>
+      </coding>
+      <text value="Internal jugular vein"/>
+    </concept>
+  </bodyStructure>
 </ServiceRequest>

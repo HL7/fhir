@@ -57,7 +57,7 @@
     <whenPrepared value="2015-06-25T07:13:00+05:00"/>
     <whenHandedOver value="2015-06-26T07:13:00+05:00"/>
     <dosageInstruction>
-        <simple>
+        <step><component>
         <text value="4.5 grams in D5W 250 ml. IV every 6 hours. Infuse over 30 min at 8L/min"/>
         <timing>
             <repeat>
@@ -67,11 +67,13 @@
             </repeat>
         </timing>
         <site>
-            <coding>
-                <system value="http://snomed.info/sct"/>
-                <code value="255560000"/>
-                <display value="Intravenous"/>
-            </coding>
+            <concept>
+                <coding>
+                    <system value="http://snomed.info/sct"/>
+                    <code value="255560000"/>
+                    <display value="Intravenous"/>
+                </coding>
+            </concept>
         </site>
         <route>
             <coding>
@@ -107,7 +109,7 @@
             </rateRatio>
         </doseAndRate>
 
-			</simple>
+			</component></step>
 
     </dosageInstruction>
 </MedicationDispense>

@@ -49,7 +49,9 @@
   </bodySite>
   -->
   <bodyStructure>
-    <reference value="BodyStructure/skin-patch"/>
+    <reference>
+      <reference value="BodyStructure/skin-patch"/>
+    </reference>
   </bodyStructure>
   <complication>
     <concept>

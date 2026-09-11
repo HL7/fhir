@@ -42,11 +42,13 @@
 				</result>
 				<conclusion value="Blood culture tested positive on staphylococcus aureus"/>
 				<conclusionCode>
-					<coding>
-						<system value="http://snomed.info/sct"/>
-						<code value="428763004"/>
-						<display value="Bacteremia caused by Staphylococcus aureus"/>
-					</coding>
+					<concept>
+						<coding>
+							<system value="http://snomed.info/sct"/>
+							<code value="428763004"/>
+							<display value="Bacteremia caused by Staphylococcus aureus"/>
+						</coding>
+					</concept>
 				</conclusionCode>
 			</DiagnosticReport>
 		</resource>

@@ -74,7 +74,7 @@
 					<system value="http://acme.com/labs/accession-ids"/>
 					<value value="20150816-001245"/>
 				</identifier>
-				<accessionIdentifier>
+				<identifier>
 				    <type>
 					  <coding>
 						  <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
@@ -84,7 +84,7 @@
 				    </type>
 					<system value="http://acme.com/labs/accession-ids"/>
 					<value value="20150816-001245"/>
-				</accessionIdentifier>
+				</identifier>
 				<type>
 					<coding>
 						<system value="http://snomed.info/sct"/>
@@ -127,7 +127,7 @@
 					<system value="http://acme.com/lab/accession-ids"/>
 					<value value="20150816-00124"/>
 				</identifier>
-				<accessionIdentifier>
+				<identifier>
 				    <type>
 					  <coding>
 						  <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
@@ -137,7 +137,7 @@
 				    </type>
 					<system value="http://acme.com/lab/accession-ids"/>
 					<value value="20150816-00124"/>
-				</accessionIdentifier>
+				</identifier>
 				<type>
 					<coding>
 						<system value="http://snomed.info/sct"/>
@@ -180,7 +180,7 @@
 					<system value="http://acme.com/lab/accession-ids"/>
 					<value value="20150816-00124"/>
 				</identifier>
-				<accessionIdentifier>
+				<identifier>
 				    <type>
 					  <coding>
 						  <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
@@ -190,7 +190,7 @@
 				    </type>
 					<system value="http://acme.com/lab/accession-ids"/>
 					<value value="20150816-00124"/>
-				</accessionIdentifier>
+				</identifier>
 				<type>
 					<coding>
 						<system value="http://snomed.info/sct"/>

@@ -43,7 +43,7 @@
     </reason>
     
     <dosageInstruction>
-        <simple>
+        <step><component>
         <text value="500mg daily for 5 days" />
         <additionalInstruction>
             <coding>
@@ -81,7 +81,7 @@
                 <code value="mg"/>
             </doseQuantity>
         </doseAndRate>
-      </simple>
+      </component></step>
       
     </dosageInstruction> 
     

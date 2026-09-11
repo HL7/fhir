@@ -54,11 +54,11 @@
                <display value="Chemical"/>
             </coding>
          </classification>
+         <description value="The aluminum substrate onto which the dye is precipitated to form the lake. Unspecified in GSRS."/>
          <name>
             <name value="Unspecified aluminum substrate"/>
             <preferred value="true"/>
          </name>
-         <description value="The aluminum substrate onto which the dye is precipitated to form the lake. Unspecified in GSRS."/>
       </SubstanceDefinition>
    </contained>
    <identifier>

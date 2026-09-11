@@ -44,10 +44,12 @@
 	</study>
 	<conclusion value="CT brains: large tumor sphenoid/clivus."/>
 	<conclusionCode>
-		<coding>
-			<system value="http://snomed.info/sct"/>
-			<code value="188340000"/>
-			<display value="Malignant tumor of craniopharyngeal duct"/>
-		</coding>
+		<concept>
+			<coding>
+				<system value="http://snomed.info/sct"/>
+				<code value="188340000"/>
+				<display value="Malignant tumor of craniopharyngeal duct"/>
+			</coding>
+		</concept>
 	</conclusionCode>
 </DiagnosticReport>

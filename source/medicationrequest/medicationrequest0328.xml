@@ -47,7 +47,7 @@
 
 
     <dosageInstruction>
-        <simple>
+        <step><component>
             <text value="Use 1 spray twice daily"/>
             <timing>
                 <repeat>
@@ -71,7 +71,7 @@
                     <code value="NASINHL"/>
                 </doseQuantity>
             </doseAndRate>
-        </simple>
+        </component></step>
     </dosageInstruction>
 
 

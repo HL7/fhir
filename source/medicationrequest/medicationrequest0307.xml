@@ -42,7 +42,7 @@
     </requester>
     
     <dosageInstruction>
-        <simple>
+        <step><component>
         <text value="1 tablet every four hours as needed for pain" />
         <additionalInstruction>
             <coding>
@@ -87,7 +87,7 @@
                 <code value="TAB"/> 
             </doseQuantity>
         </doseAndRate>
-      </simple>
+      </component></step>
         
     </dosageInstruction>
     

@@ -16,10 +16,10 @@ edited by Eric Haas Health eData Inc-->
 		<display value="Inpatient"/>
 	</encounter>
 	<dateTime value="2014-09-17"/>
-	<orderer>
+	<requester>
 		<reference value="Practitioner/example"/>
 		<display value="Dr Adam Careful"/>
-	</orderer>
+	</requester>
 	<allergyIntolerance>
 		<reference value="AllergyIntolerance/example"/>
 		<display value="Cashew Nuts"/>

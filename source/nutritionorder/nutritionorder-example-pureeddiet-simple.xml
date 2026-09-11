@@ -12,10 +12,10 @@ edited by Eric Haas Health eData Inc
 		<display value="Peter Chalmers"/>
 	</subject>
 	<dateTime value="2014-09-17"/>
-	<orderer>
+	<requester>
 		<reference value="Practitioner/example"/>
 		<display value="Dr Adam Careful"/>
-	</orderer>
+	</requester>
 	<oralDiet>
 		<!-- EH:  list type of diet showing standard code and local codes -->
 		<type>
@@ -54,14 +54,14 @@ edited by Eric Haas Health eData Inc
 				<text value="Pureed"/>
 			</modifier>
 		</texture>
-		<fluidConsistencyType>
+		<!--<fluidConsistencyType>
 			<coding>
 				<system value="http://snomed.info/sct"/>
 				<code value="439021000124105"/>
 				<display value="Dietary liquid consistency - nectar thick liquid"/>
 			</coding>
 			<text value="Nectar thick liquids"/>
-		</fluidConsistencyType>
+		</fluidConsistencyType>-->
 	</oralDiet>
 	<supplement>
 		<type>

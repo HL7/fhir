@@ -31,7 +31,7 @@
     </requester>    
 
 		<dosageInstruction>
-		  <simple>
+		  <step><component>
 				<text value="1800 mg (1000 mg/m2) orally twice daily from days 1-14 of cycle"/>   
 				<doseAndRate>
 					<type>
@@ -63,7 +63,7 @@
 						<code value="mg"/>
 					</doseQuantity>
 				</doseAndRate>
-			</simple>
+			</component></step>
 		</dosageInstruction>
 
 

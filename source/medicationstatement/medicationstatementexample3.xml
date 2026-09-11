@@ -29,7 +29,7 @@
     <text value="Patient cannot remember the name of the tablet, but takes it every day in the morning for water retention"/>
   </note>
   <dosage>
-    <simple>
+    <step><component>
       <text value="1 tablet per day" />
       <asNeeded value="false" />
       <route>
@@ -67,6 +67,6 @@
               </period>
           </doseLimit>
       </safety>
-    </simple>
+    </component></step>
   </dosage>
 </MedicationStatement>

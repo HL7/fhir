@@ -2,9 +2,6 @@
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="example"/>
-  <meta>
-    
-  </meta>
   <text>
     <status value="additional"/>
     <div xmlns="http://www.w3.org/1999/xhtml">

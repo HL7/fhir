@@ -44,7 +44,7 @@
     </daysSupply>
     <whenPrepared value="2015-01-15T10:20:00Z"/>
     <dosageInstruction>
-        <simple>
+        <step><component>
             <text value="1 tablet every four hours as needed for pain" />
             <additionalInstruction>
                 <coding>
@@ -89,7 +89,7 @@
                     <code value="TAB"/>
                 </doseQuantity>
             </doseAndRate>
-        </simple>
+        </component></step>
 
     </dosageInstruction>
 </MedicationDispense>

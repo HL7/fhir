@@ -71,6 +71,39 @@
       <name value="Herceptin"/>
       <preferred value="false"/>
    </name>
+   <relationship>
+      <substanceDefinitionReference>
+         <reference value="SubstanceDefinition/her2"/>
+         <display value="Receptor tyrosine-protein kinase erbB-2 (HER2)"/>
+      </substanceDefinitionReference>
+      <type>
+         <coding>
+            <system value="http://hl7.org/fhir/substance-relationship-type"/>
+            <code value="TherapeuticTarget"/>
+            <display value="Therapeutic target"/>
+         </coding>
+      </type>
+      <amountQuantity>
+         <value value="0.1"/>
+         <unit value="nM"/>
+         <system value="http://unitsofmeasure.org"/>
+         <code value="nmol/L"/>
+      </amountQuantity>
+      <measurementType>
+         <coding>
+            <system value="http://hl7.org/fhir/substance-measurement-type"/>
+            <code value="kd"/>
+            <display value="Kd"/>
+         </coding>
+      </measurementType>
+      <interaction>
+         <coding>
+            <system value="http://hl7.org/fhir/substance-interaction-type"/>
+            <code value="binding"/>
+            <display value="Binding"/>
+         </coding>
+      </interaction>
+   </relationship>
    <protein>
       <sequenceType>
          <coding>
@@ -128,37 +161,4 @@
          </gene>
       </gene>
    </protein>
-   <relationship>
-      <substanceDefinitionReference>
-         <reference value="SubstanceDefinition/her2"/>
-         <display value="Receptor tyrosine-protein kinase erbB-2 (HER2)"/>
-      </substanceDefinitionReference>
-      <type>
-         <coding>
-            <system value="http://hl7.org/fhir/substance-relationship-type"/>
-            <code value="TherapeuticTarget"/>
-            <display value="Therapeutic target"/>
-         </coding>
-      </type>
-      <interaction>
-         <coding>
-            <system value="http://hl7.org/fhir/substance-interaction-type"/>
-            <code value="binding"/>
-            <display value="Binding"/>
-         </coding>
-      </interaction>
-      <measurementType>
-         <coding>
-            <system value="http://hl7.org/fhir/substance-measurement-type"/>
-            <code value="kd"/>
-            <display value="Kd"/>
-         </coding>
-      </measurementType>
-      <amountQuantity>
-         <value value="0.1"/>
-         <unit value="nM"/>
-         <system value="http://unitsofmeasure.org"/>
-         <code value="nmol/L"/>
-      </amountQuantity>
-   </relationship>
 </SubstanceDefinition>

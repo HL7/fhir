@@ -9,7 +9,7 @@
     <valueCode value="fhir"/>
   </extension>
   <url value="http://hl7.org/fhir/requirement-category"/>
-  <version value="6.0.0-ballot4"/>
+  
   <name value="RequirementCategory"/>
   <title value="Requirement Category"/>
   <status value="active"/>

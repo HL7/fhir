@@ -59,14 +59,14 @@
 		</reference>
 	</related>
 
-	<prescription>
+	<request>
 		<reference value="MedicationRequest/medrx002"/>
-	</prescription>
-
+	</request>
+<!--
 	<originalPrescription>
 		<reference value="MedicationRequest/medrx0301"/>
 	</originalPrescription>
-
+-->
 	<facility>
 		<reference value="Location/1"/>
 	</facility>

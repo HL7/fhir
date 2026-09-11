@@ -3,7 +3,6 @@
 <ResearchStudy
 	xmlns="http://hl7.org/fhir">
 	<id value="example-ctgov-study-record" />
-	<resourceType value="ResearchStudy"/>
 	<contained>
 		<EvidenceVariable>
 			<id value="NCT05503693-drug------ap303-50-g"/>

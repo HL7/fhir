@@ -59,12 +59,12 @@
 				</coding>
 			</relationship>
 
-			<payor>
+			<payer>
 				<identifier>
 					<system value="http://www.bindb.com/bin"/>
 					<value value="123456"/>
 				</identifier>
-			</payor>
+			</payer>
 
 			<class>
 				<type>

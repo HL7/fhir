@@ -43,9 +43,9 @@
 		</coding>
 	</priority>
 
-	<prescription>
+	<request>
 		<reference value="http://pharmacy.org/MedicationRequest/AB1234G"/>
-	</prescription>
+	</request>
 
 	<originalPrescription>
 		<reference value="http://pharmacy.org/MedicationRequest/AB1202B"/>

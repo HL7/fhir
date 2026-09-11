@@ -40,13 +40,15 @@
       <display value="Acute renal failure due to procedure"/>
     </coding>
   </code>
-  <bodySite>
-    <coding>
-      <system value="http://snomed.info/sct"/>
-      <code value="181414000"/>
-      <display value="Entire kidney"/>
-    </coding>
-  </bodySite>
+  <bodyStructure>
+    <concept>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="181414000"/>
+        <display value="Entire kidney"/>
+      </coding>
+    </concept>
+  </bodyStructure>
   <subject>
     <!--It entails Roel's problem-->
     <reference value="Patient/f201"/>

@@ -32,11 +32,13 @@
   </oralDiet>
 	<supplement>
 		<type>
-			<coding>
-				<system value="http://snomed.info/sct"/>
-				<code value="442921000124101"/>
-				<display value="Adult standard supplement"/>
-			</coding>
+			<concept>
+				<coding>
+					<system value="http://snomed.info/sct"/>
+					<code value="442921000124101"/>
+					<display value="Adult standard formula"/>
+				</coding>
+			</concept>
 		</type>
 		<schedule>
 			<timing>
