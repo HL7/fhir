@@ -239,10 +239,21 @@
     <type><code value="CodeableConcept"/></type>
     <isSummary value="true"/>
     <binding>
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+        <valueString value="VisionPrescriptionCategory"/>
+      </extension>
       <strength value="example"/>
       <description value="Classification of the vision prescription."/>
+      <valueSet value="http://hl7.org/fhir/ValueSet/vision-prescription-category"/>
     </binding>
-    <mapping><identity value="workflow"/><map value="Request.category"/></mapping>
+    <mapping>
+      <identity value="workflow"/>
+      <map value="Request.category"/>
+    </mapping>
+    <mapping>
+      <identity value="w5"/>
+      <map value="FiveWs.class"/>
+    </mapping>
   </element>
    <element id="VisionPrescription.priority">
     <path value="VisionPrescription.priority"/>

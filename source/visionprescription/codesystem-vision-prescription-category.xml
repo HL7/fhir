@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="vision-prescription-category"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="informative"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <url value="http://hl7.org/fhir/vision-prescription-category"/>
+  <version value="6.0.0"/>
+  <name value="VisionPrescriptionCategory"/>
+  <title value="Vision Prescription Category"/>
+  <status value="active"/>
+  <experimental value="true"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <description value="Example categories for classifying a vision prescription."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/vision-prescription-category"/>
+  <content value="complete"/>
+  <concept>
+    <code value="safety-wear"/>
+    <display value="Safety wear"/>
+    <definition value="Protective eyewear intended to reduce the risk of injury or exposure."/>
+  </concept>
+  <concept>
+    <code value="cosmetic"/>
+    <display value="Cosmetic"/>
+    <definition value="Vision products prescribed primarily for cosmetic purposes rather than optical correction."/>
+  </concept>
+  <concept>
+    <code value="orthocorrective"/>
+    <display value="Orthocorrective"/>
+    <definition value="Vision products prescribed for orthocorrective purposes."/>
+  </concept>
+  <concept>
+    <code value="orthokeratology"/>
+    <display value="Orthokeratology"/>
+    <definition value="Vision products prescribed for orthokeratology, typically involving overnight lenses that temporarily reshape the cornea."/>
+  </concept>
+</CodeSystem>
