@@ -59,7 +59,7 @@ checking, but they might not all be recognized and enforced, which in turn
 limits what information can flow.
 </p>
 <p>
-Local agreements and implementation profiles for the use security labels would
+Local agreements and implementation profiles for the use of security labels would
 describe how the security labels connect to the relevant consent and policy
 statements, and in particular:
 </p>
@@ -71,8 +71,8 @@ statements, and in particular:
 </ul>
 <p>
 This specification defines a basic set of labels for the most common
-use cases trading partners, and a wider array of security labels
-that allow much finer grained management of the information.
+use cases for trading partners, and a wider array of security labels
+that allow much finer-grained management of the information.
 </p>
 
 <a name="rsl"></a>
@@ -172,17 +172,17 @@ policies is a matter of ongoing discussion and development in several communitie
 <a name="core"></a>
 <h2>Guidance on Security Vocabulary Use</h2>
 <p>
-This specification defines a set of security vocabulary for appropriate for use with FHIR systems -- <a href="security-labels.html#hcs">the Healthcare Privacy and Security Classification System (HCS)</a>.
-For all these vocabulary terms, how they are operationalized - their use and interpretation - is subject
+This specification defines a set of security vocabulary appropriate for use with FHIR systems -- <a href="security-labels.html#hcs">the Healthcare Privacy and Security Classification System (HCS)</a>.
+For all these vocabulary terms, how they are operationalized, including their use and interpretation, is subject
 to the applicable Mutual Trust Framework agreement as described above.
 </p><p>
-The Security vocabulary has three patterns of use: (1) <code>Bundle.meta.security</code>: Security/Privacy considerations of a data set, (2) Request Context: Describe security/privacy context of a request for data, and (3) <code>Resource.meta.security</code> Meta Data: to indicate security/privacy meta about that data. 
+The Security vocabulary has three patterns of use: (1) <code>Bundle.meta.security</code>: Security/Privacy considerations of a data set, (2) Request Context: Describe security/privacy context of a request for data, and (3) <code>Resource.meta.security</code> Metadata: to indicate security/privacy metadata about that data.
 </p><p>
-Bundle: A bundle is a container for a collection of data. Some uses of bundle are for communicating search results, sending data, or persisting data (See Bundle). The <code>Bundle.meta.security</code> would carry meta about the data contained in the bundle and security conditions for the bundle. Specifically the confidentiality 'high water" mark, the authorized purposeOfUse, the required compartment clearance, Refrain, and Obligations that must be maintained. Where the "high water" mark is an indication of the most high confidentiality. Depending on Policy, the Bundle might include the cross-section of sensitivity or integrity, although this is usually not included. Provided in the <a href="valueset-security-label-event-example.html">Security Label Event Examples</a> valueSet contains of some security-label codes that would be used on Bundle.meta.security.
+Bundle: A bundle is a container for a collection of data. Some uses of Bundle are communicating search results, sending data, or persisting data (see Bundle). The <code>Bundle.meta.security</code> would carry meta about the data contained in the bundle and security conditions for the bundle. Specifically the confidentiality 'high-water' mark, the authorized purposeOfUse, the required compartment clearance, Refrain, and Obligations that must be maintained. Where the "high water" mark is an indication of the highest confidentiality level. Depending on Policy, the Bundle might include the cross-section of sensitivity or integrity, although this is usually not included. Provided in the <a href="valueset-security-label-event-example.html">Security Label Event Examples</a> value set contains security-label codes that would be used on Bundle.meta.security.
 </p><p>
 Request Context: (e.g., Read, Query, message triggers) - would describe the context of the request using purposeOfUse and compartment/clearance. The request might declare the highest confidentiality desired. It is unlikely to see in a request a declaration of sensitivity or integrity. It is also unlikely to see Obligations within a Request. (See Bundle for Response, where these are appropriate)
 </p><p>
-Meta Data: All resources have a <code>meta.security</code> element to hold descriptions (meta) about the data relative to privacy and security risk. Thus data might be tagged with confidentiality, sensitivity, and integrity. The data might be tagged with the indication of collection context using compartment or purposeOfUse. Data would not typically be tagged with Refrain, or Obligations. Provided in the <a href="valueset-security-label-data-example.html">Security Label Data Examples</a> valueSet contains of some security-label codes that would be used on data.
+Meta Data: All resources have a <code>meta.security</code> element to hold descriptions (meta) about the data relative to privacy and security risk. Thus data might be tagged with confidentiality, sensitivity, and integrity. The data might be tagged with the indication of collection context using compartment or purposeOfUse. Data would not typically be tagged with Refrain, or Obligations. Provided in the <a href="valueset-security-label-data-example.html">Security Label Data Examples</a> value set contains security-label codes that would be used on data.
 </p><p>
  More complex use of tagging in the data resource, bundle, context, or in Provenance, is possible.
 </p>
@@ -198,7 +198,7 @@ Meta Data: All resources have a <code>meta.security</code> element to hold descr
  <tr>
    <td>Purpose of Use</td>
    <td>
-     These <a href="https://terminology.hl7.org/ValueSet-v3-PurposeOfUse.html">Purpose of Use</a> (system = http://terminology.hl7.org/CodeSystem/v3-PurposeOfUse) is an indication of a reason for performing one or more operations on information.
+    The <a href="https://terminology.hl7.org/ValueSet-v3-PurposeOfUse.html">Purpose of Use</a> (system = http://terminology.hl7.org/CodeSystem/v3-PurposeOfUse) is an indication of a reason for performing one or more operations on information.
 	which might be permitted by source system's security policy in accordance with one or more privacy policies and consent directives. 
 	Such as collecting personal health information for research or public health purposes.
 	<br/> Notes might be used as:
@@ -215,7 +215,7 @@ Meta Data: All resources have a <code>meta.security</code> element to hold descr
  <tr>
    <td>Confidentiality codes</td>
    <td>
-     These <a href="https://terminology.hl7.org/ValueSet-v3-Confidentiality.html">confidentiality class</a> (system = http://terminology.hl7.org/CodeSystem/v3-Confidentiality) can be applied to any resource or bundle. They are generally assigned by the author of the resource
+    This <a href="https://terminology.hl7.org/ValueSet-v3-Confidentiality.html">confidentiality class</a> (system = http://terminology.hl7.org/CodeSystem/v3-Confidentiality) can be applied to any resource or bundle. They are generally assigned by the author of the resource
      but can be modified subsequently as a matter of operational management. The Confidentiality classifications describe the sensitivity of the information in a resource about
      whether it would be made available or disclosed to unauthorized individuals, entities, or processes.  <br/> Notes:
      <ul>
@@ -234,7 +234,7 @@ Meta Data: All resources have a <code>meta.security</code> element to hold descr
    <td>
      An application receiving a resource with this label must delete all copies after the immediate use for which the data was exchanged, is complete. <br/> Notes:
      <ul>
-      <li>This might imply a prohibition not storing the resource in any audit trail as well</li>
+      <li>This might imply a prohibition on storing the resource in any audit trail as well</li>
       <li>Additional security labels can make exceptions to the blanket restriction this implies. This allows a resource to be exchanged with a blanket rule not to retain copies unless the exact rules for retaining it can be followed</li>
      </ul>
    </td>
@@ -252,7 +252,7 @@ Meta Data: All resources have a <code>meta.security</code> element to hold descr
  </tr>
 
  <tr>
-   <td>Test Data: <a href="https://terminology.hl7.org/CodeSystem-v3-ActReason.html#v3-ActReason-HTEST">Purpose Of Use</a>.<a href="https://terminology.hl7.org/CodeSystem-v3-ActReason.html#v3-ActReason-HTEST">HTEST</a></td>
+  <td>Test Data: <a href="https://terminology.hl7.org/CodeSystem-v3-ActReason.html#v3-ActReason-HTEST">ActReason</a>.<a href="https://terminology.hl7.org/CodeSystem-v3-ActReason.html#v3-ActReason-HTEST">HTEST</a></td>
    <td>
      This marks that a resource has been created to test an application, and is not real production data<br/> Notes:
      <ul>
