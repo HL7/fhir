@@ -191,11 +191,11 @@
         <extraTypes _resource="Reference(Location,Device)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Individual the service is ordered/prohibited for"/>
-            <resource value="Individual or Entity the service is ordered for"/>
+            <resource value="Individual or Entity of record for whom the service is ordered"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="The individual or set of individuals the action is to be performed/not performed on or for."/>
-            <resource value="On whom or what the service is to be performed. This is usually a human patient, but can also be requested on animals, groups of humans or animals, devices such as dialysis machines, or even locations (typically for environmental scans)."/>
+            <resource value="On whose or what record the service to be performed is recorded. This is usually a human patient, but can also be requested on animals, groups of humans or animals, devices such as dialysis machines, or even locations (typically for environmental scans)."/>
         </definitionUnmatched>
         <requirementsUnmatched reason="Unknown">
             <_pattern value="Links the request to the Patient context."/>
