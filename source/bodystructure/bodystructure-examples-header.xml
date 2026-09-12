@@ -1,6 +1,10 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
-<!-- content goes here -->
+<p>Multi-resource examples use a Bundle to keep the related BodyStructure resources together:</p>
+<ul>
+  <li><a href="bundle-bodystructure-example-lesion-evolution.html">Merging and splitting liver lesions</a> demonstrates predecessor relationships.</li>
+  <li><a href="bundle-bodystructure-example-aortic-dissection.html">Hierarchical aortic dissection structures</a> demonstrates part-of relationships.</li>
+</ul>
 
 </div>
 </div>

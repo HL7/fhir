@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This example demonstrates predecessor relationships when lesions merge and subsequently split. -->
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="bodystructure-lesion-evolution"/>
+  <type value="collection"/>
+  <entry>
+    <fullUrl value="http://example.org/fhir/BodyStructure/liver-lesion-l1"/>
+    <resource>
+      <BodyStructure>
+        <id value="liver-lesion-l1"/>
+        <identifier>
+          <system value="http://example.org/fhir/bodystructure-identifiers"/>
+          <value value="L1"/>
+        </identifier>
+        <includedStructure>
+          <structure>
+            <coding>
+              <system value="http://snomed.info/sct"/>
+              <code value="10200004"/>
+              <display value="Liver structure"/>
+            </coding>
+          </structure>
+          <morphology>
+            <coding>
+              <system value="http://snomed.info/sct"/>
+              <code value="4147007"/>
+              <display value="Mass (morphologic abnormality)"/>
+            </coding>
+          </morphology>
+        </includedStructure>
+        <description value="First liver lesion before merging."/>
+      </BodyStructure>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://example.org/fhir/BodyStructure/liver-lesion-l2"/>
+    <resource>
+      <BodyStructure>
+        <id value="liver-lesion-l2"/>
+        <identifier>
+          <system value="http://example.org/fhir/bodystructure-identifiers"/>
+          <value value="L2"/>
+        </identifier>
+        <includedStructure>
+          <structure>
+            <coding>
+              <system value="http://snomed.info/sct"/>
+              <code value="10200004"/>
+              <display value="Liver structure"/>
+            </coding>
+          </structure>
+          <morphology>
+            <coding>
+              <system value="http://snomed.info/sct"/>
+              <code value="4147007"/>
+              <display value="Mass (morphologic abnormality)"/>
+            </coding>
+          </morphology>
+        </includedStructure>
+        <description value="Second liver lesion before merging."/>
+      </BodyStructure>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://example.org/fhir/BodyStructure/merged-liver-lesion"/>
+    <resource>
+      <BodyStructure>
+        <id value="merged-liver-lesion"/>
+        <identifier>
+          <system value="http://example.org/fhir/bodystructure-identifiers"/>
+          <value value="L3"/>
+        </identifier>
+        <includedStructure>
+          <structure>
+            <coding>
+              <system value="http://snomed.info/sct"/>
+              <code value="10200004"/>
+              <display value="Liver structure"/>
+            </coding>
+          </structure>
+          <morphology>
+            <coding>
+              <system value="http://snomed.info/sct"/>
+              <code value="4147007"/>
+              <display value="Mass (morphologic abnormality)"/>
+            </coding>
+          </morphology>
+          <related>
+            <type>
+              <coding>
+                <system value="http://hl7.org/fhir/bodystructure-relationship-type"/>
+                <code value="predecessor"/>
+                <display value="Predecessor"/>
+              </coding>
+            </type>
+            <reference>
+              <reference value="BodyStructure/liver-lesion-l1"/>
+            </reference>
+          </related>
+          <related>
+            <type>
+              <coding>
+                <system value="http://hl7.org/fhir/bodystructure-relationship-type"/>
+                <code value="predecessor"/>
+                <display value="Predecessor"/>
+              </coding>
+            </type>
+            <reference>
+              <reference value="BodyStructure/liver-lesion-l2"/>
+            </reference>
+          </related>
+        </includedStructure>
+        <description value="Liver lesion formed by the merging of lesions L1 and L2."/>
+      </BodyStructure>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://example.org/fhir/BodyStructure/split-liver-lesion-l4"/>
+    <resource>
+      <BodyStructure>
+        <id value="split-liver-lesion-l4"/>
+        <identifier>
+          <system value="http://example.org/fhir/bodystructure-identifiers"/>
+          <value value="L4"/>
+        </identifier>
+        <includedStructure>
+          <structure>
+            <coding>
+              <system value="http://snomed.info/sct"/>
+              <code value="10200004"/>
+              <display value="Liver structure"/>
+            </coding>
+          </structure>
+          <morphology>
+            <coding>
+              <system value="http://snomed.info/sct"/>
+              <code value="4147007"/>
+              <display value="Mass (morphologic abnormality)"/>
+            </coding>
+          </morphology>
+          <related>
+            <type>
+              <coding>
+                <system value="http://hl7.org/fhir/bodystructure-relationship-type"/>
+                <code value="predecessor"/>
+                <display value="Predecessor"/>
+              </coding>
+            </type>
+            <reference>
+              <reference value="BodyStructure/merged-liver-lesion"/>
+            </reference>
+          </related>
+        </includedStructure>
+        <description value="First lesion produced when merged lesion L3 split."/>
+      </BodyStructure>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://example.org/fhir/BodyStructure/split-liver-lesion-l5"/>
+    <resource>
+      <BodyStructure>
+        <id value="split-liver-lesion-l5"/>
+        <identifier>
+          <system value="http://example.org/fhir/bodystructure-identifiers"/>
+          <value value="L5"/>
+        </identifier>
+        <includedStructure>
+          <structure>
+            <coding>
+              <system value="http://snomed.info/sct"/>
+              <code value="10200004"/>
+              <display value="Liver structure"/>
+            </coding>
+          </structure>
+          <morphology>
+            <coding>
+              <system value="http://snomed.info/sct"/>
+              <code value="4147007"/>
+              <display value="Mass (morphologic abnormality)"/>
+            </coding>
+          </morphology>
+          <related>
+            <type>
+              <coding>
+                <system value="http://hl7.org/fhir/bodystructure-relationship-type"/>
+                <code value="predecessor"/>
+                <display value="Predecessor"/>
+              </coding>
+            </type>
+            <reference>
+              <reference value="BodyStructure/merged-liver-lesion"/>
+            </reference>
+          </related>
+        </includedStructure>
+        <description value="Second lesion produced when merged lesion L3 split."/>
+      </BodyStructure>
+    </resource>
+  </entry>
+</Bundle>

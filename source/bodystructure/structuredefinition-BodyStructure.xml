@@ -146,6 +146,29 @@
         <map value="statusCode"/>
       </mapping>
     </element>
+    <element id="BodyStructure.spanningMorphology">
+      <path value="BodyStructure.spanningMorphology"/>
+      <short value="Spanning morphology"/>
+      <definition value="A single morphologic entity that encompasses or involves the multiple anatomical structures in the included structures."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="BodyStructureCode"/>
+        </extension>
+        <strength value="example"/>
+        <description value="SNOMED CT Morphologic Abnormalities"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/bodystructure-code"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+    </element>
     <element id="BodyStructure.includedStructure">
       <path value="BodyStructure.includedStructure"/>
       <short value="Included anatomic location(s)"/>
@@ -466,6 +489,48 @@
         <description value="Codes describing the origin of a body structure."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/bodystructure-origin"/>
       </binding>
+    </element>
+    <element id="BodyStructure.includedStructure.related">
+      <path value="BodyStructure.includedStructure.related"/>
+      <short value="Related body structures"/>
+      <definition value="Another BodyStructure that is related to this included structure."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="BodyStructure.includedStructure.related.type">
+      <path value="BodyStructure.includedStructure.related.type"/>
+      <short value="Type of relationship"/>
+      <definition value="The relationship from this included structure to the referenced BodyStructure."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="BodyStructureRelationshipType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes describing how an included structure relates to another BodyStructure."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/bodystructure-relationship-type"/>
+      </binding>
+    </element>
+    <element id="BodyStructure.includedStructure.related.reference">
+      <path value="BodyStructure.includedStructure.related.reference"/>
+      <short value="Related BodyStructure"/>
+      <definition value="The BodyStructure that has the specified relationship to this included structure."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/BodyStructure"/>
+      </type>
+      <isSummary value="true"/>
     </element>
     <element id="BodyStructure.excludedStructure">
       <path value="BodyStructure.excludedStructure"/>
