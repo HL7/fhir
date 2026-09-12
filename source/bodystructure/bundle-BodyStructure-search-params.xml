@@ -67,14 +67,95 @@
           <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="BodyStructure.includedStructure.morphology"/>
+          <valueString value="BodyStructure.spanningMorphology | BodyStructure.includedStructure.morphology"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/BodyStructure-morphology"/>
-        <description value="The kind of structure"/>
+        <description value="A spanning or structure-specific morphology"/>
         <code value="morphology"/>
         <type value="token"/>
-        <expression value="BodyStructure.includedStructure.morphology"/>
+        <expression value="BodyStructure.spanningMorphology | BodyStructure.includedStructure.morphology"/>
         <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="BodyStructure-spanning-morphology"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="BodyStructure.spanningMorphology"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/BodyStructure-spanning-morphology"/>
+        <description value="A morphology spanning multiple included structures"/>
+        <code value="spanning-morphology"/>
+        <type value="token"/>
+        <expression value="BodyStructure.spanningMorphology"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="BodyStructure-related"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="BodyStructure.includedStructure.related.reference"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/BodyStructure-related"/>
+        <description value="A BodyStructure related to an included structure"/>
+        <code value="related"/>
+        <type value="reference"/>
+        <expression value="BodyStructure.includedStructure.related.reference"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="BodyStructure-relationship"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="BodyStructure.includedStructure.related.type"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/BodyStructure-relationship"/>
+        <description value="The relationship to another BodyStructure"/>
+        <code value="relationship"/>
+        <type value="token"/>
+        <expression value="BodyStructure.includedStructure.related.type"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="BodyStructure-related-relationship"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/BodyStructure-related-relationship"/>
+        <description value="A related BodyStructure and its relationship type"/>
+        <code value="related-relationship"/>
+        <type value="composite"/>
+        <expression value="BodyStructure.includedStructure.related"/>
+        <processingMode value="normal"/>
+        <component>
+          <definition value="related"/>
+          <expression value="reference"/>
+        </component>
+        <component>
+          <definition value="relationship"/>
+          <expression value="type"/>
+        </component>
       </SearchParameter>
     </resource>
   </entry>

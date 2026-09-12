@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="bodystructure-relationship-type"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="informative"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0"/>
+  </extension>
+  <url value="http://hl7.org/fhir/bodystructure-relationship-type"/>
+  <version value="6.0.0"/>
+  <name value="BodyStructureRelationshipType"/>
+  <title value="Body Structure Relationship Type Codes"/>
+  <status value="active"/>
+  <experimental value="true"/>
+  <date value="2026-09-12"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="Codes describing how an included structure relates to another BodyStructure."/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="predecessor"/>
+    <display value="Predecessor"/>
+    <definition value="The referenced BodyStructure is a predecessor from which this included structure originated, such as a lesion that merged into the current lesion."/>
+  </concept>
+  <concept>
+    <code value="successor"/>
+    <display value="Successor"/>
+    <definition value="The referenced BodyStructure is a successor derived from this included structure, such as a lesion created when the current lesion split."/>
+  </concept>
+  <concept>
+    <code value="includes"/>
+    <display value="Includes"/>
+    <definition value="This included structure includes the referenced BodyStructure."/>
+  </concept>
+  <concept>
+    <code value="part-of"/>
+    <display value="Part Of"/>
+    <definition value="This included structure is part of the referenced BodyStructure."/>
+  </concept>
+</CodeSystem>

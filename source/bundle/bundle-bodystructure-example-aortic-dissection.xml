@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This example demonstrates a hierarchy of related BodyStructure resources for an aortic dissection. -->
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="bodystructure-aortic-dissection"/>
+  <type value="collection"/>
+  <entry>
+    <fullUrl value="http://example.org/fhir/BodyStructure/aortic-dissection"/>
+    <resource>
+      <BodyStructure>
+        <id value="aortic-dissection"/>
+        <identifier>
+          <system value="http://example.org/fhir/bodystructure-identifiers"/>
+          <value value="A1"/>
+        </identifier>
+        <includedStructure>
+          <structure>
+            <text value="Aorta"/>
+          </structure>
+          <morphology>
+            <text value="Aortic dissection"/>
+          </morphology>
+        </includedStructure>
+        <description value="Aortic dissection extending from the aortic arch into the thoracic aorta."/>
+      </BodyStructure>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://example.org/fhir/BodyStructure/aortic-arch-true-lumen"/>
+    <resource>
+      <BodyStructure>
+        <id value="aortic-arch-true-lumen"/>
+        <identifier>
+          <system value="http://example.org/fhir/bodystructure-identifiers"/>
+          <value value="A2"/>
+        </identifier>
+        <includedStructure>
+          <structure>
+            <text value="Aortic arch"/>
+          </structure>
+          <morphology>
+            <text value="True lumen"/>
+          </morphology>
+          <related>
+            <type>
+              <coding>
+                <system value="http://hl7.org/fhir/bodystructure-relationship-type"/>
+                <code value="part-of"/>
+                <display value="Part Of"/>
+              </coding>
+            </type>
+            <reference>
+              <reference value="BodyStructure/aortic-dissection"/>
+            </reference>
+          </related>
+        </includedStructure>
+      </BodyStructure>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://example.org/fhir/BodyStructure/aortic-arch-false-lumen"/>
+    <resource>
+      <BodyStructure>
+        <id value="aortic-arch-false-lumen"/>
+        <identifier>
+          <system value="http://example.org/fhir/bodystructure-identifiers"/>
+          <value value="A3"/>
+        </identifier>
+        <includedStructure>
+          <structure>
+            <text value="Aortic arch"/>
+          </structure>
+          <morphology>
+            <text value="False lumen"/>
+          </morphology>
+          <related>
+            <type>
+              <coding>
+                <system value="http://hl7.org/fhir/bodystructure-relationship-type"/>
+                <code value="part-of"/>
+                <display value="Part Of"/>
+              </coding>
+            </type>
+            <reference>
+              <reference value="BodyStructure/aortic-dissection"/>
+            </reference>
+          </related>
+        </includedStructure>
+      </BodyStructure>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://example.org/fhir/BodyStructure/thoracic-aorta-true-lumen"/>
+    <resource>
+      <BodyStructure>
+        <id value="thoracic-aorta-true-lumen"/>
+        <identifier>
+          <system value="http://example.org/fhir/bodystructure-identifiers"/>
+          <value value="A4"/>
+        </identifier>
+        <includedStructure>
+          <structure>
+            <text value="Thoracic aorta"/>
+          </structure>
+          <morphology>
+            <text value="True lumen"/>
+          </morphology>
+          <related>
+            <type>
+              <coding>
+                <system value="http://hl7.org/fhir/bodystructure-relationship-type"/>
+                <code value="part-of"/>
+                <display value="Part Of"/>
+              </coding>
+            </type>
+            <reference>
+              <reference value="BodyStructure/aortic-dissection"/>
+            </reference>
+          </related>
+        </includedStructure>
+      </BodyStructure>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://example.org/fhir/BodyStructure/thoracic-aorta-false-lumen"/>
+    <resource>
+      <BodyStructure>
+        <id value="thoracic-aorta-false-lumen"/>
+        <identifier>
+          <system value="http://example.org/fhir/bodystructure-identifiers"/>
+          <value value="A5"/>
+        </identifier>
+        <includedStructure>
+          <structure>
+            <text value="Thoracic aorta"/>
+          </structure>
+          <morphology>
+            <text value="False lumen"/>
+          </morphology>
+          <related>
+            <type>
+              <coding>
+                <system value="http://hl7.org/fhir/bodystructure-relationship-type"/>
+                <code value="part-of"/>
+                <display value="Part Of"/>
+              </coding>
+            </type>
+            <reference>
+              <reference value="BodyStructure/aortic-dissection"/>
+            </reference>
+          </related>
+        </includedStructure>
+      </BodyStructure>
+    </resource>
+  </entry>
+</Bundle>
