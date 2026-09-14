@@ -242,7 +242,7 @@
     <element id="BiologicallyDerivedProduct.division">
       <path value="BiologicallyDerivedProduct.division"/>
       <short value="A unique identifier for an aliquot of a product"/>
-      <definition value="A unique identifier for an aliquot of a product.  Used to distinguish individual aliquots of a product carrying the same biologicalSource and productCode identifiers."/>
+      <definition value="A unique identifier for an aliquot of a product.  Used to distinguish individual aliquots associated with the same biological source event and product code."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -311,7 +311,7 @@
       <path value="BiologicallyDerivedProduct.collection.sourcePatient"/>
       <short value="The patient who underwent the medical procedure to collect the product"/>
       <definition value="The patient providing the product."/>
-      <comment value="The collection.source may reference an identifiable patient. Implementers shall ensure the appropriate data access controls are established."/>
+      <comment value="The collection.sourcePatient may reference an identifiable patient. Implementers shall ensure the appropriate data access controls are established."/>
       <min value="0"/>
       <max value="1"/>
       <type>
