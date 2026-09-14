@@ -5,6 +5,26 @@
   <entry>
     <resource>
       <SearchParameter>
+        <id value="VisionPrescription-category"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="VisionPrescription.category"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/VisionPrescription-category"/>
+        <status value="active"/>
+        <description value="Classification of the vision prescription"/>
+        <code value="category"/>
+        <type value="token"/>
+        <expression value="VisionPrescription.category"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
         <id value="VisionPrescription-datewritten"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="normative"/>

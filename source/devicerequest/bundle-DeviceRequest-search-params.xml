@@ -5,6 +5,26 @@
   <entry>
     <resource>
       <SearchParameter>
+        <id value="DeviceRequest-category"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DeviceRequest.category"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceRequest-category"/>
+        <status value="active"/>
+        <description value="Classification of the device request"/>
+        <code value="category"/>
+        <type value="token"/>
+        <expression value="DeviceRequest.category"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
         <id value="DeviceRequest-authored-on"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="normative"/>
