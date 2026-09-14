@@ -383,4 +383,69 @@
       </SearchParameter>
     </resource>
   </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Consent-participant-role"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Consent.provision.actor.role"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Consent-participant-role"/>
+        <status value="active"/>
+        <description value="Role of the participant in the consent provision"/>
+        <code value="participant-role"/>
+        <type value="token"/>
+        <expression value="Consent.repeat(provision).actor.role"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Consent-composite-actor-role"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Consent-composite-actor-role"/>
+        <description value="Composite of actor and role"/>
+        <code value="composite-actor-role"/>
+        <type value="composite"/>
+        <expression value="Consent.repeat(provision).actor"/>
+        <processingMode value="normal"/>
+        <component>
+          <definition value="actor"/>
+          <expression value="reference"/>
+        </component>
+        <component>
+          <definition value="role"/>
+          <expression value="role"/>
+        </component>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Consent-regulatory-basis"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Consent.regulatoryBasis"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Consent-regulatory-basis"/>
+        <status value="active"/>
+        <description value="Regulatory basis for the consent statement"/>
+        <code value="regulatory-basis"/>
+        <type value="token"/>
+        <expression value="Consent.regulatoryBasis"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+
 </Bundle>
