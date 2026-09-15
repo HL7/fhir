@@ -1,9 +1,21 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 <a name="statemachine"></a>
 <h2>ResearchStudy State Machine</h2>
-  <p>
-    The following diagram reflects the "typical" state machine for ResearchStudy. 
-  </p>
-<img src="researchstudy-state-machine.png" alt="Diagram showing typical state machine for the ResearchStudy resource"/> 
-  </div>
+<p>
+  The following diagram reflects the "typical" state machine for ResearchStudy. 
+</p>
+<img src="researchstudy-state-machine.png" alt="Diagram showing typical state machine for the ResearchStudy resource"/>
+<h2>comparisonGroup usage</h2>
+<p> 
+The comparisonGroup element is used for a group of subjects (participants) in a study that is compared to another group. This group may be an arm of the study, such as controlled trials that define groups for assignment into specific paths or protocols involving different exposures. This group may also be defined for other types of comparisons, such as descriptive or predictive studies characterizing populations by their characteristics.  Because of this expanded scope for the uses of comparisonGroup, the element is modeled differently than it was in R5.
+
+Because recruitment goals may be defined per comparison group (and not just for the overall study enrollment group), the comparisonGroup element contains optional targetNumber and actualNumber elements, similar to the recruitment element.
+
+comparisonGroup.name may be used for a label for each comparison group, and comparisonGroup.description may be used for any text-based summary of the comparison group details, intended for human interpretation.
+
+The eligibility element may be used to Reference a definitional or conceptual Group Resource defining the inclusion and exclusion criteria to be a member of the comparison group. This differs from the R5 version which referenced an EvidenceVariable for 'intended exposures' and the change is necessary because the FHIR structures for complex definitions (as a set of characteristics) in R6 is limited to the Group Resource.
+
+The observedGroup element may be used to Reference an enumerated Group Resource to describe the actual group of study participants in the comparison group.
+</p>
+</div>
 </div>
