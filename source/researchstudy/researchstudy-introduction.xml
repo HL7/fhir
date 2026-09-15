@@ -2,6 +2,10 @@
 
 <div>
 <blockquote class="ballot-note" id="bn1">
+<p><b>Note to Balloters:</b> The key changes made since FHIR 6.0.0-ballot5 include:</p>
+<p>Adding "8.18.5 comparisonGroup usage"</p>
+<p>Changed the text summary parameters for ResearchStudy.comparisonGroup</p>
+<p>Changed the comment on ResearchStudy.objective.outcomeMeasure.intervention and ResearchStudy.objective.outcomeMeasure.comparator </p>
 <p><b>Note to Balloters:</b> The key changes made since FHIR 6.0.0-ballot4 include:</p>
 <p>Changed the ResearchStudy.studyDesign ValueSet binding to be HL7 Terminology.</p>
 <p>Changed the ResearchStudy.associatedParty.role ValueSet binding to be HL7 Terminology and &quot;preferred&quot; binding.</p>
@@ -21,6 +25,9 @@
 		<li><a href="https://jira.hl7.org/browse/FHIR-53693">FHIR-53693</a></li>
 		<li><a href="https://jira.hl7.org/browse/FHIR-53692">FHIR-53692</a></li>
 		<li><a href="https://jira.hl7.org/browse/FHIR-57268">FHIR-57268</a></li>
+		<li><a href="https://jira.hl7.org/browse/FHIR-58562">FHIR-58562</a></li>
+		<li><a href="https://jira.hl7.org/browse/FHIR-58645">FHIR-58645</a></li>
+		<li><a href="https://jira.hl7.org/browse/FHIR-58707">FHIR-58707</a></li>
 	</ul>
 </blockquote>
 <a name="scope"></a>
