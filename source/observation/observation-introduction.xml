@@ -29,6 +29,12 @@
 			<li>Narrative text providing guidance on the TermInfo pattern has been removed as this content is out of date <a href="https://jira.hl7.org/browse/FHIR-56188">FHIR-56188</a></li>
         </ul>
     </blockquote>
+    <blockquote class="stu-note" style="background-color: lightblue">
+      <p><b>Changes since 6.0.0-ballot5:</b></p>
+      <ul>
+        <li><a href="https://jira.hl7.org/browse/FHIR-24662">FHIR-24662</a> - Added paired-Observation examples showing both a period-based EKG annotation and coded per-sample annotations using <code>SampledData.codeMap</code></li>
+      </ul>
+    </blockquote>
     <h2>Scope and Usage</h2>
     <p>This resource is an <a href="workflow.html#event">
         <em>event resource</em>

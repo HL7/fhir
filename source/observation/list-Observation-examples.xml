@@ -342,6 +342,30 @@
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="EKG annotation example using a paired Observation with valuePeriod"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="observation-example-ekg-abnormal-period"/>
+    </extension>
+    <item>
+      <reference value="Observation/ekg-abnormal-period"/>
+      <display value="Abnormal EKG period"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="EKG annotation example using coded SampledData and a ConceptMap"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="observation-example-ekg-coded-annotations"/>
+    </extension>
+    <item>
+      <reference value="Observation/ekg-coded-annotations"/>
+      <display value="Coded EKG annotations"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="Clinical assessment tool example - GCS with individual score as components"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">

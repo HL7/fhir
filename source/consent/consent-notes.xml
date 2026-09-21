@@ -42,19 +42,23 @@ There are context setting parameters:
     <li>Whom - The <b>actor</b> are grantees by the consent. </li>
   </ol>
   <p>
-A Privacy Consent may transition through many states including: that no consent has been sought, consent has been proposed, 
-consent has been rejected, and consent approved.
-  </p>
-  <p>There are set of patterns.</p>
-  <ol>
-    <li>No consent: All settings need a policy for when no consent has been captured. Often this allows treatment only.;</li>
-    <li>Opt-out: No sharing allowed for the specified domain, location, actions, and purposes;</li>
-    <li>Opt-out with exceptions: No sharing allowed, with some exceptions where it is allowed. Example: Withhold Authorization for Treatment except for Emergency Treatment;</li>
-    <li>Opt-in: Sharing for some purpose of use is authorized Sharing allowed for Treatment, Payment, and normal Operations; and</li>
-    <li>Opt-in with restrictions: Sharing allowed, but the patient may make exceptions.</li>
-  </ol>
-  <p>For each of these patterns (positive or negative pattern), there can be exceptions or constraints that 
-    may be explicitly recorded in the <code>provision</code> element. 
+A Consent resource typically starts in the <code>draft</code> state while it is being prepared and reviewed
+and is not yet intended to be acted upon. 
+Once the consent is executed and confirmed (through completion of the consent ceremony which depending on the 
+workflow and consent types may involve signatures, verbal agreement, or implicit approval), it transitions 
+to <code>active</code> state and becomes enforceable and effective in governing actions. 
+If the consent ceremony is never completed, the draft consent may be considered abandoned and (based on policy)
+ its status may change to <code>not-done</code>. 
+If an <code>active</code> consent is later withdrawn or revoked by the patient (or an authorized representative) 
+its status is updated to <code>inactive</code>.
+The status of a consent created in error (e.g., wrong patient) is set to <code>entered-in-error</code>. 
+
+Consent expiry is handled implicitly via the <code>period</code> element rather than a dedicated status code; 
+an active consent is considered expired once it is outside its valid timeframe and it ceases to apply.
+Changes to consent status are commonly managed either by leveraging FHIR versioning or by creating
+ a successor Consent resource while marking the predecessor as <code>inactive</code>. 
+ A <code>Provenance</code> resource may be used to record an accounting of the status 
+ transitions and the reasons for the change.
   </p>
 
 <a name="provisions"></a>

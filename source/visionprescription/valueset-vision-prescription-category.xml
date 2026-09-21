@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="vision-prescription-category"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="informative"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/vision-prescription-category"/>
+  <version value="6.0.0"/>
+  <name value="VisionPrescriptionCategory"/>
+  <title value="Vision Prescription Category"/>
+  <status value="active"/>
+  <experimental value="true"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <description value="Example categories for classifying a vision prescription."/>
+  <immutable value="true"/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/vision-prescription-category"/>
+    </include>
+  </compose>
+</ValueSet>
