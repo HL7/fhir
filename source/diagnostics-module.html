@@ -37,6 +37,13 @@ in order to support consistent definitions for schema and UML derived code.
         </ul>
     </blockquote>
 
+    <blockquote class="stu-note" style="background-color: lightblue">
+        <p><b>Changes since 6.0.0-ballot5:</b></p>
+        <ul>
+            <li><a href="https://jira.hl7.org/browse/FHIR-12913">FHIR-12913</a> - Added patient-characteristics planning guidance and a link to the balloted AIPC logical model in the Developmental Roadmap.</li>
+        </ul>
+    </blockquote>
+
     <a name="root"></a>
     <h2>Diagnostics Module</h2>
 
@@ -430,6 +437,7 @@ in order to support consistent definitions for schema and UML derived code.
         <li>The <em>MolecularDefinition</em> resource is replacing MolecularSequence. It includes definitional content for a molecular entity, such as a nucleotide or protein sequence. This resource is an <a href="resource.html#additional">Additional Resource</a>.</li>
         <li>The <em>GenomicStudy</em> resource was introduced in R5. It represents a set of analyses performed to analyze and generate genomic data and is at FMM=1. Further use of this resource in production tooling is needed for it to reach a more stable FMM level.</li>
         <li>The <em>BodyStructure</em> resource is relatively immature at FMM=1. Changes have been made to support greater precision of body location identification based on feedback that has been received, and we expect to receive additional implementation feedback which will help increase the resource maturity level.</li>
+        <li>Patient characteristics have been identified and included in <a href="https://jira.hl7.org/browse/PSS-2205">PSS-2205</a> and are part of the Anatomical Inventory and Patient Characteristics (AIPC) project. The AIPC logical model was balloted in the May 2025 cycle. Once published, a FHIR implementation guide will be initiated. The balloted version is available as the <a href="https://www.hl7.org/documentcenter/public/ballots/2025MAY/downloads/HL7_LM_AIPC_E1_I1_2025MAY.pdf">AIPC Logical Model</a>.</li>
     </ul>
 
     <a name="acknowledgements"></a>
