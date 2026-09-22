@@ -26,6 +26,12 @@
 	<li>Guidance has been added to clarify intent behind DiagnosticReport and Observation organizer/grouping <a href="https://jira.hl7.org/browse/FHIR-54887">FHIR-54887</a></li>
   </ul>
 </blockquote>
+<blockquote class="stu-note" style="background-color: lightblue">
+  <p><b>Changes since 6.0.0-ballot5:</b></p>
+  <ul>
+    <li><a href="https://jira.hl7.org/browse/FHIR-54542">FHIR-54542</a> - Removed outdated limitations on cumulative result presentation and detailed structured sequencing reports</li>
+  </ul>
+</blockquote>
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
 <p>
@@ -46,10 +52,6 @@ The DiagnosticReport resource is suitable for the following kinds of diagnostic 
  <li>Other diagnostics such as Cardiology, Gastroenterology, etc.</li>
  <li>Product quality tests such as pH, Assay, Microbial limits, etc. on product and substance</li>
 </ul>
-<p>
-The DiagnosticReport resource is not intended to support cumulative result presentation (tabular presentation of past and present results in the resource).
-The DiagnosticReport resource does not yet provide full support for detailed structured reports of sequencing; this is planned for a future release.
-</p>
 </div>
 
 <div>
