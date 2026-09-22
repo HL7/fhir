@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Specimen xmlns="http://hl7.org/fhir">
     <id value="liver-biopsy"/>
+    <contained>
+        <ServiceRequest>
+            <id value="liver-biopsy-request"/>
+            <status value="active"/>
+            <intent value="order"/>
+            <code>
+                <concept>
+                    <coding>
+                        <system value="http://loinc.org"/>
+                        <code value="11529-5"/>
+                        <display value="Surgical pathology study"/>
+                    </coding>
+                    <text value="Surgical pathology study of liver tissue"/>
+                </concept>
+            </code>
+            <subject>
+                <reference value="Patient/example"/>
+            </subject>
+        </ServiceRequest>
+    </contained>
     <identifier>
         <system value="http://lab.acme.org/specimens/2024"/>
         <value value="LB-2024-001"/>
@@ -20,8 +40,8 @@
     <type>
         <coding>
             <system value="http://snomed.info/sct"/>
-            <code value="119376003"/>
-            <display value="Tissue specimen"/>
+            <code value="128168004"/>
+            <display value="Tissue specimen from liver"/>
         </coding>
     </type>
     <subject>
@@ -30,7 +50,8 @@
     </subject>
     <receivedTime value="2024-03-15T10:30:00Z"/>
     <request>
-        <reference value="ServiceRequest/liver-biopsy-request"/>
+        <reference value="#liver-biopsy-request"/>
+        <display value="Surgical pathology study of liver tissue"/>
     </request>
     <collection>
         <collector>
@@ -46,8 +67,8 @@
         <method>
             <coding>
                 <system value="http://snomed.info/sct"/>
-                <code value="129314006"/>
-                <display value="Biopsy - action"/>
+                <code value="62438007"/>
+                <display value="Percutaneous needle biopsy of liver"/>
             </coding>
         </method>
         <bodyStructure>
@@ -96,4 +117,3 @@
         <text value="Core biopsy specimen obtained for evaluation of hepatic steatosis and fibrosis. Adequate tissue for histopathological assessment."/>
     </note>
 </Specimen>
-
