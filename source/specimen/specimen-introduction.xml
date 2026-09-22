@@ -25,6 +25,7 @@
 		<p><b>Changes since 6.0.0-ballot5:</b></p>
 		<ul>
 			<li><a href="https://jira.hl7.org/browse/FHIR-58416">FHIR-58416</a> - Corrected the <code>Specimen.collection.fastingStatus[x]</code> guidance for representing fasting status with an Observation component</li>
+			<li><a href="https://jira.hl7.org/browse/FHIR-58252">FHIR-58252</a> - Added the <code>focus</code> reference search parameter for finding specimens by the entity from which they were collected.</li>
 		</ul>
 	</blockquote>
 	<a name="scope"></a>
