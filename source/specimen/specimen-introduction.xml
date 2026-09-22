@@ -28,6 +28,7 @@
 			<li><a href="https://jira.hl7.org/browse/FHIR-58512">FHIR-58512</a> - Clarified that <code>Specimen.subject</code> identifies the subject for whom or what the specimen was obtained</li>
 			<li><a href="https://jira.hl7.org/browse/FHIR-58904">FHIR-58904</a> - Removed the mutual-exclusion constraint between <code>Specimen.collection.collector</code> and <code>Specimen.collection.procedure</code> and added consistency guidance when both are present</li>
 			<li><a href="https://jira.hl7.org/browse/FHIR-58465">FHIR-58465</a> - Clarified that <code>Specimen.collection.collector</code> and <code>Specimen.collection.procedure</code> may both be recorded when their performer information is consistent</li>
+			<li><a href="https://jira.hl7.org/browse/FHIR-59011">FHIR-59011</a> - Updated the liver biopsy example with a contained Procedure referenced from <code>Specimen.collection.procedure</code> and a biopsy collection method</li>
 		</ul>
 	</blockquote>
 	<a name="scope"></a>
