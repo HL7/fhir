@@ -145,7 +145,7 @@
     </extension>
     <item>
       <reference value="Observation/compound-numeric-blood-pressure"/>
-      <display value="Compound Numeric Blood Pressure"/>
+      <display value="Compound Numeric Blood Pressure Measurement with Multiple Codings"/>
     </item>
   </entry>
   <entry>
