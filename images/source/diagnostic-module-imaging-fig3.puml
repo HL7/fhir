@@ -1,20 +1,22 @@
 @startuml DiagnosticModuleAbstracted
 !pragma layout smetana
+hide empty fields
+hide empty methods
 top to bottom direction
 
-class DerivedImagingMeasurement ##Green {}
-class ImagingMeasurementGroup ##Green {}
-class ImagingQualitativeEvaluation ##Green {}
-class ImagingMeasurement ##Green{}
+protocol DerivedImagingMeasurement ##Green {}
+protocol ImagingMeasurementGroup ##Green {}
+protocol ImagingQualitativeEvaluation ##Green {}
+protocol ImagingMeasurement ##Green{}
 abstract class ImagingObservation ##Green {}
-class Observation ##Green{}
+record Observation ##Green{}
 
 DerivedImagingMeasurement --> ImagingMeasurementGroup : derivedFrom
 ImagingMeasurementGroup --> ImagingQualitativeEvaluation : hasMember
 ImagingMeasurementGroup --> ImagingMeasurement : hasMember
 
 
-ImagingObservation --> ObservationImaginigSelection : derivedFrom
+ImagingObservation --> ObservationImagingSelection : derivedFrom
 
 ImagingObservation --|> ImagingQualitativeEvaluation
 ImagingObservation --|> ImagingMeasurement
@@ -23,15 +25,21 @@ ImagingObservation --|> ImagingMeasurementGroup
 Observation --|> ImagingObservation
 Observation --|> DerivedImagingMeasurement
 
-abstract class ObservationImaginigSelection ##BlueViolet {}
-class ImagingSelection ##BlueViolet{}
+abstract class ObservationImagingSelection ##BlueViolet {}
+record ImagingSelection ##BlueViolet{}
 
-ImagingSelection --|> ObservationImaginigSelection
+ImagingSelection --|> ObservationImagingSelection
 
 
-class FindingSite ##Orange{}
-class BodyStructure ##Orange{}
-ObservationImaginigSelection --> FindingSite
+protocol FindingSite ##Orange{}
+record BodyStructure ##Orange{}
+ObservationImagingSelection --> FindingSite
 BodyStructure --|> FindingSite
+
+legend right
+R = FHIR Resource
+P = Resource Profile
+A = Abstract Profile
+endlegend
 
 @enduml
