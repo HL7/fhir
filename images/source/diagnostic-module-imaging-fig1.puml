@@ -1,5 +1,6 @@
 @startuml dicom_information_entity_to_fhir_resource_mapping
 left to right direction
+hide empty fields
 package "DICOM Information Entity (IE) List<sup>1</sup>" {
     object "Patient" as patientIE
     object "Visit" as visitIE
