@@ -188,6 +188,20 @@
             
             
             </tr>
+            
+            <tr>
+              
+              <td>
+                
+                <a href="codesystem-restful-interaction.html#restful-interaction-other">other</a>
+              
+              </td>
+              
+              <td>other</td>
+              
+              <td>An interaction type that is not one of the standard interaction types defined in this version of FHIR.</td>
+            
+            </tr>
           
           
           
@@ -261,6 +275,9 @@
       </concept>
       <concept>
         <code value="history-system"/>
+      </concept>
+      <concept>
+        <code value="other"/>
       </concept>
     </include>
   </compose>
