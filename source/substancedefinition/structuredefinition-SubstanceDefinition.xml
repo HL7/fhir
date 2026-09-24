@@ -23,6 +23,9 @@
   <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
     <valueCode value=".status=entered-in-error"/>
   </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/template">
+    <valueString value="CanonicalResource"/>
+  </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/SubstanceDefinition"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
@@ -66,7 +69,7 @@
   <kind value="resource"/>
   <abstract value="false"/>
   <type value="SubstanceDefinition"/>
-  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DomainResource"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
   <derivation value="specialization"/>
   <differential>
     <element id="SubstanceDefinition">
@@ -85,6 +88,34 @@
       <mapping>
         <identity value="w5"/>
         <map value="administrative.medication"/>
+      </mapping>
+    </element>
+    <element id="SubstanceDefinition.url">
+      <path value="SubstanceDefinition.url"/>
+      <short value="Canonical identifier for this substance definition, represented as an absolute URI (globally unique)"/>
+      <definition value="An absolute URI that is used to identify this substance definition when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this substance definition is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the substance definition is stored on different servers."/>
+      <comment value="Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.&#xA;&#xA;The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions).&#xA;&#xA;In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found."/>
+      <requirements value="Allows the substance definition to be referenced by a single globally unique identifier."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <constraint>
+        <key value="cnl-1"/>
+        <severity value="warning"/>
+        <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
+        <expression value="exists() implies matches('^[^|# ]+$')"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/SubstanceDefinition"/>
+      </constraint>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.identifier"/>
+      </mapping>
+      <mapping>
+        <identity value="idmp-substance"/>
+        <map value="n/a"/>
       </mapping>
     </element>
     <element id="SubstanceDefinition.identifier">
@@ -137,6 +168,49 @@
         <description value="The lifecycle status of an artifact."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
       </binding>
+      <mapping>
+        <identity value="idmp-substance"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="SubstanceDefinition.experimental">
+      <path value="SubstanceDefinition.experimental"/>
+      <short value="For testing only - never for real usage"/>
+      <definition value="A Boolean value to indicate that this substance definition is authored for testing purposes (or education/evaluation/marketing) and no version of this resource will ever be intended for genuine usage."/>
+      <comment value="Allows filtering of substance definitions that are appropriate for use versus not. Experimental resources might include example instances in implementation guides, instances created solely for testing purposes, etc. If experimental is 'true' for any version of a resource, it should be true for all versions of the resource.  (If experimental changes, then it is being misused or a resource that was never intended for real-world use has unexpectedly changed its purpose.).&#xA;&#xA;Experimental resources are not expected to be stable and may well have breaking changes without a corresponding change to the 'version' element."/>
+      <requirements value="Enables experimental content to be developed following the same lifecycle that would be used for a production-level substance definition."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <meaningWhenMissing value="If absent, this resource is treated as though it is not experimental."/>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.class"/>
+      </mapping>
+      <mapping>
+        <identity value="idmp-substance"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="SubstanceDefinition.date">
+      <path value="SubstanceDefinition.date"/>
+      <short value="Date last changed"/>
+      <definition value="The date (and optionally time) when the substance definition was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the substance definition changes."/>
+      <comment value="The date is often not tracked until the resource is published, but may be present on draft content. Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the substance definition. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource.&#xA;&#xA;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
+      <alias value="Revision Date"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.recorded"/>
+      </mapping>
       <mapping>
         <identity value="idmp-substance"/>
         <map value="n/a"/>
@@ -469,7 +543,7 @@
     </element>
     <element id="SubstanceDefinition.characterization">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="770,390"/>
+        <valueCode value="780,380"/>
       </extension>
       <path value="SubstanceDefinition.characterization"/>
       <short value="General specifications for this substance"/>
@@ -1051,7 +1125,7 @@
     </element>
     <element id="SubstanceDefinition.name">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="365,323"/>
+        <valueCode value="367,323"/>
       </extension>
       <path value="SubstanceDefinition.name"/>
       <short value="Names applicable to this substance"/>
