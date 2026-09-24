@@ -1,6 +1,14 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
+<blockquote class="stu-note" style="background-color: lightblue">
+	<p><b>Changes since 6.0.0-ballot5:</b></p>
+	<ul>
+		<li><a href="https://jira.hl7.org/browse/FHIR-48405">FHIR-48405</a> - The examples no longer use contained Substance resources 
+			to describe medication ingredients.</li>
+	</ul>
+</blockquote>
+
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
 <p>
