@@ -46,6 +46,14 @@
     <display value="CatalogEntry"/>
   </concept>
   <concept>
+    <code value="Citation"/>
+    <display value="Citation"/>
+  </concept>
+  <concept>
+    <code value="ClinicalImpression"/>
+    <display value="ClinicalImpression"/>
+  </concept>
+  <concept>
     <code value="Conformance"/>
     <display value="Conformance"/>
   </concept>
@@ -200,5 +208,25 @@
   <concept>
     <code value="SubstanceSpecification"/>
     <display value="SubstanceSpecification"/>
+  </concept>
+  <concept>
+    <code value="SubstanceNucleicAcid"/>
+    <display value="SubstanceNucleicAcid"/>
+  </concept>
+  <concept>
+    <code value="SubstancePolymer"/>
+    <display value="SubstancePolymer"/>
+  </concept>
+  <concept>
+    <code value="SubstanceProtein"/>
+    <display value="SubstanceProtein"/>
+  </concept>
+  <concept>
+    <code value="SubstanceReferenceInformation"/>
+    <display value="SubstanceReferenceInformation"/>
+  </concept>
+  <concept>
+    <code value="SubstanceSourceMaterial"/>
+    <display value="SubstanceSourceMaterial"/>
   </concept>
 </CodeSystem>

@@ -646,7 +646,7 @@
     </element>
     <element id="FamilyMemberHistory.condition.outcome">
       <path value="FamilyMemberHistory.condition.outcome"/>
-      <short value="deceased | permanent disability | etc"/>
+      <short value="E.g. deceased, permanent disability"/>
       <definition value="Indicates what happened following the condition.  If the condition resulted in death, deceased date is captured on the relation."/>
       <min value="0"/>
       <max value="1"/>

@@ -10,7 +10,7 @@
         <shortUnmatched reason="Unknown">
             <!--Old resource: preliminary | final | entered-in-error | unknown | mitigated-->
             <!--Old reason: Specialization-->
-            <_pattern value="preparation | in-progress | not-done | suspended | aborted | completed | entered-in-error | unknown"/>
+            <_pattern value="preparation | in-progress | not-done | on-hold | stopped | completed | entered-in-error | unknown"/>
             <resource value="preliminary | final | entered-in-error | unknown | mitigated | processing-error"/>
         </shortUnmatched>
     </divergentElement>

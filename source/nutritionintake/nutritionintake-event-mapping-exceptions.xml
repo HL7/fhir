@@ -47,10 +47,6 @@
         </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.status" resourcePath="NutritionIntake.status">
-        <shortUnmatched reason="Unknown">
-            <_pattern value="preparation | in-progress | not-done | suspended | aborted | completed | entered-in-error | unknown"/>
-            <resource value="preparation | in-progress | not-done | on-hold | stopped | completed | entered-in-error | unknown"/>
-        </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="The current state of the nutrition intake."/>
             <resource value="A code representing the patient or other source's judgment about the state of the intake that this assertion is about.  Generally, this will be active or completed."/>

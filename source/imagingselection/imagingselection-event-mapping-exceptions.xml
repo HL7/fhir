@@ -22,7 +22,7 @@
     </divergentElement>
     <divergentElement patternPath="Event.status" resourcePath="ImagingSelection.status">
         <shortUnmatched reason="Imaging selection status codes are specialized">
-            <_pattern value="preparation | in-progress | not-done | suspended | aborted | completed | entered-in-error | unknown"/>
+            <_pattern value="preparation | in-progress | not-done | on-hold | stopped | completed | entered-in-error | unknown"/>
             <resource value="available | entered-in-error | inactive | unknown"/>
         </shortUnmatched>
         <commentsUnmatched reason="State diagram does not apply to imaging selection">

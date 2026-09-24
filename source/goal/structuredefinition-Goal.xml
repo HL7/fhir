@@ -216,7 +216,7 @@
     </element>
     <element id="Goal.category">
       <path value="Goal.category"/>
-      <short value="E.g. Treatment, dietary, behavioral, etc"/>
+      <short value="E.g. dietary, behavioral, nursing, etc"/>
       <definition value="Indicates a category the goal falls within."/>
       <requirements value="Allows goals to be filtered and sorted."/>
       <min value="0"/>
