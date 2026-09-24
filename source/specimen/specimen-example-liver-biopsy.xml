@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Specimen xmlns="http://hl7.org/fhir">
     <id value="liver-biopsy"/>
+    <contained>
+        <Procedure>
+            <id value="liver-biopsy-procedure"/>
+            <status value="completed"/>
+            <code>
+                <coding>
+                    <system value="http://snomed.info/sct"/>
+                    <code value="287489008"/>
+                    <display value="Percutaneous needle biopsy of liver"/>
+                </coding>
+            </code>
+            <subject>
+                <reference value="Patient/example"/>
+            </subject>
+            <occurrenceDateTime value="2024-03-15T09:45:00Z"/>
+            <performer>
+                <actor>
+                    <reference value="Practitioner/gastroenterologist"/>
+                </actor>
+            </performer>
+        </Procedure>
+    </contained>
     <identifier>
         <system value="http://lab.acme.org/specimens/2024"/>
         <value value="LB-2024-001"/>
@@ -50,6 +72,9 @@
                 <display value="Biopsy - action"/>
             </coding>
         </method>
+        <procedure>
+            <reference value="#liver-biopsy-procedure"/>
+        </procedure>
         <bodyStructure>
                 <concept>
                     <coding>
@@ -96,4 +121,3 @@
         <text value="Core biopsy specimen obtained for evaluation of hepatic steatosis and fibrosis. Adequate tissue for histopathological assessment."/>
     </note>
 </Specimen>
-
