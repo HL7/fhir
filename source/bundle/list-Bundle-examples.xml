@@ -138,6 +138,31 @@
   </entry>
 
 
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="This bundle demonstrates predecessor relationships between BodyStructure resources when liver lesions merge and subsequently split."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="bundle-bodystructure-example-lesion-evolution"/>
+    </extension>
+    <item>
+      <reference value="Bundle/bodystructure-lesion-evolution"/>
+      <display value="Merging and splitting liver lesions"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="This bundle demonstrates part-of relationships between BodyStructure resources representing true and false lumens, affected aortic regions, and an aortic dissection."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="bundle-bodystructure-example-aortic-dissection"/>
+    </extension>
+    <item>
+      <reference value="Bundle/bodystructure-aortic-dissection"/>
+      <display value="Hierarchical aortic dissection structures"/>
+    </item>
+  </entry>
+
   <!--
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">

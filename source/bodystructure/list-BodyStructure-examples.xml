@@ -30,6 +30,18 @@
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="This example demonstrates a cardiac myxoma represented as one morphologic entity spanning the left atrium and left ventricle."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="bodystructure-example-cardiac-myxoma"/>
+    </extension>
+    <item>
+      <reference value="BodyStructure/cardiac-myxoma"/>
+      <display value="Cardiac myxoma spanning two included structures"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="This example demonstrates using the bodystructure resource to identify skin patches or other portions of a person or animal that are a focus of a clinical trial and that are subject to repeated observations and/or procedures over time. It also illustrates recording multiple morphology codes (basal cell carcinoma and nevus sebaceus) at a single included structure"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
@@ -54,7 +66,7 @@
     </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="This example demonstrates using BodyStructure to describe a breast mass."/>
+      <valueString value="This example demonstrates a breast mass located using laterality, clock-face position, and distance from a body landmark."/>
     </extension>
       <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
         <valueString value="bodystructure-example-breast-mass"/>

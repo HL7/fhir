@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="bodystructure-relationship-type"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="informative"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/bodystructure-relationship-type"/>
+  <version value="6.0.0"/>
+  <name value="BodyStructureRelationshipType"/>
+  <title value="Body Structure Relationship Type Codes"/>
+  <status value="active"/>
+  <experimental value="true"/>
+  <date value="2026-09-12"/>
+  <publisher value="HL7 International"/>
+  <description value="Example value set for codes describing how an included structure relates to another BodyStructure."/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/bodystructure-relationship-type"/>
+    </include>
+  </compose>
+</ValueSet>
