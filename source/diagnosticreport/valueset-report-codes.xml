@@ -38,23 +38,36 @@
   <description value="This value set includes LOINC codes that relate to Diagnostic Observations."/>
   <copyright value="This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use."/>
   <compose>
+    <!-- Order + Laboratory -->
     <include>
       <system value="http://loinc.org"/>
-      <filter>
-        <property value="STATUS"/>
-        <op value="="/>
-        <value value="ACTIVE"/>
-      </filter>
-      <filter>
-        <property value="ORDER_OBS"/>
-        <op value="in"/>
-        <value value="Order,Both"/>
-      </filter>
-      <filter>
-        <property value="CLASSTYPE"/>
-        <op value="in"/>
-        <value value="1,2"/>
-      </filter>
+      <filter><property value="STATUS"/><op value="="/><value value="ACTIVE"/></filter>
+      <filter><property value="ORDER_OBS"/><op value="="/><value value="Order"/></filter>
+      <filter><property value="CLASSTYPE"/><op value="="/><value value="1"/></filter>
+    </include>
+
+    <!-- Order + Clinical -->
+    <include>
+      <system value="http://loinc.org"/>
+      <filter><property value="STATUS"/><op value="="/><value value="ACTIVE"/></filter>
+      <filter><property value="ORDER_OBS"/><op value="="/><value value="Order"/></filter>
+      <filter><property value="CLASSTYPE"/><op value="="/><value value="2"/></filter>
+    </include>
+
+    <!-- Both + Laboratory -->
+    <include>
+      <system value="http://loinc.org"/>
+      <filter><property value="STATUS"/><op value="="/><value value="ACTIVE"/></filter>
+      <filter><property value="ORDER_OBS"/><op value="="/><value value="Both"/></filter>
+      <filter><property value="CLASSTYPE"/><op value="="/><value value="1"/></filter>
+    </include>
+
+    <!-- Both + Clinical -->
+    <include>
+      <system value="http://loinc.org"/>
+      <filter><property value="STATUS"/><op value="="/><value value="ACTIVE"/></filter>
+      <filter><property value="ORDER_OBS"/><op value="="/><value value="Both"/></filter>
+      <filter><property value="CLASSTYPE"/><op value="="/><value value="2"/></filter>
     </include>
   </compose>
 </ValueSet>
