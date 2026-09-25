@@ -647,7 +647,7 @@
 		</element>
 		<element id="EvidenceVariable.handling">
 			<path value="EvidenceVariable.handling"/>
-			<short value="boolean | continuous | dichotomous | ordinal | polychotomous | time-to-event | not-specified"/>
+			<short value="Method of handling in statistical analysis (e.g. boolean, continuous, dichotomous, ordinal, polychotomous or time-to-event variable)"/>
 			<definition value="The method of handling in statistical analysis."/>
 			<comment value="See the Evidence Based Medicine on FHIR Implementation Guide (https://hl7.org/fhir/uv/ebm) for Extensible and Preferred value sets for evidence-related terminologies."/>
 			<min value="0"/>

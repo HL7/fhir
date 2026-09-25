@@ -297,7 +297,7 @@
     </element>
     <element id="Encounter.type">
       <path value="Encounter.type"/>
-      <short value="Specific type of encounter (e.g. e-mail consultation, surgical day-care, ...)"/>
+      <short value="Specific type of encounter (e.g. annual diabetes screening, outpatient injection, ...)"/>
       <definition value="Specific type of encounter (e.g. e-mail consultation, surgical day-care, skilled nursing, rehabilitation)."/>
       <comment value="Since there are many ways to further classify encounters, this element is 0..*."/>
       <min value="0"/>
@@ -902,7 +902,7 @@
     </element>
     <element id="Encounter.diagnosis.use">
       <path value="Encounter.diagnosis.use"/>
-      <short value="Role that this diagnosis has within the encounter (e.g. admission, billing, discharge …)"/>
+      <short value="Role that this diagnosis has within the encounter (e.g. working, final …)"/>
       <definition value="Role that this diagnosis has within the encounter (e.g. admission, billing, discharge …)."/>
       <min value="0"/>
       <max value="*"/>
@@ -975,7 +975,7 @@
     </element>
     <element id="Encounter.specialArrangement">
       <path value="Encounter.specialArrangement"/>
-      <short value="Wheelchair, translator, stretcher, etc"/>
+      <short value="Wheelchair, interpreter, attendant, etc"/>
       <definition value="Any special requests that have been made for this encounter, such as the provision of specific equipment or other things."/>
       <min value="0"/>
       <max value="*"/>

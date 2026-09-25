@@ -1051,7 +1051,7 @@
     </element>
     <element id="DeviceDefinition.deviceVersion.type">
       <path value="DeviceDefinition.deviceVersion.type"/>
-      <short value="The type of the device version, e.g. manufacturer, approved, internal"/>
+      <short value="The type of the device version, e.g. hardware, software, firmware revision"/>
       <definition value="The type of the device version, e.g. manufacturer, approved, internal."/>
       <alias value="Σ"/>
       <min value="0"/>
