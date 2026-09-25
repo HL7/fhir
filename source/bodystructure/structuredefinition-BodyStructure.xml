@@ -150,6 +150,7 @@
       <path value="BodyStructure.includedStructure"/>
       <short value="Included anatomic location(s)"/>
       <definition value="The anatomical location(s) or region(s) of the specimen, lesion, or body structure."/>
+      <comment value="An included structure should not describe the same fully specified anatomical area as an excluded structure in the same BodyStructure. Consider all details, including laterality and qualifiers, when determining whether the areas are the same."/>
       <min value="1"/>
       <max value="*"/>
       <type>
@@ -471,6 +472,7 @@
       <path value="BodyStructure.excludedStructure"/>
       <short value="Excluded anatomic locations(s)"/>
       <definition value="The anatomical location(s) or region(s) not occupied or represented by the specimen, lesion, or body structure."/>
+      <comment value="An excluded structure should identify an area omitted from an included structure, not repeat the same fully specified area. The same structure code may appear in both when other details, such as laterality or qualifiers, distinguish the included and excluded areas."/>
       <min value="0"/>
       <max value="*"/>
       <contentReference value="#BodyStructure.includedStructure"/>
