@@ -210,7 +210,7 @@
 		    <ul>
 					<li>The Observation.code is preferably a <a href="https://loinc.org/">LOINC</a> concept code.
 		        <ul>
-							<li>If a <a href="http://snomed.info/sct">SNOMED CT</a> concept code is used, the expression SHOULD represent a 363787002 (Observable entity (observable entity)) or 386053000 (Evaluation procedure(evaluation procedure))
+							<li>If a <a href="http://snomed.info/sct/">SNOMED CT</a> concept code is used, the expression SHOULD represent a 363787002 (Observable entity (observable entity)) or 386053000 (Evaluation procedure(evaluation procedure))
 		          </li>
 						</ul>
 					</li>
