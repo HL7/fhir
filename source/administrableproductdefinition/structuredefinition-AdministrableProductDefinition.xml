@@ -381,7 +381,7 @@
     </element>
     <element id="AdministrableProductDefinition.property.status">
       <path value="AdministrableProductDefinition.property.status"/>
-      <short value="The status of characteristic e.g. assigned or pending"/>
+      <short value="The status of characteristic e.g. draft or active"/>
       <definition value="The status of characteristic e.g. assigned or pending."/>
       <min value="0"/>
       <max value="1"/>
