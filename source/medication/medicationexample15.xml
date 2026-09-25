@@ -7,21 +7,6 @@
       <name value="Medication Manufacturer" />
     </Organization>
   </contained>
-  <contained>
-    <Substance>
-      <id value="sub04"/>
-        <!-- <instance value="false"/> -->
-      <code>
-        <concept>
-          <coding>
-            <system value="http://snomed.info/sct"/>
-            <code value="386906001"/>
-            <display value="Capecitabine (substance)"/>
-          </coding>
-        </concept>
-      </code>
-    </Substance>
-  </contained>
   <code>
     <coding>
       <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
@@ -41,9 +26,13 @@
     </doseForm>
     <ingredient>
       <item>
-      <reference>
-        <reference value="#sub04"/>
-      </reference>
+        <concept>
+          <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="386906001"/>
+            <display value="Capecitabine (substance)"/>
+          </coding>
+        </concept>
       </item>
       <strengthRatio>
         <numerator>

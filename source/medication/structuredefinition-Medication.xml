@@ -196,7 +196,7 @@
     </element>
     <element id="Medication.doseForm">
       <path value="Medication.doseForm"/>
-      <short value="powder | tablets | capsule +"/>
+      <short value="E.g. powder, tablets, capsule"/>
       <definition value="Describes the form of the item.  Powder; tablets; capsule."/>
       <comment value="When Medication is referenced from MedicationRequest, this is the ordered form.  When Medication is referenced within MedicationDispense, this is the dispensed form.  When Medication is referenced within MedicationAdministration, this is administered form."/>
       <min value="0"/>

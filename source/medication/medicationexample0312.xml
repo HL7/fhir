@@ -1,21 +1,6 @@
 <Medication xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://hl7.org/fhir ../../schema/medication.xsd" xmlns="http://hl7.org/fhir">
   <id value="med0312"/>
-  <contained>
-    <Substance>
-      <id value="sub02"/>
-      <!-- <instance value="false"/> -->
-      <code>
-        <concept>
-          <coding>
-            <system value="http://snomed.info/sct"/>
-            <code value="387048002"/>
-            <display value="Nystatin (substance)"/>
-          </coding>
-        </concept>
-      </code>
-    </Substance>
-  </contained>
   <code>
     <coding>
       <system value="http://snomed.info/sct"/>
@@ -33,9 +18,13 @@
     </doseForm>
     <ingredient>
       <item>
-      <reference>
-        <reference value="#sub02"/>
-      </reference>
+        <concept>
+          <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="387048002"/>
+            <display value="Nystatin (substance)"/>
+          </coding>
+        </concept>
       </item>
       <strengthRatio>
         <numerator>
