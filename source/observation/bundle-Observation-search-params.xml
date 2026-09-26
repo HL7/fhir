@@ -873,7 +873,7 @@
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Observation-body-structure-reference"/>
         <description value="Observed body structure (reference)"/>
-        <code value="reference"/>
+        <code value="body-structure-reference"/>
         <type value="reference"/>
         <expression value="Observation.bodyStructure.reference"/>
         <processingMode value="normal"/>

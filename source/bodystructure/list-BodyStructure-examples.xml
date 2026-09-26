@@ -40,6 +40,18 @@
       <display value="Skin Patch"/>
     </item>
   </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="A dermatology example describing facial skin while excluding the skin of the eyelids."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="bodystructure-example-face-excluding-eyelids"/>
+    </extension>
+    <item>
+      <reference value="BodyStructure/face-excluding-eyelids"/>
+      <display value="Facial skin excluding eyelids"/>
+    </item>
+  </entry>
     <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="This example demonstrates a DICOM-derived BodyStructure representation of the Left Wrist, with laterality and SNOMED coding for anatomical structure."/>
