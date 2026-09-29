@@ -499,7 +499,7 @@
     <element id="Consent.verification.verifiedWith">
       <path value="Consent.verification.verifiedWith"/>
       <short value="Person who verified"/>
-      <definition value="Who verified the instruction the patient's preferences as correct and authentic this may be a Patient, Relative or other Authorized Person."/>
+      <definition value="Who verified the patient's provisions as correct and authentic. This may be a Patient, Relative, or other Authorized agent."/>
       <min value="0"/>
       <max value="1"/>
       <type>
