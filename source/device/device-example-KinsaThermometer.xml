@@ -6,7 +6,7 @@
       <coding>
         <system value="http://terminology.hl7.org/CodeSystem/ContinuaDeviceIdentifiers"/>
         <code value="SYSID"/>
-        <display value="System Identifier"/>
+        <display value="IEEE 11073 System Identifier"/>
       </coding>
     </type>
     <system value="urn:oid:1.2.840.10004.1.1.1.0.0.1.0.0.1.2680"/>
@@ -17,7 +17,7 @@
       <coding>
         <system value="http://terminology.hl7.org/CodeSystem/ContinuaDeviceIdentifiers"/>
         <code value="BTMAC"/>
-        <display value="Bluetooth Address"/>
+        <display value="Bluetooth MAC address"/>
       </coding>
     </type>
     <system value="http://hl7.org/fhir/sid/eui-48"/>
