@@ -443,7 +443,7 @@
         <valueCode value="right"/>
       </extension>
       <path value="Consent.verification"/>
-      <short value="Consent verified by patient (or another authorized person)"/>
+      <short value="Consent verified by patient or another authorized person"/>
       <definition value="Whether the consent instructions/rules (e.g. artificial respiration: yes or no) have been verified with the patient, his/her family, or another authorized person."/>
       <min value="0"/>
       <max value="*"/>
@@ -455,7 +455,7 @@
     <element id="Consent.verification.verified">
       <path value="Consent.verification.verified"/>
       <short value="Has been verified"/>
-      <definition value="Has the instruction been verified."/>
+      <definition value="Have the consent preferences been verified as correct and authentic."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -484,8 +484,8 @@
     </element>
     <element id="Consent.verification.verifiedBy">
       <path value="Consent.verification.verifiedBy"/>
-      <short value="Person conducting verification"/>
-      <definition value="The person who conducted the verification/validation of the Grantor decision."/>
+      <short value="Person or entity conducting verification"/>
+      <definition value="The person or entity who conducted the verification/validation of the Grantor decision as listed in .verifiedWith. This entity will have interviewed or in some other way captured the verification information."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -493,12 +493,13 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
       </type>
     </element>
     <element id="Consent.verification.verifiedWith">
       <path value="Consent.verification.verifiedWith"/>
       <short value="Person who verified"/>
-      <definition value="Who verified the instruction (Patient, Relative or other Authorized Person)."/>
+      <definition value="Who verified the instruction the patient's preferences as correct and authentic this may be a Patient, Relative or other Authorized Person."/>
       <min value="0"/>
       <max value="1"/>
       <type>
