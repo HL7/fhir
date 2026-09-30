@@ -5,17 +5,17 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="Specimen-bodystructure"/>
+        <id value="Specimen-body-structure-reference"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Specimen.collection.bodyStructure.reference"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/Specimen-bodystructure"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Specimen-body-structure-reference"/>
         <status value="active"/>
         <description value="Reference to a resource (by instance)"/>
-        <code value="bodystructure"/>
+        <code value="body-structure-reference"/>
         <type value="reference"/>
         <expression value="Specimen.collection.bodyStructure.reference"/>
         <processingMode value="normal"/>

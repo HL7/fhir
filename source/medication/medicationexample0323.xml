@@ -1,66 +1,6 @@
 <Medication xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://hl7.org/fhir ../../schema/medication.xsd" xmlns="http://hl7.org/fhir">
   <id value="med0323"/>
-  <contained>
-    <Substance>
-      <id value="sub10"/>
-      <!-- <instance value="false"/> -->
-      <code>
-        <concept>
-          <coding>
-            <system value="http://snomed.info/sct"/>
-            <code value="419442005"/>
-            <display value="Ethanol (substance)"/>
-          </coding>
-        </concept>
-      </code>
-    </Substance>
-  </contained>
-<contained>
-  <Substance>
-    <id value="sub11"/>
-    <!-- <instance value="false"/> -->
-    <code>    
-      <concept>
-      <coding>
-        <system value="http://snomed.info/sct"/>
-        <code value="387171003"/>
-        <display value="Hydrogen peroxide (substance)"/>
-      </coding>
-    </concept>
-    </code>
-  </Substance>
-</contained>
-  <contained>
-  <Substance>
-    <id value="sub12"/>
-    <!-- <instance value="false"/> -->
-    <code>
-    <concept>
-      <coding>
-        <system value="http://snomed.info/sct"/>
-        <code value="80582002"/>
-        <display value="Glycerol (substance)"/>
-      </coding>
-    </concept>
-    </code>
-  </Substance>
-  </contained>
-  <contained>
-    <Substance>
-      <id value="sub13"/>
-      <!-- <instance value="false"/> -->
-      <code>
-        <concept>
-          <coding>
-            <system value="http://snomed.info/sct"/>
-            <code value="444883009"/>
-            <display value="Distilled Water (substance)"/>
-          </coding>
-        </concept>
-      </code>
-    </Substance>
-  </contained>
   <code>
    <text value="WHO Hand Sanitizer Formulation 1% - 10L"/>
   </code>
@@ -74,9 +14,13 @@
  
     <ingredient>
       <item>
-      <reference>
-        <reference value="#sub10"/>
-        </reference>
+        <concept>
+          <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="419442005"/>
+            <display value="Ethanol (substance)"/>
+          </coding>
+        </concept>
       </item>
       <strengthQuantity>
 
@@ -89,9 +33,13 @@
     </ingredient>
   <ingredient>
     <item>
-      <reference>
-        <reference value="#sub11"/>
-      </reference>
+      <concept>
+        <coding>
+          <system value="http://snomed.info/sct"/>
+          <code value="387171003"/>
+          <display value="Hydrogen peroxide (substance)"/>
+        </coding>
+      </concept>
     </item>
     <strengthQuantity>
         <value value="417"/>
@@ -101,9 +49,13 @@
   </ingredient>
   <ingredient>
     <item>
-      <reference>
-        <reference value="#sub12"/>
-      </reference>
+      <concept>
+        <coding>
+          <system value="http://snomed.info/sct"/>
+          <code value="80582002"/>
+          <display value="Glycerol (substance)"/>
+        </coding>
+      </concept>
     </item>
     <strengthQuantity>
 
@@ -115,9 +67,13 @@
   </ingredient>
   <ingredient>
     <item>
-      <reference>
-        <reference value="#sub13"/>
-      </reference>
+      <concept>
+        <coding>
+          <system value="http://snomed.info/sct"/>
+          <code value="444883009"/>
+          <display value="Distilled Water (substance)"/>
+        </coding>
+      </concept>
     </item>
     <strengthCodeableConcept>
 

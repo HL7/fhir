@@ -677,6 +677,9 @@
       </type>
     </element>
     <element id="FamilyMemberHistory.condition.onset[x]">
+	  <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="J#54184"/>
+      </extension>
       <path value="FamilyMemberHistory.condition.onset[x]"/>
       <short value="When condition first manifested"/>
       <definition value="Either the age of onset, range of approximate age or descriptive string can be recorded.  For conditions with multiple occurrences, this describes the first known occurrence."/>
@@ -694,6 +697,9 @@
       </type>
       <type>
         <code value="string"/>
+      </type>
+	  <type>
+        <code value="dateTime"/>
       </type>
       <mapping>
         <identity value="rim"/>

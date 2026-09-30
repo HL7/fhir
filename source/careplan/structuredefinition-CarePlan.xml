@@ -511,7 +511,7 @@
     </element>
     <element id="CarePlan.addresses">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="GF#20168, J#32512."/>
+        <valueString value="GF#20168, J#32512, J#58047"/>
       </extension>
       <path value="CarePlan.addresses"/>
       <short value="Health issues this plan addresses"/>
@@ -525,6 +525,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Condition"/>
 		<targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
 		<targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationAdministration"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
       </type>
       <isSummary value="true"/>
       <binding>

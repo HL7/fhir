@@ -22,6 +22,8 @@
 <blockquote class="stu-note" style="background-color: lightblue">
   <p><b>Changes since 6.0.0-ballot5:</b></p>
   <ul>
+    <li><a href="https://jira.hl7.org/browse/FHIR-57928">FHIR-57928</a> - Added a dermatology example showing facial skin as an included structure with eyelid skin excluded</li>
+    <li><a href="https://jira.hl7.org/browse/FHIR-57929">FHIR-57929</a> - Added guidance to <code>BodyStructure.includedStructure</code> and <code>BodyStructure.excludedStructure</code> to avoid specifying the same anatomical area as both included and excluded</li>
     <li><a href="https://jira.hl7.org/browse/FHIR-58415">FHIR-58415</a> - Corrected the <code>BodyStructure.includedStructure.morphology</code> definition to describe the included structure without referencing the removed <code>BodyStructure.location</code> element</li>
     <li><a href="https://jira.hl7.org/browse/FHIR-57931">FHIR-57931</a> - Clarified that a body landmark description locates the corresponding structure</li>
     <li><a href="https://jira.hl7.org/browse/FHIR-57930">FHIR-57930</a> - Corrected a grammatical typo in the clock-face position definition</li>

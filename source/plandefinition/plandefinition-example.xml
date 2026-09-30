@@ -742,9 +742,13 @@
         </doseForm>
         <ingredient>
           <item>
-            <reference>
-            <reference value="#citalopramSubstance"/>
-            </reference>
+            <concept>
+              <coding>
+                <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
+                <code value="2556"/>
+              </coding>
+              <text value="citalopram"/>
+            </concept>
           </item>
           <strengthRatio>
             <numerator>
@@ -758,21 +762,6 @@
           </strengthRatio>
         </ingredient>
     </Medication>
-  </contained>
-  <contained>
-    <Substance>
-      <id value="citalopramSubstance"/>
-      <!-- <instance value="false"/> -->
-      <code>
-        <concept>
-          <coding>
-            <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
-            <code value="2556"/>
-          </coding>
-          <text value="citalopram"/>
-        </concept>
-      </code>
-    </Substance>
   </contained>
   <url value="http://motivemi.com/artifacts/PlanDefinition/low-suicide-risk-order-set"/>
   <identifier>
