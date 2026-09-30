@@ -563,7 +563,7 @@
     </element>
     <element id="Condition.asserter">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="GF#11089, GF#22270, J#39602, J#41403"/>
+        <valueString value="GF#11089, GF#22270, J#39602, J#41403, J#58298"/>
       </extension>
       <path value="Condition.asserter"/>
       <short value="Person or device that asserts this condition"/>
@@ -578,6 +578,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
       </type>
       <isSummary value="true"/>
       <mapping>
