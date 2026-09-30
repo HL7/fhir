@@ -465,7 +465,7 @@
     </element>
     <element id="AllergyIntolerance.asserter">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="GF#11089,J#39513,J#44517"/>
+        <valueString value="GF#11089,J#39513,J#44517, J#58298"/>
       </extension>
       <path value="AllergyIntolerance.asserter"/>
       <short value="Source of the information about the allergy"/>
@@ -481,6 +481,9 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
       </type>
       <isSummary value="true"/>
       <mapping>
