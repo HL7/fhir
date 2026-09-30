@@ -79,7 +79,7 @@
       <short value="FHIR Heart Rate Profile"/>
       <definition value="This profile defines how to represent heart rate observations in FHIR using a standard LOINC code and UCUM units of measure."/>
       <constraint>
-        <key value="vs-4"/>
+        <key value="vsp-4"/>
         <severity value="error"/>
         <human value="For single vital signs observations (that do not require use of components or hasMember), then either a value[x] or a data absent reason must be present."/>
         <expression value="dataAbsentReason.exists() or value.exists()"/>
