@@ -225,7 +225,7 @@
     </element>
     <element id="ResearchSubject.subjectState.code">
       <path value="ResearchSubject.subjectState.code"/>
-      <short value="candidate | in-prescreening | in-screening | eligible | ineligible | on-study | on-study-intervention | in-follow-up | off-study"/>
+      <short value="candidate | in-prescreening | in-screening | eligible | ineligible | on-study | on-study-intervention | in-follow-up | off-study + others"/>
       <definition value="Identifies the aspect of the subject's journey that the state refers to."/>
       <min value="1"/>
       <max value="1"/>

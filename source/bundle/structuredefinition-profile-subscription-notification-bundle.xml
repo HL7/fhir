@@ -42,6 +42,7 @@
   <differential>
     <element id="Bundle.type">
       <path value="Bundle.type" />
+      <short value="subscription-notification" />
       <patternCode value="subscription-notification" />
     </element>
     <element id="Bundle.total">

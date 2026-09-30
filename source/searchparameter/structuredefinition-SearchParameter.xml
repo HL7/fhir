@@ -666,7 +666,7 @@
 		</element>
 		<element id="SearchParameter.modifier">
 			<path value="SearchParameter.modifier"/>
-			<short value="missing | exact | contains | not | text | in | not-in | below | above | type | identifier | of-type | code-text | text-advanced | iterate"/>
+			<short value="missing | exact | contains | not | text | in | not-in | below | above | type | identifier etc"/>
 			<definition value="A modifier supported for the search parameter."/>
 			<min value="0"/>
 			<max value="*"/>

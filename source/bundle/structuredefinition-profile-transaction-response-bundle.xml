@@ -42,6 +42,7 @@
   <differential>
     <element id="Bundle.type">
       <path value="Bundle.type" />
+      <short value="transaction-response" />
       <patternCode value="transaction-response" />
     </element>
     <element id="Bundle.total">

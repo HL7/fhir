@@ -647,7 +647,7 @@
     </element>
     <element id="Composition.classification.type">
         <path value="Composition.classification.type"/>
-        <short value="The kind of classifier (e.g. population, intervention)"/>
+        <short value="The kind of classifier (e.g. population, intervention, comparator, outcome-measure, pico-specification)"/>
         <definition value="The kind of classifier (e.g. population, intervention, comparator, outcome)."/>
         <min value="0"/>
         <max value="1"/>

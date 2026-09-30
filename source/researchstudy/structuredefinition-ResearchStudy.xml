@@ -405,7 +405,7 @@
     </element>
     <element id="ResearchStudy.purposeType">
       <path value="ResearchStudy.purposeType"/>
-      <short value="treatment | prevention | diagnostic | supportive-care | screening | health-services-research | basic-science | device-feasibility"/>
+      <short value="treatment | prevention | diagnostic | supportive-care | screening | health-services-research | basic-science | device-feasibility+"/>
       <definition value="The type of study based upon the intent of the study activities. A classification of the intent of the study."/>
       <min value="0"/>
       <max value="*"/>

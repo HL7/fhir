@@ -1169,7 +1169,7 @@
 		</element>
 		<element id="ActivityDefinition.participant.function">
 			<path value="ActivityDefinition.participant.function"/>
-			<short value="E.g. Author, Reviewer, Witness, etc"/>
+			<short value="E.g. Author, Reviewer, Witness, Performer, etc"/>
 			<definition value="Indicates how the actor will be involved in the action - author, reviewer, witness, etc."/>
 			<min value="0"/>
 			<max value="1"/>

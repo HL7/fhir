@@ -60,6 +60,7 @@
     </element>
     <element id="Bundle.type">
       <path value="Bundle.type" />
+      <short value="document" />
       <requirements value="Set type to document." />
       <fixedCode value="document" />
     </element>

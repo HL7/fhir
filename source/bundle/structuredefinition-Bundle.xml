@@ -451,7 +451,7 @@
 		</element>
 		<element id="Bundle.entry.search.mode">
 			<path value="Bundle.entry.search.mode"/>
-			<short value="match | include - why this is in the result set"/>
+			<short value="match | include - why this is in the result set  (+ outcome - old)"/>
 			<definition value="Why this entry is in the result set - whether it's included as a match or because of an _include requirement, or to convey information or warning information about the search process."/>
 			<comment value="There is only one mode. In some corner cases, a resource may be included because it is both a match and an include. In these circumstances, 'match' takes precedence."/>
 			<min value="0"/>

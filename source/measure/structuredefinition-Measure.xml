@@ -737,7 +737,7 @@
     </element>
     <element id="Measure.reportingFrequency">
       <path value="Measure.reportingFrequency"/>
-      <short value="The frequency in which this measure should be reported (e.g. 1 '/a' - yearly, 4 '/a' - quarterly)"/>
+      <short value="The frequency in which this measure should be reported (e.g. 1 '/a' - yearly, 4 '/a' - quarterly, 1 '/d'—daily and 1 '/mo'—monthly)"/>
       <definition value="The frequency that this measure should be reported, usually specified by the program it is being submitted to."/>
 			<comment value="Note that reporting frequency is often specified by the expectations of a quality program or initiative that is making use of the measure, rather than on the measure directly."/>
       <requirements value="Allows the reporting frequency for the given program to be specified in the Measure itself."/>
@@ -1222,7 +1222,7 @@
     </element>
     <element id="Measure.group.scoring">
       <path value="Measure.group.scoring"/>
-      <short value="proportion | ratio | continuous-variable | cohort | composite"/>
+      <short value="proportion | ratio | continuous-variable | cohort | composite | attestation"/>
       <definition value="Indicates how the calculation is performed for the measure, including proportion, ratio, continuous-variable, and cohort. The value set is extensible, allowing additional measure scoring types to be represented."/>
       <min value="0"/>
       <max value="1"/>
