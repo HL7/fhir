@@ -83,6 +83,9 @@
   <concept id="122869004" display="Measurement">
     <display value="Measurement"/>
   </concept>
+  <concept id="1251527002" display="Low priority">
+    <display value="Low priority"/>
+  </concept>
   <concept id="129018004" display="Traveling">
     <display value="Traveling"/>
   </concept>
@@ -1015,6 +1018,12 @@
   </concept>
   <concept id="394821009" display="Occupational medicine (qualifier value)">
     <display value="Occupational medicine (qualifier value)"/>
+  </concept>
+  <concept id="394848005" display="Normal priority">
+    <display value="Normal priority"/>
+  </concept>
+  <concept id="394849002" display="High priority">
+    <display value="High priority"/>
   </concept>
   <concept id="394882004" display="Pain management (specialty) (qualifier value)">
     <display value="Pain management (specialty) (qualifier value)"/>
