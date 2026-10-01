@@ -706,11 +706,13 @@ For example:  &#xA;&#xA;
       <path value="MedicationRequest.device"/>
       <short value="Intended type of device for the administration"/>
       <definition value="The intended type of device that is to be used for the administration of the medication (for example, PCA Pump)."/>
+      <comment value="Use of Device is intended primarily to support instance orders, where a specific device instance may be intended."/>
       <min value="0"/>
       <max value="*"/>
       <type>
         <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
       </type>
       <mapping>
         <identity value="rim"/>
