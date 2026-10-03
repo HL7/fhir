@@ -127,9 +127,6 @@
             <resource value=""/>
         </commentsUnmatched>
     </divergentElement>
-    <divergentElement patternPath="Event.reported[x]" resourcePath="Procedure.reported[x]">
-        <extraTypes _resource="Reference(Device,Group)" reason="Unknown"/>
-    </divergentElement>
     <divergentElement patternPath="Event.performer" resourcePath="Procedure.performer">
         <extraTypes _resource="BackboneElement" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
