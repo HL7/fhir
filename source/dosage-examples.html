@@ -1102,7 +1102,7 @@ Epirubicin 45 mg/m² IV on Days 1 &amp; 8 every 28 days × 6 cycles; infuse over
     <li>Two <code>dosageDetails.step.component</code> entries for Day&nbsp;1 and Day&nbsp;8 of each 28-day period (×6 cycles).</li> 
     <li>Infusion duration → <code>Dosage.timing.repeat.duration</code>=20, <code>durationUnit</code>=min; or encode under <code>doseAndRate.rate[x]</code> if modeled as rate.</li> 
     <li>Maxima via <code>MedicationRequest.dosageInstruction.safety.doseLimit</code> with scopes <code>period</code> (per cycle) and <code>lifetime</code>.</li> 
-    <li>Day-8 offset is expressed via a <code>Timing.repeat</code> extension (e.g., <code>startOffset=8 d</code>).</li> 
+    <li>Day-8 offset is expressed via a <code>Timing.repeat</code> extension (e.g., <code>startOffset=7 d</code>).</li> 
   </ul> 
 <pre class="yaml">
 MedicationRequest
@@ -1130,7 +1130,7 @@ MedicationRequest
             durationUnit: min
             period: 28
             periodUnit: d
-            startOffset = 8 d
+            startOffset = 7 d
             timeOfDay: 09:00
         doseAndRate
           rateQuantity: 45 mg/m² 
@@ -1189,7 +1189,7 @@ MedicationRequest
                 "period": 28,
                 "periodUnit": "d",
                 "startOffset": {
-                  "value": 8,
+                  "value": 7,
                   "unit": "days",
                   "system": "http://unitsofmeasure.org",
                   "code": "d"
@@ -1278,7 +1278,7 @@ MedicationRequest
             &lt;period value=&quot;28&quot;/&gt;
             &lt;periodUnit value=&quot;d&quot;/&gt;
             &lt;startOffset&gt;
-              &lt;value value=&quot;8&quot;/&gt;
+              &lt;value value=&quot;7&quot;/&gt;
               &lt;unit value=&quot;days&quot;/&gt;
               &lt;system value=&quot;http://unitsofmeasure.org&quot;/&gt;
               &lt;code value=&quot;d&quot;/&gt;
