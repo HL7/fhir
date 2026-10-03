@@ -90,7 +90,7 @@
       <max value="*"/>
       <constraint>
         <key value="mdd-1"/>
-        <severity value="error"/>
+        <severity value="warning"/>
         <human value="whenHandedOver cannot be before whenPrepared"/>
         <expression value="(whenHandedOver.hasValue() and whenPrepared.hasValue()) implies whenHandedOver >= whenPrepared"/>
         <source value="http://hl7.org/fhir/StructureDefinition/MedicationDispense"/>
