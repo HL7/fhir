@@ -29,8 +29,8 @@ This page and the RDF Turtle forms are jointly maintained
 by the HL7 FHIR project -- especially the
 <a href="https://confluence.hl7.org/pages/viewpage.action?pageId=66922543">RDF subgroup</a> of the
 <a href="http://www.hl7.org/Special/committees/xml/index.cfm">ITS work group</a> -- and the
-<a href="https://www.w3.org/blog/hcls/">W3C Semantic
-Web Health Care and Life Sciences Interest Group</a>.
+<a href="https://www.w3.org/community/hclscg/">W3C Semantic
+Web Health Care and Life Sciences Community Group</a>.
 </p>
 </td></tr></table>
 </div>
@@ -709,7 +709,7 @@ fhir:subject [
             be added to the <a href="datatypes.html#CodeableConcept">CodeableConcept</a> parent of a Coding, if this is appropriate for the meaning of the concept, using an <code>rdf:type</code> assertion or 
             written using shorthand <b><code class="rdf" style="font-size: larger">a</code></b> in
             Turtle.</p>
-            <p>The use of <code>rdf:type</code> also supports limited, automated testing of whether multiple Codings are properly used for a single CodeableConcept. In (uncommon) cases where the concepts referenced in a Coding are disjoint (having no intersection of extensions) -- <a href="datatypes.html#CodeableConcept">which is not allowed</a> -- an OWL reasoner will detect an inconsistency.</p>
+            <p>The use of <code>rdf:type</code> supports limited, automated testing of whether multiple Codings are properly used for a single CodeableConcept. In (uncommon) cases where the concepts referenced in a Coding are disjoint (having no intersection of extensions) -- <a href="datatypes.html#CodeableConcept">which is not allowed</a> -- an OWL reasoner will detect an inconsistency.</p>
             <p>The following example shows concept IRIs added to an Observation.code (type CodeableConcept): </p>
 <pre class="rdf">
 &lt;http://example.org/o1&gt; a fhir:Observation ;
@@ -909,7 +909,7 @@ fhir:birthDate [
 
         <a name="modifierExtension"></a>
           <h4>Modifier Extensions</h4>
-          <p> <a name="underbar-prefix"></a> FHIR allows <code>modifierExtension</code>s
+          <p> <a name="underbar-prefix"></a> FHIR allows <a href="extensibility.html#modifierExtension">modifier extensions</a>
             on <a
               href="domainresource.html#DomainResource">DomainResources</a>,
             <a href="types.html#BackboneElement">BackboneElement</a>s
@@ -996,7 +996,7 @@ additional requirements around modifier extensions.
         <p> To facilitate FHIR RDF creation and processing, the following
           additional artifacts are available from the
           <a href="downloads.html">downloads page</a>.  While the
-          <a href="https://fhir.hl7.org/fhir/downloads.html">fhir.hl7.org site</a>
+          <a href="https://hl7.org/fhir/downloads.html">hl7.org site</a>
           holds the official released versions of these artifacts, unreleased
           INFORMATIVE versions are also available from the
           <a href="https://build.fhir.org/downloads.html">build.fhir.org site</a>.
@@ -1019,7 +1019,7 @@ additional requirements around modifier extensions.
 
         <ul>
 
-          <li><p>ShEx schema fhir.shex (NORMATIVE, <a href="#modExtNotInShEx">except for modifier extensions</a>).
+          <li><p>FHIR ShEx schema <a href="fhir.shex">fhir.shex</a> (NORMATIVE, <a href="#modExtNotInShEx">except for modifier extensions</a>).
             This schema is intended to help users validate FHIR RDF data.
             It is normative in the sense that
             if some purported FHIR RDF data is
@@ -1039,7 +1039,7 @@ additional requirements around modifier extensions.
             shape names that only appear in the ShEx MAY change.
             </p></li>
 
-          <li><p>OWL Ontology <a href="fhir.rdf.ttl.zip">fhir.ttl</a> (NORMATIVE,
+          <li><p>FHIR OWL ontology <a href="fhir.ttl">fhir.ttl</a> (NORMATIVE,
             <a href="#modExtNotInShEx">except for modifier extensions</a>).
             This describes the classes and properties that are used to
             represent FHIR RDF data.  It is normative in the sense that
@@ -1059,17 +1059,16 @@ additional requirements around modifier extensions.
             names that only appear in the ontology MAY change.
             </p></li>
 
-          <li><p>W5 Ontology <a href="fhir.rdf.ttl.zip">w5.ttl</a> (INFORMATIVE).
+          <li><p>W5 Ontology <a href="w5.ttl">w5.ttl</a> (INFORMATIVE).
             This ontology attempts to capture relationships expressed in the
             <a href="fivews.html">Five Ws Mappings</a> (formerly called W5 Report) -- Who, What, When, Where, Why.
             It has not been well vetted, and MAY be changed at any time.
             </p></li>
 
-          <li><p>v3 RIM ontology <a href="fhir.rdf.ttl.zip">rim.ttl</a> (INFORMATIVE).
-            This ontology attempts to capture semantic relationships between
-            <a href="https://dev3.hl7.org/implement/standards/product_brief.cfm?product_id=77">HL7 v3 RIM</a>
-            and FHIR.  It has not been well vetted, and MAY be
-            changed at any time.
+          <li><p>v3 RIM ontology <a href="rim.ttl">rim.ttl</a> (INFORMATIVE).
+            This ontology was created to capture semantic relationships between
+            <a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=77">HL7 v3 RIM</a>
+            and FHIR.  It is incomplete, has not been well vetted, and could change at any time.
             </p></li>
         </ul>
 
@@ -1148,8 +1147,7 @@ additional requirements around modifier extensions.
           RDF format corresponds closely to the XML and JSON formats in
           its look and feel, though a few additional FHIR-specific terms
           appear in the RDF format, as explained above:
-          <code>fhir:nodeRole</code>, <code>fhir:treeRoot</code> and
-          <code>fhir:v</code>. <br/>
+          <code>fhir:nodeRole</code>, <code>fhir:treeRoot</code> for identifying root FHIR resources in a document, <code>fhir:v</code> for literal values, and <code>fhir:l</code> for links to RDF resources. <br/>
         </p>
         <p> In addition to defining the RDF format, this specification provides <a
             href="downloads.html">an associated ontology</a>
