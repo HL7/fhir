@@ -444,9 +444,6 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
         <valueBoolean value="true"/>
       </extension>
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true"/>
-      </extension>
       <path value="Medication.copyrightLabel"/>
       <short value="Copyright holder and year(s)"/>
       <definition value="A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are restricted. (e.g. 'All rights reserved', 'Some rights reserved')."/>
