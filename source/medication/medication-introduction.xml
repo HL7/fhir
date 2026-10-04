@@ -7,6 +7,7 @@
 		<li><a href="https://jira.hl7.org/browse/FHIR-48405">FHIR-48405</a> - The examples no longer use contained Substance resources 
 			to describe medication ingredients.</li>
 		<li><a href="https://jira.hl7.org/browse/FHIR-54375">FHIR-54375</a> - Corrected the definition of <code>Medication.ingredient.role</code>, which duplicated the definition of <code>isActive</code>.</li>
+		<li><a href="https://jira.hl7.org/browse/FHIR-54379">FHIR-54379</a> - Corrected the description of the <code>serial-number</code> search parameter, which referred to a lot number.</li>
 	</ul>
 </blockquote>
 
