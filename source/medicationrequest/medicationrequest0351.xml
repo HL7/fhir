@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicationRequest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationrequest.xsd"
+    xmlns="http://hl7.org/fhir">
+    <id value="medrx0351"/>
+    <!-- Medical gas order: HeliOx, linked to the supplementary oxygen order medrx0352 by groupIdentifier -->
+    <groupIdentifier>
+        <system value="urn:ietf:rfc:3986"/>
+        <value value="urn:uuid:8b7a3c6e-4d2f-4a1b-9e0c-5f6d7e8a9b10"/>
+    </groupIdentifier>
+    <status value="active"/>
+    <intent value="order"/>
+    <medication>
+        <concept>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="895532000"/>
+                <display value="Helium and oxygen only product"/>
+            </coding>
+            <text value="HeliOx 70/30 (helium 70% / oxygen 30%)"/>
+        </concept>
+    </medication>
+    <subject>
+        <reference value="Patient/pat1"/>
+        <display value="Donald Duck"/>
+    </subject>
+    <authoredOn value="2026-02-10"/>
+    <requester>
+        <reference value="Practitioner/f007"/>
+    </requester>
+    <device>
+        <concept>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="427591007"/>
+                <display value="Nonrebreather oxygen mask"/>
+            </coding>
+        </concept>
+    </device>
+    <reason>
+        <concept>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="71186008"/>
+                <display value="Croup (disorder)"/>
+            </coding>
+        </concept>
+    </reason>
+    <dosageInstruction>
+        <renderedInstruction value="HeliOx 70/30 at 6 L/min (6 to 8 L/min) via non-rebreather mask"/>
+        <step>
+            <component>
+                <text value="HeliOx 70/30 at 6 L/min (6 to 8 L/min) via non-rebreather mask"/>
+                <route>
+                    <coding>
+                        <system value="http://snomed.info/sct"/>
+                        <code value="447694001"/>
+                        <display value="Respiratory tract route"/>
+                    </coding>
+                </route>
+                <doseAndRate>
+                    <rateRange>
+                        <low>
+                            <value value="6"/>
+                            <unit value="L/min"/>
+                            <system value="http://unitsofmeasure.org"/>
+                            <code value="L/min"/>
+                        </low>
+                        <high>
+                            <value value="8"/>
+                            <unit value="L/min"/>
+                            <system value="http://unitsofmeasure.org"/>
+                            <code value="L/min"/>
+                        </high>
+                    </rateRange>
+                </doseAndRate>
+            </component>
+        </step>
+    </dosageInstruction>
+</MedicationRequest>

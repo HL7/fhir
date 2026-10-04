@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicationRequest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationrequest.xsd"
+    xmlns="http://hl7.org/fhir">
+    <id value="medrx0352"/>
+    <!-- Supplementary oxygen, given with the HeliOx order medrx0351 (same groupIdentifier) if SpO2 is below 88%.
+         The nasal cannula is described by a (contained) DeviceDefinition. -->
+    <contained>
+        <DeviceDefinition>
+            <id value="nasal-cannula"/>
+            <deviceName>
+                <name value="Oxygen nasal cannula"/>
+                <type>
+                    <coding>
+                        <system value="http://terminology.hl7.org/CodeSystem/device-nametype"/>
+                        <code value="user-friendly-name"/>
+                    </coding>
+                </type>
+            </deviceName>
+            <classification>
+                <type>
+                    <coding>
+                        <system value="http://snomed.info/sct"/>
+                        <code value="336623009"/>
+                        <display value="Oxygen nasal cannula"/>
+                    </coding>
+                </type>
+            </classification>
+        </DeviceDefinition>
+    </contained>
+    <groupIdentifier>
+        <system value="urn:ietf:rfc:3986"/>
+        <value value="urn:uuid:8b7a3c6e-4d2f-4a1b-9e0c-5f6d7e8a9b10"/>
+    </groupIdentifier>
+    <status value="active"/>
+    <intent value="order"/>
+    <medication>
+        <concept>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="320917000"/>
+                <display value="Oxygen only product in gas for inhalation"/>
+            </coding>
+        </concept>
+    </medication>
+    <subject>
+        <reference value="Patient/pat1"/>
+        <display value="Donald Duck"/>
+    </subject>
+    <authoredOn value="2026-02-10"/>
+    <requester>
+        <reference value="Practitioner/f007"/>
+    </requester>
+    <device>
+        <reference>
+            <reference value="#nasal-cannula"/>
+        </reference>
+    </device>
+    <reason>
+        <concept>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="71186008"/>
+                <display value="Croup (disorder)"/>
+            </coding>
+        </concept>
+    </reason>
+    <dosageInstruction>
+        <renderedInstruction value="Oxygen 2 L/min (1 to 3 L/min) via nasal cannula if SpO2 is below 88%, titrated to SpO2"/>
+        <step>
+            <component>
+                <text value="Oxygen 2 L/min (1 to 3 L/min) via nasal cannula if SpO2 is below 88%, titrated to SpO2"/>
+                <asNeededFor>
+                    <coding>
+                        <system value="http://snomed.info/sct"/>
+                        <code value="449171008"/>
+                        <display value="Oxygen saturation below reference range"/>
+                    </coding>
+                    <text value="SpO2 below 88%"/>
+                </asNeededFor>
+                <route>
+                    <coding>
+                        <system value="http://snomed.info/sct"/>
+                        <code value="447694001"/>
+                        <display value="Respiratory tract route"/>
+                    </coding>
+                </route>
+                <doseAndRate>
+                    <rateRange>
+                        <low>
+                            <value value="1"/>
+                            <unit value="L/min"/>
+                            <system value="http://unitsofmeasure.org"/>
+                            <code value="L/min"/>
+                        </low>
+                        <high>
+                            <value value="3"/>
+                            <unit value="L/min"/>
+                            <system value="http://unitsofmeasure.org"/>
+                            <code value="L/min"/>
+                        </high>
+                    </rateRange>
+                </doseAndRate>
+            </component>
+        </step>
+    </dosageInstruction>
+</MedicationRequest>

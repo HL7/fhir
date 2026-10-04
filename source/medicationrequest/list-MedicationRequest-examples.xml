@@ -556,4 +556,28 @@
       <display value="Alternative (reasons)"/>
     </item>
   </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Medical gas order: HeliOx 70/30 at 6 to 8 L/min via non-rebreather mask (grouped with medicationrequest0352)"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationrequest0351"/>
+    </extension>
+    <item>
+      <reference value="MedicationRequest/medrx0351"/>
+      <display value="Medical gas (HeliOx)"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Medical gas order: supplementary oxygen 1 to 3 L/min via nasal cannula (DeviceDefinition) if SpO2 below 88% (grouped with medicationrequest0351)"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationrequest0352"/>
+    </extension>
+    <item>
+      <reference value="MedicationRequest/medrx0352"/>
+      <display value="Medical gas (oxygen)"/>
+    </item>
+  </entry>
 </List>
