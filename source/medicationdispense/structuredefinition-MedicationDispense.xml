@@ -154,7 +154,7 @@
       <path value="MedicationDispense.partOf"/>
       <short value="Event that dispense is part of"/>
       <definition value="The procedure or medication administration that triggered the dispense."/>
-      <comment value="While both a procedure and a medication administration may have triggered the dispense, but it is not expected that multiple procedures and/or multiple medication administrations would be triggers."/>
+      <comment value="While both a procedure and a medication administration may have triggered the dispense, but it is not expected that multiple procedures and/or multiple medication administrations would be triggers. A dispense can be part of a medication administration when there is no separate, formal dispense, for example when the medication is taken from ward stock or an emergency cart in order to administer it. The MedicationDispense then records the supply, for example for logistics and inventory, without adding that information to the MedicationAdministration, and references the administration in `partOf`. This does not create a circular reference: a given MedicationDispense and MedicationAdministration are not each recorded as part of the other."/>
       <min value="0"/>
       <max value="*"/>
       <type>

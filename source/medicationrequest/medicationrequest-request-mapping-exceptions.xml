@@ -32,7 +32,7 @@
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
             <_pattern value="basedOn represents the 'authorization' chain for an action, not the 'reason for action'.  For example, an order might be placed on hold under the authorization for a surgery.  However the 'reason' for placing the hold is &quot;to avoid interaction with anesthesia medications&quot;&#10;."/>
-            <resource value=""/>
+            <resource value="A Request can be based on an authorization (e.g. an instance order being based on an order, or an order based on a proposal) - in this case, `basedOn` should be used; a request may also replace or follow a prior order, e.g. a continuation or refill order being done one after the other - for that, `priorPrescription` should be used."/>
         </commentsUnmatched>
         <requirementsUnmatched reason="Unknown">
             <_pattern value="Allows tracing of authorization for the request and tracking whether proposals/recommendations were acted upon."/>
@@ -54,7 +54,7 @@
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
             <_pattern value="The replacement could be because the initial request was immediately rejected (due to an issue) or because the previous request was completed, but the need for the action described by the request remains ongoing."/>
-            <resource value=""/>
+            <resource value="A Request can be based on an authorization (e.g. an instance order being based on an order, or an order based on a proposal) - in this case, `basedOn` should be used; a request may also replace or follow a prior order, e.g. a continuation or refill order being done one after the other - for that, `priorPrescription` should be used."/>
         </commentsUnmatched>
         <requirementsUnmatched reason="Unknown">
             <_pattern value="Allows tracing the continuation of a therapy or administrative process instantiated through multiple requests."/>
