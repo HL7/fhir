@@ -490,9 +490,9 @@ For example:  &#xA;&#xA;
     </element>
     <element id="MedicationRequest.informationSource">
       <path value="MedicationRequest.informationSource"/>
-      <short value="The person or organization who provided the information about this request, if the source is someone other than the requestor"/>
-      <definition value="The person or organization who provided the information about this request, if the source is someone other than the requestor. The informationSource element is generally used when details of a prescription are being reported by someone who is not the requestor, e.g., I indicate that I received a prescription for a med out of my jurisdiction and the details are recorded in the system as a MedicationRequest. Normally when this element is populated, the .isRecordOfRequest element would be set to &quot;true&quot;."/>
-      <comment value="MedicationStatement is indeed intended to capture that the patient is on a given medication, or is expected/planned to be on, whether this is reported by the patient or any other entity. In some cases, however, there has been a need for MedicationRequest.isRecordOfRequest and .informationSource to represent that an order exists, as reported by someone. The informationSource is therefore not the &quot;original requester&quot;, but the reporter of that MedicationRequest."/>
+      <short value="The person, organization, or device who provided the information about this request, if the source is someone other than the requestor"/>
+      <definition value="The person, organization, or device who provided the information about this request, if the source is someone other than the requestor. The informationSource element is generally used when details of a prescription are being reported by someone who is not the requestor, e.g., I indicate that I received a prescription for a med out of my jurisdiction and the details are recorded in the system as a MedicationRequest. Normally when this element is populated, the .isRecordOfRequest element would be set to &quot;true&quot;."/>
+      <comment value="MedicationStatement is indeed intended to capture that the patient is on a given medication, or is expected/planned to be on, whether this is reported by the patient or any other entity. In some cases, however, there has been a need for MedicationRequest.isRecordOfRequest and .informationSource to represent that an order exists, as reported by someone. The informationSource is therefore not the &quot;original requester&quot;, but the reporter of that MedicationRequest. The informationSource can be a Device, for example an AI system that reports or extracts the details of a prescription."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -503,6 +503,7 @@ For example:  &#xA;&#xA;
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
       </type>
       <mapping>
         <identity value="rim"/>
@@ -706,11 +707,13 @@ For example:  &#xA;&#xA;
       <path value="MedicationRequest.device"/>
       <short value="Intended type of device for the administration"/>
       <definition value="The intended type of device that is to be used for the administration of the medication (for example, PCA Pump)."/>
+      <comment value="Use of Device is intended primarily to support instance orders, where a specific device instance may be intended."/>
       <min value="0"/>
       <max value="*"/>
       <type>
         <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
       </type>
       <mapping>
         <identity value="rim"/>
