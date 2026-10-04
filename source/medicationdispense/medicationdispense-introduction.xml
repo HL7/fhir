@@ -73,6 +73,7 @@ The code system used in medication dispense category is presented here but is ex
 <p><b>Changes since 6.0.0-ballot5:</b></p>
 <ul>
 <li><a href="https://jira.hl7.org/browse/FHIR-54374">FHIR-54374</a> - Explained in the comment on <code>partOf</code> when a dispense is part of a medication administration (for example, from ward stock or an emergency cart).</li>
+<li><a href="https://jira.hl7.org/browse/FHIR-54372">FHIR-54372</a> - Lowered invariant mdd-1 (whenHandedOver cannot be before whenPrepared) from an error to a warning.</li>
 </ul>
 </blockquote>
 
