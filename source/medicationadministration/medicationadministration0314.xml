@@ -3,7 +3,7 @@
     xmlns="http://hl7.org/fhir">
     <id value="medadmin0314"/>
     <!-- Vancomycin given through the distal port of a triple lumen central venous catheter.
-         The port is a Device whose parent is the catheter Device; both are contained. -->
+         The port is a Device whose parent is the catheter Device; the infusion pump is also a Device. All are contained. -->
     <contained>
         <Device>
             <id value="catheter"/>
@@ -47,6 +47,29 @@
             </parent>
         </Device>
     </contained>
+    <contained>
+        <Device>
+            <id value="pump"/>
+            <status value="active"/>
+            <serialNumber value="IP-20817-44"/>
+            <name>
+                <value value="Infusion pump"/>
+                <type>
+                    <coding>
+                        <system value="http://terminology.hl7.org/CodeSystem/device-nametype"/>
+                        <code value="user-friendly-name"/>
+                    </coding>
+                </type>
+            </name>
+            <type>
+                <coding>
+                    <system value="http://snomed.info/sct"/>
+                    <code value="430033006"/>
+                    <display value="Infusion pump"/>
+                </coding>
+            </type>
+        </Device>
+    </contained>
     <status value="completed"/>
     <medication>
         <concept>
@@ -77,8 +100,13 @@
             <reference value="#port"/>
         </reference>
     </device>
+    <device>
+        <reference>
+            <reference value="#pump"/>
+        </reference>
+    </device>
     <dosage>
-        <text value="Vancomycin 1 g IV over 90 minutes, through the distal port of the triple lumen catheter"/>
+        <text value="Vancomycin 1 g IV over 90 minutes by infusion pump, through the distal port of the triple lumen catheter"/>
         <route>
             <coding>
                 <system value="http://snomed.info/sct"/>
