@@ -56,7 +56,7 @@ The <a href="dosage-examples.html">examples</a> page shows how many different co
 <a name="text"> </a>
 <h3>Dosage text and structured Data</h3>
 <p>
-Dosages may contain <code>renderedInstruction</code> and/or structured data.
+Dosages MAY contain <code>renderedInstruction</code> and/or structured data.
 </p>
 <p>
 The rendered instructions are typical prescription instructions, with a relatively concise expression
@@ -72,7 +72,7 @@ with correct and safe administration. As of the publication of this specificatio
 GenAI services are mostly able to decode correct renderedInstructions correctly, but 
 this can't be assumed correct (and not just because of AI limitations), so in any
 context where there is interest in providing medication management support, the dosage 
-structure should be fully populated.
+structure SHOULD be fully populated.
 </p>
 <p>
 However, even after it's fully populated, it's not unusual for the renderedInstruction
@@ -131,7 +131,7 @@ either <code>Timing.repeat.bounds[x]</code> or <code>Timing.repeat.count</code> 
 <a href="datatypes.html#Timing">Timing</a> data type.   
 </p>
 <p>
-Each step may include one or more <code>component</code> entries. 
+Each step MAY include one or more <code>component</code> entries. 
 </p>
 <p>
 When there more than one <code>component</code> dosages in a step, all components within the same step are considered concurrent. 
