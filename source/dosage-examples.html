@@ -1348,8 +1348,9 @@ Microgynon tab (contraceptives): 1 tablet daily for 21 days, then 7 days off. Th
  <div id="tabs-Example5-struc" aria-labelledby="ui-id-15" role="tabpanel" class="ui-tabs-panel ui-corner-bottom ui-widget-content" aria-hidden="false">
 <p><b>Structure</b></p>
   <ul> 
-    <li>Express repeating 28-day cycles with <code>Timing.repeat.endOffset = 7 d</code> for the off-interval.</li> 
-    <li>Alternative: two steps—21 daily doses followed by a “break” step with 0 dose; then repeat via new order or plan definition.</li> 
+    <li><code>MedicationRequest.dosageInstruction.repeatCycle</code> = 28 d: the whole dosage course starts again every 28 days.</li> 
+    <li>One <code>step</code> with one <code>component</code>: <code>…timing.repeat.boundsDuration</code> = 21 d, <code>…timing.repeat.frequency/period/periodUnit</code> = 1 / 1 / d.</li> 
+    <li>The 7 days without tablets are the rest of the cycle after the step ends.</li> 
     <li>Narrative should clarify if placebos are present (daily intake without true off days).</li> 
   </ul> 
 <pre class="yaml">
@@ -1358,13 +1359,14 @@ MedicationRequest
     concept
       coding: Microgynon tab
   dosageInstruction 
+    repeatCycle: 28 d
     step
       component
         timing
           repeat
-            endOffset = 7 d
-            frequency: 21
-            period: 28
+            boundsDuration: 21 d
+            frequency: 1
+            period: 1
             periodUnit: d
         doseAndRate
           doseQuantity: 1 tablet
@@ -1383,18 +1385,24 @@ MedicationRequest
     }
   },
   "dosageInstruction": {
+    "repeatCycle": {
+      "value": 28,
+      "unit": "days",
+      "system": "http://unitsofmeasure.org",
+      "code": "d"
+    },
     "step": [{
       "component": [{
         "timing": {
           "repeat": {
-            "endOffset": {
-              "value": 7,
+            "boundsDuration": {
+              "value": 21,
               "unit": "days",
               "system": "http://unitsofmeasure.org",
               "code": "d"
             },
-            "frequency": 21,
-            "period": 28,
+            "frequency": 1,
+            "period": 1,
             "periodUnit": "d"
           }
         },
@@ -1425,18 +1433,24 @@ MedicationRequest
     &lt;/concept&gt;
   &lt;/medication&gt;
   &lt;dosageInstruction&gt;
+    &lt;repeatCycle&gt;
+      &lt;value value=&quot;28&quot;/&gt;
+      &lt;unit value=&quot;days&quot;/&gt;
+      &lt;system value=&quot;http://unitsofmeasure.org&quot;/&gt;
+      &lt;code value=&quot;d&quot;/&gt;
+    &lt;/repeatCycle&gt;
     &lt;step&gt;
       &lt;component&gt;
         &lt;timing&gt;
           &lt;repeat&gt;
-            &lt;endOffset&gt;
-              &lt;value value=&quot;7&quot;/&gt;
+            &lt;boundsDuration&gt;
+              &lt;value value=&quot;21&quot;/&gt;
               &lt;unit value=&quot;days&quot;/&gt;
               &lt;system value=&quot;http://unitsofmeasure.org&quot;/&gt;
               &lt;code value=&quot;d&quot;/&gt;
-            &lt;/endOffset&gt;
-            &lt;frequency value=&quot;21&quot;/&gt;
-            &lt;period value=&quot;28&quot;/&gt;
+            &lt;/boundsDuration&gt;
+            &lt;frequency value=&quot;1&quot;/&gt;
+            &lt;period value=&quot;1&quot;/&gt;
             &lt;periodUnit value=&quot;d&quot;/&gt;
           &lt;/repeat&gt;
         &lt;/timing&gt;
