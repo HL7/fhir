@@ -103,6 +103,7 @@ The code system used in medication request category is presented here but is exp
 <li><a href="https://jira.hl7.org/browse/FHIR-59309">FHIR-59309</a> - <code>MedicationRequest.informationSource</code> can now reference a Device (for example, an AI system).</li>
 <li><a href="https://jira.hl7.org/browse/FHIR-53978">FHIR-53978</a> - Corrected typos in the scope section.</li>
 <li><a href="https://jira.hl7.org/browse/FHIR-54095">FHIR-54095</a> - Replaced &quot;Device Request&quot; with a link to <a href="devicerequest.html">DeviceRequest</a> in the scope section.</li>
+<li><a href="https://jira.hl7.org/browse/FHIR-54447">FHIR-54447</a> - Added comments to <code>basedOn</code> and <code>priorPrescription</code> explaining when a request is based on an authorization and when it replaces or follows a prior order.</li>
 <li><a href="https://jira.hl7.org/browse/FHIR-56335">FHIR-56335</a> - The <code>MedicationRequest.intent</code> value set now uses the codes from the <a href="codesystem-request-intent.html">Request Intent</a> code system, with the same codes as before; the MedicationRequest-specific intent code system is removed.</li>
 </ul>
 </blockquote>
