@@ -412,4 +412,16 @@
       <display value="Declined (Cancelled / not picked up) dispense"/>
     </item>
   </entry>    
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Partial fill (first fill - part fill) of an oxycodone prescription: 10 of 30 tablets dispensed"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationdispense0336"/>
+    </extension>
+    <item>
+      <reference value="MedicationDispense/meddisp0336"/>
+      <display value="Partial fill"/>
+    </item>
+  </entry>
 </List>
