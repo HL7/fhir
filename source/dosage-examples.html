@@ -1326,7 +1326,7 @@ MedicationRequest
 
 <p><b>Notes:</b></p>
 <ul>
-  <li>The structure does not say what /m2 is of - that does not appear to be computable (it’s skin surface area for the patient)</li>
+  <li>The structure does not say what /m² is of - that does not appear to be computable (it is body surface area (BSA) for the patient).</li>
   <li>Even when understood, mg/m² requires external patient BSA </li>
 </ul>
 
@@ -1460,8 +1460,8 @@ MedicationRequest
 
 <p><b>Notes:</b></p>
 <ul>
-  <li>Retail tri-phase contraceptives don’t work like this - they have placebos so that you take a pill every day, and the pills are all day-numbered. 
-    There's no way to represent 'take the right numbered pill for the day of your cycle' in the DosageDetails structure</li>
+  <li>Retail tri-phase contraceptives do not work like this - they have placebos so that you take a pill every day, and the pills are all day-numbered. 
+    There is no way to represent 'take the right numbered pill for the day of your cycle' in the DosageDetails structure</li>
 </ul>
 <!-------------------------------------------->
 
@@ -2564,7 +2564,7 @@ MedicationRequest
 <p><b>Notes:</b></p>
 <ul>
   <li>Note that the computational space of events is absolutely massive, so 
-    implementations that try to use this extension shouldn’t expect the event to actually be understood,
+    implementations that try to use this extension should not expect the event to actually be understood,
     just rendered - so marginal utility over just putting it in text</li>
 </ul>
 
@@ -2842,7 +2842,7 @@ MedicationRequest
 <p><b>Notes:</b></p>
 <ul>
   <li>The contextCode = if needed is different to dosage.asNeeded because the latter is ‘take a dose if needed’, where as the former is ‘do this entire dosage if needed’</li>
-  <li>There’s no hint as to what the 30% is about - 30% of *what*? This will be found in the renderedInstruction</li>
+  <li>There is no hint as to what the 30% is about - 30% of *what*? This will be found in the renderedInstruction</li>
   <li>Event when understood, 30% of body surface area requires external context</li>
 </ul> 
 
