@@ -13,10 +13,10 @@
         <concept>
             <coding>
                 <system value="http://snomed.info/sct"/>
-                <code value="895532000"/>
-                <display value="Helium and oxygen only product"/>
+                <code value="895694008"/>
+                <display value="Helium 0.79 mL/mL and oxygen 0.21 mL/mL gas for inhalation"/>
             </coding>
-            <text value="HeliOx 70/30 (helium 70% / oxygen 30%)"/>
+            <text value="HeliOx 79/21 (helium 79% / oxygen 21%)"/>
         </concept>
     </medication>
     <subject>
@@ -46,10 +46,10 @@
         </concept>
     </reason>
     <dosageInstruction>
-        <renderedInstruction value="HeliOx 70/30 at 6 L/min (6 to 8 L/min) via non-rebreather mask"/>
+        <renderedInstruction value="HeliOx 79/21 at 6 L/min (6 to 8 L/min) via non-rebreather mask"/>
         <step>
             <component>
-                <text value="HeliOx 70/30 at 6 L/min (6 to 8 L/min) via non-rebreather mask"/>
+                <text value="HeliOx 79/21 at 6 L/min (6 to 8 L/min) via non-rebreather mask"/>
                 <route>
                     <coding>
                         <system value="http://snomed.info/sct"/>

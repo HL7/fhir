@@ -558,7 +558,7 @@
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="Medical gas order: HeliOx 70/30 at 6 to 8 L/min via non-rebreather mask (grouped with medicationrequest0352)"/>
+      <valueString value="Medical gas order: HeliOx 79/21 at 6 to 8 L/min via non-rebreather mask (grouped with medicationrequest0352)"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
       <valueString value="medicationrequest0351"/>
