@@ -7,6 +7,7 @@
     <contained>
         <DeviceDefinition>
             <id value="nasal-cannula"/>
+            <status value="active"/>
             <deviceName>
                 <name value="Oxygen nasal cannula"/>
                 <type>
