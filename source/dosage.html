@@ -30,7 +30,7 @@
 There are four different types involved in the representation of Dosage Information:
 </p>
 <ul>
-  <li><a href="#DosageDetails"><b>DosageDetails</b></a>: Summary of the dosage details, and orchestration of complex dosage regimes</li>
+  <li><a href="#DosageInstruction"><b>DosageInstruction</b></a>: Summary of the dosage details, and orchestration of complex dosage regimes</li>
   <li><a href="#Dosage"><b>Dosage</b></a>: The core information about the dosage regime for a medication</li>
   <li><a href="#DosageSafety"><b>DosageSafety</b></a>: Information about dosage safety: dose limits for medications that have safety issues</li>
   <li><a href="#DosageCondition"><b>DosageCondition</b></a>: Expresses conditional rules for dosage regimes, such as 'take this medication if tolerated'</li>
@@ -44,9 +44,9 @@ The <a href="dosage-examples.html">examples</a> page shows how many different co
     The way Medication dosage regimes are represented and used has undergone extensive reorganization with breaking changes in R6:
   </p>
   <ul>
-    <li>The <code>dosageInstruction</code> element in MedicationRequest, MedicationDispense, and MedicationStatement has changed from multiple <code>Dosage</code> elements (0..*) to a single <code>DosageDetails</code> element (0..1)</li>
-    <li>Complex dosing regimes are now represented within DosageDetails using steps and components rather than multiple Dosage instances</li>
-    <li>The <code>DosageDetails</code> data type allows combining multiple dosages and replaces the use of <code>.sequence</code>.</li>
+    <li>The <code>dosageInstruction</code> element in MedicationRequest, MedicationDispense, and MedicationStatement has changed from multiple <code>Dosage</code> elements (0..*) to a single <code>DosageInstruction</code> element (0..1)</li>
+    <li>Complex dosing regimes are now represented within DosageInstruction using steps and components rather than multiple Dosage instances</li>
+    <li>The <code>DosageInstruction</code> data type allows combining multiple dosages and replaces the use of <code>.sequence</code>.</li>
     <li>There are changes to the <a href="medicationrequest.html#bnr">Boundaries for MedicationRequest</a></li>
     <li>The <a href="datatypes.html#Timing">Timing</a> datatype has related changes - namely the addition of <code>startOffset</code> and <code>endOffset</code>.</li>
   </ul>
@@ -56,7 +56,8 @@ The <a href="dosage-examples.html">examples</a> page shows how many different co
 <blockquote class="stu-note" style="background-color: lightblue">
 <p><b>Changes since 6.0.0-ballot5:</b></p>
 <ul>
-<li><a href="https://jira.hl7.org/browse/FHIR-54252">FHIR-54252</a> - Added <code>DosageDetails.repeatCycle</code> for dosage courses that repeat in cycles (for example, 21 days on and 7 days off), with the section <a href="#repeatcycle">Repeating cycles</a> and an updated Example 5.</li>
+<li><a href="https://jira.hl7.org/browse/FHIR-54252">FHIR-54252</a> - Added <code>DosageInstruction.repeatCycle</code> for dosage courses that repeat in cycles (for example, 21 days on and 7 days off), with the section <a href="#repeatcycle">Repeating cycles</a> and an updated Example 5.</li>
+<li><a href="https://jira.hl7.org/browse/FHIR-54340">FHIR-54340</a> - Renamed the <code>DosageDetails</code> data type to <a href="#DosageInstruction">DosageInstruction</a>. The content of the type is unchanged.</li>
 </ul>
 </blockquote>  
 
@@ -109,11 +110,12 @@ See also the <a href="medicationrequest.html#bnr">MedicationRequest Boundaries</
 </p>
 
 <a name="details"></a>
+<a name="DosageInstruction"></a>
 <a name="DosageDetails"></a>
 <h2 style="margin-bottom: 1px">
-DosageDetails
+DosageInstruction
 </h2>
-<p>The DosageDetails type is the container type for dosing information, and contains:</p>
+<p>The DosageInstruction type is the container type for dosing information, and contains:</p>
 <ul>
   <li><code>renderedInstruction</code>: a single summary of the details in the dosage details</li>
   <li>Either a simple dosage expressed as a single <code>step</code> or a complex dosage course expressed with one or more <code>step</code>s, able to represent multiple dose regimes with tapering doses, and event relationships</li>
@@ -121,18 +123,18 @@ DosageDetails
   <li><code>repeatCycle</code>: when the whole dosage course repeats in cycles, the length of each cycle (see <a href="#repeatcycle">Repeating cycles</a>)</li>
 </ul>
 
-[%dt DosageDetails 2%]
+[%dt DosageInstruction 2%]
 
 <p></p>
 <div class="use">
 <p><b>Constraints</b></p>
-[%dt.constraints DosageDetails%]
-[%tx DosageDetails%]
+[%dt.constraints DosageInstruction%]
+[%tx DosageInstruction%]
 </div>
-<p>Note: the DosageDetails structure allows <a href="extensibility.html#modifier">modifier extensions</a>.</p>
+<p>Note: the DosageInstruction structure allows <a href="extensibility.html#modifier">modifier extensions</a>.</p>
 
 <p>
-When a DosageDetails contains multiple steps, the steps are sequential - the dosage course follows
+When a DosageInstruction contains multiple steps, the steps are sequential - the dosage course follows
 through the steps one at a time. Each step has to specify an end condition - either by explicitly 
 linking the step to some external event, or by specifying a limit on the timing of the event using
 either <code>Timing.repeat.bounds[x]</code> or <code>Timing.repeat.count</code> on the 
@@ -171,7 +173,7 @@ Some dosage courses repeat in cycles. For example, an oral contraceptive is take
 </ul>
 
 <p>
-DosageDetails is used in the following places: [%dtusage DosageDetails%]
+DosageInstruction is used in the following places: [%dtusage DosageInstruction%]
 </p>
 
 <a name="definition"></a>
@@ -285,7 +287,7 @@ DosageCondition is used in the following places: [%dtusage DosageCondition%]
    currentTabIndex = '0';
 
 $( '#tabs-Dosage' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
-$( '#tabs-DosageDetails' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
+$( '#tabs-DosageInstruction' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
 $( '#tabs-DosageSafety' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
 $( '#tabs-DosageCondition' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
      
@@ -297,7 +299,7 @@ function store(currentTab) {
   } catch(exception){ 
   }
   $( '#tabs-Dosage' ).tabs('option', 'active', currentTab);
-  $( '#tabs-DosageDetails' ).tabs('option', 'active', currentTab);
+  $( '#tabs-DosageInstruction' ).tabs('option', 'active', currentTab);
   $( '#tabs-DosageSafety' ).tabs('option', 'active', currentTab);
   $( '#tabs-DosageCondition' ).tabs('option', 'active', currentTab);
 }     

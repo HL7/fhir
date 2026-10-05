@@ -39,7 +39,7 @@
 <table class="colsi"><tr><td id="wg">Responsible Owner: <a _target="blank" href="[%wg phx%]">[%wgt phx%]</a> Work Group</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
 
 <p>
-This page presents a series of examples of how to use <a href="dosage.html">DosageDetails</a> and related types to represent
+This page presents a series of examples of how to use <a href="dosage.html">DosageInstruction</a> and related types to represent
 various complex dosing regimes.
 </p>
 
@@ -538,9 +538,9 @@ Prednisone 10 mg tablets (oral)
 <p><b>Structure</b></p>
 
  <ul> 
-    <li>Represent each step as a separate <code>dosageDetails.step</code> with its own <code>timing.repeat</code> and dose.</li> 
+    <li>Represent each step as a separate <code>dosageInstruction.step</code> with its own <code>timing.repeat</code> and dose.</li> 
     <li>“Every other day” → <code>period=2</code>, <code>periodUnit=d</code>.</li> 
-    <li>Optional PRN course as a separate PRN <code>dosageDetails.step</code> (narrative driven).</li> 
+    <li>Optional PRN course as a separate PRN <code>dosageInstruction.step</code> (narrative driven).</li> 
   </ul> 
 
 <pre class="yaml">
@@ -1099,7 +1099,7 @@ Epirubicin 45 mg/m² IV on Days 1 &amp; 8 every 28 days × 6 cycles; infuse over
  <div id="tabs-Example4-struc" aria-labelledby="ui-id-15" role="tabpanel" class="ui-tabs-panel ui-corner-bottom ui-widget-content" aria-hidden="false">
 <p><b>Structure</b></p>
 <ul> 
-    <li>Two <code>dosageDetails.step.component</code> entries for Day&nbsp;1 and Day&nbsp;8 of each 28-day period (×6 cycles).</li> 
+    <li>Two <code>dosageInstruction.step.component</code> entries for Day&nbsp;1 and Day&nbsp;8 of each 28-day period (×6 cycles).</li> 
     <li>Infusion duration → <code>Dosage.timing.repeat.duration</code>=20, <code>durationUnit</code>=min; or encode under <code>doseAndRate.rate[x]</code> if modeled as rate.</li> 
     <li>Maxima via <code>MedicationRequest.dosageInstruction.safety.doseLimit</code> with scopes <code>period</code> (per cycle) and <code>lifetime</code>.</li> 
     <li>Day-8 offset is expressed via a <code>Timing.repeat</code> extension (e.g., <code>startOffset=7 d</code>).</li> 
@@ -1475,7 +1475,7 @@ MedicationRequest
 <p><b>Notes:</b></p>
 <ul>
   <li>Retail tri-phase contraceptives do not work like this - they have placebos so that you take a pill every day, and the pills are all day-numbered. 
-    There is no way to represent 'take the right numbered pill for the day of your cycle' in the DosageDetails structure</li>
+    There is no way to represent 'take the right numbered pill for the day of your cycle' in the DosageInstruction structure</li>
 </ul>
 <!-------------------------------------------->
 
@@ -1608,7 +1608,7 @@ Symbicort (budesonide/formoterol):
  <div id="tabs-Example7-struc" aria-labelledby="ui-id-15" role="tabpanel" class="ui-tabs-panel ui-corner-bottom ui-widget-content" aria-hidden="false">
 <p><b>Structure</b></p>
 <ul> 
-    <li>Model planned daily dosing and PRN as separate <code>dosageDetails.step.component</code> entries.</li> 
+    <li>Model planned daily dosing and PRN as separate <code>dosageInstruction.step.component</code> entries.</li> 
     <li>Use <code>MedicationRequest.dosageInstruction.safety.doseLimit</code> with <code>scope=administration</code> (6 puffs) and <code>scope=period</code> (12 puffs / 1 day).</li> 
   </ul> 
   
@@ -2326,7 +2326,7 @@ then 20 mg morning for 1 week, then 10 mg morning for 2 weeks, then see doctor f
  <div id="tabs-Example11-struc" aria-labelledby="ui-id-15" role="tabpanel" class="ui-tabs-panel ui-corner-bottom ui-widget-content" aria-hidden="false">
 <p><b>Structure</b></p>
 <ul> 
-    <li>Use separate <code>dosageDetails.step</code> entries per step (weekly bounds).</li> 
+    <li>Use separate <code>dosageInstruction.step</code> entries per step (weekly bounds).</li> 
     <li>reference an <code>EventDefinition</code> to describe the “3 negative strips” event</li> 
   </ul> 
 
