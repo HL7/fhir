@@ -143,7 +143,7 @@
     </element>
     <element id="InventoryItem.name.nameType">
       <path value="InventoryItem.name.nameType"/>
-      <short value="The type of name e.g. 'brand-name', 'functional-name', 'common-name'"/>
+      <short value="The type of name e.g. 'trade-name', 'alias', 'original-name'"/>
       <definition value="The type of name e.g. 'brand-name', 'functional-name', 'common-name'."/>
       <min value="1"/>
       <max value="1"/>

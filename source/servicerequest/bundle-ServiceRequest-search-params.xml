@@ -52,7 +52,7 @@
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/ServiceRequest-body-structure-reference"/>
         <description value="Body structure where procedure is going to be done (reference)"/>
-        <code value="reference"/>
+        <code value="body-structure-reference"/>
         <type value="reference"/>
         <expression value="ServiceRequest.bodyStructure.reference"/>
         <processingMode value="normal"/>

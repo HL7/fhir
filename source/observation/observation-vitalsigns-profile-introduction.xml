@@ -262,7 +262,7 @@
 					</td>
 					<td>-</td>
 					<td>
-						<a href="observation-example-bloodpressure.html">Blood Pressure Example</a>,  <a href="observation-example-bloodpressure-dar.html"> Blood Pressure Example with missing Diastolic measurement</a>
+						<a href="observation-example-bloodpressure.html">Blood Pressure Example</a>, <a href="observation-example-compound-numeric-blood-pressure.html">Compound Numeric Blood Pressure Example with Multiple Codings</a>, <a href="observation-example-bloodpressure-dar.html">Blood Pressure Example with missing Diastolic measurement</a>
 					</td>
 				</tr>
 			</tbody>

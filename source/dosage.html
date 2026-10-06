@@ -51,12 +51,19 @@ The <a href="dosage-examples.html">examples</a> page shows how many different co
     <li>The <a href="datatypes.html#Timing">Timing</a> datatype has related changes - namely the addition of <code>startOffset</code> and <code>endOffset</code>.</li>
   </ul>
   <p>Balloters should pay careful attention to these structures and the <a href="dosage-examples.html">examples</a>.</p>
+</blockquote>
+
+<blockquote class="stu-note" style="background-color: lightblue">
+<p><b>Changes since 6.0.0-ballot5:</b></p>
+<ul>
+<li><a href="https://jira.hl7.org/browse/FHIR-54252">FHIR-54252</a> - Added <code>DosageDetails.repeatCycle</code> for dosage courses that repeat in cycles (for example, 21 days on and 7 days off), with the section <a href="#repeatcycle">Repeating cycles</a> and an updated Example 5.</li>
+</ul>
 </blockquote>  
 
 <a name="text"> </a>
 <h3>Dosage text and structured Data</h3>
 <p>
-Dosages may contain <code>renderedInstruction</code> and/or structured data.
+Dosages MAY contain <code>renderedInstruction</code> and/or structured data.
 </p>
 <p>
 The rendered instructions are typical prescription instructions, with a relatively concise expression
@@ -72,7 +79,7 @@ with correct and safe administration. As of the publication of this specificatio
 GenAI services are mostly able to decode correct renderedInstructions correctly, but 
 this can't be assumed correct (and not just because of AI limitations), so in any
 context where there is interest in providing medication management support, the dosage 
-structure should be fully populated.
+structure SHOULD be fully populated.
 </p>
 <p>
 However, even after it's fully populated, it's not unusual for the renderedInstruction
@@ -111,6 +118,7 @@ DosageDetails
   <li><code>renderedInstruction</code>: a single summary of the details in the dosage details</li>
   <li>Either a simple dosage expressed as a single <code>step</code> or a complex dosage course expressed with one or more <code>step</code>s, able to represent multiple dose regimes with tapering doses, and event relationships</li>
   <li><code>safety</code> information that represents dose limits for relevant medications</li>
+  <li><code>repeatCycle</code>: when the whole dosage course repeats in cycles, the length of each cycle (see <a href="#repeatcycle">Repeating cycles</a>)</li>
 </ul>
 
 [%dt DosageDetails 2%]
@@ -131,7 +139,7 @@ either <code>Timing.repeat.bounds[x]</code> or <code>Timing.repeat.count</code> 
 <a href="datatypes.html#Timing">Timing</a> data type.   
 </p>
 <p>
-Each step may include one or more <code>component</code> entries. 
+Each step MAY include one or more <code>component</code> entries. 
 </p>
 <p>
 When there more than one <code>component</code> dosages in a step, all components within the same step are considered concurrent. 
@@ -146,6 +154,21 @@ Typically, there are multiple components for the following reasons:
 If there are multiple components, and they specify different bounds for their repeating events, 
 the step lasts as long as the longest component.
 </p>
+
+<a name="repeatcycle"> </a>
+<h3>Repeating cycles</h3>
+<p>
+Some dosage courses repeat in cycles. For example, an oral contraceptive is taken once daily for 21 days, followed by 7 days without tablets, and then the cycle starts again. This is represented with <code>repeatCycle</code>: the duration of one cycle (28 days in this example). The steps describe one cycle (one step with a component taken once daily, bounded to 21 days), and the whole course starts again from the first step when the cycle duration has passed, measured from the start of the course. The time between the end of the last step and the end of the cycle is a period without doses. See <a href="dosage-examples.html">Example 5</a> on the examples page.
+</p>
+<p>
+<code>repeatCycle</code> has the following limitations:
+</p>
+<ul>
+  <li>It repeats the whole dosage course: all the steps, together. It cannot make a single step repeat in a cycle of its own (<code>step.count</code> repeats a step a number of times, one after the other).</li>
+  <li>The cycle is expected to be at least as long as the steps it contains. If the steps take longer than the cycle, the meaning is not defined.</li>
+  <li>It does not say how many cycles are taken, or when to stop. That follows from the context, such as the validity of the prescription or a stop instruction, and can be stated in <code>renderedInstruction</code>.</li>
+  <li>Days on which a placebo or another tablet is taken are not days without doses: they are represented as a step (or component) with that dose, not as the remainder of the cycle.</li>
+</ul>
 
 <p>
 DosageDetails is used in the following places: [%dtusage DosageDetails%]

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="goal-priority"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pc"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="informative"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/goal-priority"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.273"/>
+  </identifier>
+  <version value="6.0.0-snapshot1"/>
+  <name value="GoalPriority"/>
+  <title value="Goal Priority"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <publisher value="HL7 International - Patient Care WG"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/patientcare/"/>
+    </telecom>
+  </contact>
+  <description value="Indicates the level of importance associated with reaching or sustaining a goal."/>
+  <copyright value="This resource includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these specifications must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomed-ct or info@snomed.org"/>
+  <compose>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <concept>
+        <code value="394849002"/>
+        <display value="High priority"/>
+      </concept>
+      <concept>
+        <code value="394848005"/>
+        <display value="Normal priority"/>
+      </concept>
+      <concept>
+        <code value="1251527002"/>
+        <display value="Low priority"/>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>

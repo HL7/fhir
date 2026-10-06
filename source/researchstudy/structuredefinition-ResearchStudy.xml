@@ -193,7 +193,7 @@
     </element>
     <element id="ResearchStudy.label.type">
       <path value="ResearchStudy.label.type"/>
-      <short value="primary | official | scientific | plain-language | subtitle | short-title | acronym | earlier-title | language | auto-translated | human-use | machine-use | duplicate-uid"/>
+      <short value="primary | official | scientific | plain-language | subtitle | short-title | acronym | earlier-title | language | autotranslated | human-use | machine-use | duplicate-uid"/>
       <definition value="Kind of name."/>
       <min value="0"/>
       <max value="1"/>

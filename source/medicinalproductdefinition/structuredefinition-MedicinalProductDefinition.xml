@@ -785,7 +785,7 @@
     </element>
     <element id="MedicinalProductDefinition.name.type">
       <path value="MedicinalProductDefinition.name.type"/>
-      <short value="Type of product name, such as rINN, BAN, Proprietary, Non-Proprietary"/>
+      <short value="Type of product name, such as rINN, BAN, INN"/>
       <definition value="Type of product name, such as rINN, BAN, Proprietary, Non-Proprietary."/>
       <min value="0"/>
       <max value="1"/>

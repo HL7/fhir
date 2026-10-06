@@ -18,9 +18,26 @@
             <resource value=""/>
         </requirementsUnmatched>
     </divergentElement>
+    <divergentElement patternPath="Event.basedOn" resourcePath="MedicationStatement.basedOn">
+        <missingTypes _pattern="Reference(Request)" reason="Unknown"/>
+        <extraTypes _resource="Reference(MedicationRequest,CarePlan,ServiceRequest)" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Fulfills plan, proposal or order"/>
+            <resource value="Fulfils plan, proposal or order"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="A plan, proposal or order that is fulfilled in whole or in part by this medication statement."/>
+            <resource value="A plan, proposal or order that is fulfilled in whole or in part by this event."/>
+        </definitionUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Allows tracing of authorization for the medication statement and tracking whether proposals/recommendations were acted upon."/>
+            <resource value="Allows tracing of authorization for the event and tracking whether proposals/recommendations were acted upon."/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <doubleMappedElement patternPath="Event.basedOn" reason="Unknown"/>
     <divergentElement patternPath="Event.status" resourcePath="MedicationStatement.status">
         <shortUnmatched reason="Unknown">
-            <_pattern value="preparation | in-progress | not-done | suspended | aborted | completed | entered-in-error | unknown"/>
+            <_pattern value="preparation | in-progress | not-done | on-hold | stopped | completed | entered-in-error | unknown"/>
             <resource value="recorded | entered-in-error | draft"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">

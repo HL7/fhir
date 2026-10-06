@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BodyStructure xmlns="http://hl7.org/fhir">
+  <id value="face-excluding-eyelids"/>
+  <active value="true"/>
+  <includedStructure>
+    <structure>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="361703006"/>
+        <display value="Entire skin of face"/>
+      </coding>
+      <text value="Skin of face"/>
+    </structure>
+  </includedStructure>
+  <excludedStructure>
+    <structure>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="245947005"/>
+        <display value="Entire skin of eyelid"/>
+      </coding>
+      <text value="Skin of eyelids"/>
+    </structure>
+  </excludedStructure>
+  <description value="Facial skin region for dermatology treatment, excluding eyelid skin"/>
+  <patient>
+    <reference value="Patient/example"/>
+  </patient>
+</BodyStructure>

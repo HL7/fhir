@@ -34,7 +34,7 @@
     </divergentElement>
     <divergentElement patternPath="Event.status" resourcePath="DeviceAlert.status">
         <shortUnmatched reason="Description reflects allowed values">
-            <_pattern value="preparation | in-progress | not-done | suspended | aborted | completed | entered-in-error | unknown"/>
+            <_pattern value="preparation | in-progress | not-done | on-hold | stopped | completed | entered-in-error | unknown"/>
             <resource value="in-progress | completed | entered-in-error | unknown"/>
         </shortUnmatched>
         <commentsUnmatched reason="Pattern note about state-transition diagram not relevant to resource's set of statuses.">
