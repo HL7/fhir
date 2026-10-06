@@ -104,9 +104,8 @@
         </extension>
         <key value="con-2"/>
         <severity value="warning"/>
-        <human value="Condition.clinicalStatus SHALL be present if verificationStatus is not entered-in-error and category is problem-list-item"/>
-        <expression value="clinicalStatus.exists() or verificationStatus=&#39;entered-in-error&#39; or category.select($this=&#39;problem-list-item&#39;).empty()"/>
-        <xpath value="exists(f:clinicalStatus) or f:verificationStatus/@value=&#39;entered-in-error&#39; or not(exists(category[@value=&#39;problem-list-item&#39;]))"/>
+        <human value="Condition.clinicalStatus SHOULD be present if verificationStatus is not entered-in-error and category is problem-list-item"/>
+        <expression value="clinicalStatus.exists() or verificationStatus.coding.where(system='http://terminology.hl7.org/CodeSystem/condition-ver-status' and code='entered-in-error').exists() or category.coding.where(system='http://terminology.hl7.org/CodeSystem/condition-category' and code='problem-list-item').exists().not()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Condition"/>
       </constraint>
       <mapping>
@@ -154,7 +153,7 @@
       <path value="Condition.clinicalStatus"/>
       <short value="active | recurrence | relapse | inactive | remission | resolved | unknown"/>
       <definition value="The clinical status of the condition."/>
-      <comment value="The data type is CodeableConcept because clinicalStatus has some clinical judgment involved, such that there might need to be more specificity than the required FHIR value set allows. For example, a SNOMED coding might allow for additional specificity.  clinicalStatus is required since it is a modifier element.  For conditions that are problems list items, the clinicalStatus should not be unknown.  For conditions that are not problem list items, the clinicalStatus may be unknown.  For example, conditions derived from a claim are point in time, so those conditions may have a clinicalStatus of unknown"/>
+      <comment value="The data type is CodeableConcept because clinicalStatus has some clinical judgment involved, such that there might need to be more specificity than the required FHIR value set allows. For example, a SNOMED coding might allow for additional specificity.  For conditions that are problem list items, the clinicalStatus should not be unknown.  For conditions that are not problem list items, the clinicalStatus may be unknown.  For example, conditions derived from a claim are point in time, so those conditions may have a clinicalStatus of unknown"/>
       <min value="0"/>
       <max value="1"/>
       <type>
