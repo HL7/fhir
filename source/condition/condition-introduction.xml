@@ -36,6 +36,8 @@
   <li>Compatible, Substantive Changes
     <ul>
 		<li><a href="https://jira.hl7.org/browse/FHIR-58298">FHIR-58298</a>: Condition.asserter - add Organization</li>
+		<li><a href="https://jira.hl7.org/browse/FHIR-54868">FHIR-54868</a>: Condition.clinicalStatus - change cardinality to 0..1</li>
+		<li><a href="https://jira.hl7.org/browse/FHIR-54916">FHIR-54916</a>: Condition.category - change binding strength to preferred and add invariant</li>
     </ul>
   </li>
   <li>Non-Substantive Changes
