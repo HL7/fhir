@@ -508,8 +508,8 @@
     </element>
     <element id="MedicationStatement.adherence">
       <path value="MedicationStatement.adherence"/>
-      <short value="Indicates whether the medication is or is not being consumed or administered"/>
-      <definition value="Indicates whether the medication is or is not being consumed or administered."/>
+      <short value="Indicates whether the medication is or is not being consumed or administered as directed"/>
+      <definition value="Indicates whether the medication is or is not being consumed or administered as directed."/>
       <comment value="This element can be used to indicate whether a patient is following a course of treatment as instructed/prescribed or whether they are taking medications of their own volition.  It can also be used to indicate that a patient is not taking a medication, either because they were told not to or because they decided on their own."/>
       <min value="0"/>
       <max value="1"/>
@@ -546,9 +546,8 @@
     </element>
     <element id="MedicationStatement.adherence.reason">
       <path value="MedicationStatement.adherence.reason"/>
-      <short value="Details of the reason for the current use of the medication"/>
-      <definition value="Captures the reason for the current use or adherence of a medication."/>
-      <comment value="This is generally only used for &quot;exception&quot; statuses such as &quot;entered-in-error&quot;. The reason for performing the event at all is captured in reasonCode, not here."/>
+      <short value="The reason for the current adherence status"/>
+      <definition value="The reason for the current adherence status."/>
       <min value="0"/>
       <max value="1"/>
       <type>
