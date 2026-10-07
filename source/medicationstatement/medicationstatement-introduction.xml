@@ -96,9 +96,9 @@ Balloters are invited to comment on this approach, impact and possible limitatio
 The elements around Dosage have been subject to breaking changes in R6:
 </p>
 <ul>
- <li>A new data type <a href="dosage.html#DosageDetails"> DosageDetails</a> is introduced, containing rendered instructions and simple or structured <a href="dosage.html#Dosage"> Dosage</a>. </li>
+ <li>A new data type <a href="dosage.html#DosageInstruction"> DosageInstruction</a> is introduced, containing rendered instructions and simple or structured <a href="dosage.html#Dosage"> Dosage</a>. </li>
  <li><code>dosageInstruction</code> is now 0..1, and uses the new data type. The composition of complex dosages (with segments, repetitions etc.) can be done using the structure in that data type.</li>
- <li><code>renderedDosageInstruction</code> is removed from the resource and placed in <code>DosageDetails.renderedInstruction</code> in the <a href="dosage.html#DosageDetails"> DosageDetails</a> data type.</li>
+ <li><code>renderedDosageInstruction</code> is removed from the resource and placed in <code>DosageInstruction.renderedInstruction</code> in the <a href="dosage.html#DosageInstruction"> DosageInstruction</a> data type.</li>
  <li>A set of <a href="dosage-examples.html"> examples</a> is provided to show how structured dosages can be represented.</li>
 </ul>
 
@@ -117,6 +117,7 @@ The code system used in medication statement category is presented here but is e
 <li><a href="https://jira.hl7.org/browse/FHIR-55888">FHIR-55888</a> - Restored <code>basedOn</code> (Reference to MedicationRequest, CarePlan or ServiceRequest), and clarified in the comments how <code>basedOn</code> and <code>derivedFrom</code> differ.</li>
 <li><a href="https://jira.hl7.org/browse/FHIR-44768">FHIR-44768</a> - Explained in <code>informationSource</code> how to record the kind of source (for example, a spouse or the patient's pharmacy) without identifying an individual, and in <code>derivedFrom</code> that records such as a transfer facility's administration record are referenced there.</li>
 <li><a href="https://jira.hl7.org/browse/FHIR-54449">FHIR-54449</a> - Clarified <code>adherence</code> (whether the medication is taken as directed) and the definition of <code>adherence.reason</code> (the reason for the current adherence status), and removed its comment.</li>
+<li><a href="https://jira.hl7.org/browse/FHIR-54340">FHIR-54340</a> - The type of <code>dosage</code> is now <a href="dosage.html#DosageInstruction">DosageInstruction</a> (the data type previously named DosageDetails).</li>
 </ul>
 </blockquote>
 
