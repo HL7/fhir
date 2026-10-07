@@ -67,6 +67,18 @@
             <resource value="This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid."/>
         </commentsUnmatched>
     </divergentElement>
+    <divergentElement patternPath="Event.statusReason" resourcePath="MedicationDispense.statusReason">
+        <missingTypes _pattern="CodeableConcept" reason="Unknown"/>
+        <extraTypes _resource="CodeableReference(DetectedIssue)" reason="Unknown"/>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Captures the reason for the current state of the medication dispense."/>
+            <resource value="Captures the reason for the current status of the dispense, for example why it was not performed, put on hold, or resumed."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="This is generally only used for &quot;exception&quot; statuses such as &quot;not-done&quot;, &quot;suspended&quot; or &quot;cancelled&quot;.  The reason for performing the event at all is captured in reasonCode, not here.&#10;."/>
+            <resource value=""/>
+        </commentsUnmatched>
+    </divergentElement>
     <divergentElement patternPath="Event.code" resourcePath="MedicationDispense.medication">
         <lowerCardinality _pattern="0" _resource="1" reason="Unknown"/>
         <missingTypes _pattern="CodeableConcept" reason="Unknown"/>
@@ -167,7 +179,6 @@
     <unmappedElement patternPath="Event.reported" reason="Unknown"/>
     <unmappedElement patternPath="Event.reason" reason="Unknown"/>
     <unmappedElement patternPath="Event.relevantHistory" reason="Unknown"/>
-    <unmappedElement patternPath="Event.statusReason" reason="Unknown"/>
     <unmappedElement patternPath="Event.performer.function" reason="Unknown"/>
     <unmappedElement patternPath="Event.category" reason="Unknown"/>
     <unmappedElement patternPath="Event.recorded" reason="Unknown"/>

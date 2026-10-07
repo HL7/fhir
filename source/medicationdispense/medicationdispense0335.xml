@@ -3,14 +3,14 @@
 <MedicationDispense xmlns="http://hl7.org/fhir">
   <id value="meddisp0335"/>
   <status value="cancelled"/>
-  <notPerformedReason>
+  <statusReason>
     <concept>
       <coding>
         <system value="http://hl7.org/fhir/CodeSystem/medicationdispense-status-reason"/>
         <code value="frr02"/>
       </coding>
     </concept>
-  </notPerformedReason>
+  </statusReason>
   <statusChanged value="2025-11-01"/>
   <medication>
     <concept>
