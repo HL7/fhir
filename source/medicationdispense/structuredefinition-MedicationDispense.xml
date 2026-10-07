@@ -218,10 +218,10 @@
         <map value="CombinedMedicationDispense.SupplyEvent.statusCode"/>
       </mapping>
     </element>
-    <element id="MedicationDispense.notPerformedReason">
-      <path value="MedicationDispense.notPerformedReason"/>
-      <short value="Why a dispense was not performed"/>
-      <definition value="Indicates the reason why a dispense was not performed."/>
+    <element id="MedicationDispense.statusReason">
+      <path value="MedicationDispense.statusReason"/>
+      <short value="Reason for current status"/>
+      <definition value="Captures the reason for the current status of the dispense, for example why it was not performed, put on hold, or resumed."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -235,6 +235,10 @@
         <strength value="example"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/medicationdispense-status-reason"/>
       </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.statusReason"/>
+      </mapping>
     </element>
     <element id="MedicationDispense.statusChanged">
       <path value="MedicationDispense.statusChanged"/>
