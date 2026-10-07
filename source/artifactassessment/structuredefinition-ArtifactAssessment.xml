@@ -103,7 +103,7 @@
       <path value="ArtifactAssessment.url"/>
       <short value="Canonical identifier for this ArtifactAssessment, represented as an absolute URI (globally unique)"/>
       <definition value="An absolute URI that is used to identify this ArtifactAssessment when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this ArtifactAssessment is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the ArtifactAssessment is stored on different servers."/>
-      <comment value="Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.&#xA;&#xA;The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions).&#xA;&#xA;In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found."/>
+      <comment value="Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred. Multiple instances may share the same URL if they have a distinct version.&#xA;&#xA;The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author. Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions).&#xA;&#xA;In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found."/>
       <requirements value="Allows the ArtifactAssessment to be referenced by a single globally unique identifier."/>
       <min value="0"/>
       <max value="1"/>
@@ -151,7 +151,7 @@
     <element id="ArtifactAssessment.version">
       <path value="ArtifactAssessment.version"/>
       <short value="Canonical version of the ArtifactAssessment"/>
-      <definition value="The identifier that is used to identify this version of the ArtifactAssessment when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the ArtifactAssessment author and is not expected to be globally unique. For example, it might be a SemVer version, timestamp (e.g. yyyymmdd), or incrementing number. There is no expectation that versions can be placed in a lexicographical sequence without additional knowledge.  (See the versionAlgorithm element.)"/>
+      <definition value="The identifier that is used to identify this version of the ArtifactAssessment when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the ArtifactAssessment author and is not expected to be globally unique. For example, it might be a SemVer version, timestamp (e.g. yyyymmdd), or incrementing number. There is no expectation that versions can be placed in a lexicographical sequence without additional knowledge."/>
       <comment value="There may be different ArtifactAssessments that have the same canonical url but different versions. The version can be appended to the url in a reference to allow a reference to a particular canonical version of the ArtifactAssessment with the format [url]|[version]. Note that the canonical version of a resource is not related to a server resource instance version (`Resource.meta.versionId`). For more information, see [Version Matching for Canonical Resources](references.html#matching). The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format)."/>
       <min value="0"/>
       <max value="1"/>
@@ -214,7 +214,7 @@
       <path value="ArtifactAssessment.status"/>
       <short value="draft | active | retired | unknown"/>
       <definition value="The current state of this ArtifactAssessment."/>
-      <comment value="A nominal state-transition diagram can be found in the [Definition pattern](definition.html#statemachine) documentation.&#xA;&#xA;Unknown does not represent 'other' - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is.&#xa;&#xa;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).&#xa;&#xa;If a server wishes to reflect whether a given canonical resource is 'supported' or 'enabled' on that server, this is NOT done with status. Instead, expose support for the resource using a 'feature' in the server's CapabilityStatement.  (Not all supported canonical resources will necessarily be searchable on a server, and availability of a canonical resource in a search result does not imply support of the resource for any particular usage.)"/>
+      <comment value="A nominal state-transition diagram can be found in the [Definition pattern](definition.html#statemachine) documentation.&#xA;&#xA;Unknown does not represent 'other' - one of the defined statuses must apply. Unknown is used when the authoring system is not sure what the current status is.&#xa;&#xa;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).&#xa;&#xa;If a server wishes to reflect whether a given canonical resource is 'supported' or 'enabled' on that server, this is NOT done with status. Instead, expose support for the resource using a 'feature' in the server's CapabilityStatement."/>
       <requirements value="Enables tracking the life-cycle of the content and filtering of ArtifactAssessments that are appropriate for use versus not."/>
       <min value="0"/>
       <max value="1"/>
@@ -244,7 +244,7 @@
       <path value="ArtifactAssessment.experimental"/>
       <short value="For testing only - never for real usage"/>
       <definition value="A Boolean value to indicate that this ArtifactAssessment is authored for testing purposes (or education/evaluation/marketing) and no version of this resource will ever be intended for genuine usage"/>
-      <comment value="Allows filtering of ArtifactAssessments that are appropriate for use versus not. Experimental resources might include example instances in implementation guides, instances created solely for testing purposes, etc. If experimental is 'true' for any version of a resource, it should be true for all versions of the resource.  (If experimental changes, then it is being misused or a resource that was never intended for real-world use has unexpectedly changed its purpose.).&#10;&#10;Experimental resources are not expected to be stable and may well have breaking changes without a corresponding change to the 'version' element."/>
+      <comment value="Allows filtering of ArtifactAssessments that are appropriate for use versus not. Experimental resources might include example instances in implementation guides, instances created solely for testing purposes, etc. If experimental is 'true' for any version of a resource, it should be true for all versions of the resource. (If experimental changes, then it is being misused or a resource that was never intended for real-world use has unexpectedly changed its purpose.).&#10;&#10;Experimental resources are not expected to be stable and may well have breaking changes without a corresponding change to the 'version' element."/>
       <requirements value="Enables experimental content to be developed following the same lifecycle that would be used for a production-level ArtifactAssessment."/>
       <min value="0"/>
       <max value="1"/>
@@ -284,7 +284,7 @@
       <short value="Name of the publisher/steward (organization or individual)"/>
       <definition value="The name of the organization or individual responsible for the release and ongoing maintenance of the ArtifactAssessment."/>
       <comment value="Usually an organization but may be an individual. The publisher (or steward) of the ArtifactAssessment is the organization or individual primarily responsible for the maintenance and upkeep of the ArtifactAssessment. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the ArtifactAssessment. This item SHOULD be populated unless the information is available from context. The publisher is not necessarily an entity that is involved in developing the content of the resource."/>
-      <requirements value="Helps establish the &quot;authority/credibility&quot; of the ArtifactAssessment.  May also allow for contact."/>
+      <requirements value="Helps establish the &quot;authority/credibility&quot; of the ArtifactAssessment. May also allow for contact."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -335,7 +335,7 @@
     <element id="ArtifactAssessment.jurisdiction">
       <path value="ArtifactAssessment.jurisdiction"/>
       <short value="Jurisdiction of the authority that maintains the ArtifactAssessment (if applicable)"/>
-      <definition value="A legal or geographic region in which the authority that maintains the resource is operating.  In general, the jurisdiction is also found in the useContext.  The useContext may reference additional jurisdictions because the defining jurisdiction does not necessarily limit the jurisdictions of use."/>
+      <definition value="A legal or geographic region in which the authority that maintains the resource is operating. In general, the jurisdiction is also found in the useContext. The useContext may reference additional jurisdictions because the defining jurisdiction does not necessarily limit the jurisdictions of use."/>
       <comment value="It may be possible for the ArtifactAssessment to be used in jurisdictions other than those for which it was originally designed or intended."/>
       <min value="0"/>
       <max value="*"/>
@@ -359,7 +359,7 @@
       <path value="ArtifactAssessment.purpose"/>
       <short value="Why this ArtifactAssessment is defined"/>
       <definition value="Explanation of why this ArtifactAssessment is needed and why it has been designed as it has."/>
-      <comment value="This element does not describe the usage of the ArtifactAssessment. Instead, it provides traceability of &quot;why&quot; the resource is either needed or &quot;why&quot; it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this ArtifactAssessment."/>
+      <comment value="This element does not describe the usage of the ArtifactAssessment. Instead, it provides traceability of &quot;why&quot; the resource is either needed or &quot;why&quot; it is defined as it is. This may be used to point to source materials or specifications that drove the structure of this ArtifactAssessment."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -451,7 +451,7 @@
       <short value="When the artifact assessment was last reviewed by the publisher"/>
       <definition value="The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date."/>
       <comment value="If specified, this date follows the original approval date."/>
-      <requirements value="Gives a sense of how &quot;current&quot; the content is.  Resources that have not been reviewed in a long time may have a risk of being less appropriate/relevant."/>
+      <requirements value="Gives a sense of how &quot;current&quot; the content is. Resources that have not been reviewed in a long time may have a risk of being less appropriate/relevant."/>
       <min value="0"/>
       <max value="1"/>
       <type>
