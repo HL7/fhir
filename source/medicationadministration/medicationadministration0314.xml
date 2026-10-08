@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicationAdministration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationadministration.xsd"
+    xmlns="http://hl7.org/fhir">
+    <id value="medadmin0314"/>
+    <!-- Vancomycin given through the distal port of a triple lumen central venous catheter.
+         The port is a Device whose parent is the catheter Device; the infusion pump is also a Device. All are contained. -->
+    <contained>
+        <Device>
+            <id value="catheter"/>
+            <status value="active"/>
+            <name>
+                <value value="Triple lumen central venous catheter"/>
+                <type>
+                    <coding>
+                        <system value="http://terminology.hl7.org/CodeSystem/device-nametype"/>
+                        <code value="user-friendly-name"/>
+                    </coding>
+                </type>
+            </name>
+            <type>
+                <coding>
+                    <system value="http://snomed.info/sct"/>
+                    <code value="397970004"/>
+                    <display value="Triple lumen catheter"/>
+                </coding>
+            </type>
+        </Device>
+    </contained>
+    <contained>
+        <Device>
+            <id value="port"/>
+            <status value="active"/>
+            <name>
+                <value value="Distal port"/>
+                <type>
+                    <coding>
+                        <system value="http://terminology.hl7.org/CodeSystem/device-nametype"/>
+                        <code value="user-friendly-name"/>
+                    </coding>
+                </type>
+            </name>
+            <type>
+                <text value="Catheter port (distal lumen)"/>
+            </type>
+            <parent>
+                <reference value="#catheter"/>
+            </parent>
+        </Device>
+    </contained>
+    <contained>
+        <Device>
+            <id value="pump"/>
+            <status value="active"/>
+            <serialNumber value="IP-20817-44"/>
+            <name>
+                <value value="Infusion pump"/>
+                <type>
+                    <coding>
+                        <system value="http://terminology.hl7.org/CodeSystem/device-nametype"/>
+                        <code value="user-friendly-name"/>
+                    </coding>
+                </type>
+            </name>
+            <type>
+                <coding>
+                    <system value="http://snomed.info/sct"/>
+                    <code value="430033006"/>
+                    <display value="Infusion pump"/>
+                </coding>
+            </type>
+        </Device>
+    </contained>
+    <status value="completed"/>
+    <medication>
+        <concept>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="780751008"/>
+                <display value="Vancomycin only product in parenteral dose form"/>
+            </coding>
+        </concept>
+    </medication>
+    <subject>
+        <reference value="Patient/pat1"/>
+        <display value="Donald Duck"/>
+    </subject>
+    <occurrencePeriod>
+        <start value="2026-02-12T08:00:00+01:00"/>
+        <end value="2026-02-12T09:30:00+01:00"/>
+    </occurrencePeriod>
+    <performer>
+        <actor>
+            <reference>
+                <reference value="Practitioner/f007"/>
+            </reference>
+        </actor>
+    </performer>
+    <device>
+        <reference>
+            <reference value="#port"/>
+        </reference>
+    </device>
+    <device>
+        <reference>
+            <reference value="#pump"/>
+        </reference>
+    </device>
+    <dosage>
+        <text value="Vancomycin 1 g IV over 90 minutes by infusion pump, through the distal port of the triple lumen catheter"/>
+        <route>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="47625008"/>
+                <display value="Intravenous route"/>
+            </coding>
+        </route>
+        <dose>
+            <value value="1"/>
+            <unit value="g"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="g"/>
+        </dose>
+    </dosage>
+</MedicationAdministration>

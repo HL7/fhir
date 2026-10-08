@@ -95,6 +95,19 @@
         <expression value="abatement.exists() implies (clinicalStatus.coding.where(system='http://terminology.hl7.org/CodeSystem/condition-clinical' and (code='inactive' or code='resolved' or code='remission')).exists())"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Condition"/>
       </constraint>
+	  <constraint>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice">
+          <valueBoolean value="true"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice-explanation">
+          <valueMarkdown value="Most systems will expect a clinicalStatus to be valued for problem-list-items that are managed over time, but might not need a clinicalStatus for point in time encounter-diagnosis."/>
+        </extension>
+        <key value="con-2"/>
+        <severity value="warning"/>
+        <human value="Condition.clinicalStatus SHOULD be present if verificationStatus is not entered-in-error and category is problem-list-item"/>
+        <expression value="clinicalStatus.exists() or verificationStatus.coding.where(system='http://terminology.hl7.org/CodeSystem/condition-ver-status' and code='entered-in-error').exists() or category.coding.where(system='http://terminology.hl7.org/CodeSystem/condition-category' and code='problem-list-item').exists().not()"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Condition"/>
+      </constraint>
       <mapping>
         <identity value="sct-concept"/>
         <map value="&lt; 243796009 |Situation with explicit context| : 246090004 |Associated finding| = ( ( &lt; 404684003 |Clinical finding| MINUS ( &lt;&lt; 420134006 |Propensity to adverse reactions| OR &lt;&lt; 473010000 |Hypersensitivity condition| OR &lt;&lt; 79899007 |Drug interaction| OR &lt;&lt; 69449002 |Drug action| OR &lt;&lt; 441742003 |Evaluation finding| OR &lt;&lt; 307824009 |Administrative status| OR &lt;&lt; 385356007 |Tumor stage finding|)) OR &lt; 272379006 |Event|)"/>
@@ -135,18 +148,19 @@
     </element>
     <element id="Condition.clinicalStatus">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="GF#16193."/>
+        <valueString value="GF#16193, J#54868, J#54916"/>
       </extension>
       <path value="Condition.clinicalStatus"/>
       <short value="active | recurrence | relapse | inactive | remission | resolved | unknown"/>
       <definition value="The clinical status of the condition."/>
-      <comment value="The data type is CodeableConcept because clinicalStatus has some clinical judgment involved, such that there might need to be more specificity than the required FHIR value set allows. For example, a SNOMED coding might allow for additional specificity.  clinicalStatus is required since it is a modifier element.  For conditions that are problems list items, the clinicalStatus should not be unknown.  For conditions that are not problem list items, the clinicalStatus may be unknown.  For example, conditions derived from a claim are point in time, so those conditions may have a clinicalStatus of unknown"/>
-      <min value="1"/>
+      <comment value="The data type is CodeableConcept because clinicalStatus has some clinical judgment involved, such that there might need to be more specificity than the required FHIR value set allows. For example, a SNOMED coding might allow for additional specificity.  For conditions that are problem list items, the clinicalStatus should not be unknown.  For conditions that are not problem list items, the clinicalStatus may be unknown.  For example, conditions derived from a claim are point in time, so those conditions may have a clinicalStatus of unknown"/>
+      <min value="0"/>
       <max value="1"/>
       <type>
         <code value="CodeableConcept"/>
       </type>
-      <condition value="con-3"/>
+      <condition value="con-2"/>
+	  <condition value="con-3"/>
       <isModifier value="true"/>
       <isModifierReason value="This element is labeled as a modifier because the status contains codes that mark the condition as no longer active."/>
       <isSummary value="true"/>
@@ -177,7 +191,7 @@
     </element>
     <element id="Condition.verificationStatus">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="GF#11281, GF#16193, J#28458, J#54914"/>
+        <valueString value="GF#11281, GF#16193, J#28458, J#54914, J#54916"/>
       </extension>
       <path value="Condition.verificationStatus"/>
       <short value="unconfirmed | provisional | differential | confirmed | refuted | entered-in-error"/>
@@ -188,6 +202,7 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+	  <condition value="con-2"/>
       <isModifier value="true"/>
       <isModifierReason value="This element is labeled as a modifier because the status contains the code refuted and entered-in-error that mark the Condition as not currently valid."/>
       <isSummary value="true"/>
@@ -222,7 +237,7 @@
     </element>
     <element id="Condition.category">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="J#48358, J#54454"/>
+        <valueString value="J#48358, J#54454, J#54916"/>
       </extension>
       <path value="Condition.category"/>
       <short value="Classification of type of condition"/>
@@ -233,11 +248,12 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+	  <condition value="con-2"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ConditionCategory"/>
         </extension>
-        <strength value="example"/>
+        <strength value="preferred"/>
         <description value="A category assigned to the condition."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/condition-category"/>
       </binding>
@@ -563,7 +579,7 @@
     </element>
     <element id="Condition.asserter">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="GF#11089, GF#22270, J#39602, J#41403"/>
+        <valueString value="GF#11089, GF#22270, J#39602, J#41403, J#58298"/>
       </extension>
       <path value="Condition.asserter"/>
       <short value="Person or device that asserts this condition"/>
@@ -578,6 +594,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
       </type>
       <isSummary value="true"/>
       <mapping>

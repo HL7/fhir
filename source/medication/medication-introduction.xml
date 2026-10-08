@@ -6,6 +6,10 @@
 	<ul>
 		<li><a href="https://jira.hl7.org/browse/FHIR-48405">FHIR-48405</a> - The examples no longer use contained Substance resources 
 			to describe medication ingredients.</li>
+		<li><a href="https://jira.hl7.org/browse/FHIR-54375">FHIR-54375</a> - Corrected the definition of <code>Medication.ingredient.role</code>, which duplicated the definition of <code>isActive</code>.</li>
+		<li><a href="https://jira.hl7.org/browse/FHIR-54379">FHIR-54379</a> - Corrected the description of the <code>serial-number</code> search parameter, which referred to a lot number.</li>
+		<li><a href="https://jira.hl7.org/browse/FHIR-57813">FHIR-57813</a> - Medication can now optionally be a canonical resource: it has the CanonicalResource elements (<code>url</code>, <code>version</code>, <code>name</code>, <code>title</code>, <code>publisher</code>, <code>jurisdiction</code> and others).</li>
+		<li><a href="https://jira.hl7.org/browse/FHIR-59543">FHIR-59543</a> - <code>status</code> is bound to the <a href="valueset-publication-status.html">PublicationStatus</a> value set (draft | active | retired | unknown), as for other canonical resources; the Medication Status code system and value set are removed. From R5: <code>inactive</code> and <code>entered-in-error</code> become <code>retired</code>; <code>active</code> is unchanged.</li>
 	</ul>
 </blockquote>
 

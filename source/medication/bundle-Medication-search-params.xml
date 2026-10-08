@@ -182,7 +182,7 @@
           <valueString value="Medication.instance.lotNumber"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Medication-serial-number"/>
-        <description value="Returns medications in a instance with this lot number"/>
+        <description value="Returns instance(s) of Medication resource that have this serial number"/>
         <code value="serial-number"/>
         <type value="token"/>
         <expression value="Medication.identifier"/>

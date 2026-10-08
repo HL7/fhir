@@ -118,6 +118,30 @@
         <map value=".id"/>
       </mapping>
     </element>
+    <element id="MedicationStatement.basedOn">
+      <path value="MedicationStatement.basedOn"/>
+      <short value="Fulfils plan, proposal or order"/>
+      <definition value="A plan, proposal or order that is fulfilled in whole or in part by this event."/>
+      <comment value="Use basedOn to reference the order or plan that this statement fulfils, or that authorized the medication to be given or taken. To reference information from which the statement was inferred, or that is evidence for it, use derivedFrom."/>
+      <requirements value="Allows tracing of authorization for the event and tracking whether proposals/recommendations were acted upon."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CarePlan"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.basedOn"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=FLFS].target[classCode=SBADM or PROC or PCPR or OBS, moodCode=RQO or PLAN or PRP]"/>
+      </mapping>
+    </element>
     <element id="MedicationStatement.partOf">
       <path value="MedicationStatement.partOf"/>
       <short value="Part of referenced event"/>
@@ -360,7 +384,8 @@
     <element id="MedicationStatement.informationSource">
       <path value="MedicationStatement.informationSource"/>
       <short value="Person or organization that provided the information about the taking of this medication"/>
-      <definition value="The person or organization that provided the information about the taking of this medication. Note: Use derivedFrom when a MedicationStatement is derived from other resources, e.g. Claim or MedicationRequest."/>
+      <definition value="The person or organization that provided the information about the taking of this medication, or the kind of person or organization when the specific individual is not recorded. Note: Use derivedFrom when a MedicationStatement is derived from other resources, e.g. Claim or MedicationRequest."/>
+      <comment value="When only the kind of source is known, such as the patient's spouse, a care giver or the patient's pharmacy, reference a resource that carries that kind without identifying an individual: a RelatedPerson with its relationship (for example, spouse), a PractitionerRole with its code, or an Organization with its type (for example, a community pharmacy). Information taken from records or objects, such as a medication administration record from a transferring facility or a medication container, is referenced in `derivedFrom`."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -386,7 +411,7 @@
       <path value="MedicationStatement.derivedFrom"/>
       <short value="Link to information used to derive the MedicationStatement"/>
       <definition value="Allows linking the MedicationStatement to the underlying MedicationRequest, or to other information that supports or is used to derive the MedicationStatement."/>
-      <comment value="Likely references would be to MedicationRequest, MedicationDispense, Claim, Observation or QuestionnaireAnswers.  The most common use cases for deriving a MedicationStatement comes from creating a MedicationStatement from a MedicationRequest or from a lab observation or a claim.  it should be noted that the amount of information that is available varies from the type resource that you derive the MedicationStatement from."/>
+      <comment value="Use derivedFrom to reference sources of information from which the MedicationStatement was inferred, or that are evidence for it. To reference the order that this statement fulfils, use basedOn. Likely references would be to MedicationRequest, MedicationDispense, Claim, Observation or QuestionnaireAnswers.  The most common use cases for deriving a MedicationStatement comes from creating a MedicationStatement from a MedicationRequest or from a lab observation or a claim.  it should be noted that the amount of information that is available varies from the type resource that you derive the MedicationStatement from. This includes records used as a source of the statement, such as a medication administration record received from a transferring facility (for example, as a DocumentReference)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -483,8 +508,8 @@
     </element>
     <element id="MedicationStatement.adherence">
       <path value="MedicationStatement.adherence"/>
-      <short value="Indicates whether the medication is or is not being consumed or administered"/>
-      <definition value="Indicates whether the medication is or is not being consumed or administered."/>
+      <short value="Indicates whether the medication is or is not being consumed or administered as directed"/>
+      <definition value="Indicates whether the medication is or is not being consumed or administered as directed."/>
       <comment value="This element can be used to indicate whether a patient is following a course of treatment as instructed/prescribed or whether they are taking medications of their own volition.  It can also be used to indicate that a patient is not taking a medication, either because they were told not to or because they decided on their own."/>
       <min value="0"/>
       <max value="1"/>
@@ -521,9 +546,8 @@
     </element>
     <element id="MedicationStatement.adherence.reason">
       <path value="MedicationStatement.adherence.reason"/>
-      <short value="Details of the reason for the current use of the medication"/>
-      <definition value="Captures the reason for the current use or adherence of a medication."/>
-      <comment value="This is generally only used for &quot;exception&quot; statuses such as &quot;entered-in-error&quot;. The reason for performing the event at all is captured in reasonCode, not here."/>
+      <short value="The reason for the current adherence status"/>
+      <definition value="The reason for the current adherence status."/>
       <min value="0"/>
       <max value="1"/>
       <type>

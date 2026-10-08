@@ -99,7 +99,7 @@ MedicationRequest
             period: 1
             periodUnit: d
         doseAndRate
-          doseQuantity: 10 mg
+          doseQuantity: 2.5 mg
 </pre>
  </div>
 
@@ -1102,7 +1102,7 @@ Epirubicin 45 mg/m² IV on Days 1 &amp; 8 every 28 days × 6 cycles; infuse over
     <li>Two <code>dosageDetails.step.component</code> entries for Day&nbsp;1 and Day&nbsp;8 of each 28-day period (×6 cycles).</li> 
     <li>Infusion duration → <code>Dosage.timing.repeat.duration</code>=20, <code>durationUnit</code>=min; or encode under <code>doseAndRate.rate[x]</code> if modeled as rate.</li> 
     <li>Maxima via <code>MedicationRequest.dosageInstruction.safety.doseLimit</code> with scopes <code>period</code> (per cycle) and <code>lifetime</code>.</li> 
-    <li>Day-8 offset is expressed via a <code>Timing.repeat</code> extension (e.g., <code>startOffset=8 d</code>).</li> 
+    <li>Day-8 offset is expressed via a <code>Timing.repeat</code> extension (e.g., <code>startOffset=7 d</code>).</li> 
   </ul> 
 <pre class="yaml">
 MedicationRequest
@@ -1130,7 +1130,7 @@ MedicationRequest
             durationUnit: min
             period: 28
             periodUnit: d
-            startOffset = 8 d
+            startOffset = 7 d
             timeOfDay: 09:00
         doseAndRate
           rateQuantity: 45 mg/m² 
@@ -1189,7 +1189,7 @@ MedicationRequest
                 "period": 28,
                 "periodUnit": "d",
                 "startOffset": {
-                  "value": 8,
+                  "value": 7,
                   "unit": "days",
                   "system": "http://unitsofmeasure.org",
                   "code": "d"
@@ -1278,7 +1278,7 @@ MedicationRequest
             &lt;period value=&quot;28&quot;/&gt;
             &lt;periodUnit value=&quot;d&quot;/&gt;
             &lt;startOffset&gt;
-              &lt;value value=&quot;8&quot;/&gt;
+              &lt;value value=&quot;7&quot;/&gt;
               &lt;unit value=&quot;days&quot;/&gt;
               &lt;system value=&quot;http://unitsofmeasure.org&quot;/&gt;
               &lt;code value=&quot;d&quot;/&gt;
@@ -1326,7 +1326,7 @@ MedicationRequest
 
 <p><b>Notes:</b></p>
 <ul>
-  <li>The structure does not say what /m2 is of - that does not appear to be computable (it’s skin surface area for the patient)</li>
+  <li>The structure does not say what /m² is of - that does not appear to be computable (it is body surface area (BSA) for the patient).</li>
   <li>Even when understood, mg/m² requires external patient BSA </li>
 </ul>
 
@@ -1348,8 +1348,9 @@ Microgynon tab (contraceptives): 1 tablet daily for 21 days, then 7 days off. Th
  <div id="tabs-Example5-struc" aria-labelledby="ui-id-15" role="tabpanel" class="ui-tabs-panel ui-corner-bottom ui-widget-content" aria-hidden="false">
 <p><b>Structure</b></p>
   <ul> 
-    <li>Express repeating 28-day cycles with <code>Timing.repeat.endOffset = 7 d</code> for the off-interval.</li> 
-    <li>Alternative: two steps—21 daily doses followed by a “break” step with 0 dose; then repeat via new order or plan definition.</li> 
+    <li><code>MedicationRequest.dosageInstruction.repeatCycle</code> = 28 d: the whole dosage course starts again every 28 days.</li> 
+    <li>One <code>step</code> with one <code>component</code>: <code>…timing.repeat.boundsDuration</code> = 21 d, <code>…timing.repeat.frequency/period/periodUnit</code> = 1 / 1 / d.</li> 
+    <li>The 7 days without tablets are the rest of the cycle after the step ends.</li> 
     <li>Narrative should clarify if placebos are present (daily intake without true off days).</li> 
   </ul> 
 <pre class="yaml">
@@ -1358,13 +1359,14 @@ MedicationRequest
     concept
       coding: Microgynon tab
   dosageInstruction 
+    repeatCycle: 28 d
     step
       component
         timing
           repeat
-            endOffset = 7 d
-            frequency: 21
-            period: 28
+            boundsDuration: 21 d
+            frequency: 1
+            period: 1
             periodUnit: d
         doseAndRate
           doseQuantity: 1 tablet
@@ -1383,18 +1385,24 @@ MedicationRequest
     }
   },
   "dosageInstruction": {
+    "repeatCycle": {
+      "value": 28,
+      "unit": "days",
+      "system": "http://unitsofmeasure.org",
+      "code": "d"
+    },
     "step": [{
       "component": [{
         "timing": {
           "repeat": {
-            "endOffset": {
-              "value": 7,
+            "boundsDuration": {
+              "value": 21,
               "unit": "days",
               "system": "http://unitsofmeasure.org",
               "code": "d"
             },
-            "frequency": 21,
-            "period": 28,
+            "frequency": 1,
+            "period": 1,
             "periodUnit": "d"
           }
         },
@@ -1425,18 +1433,24 @@ MedicationRequest
     &lt;/concept&gt;
   &lt;/medication&gt;
   &lt;dosageInstruction&gt;
+    &lt;repeatCycle&gt;
+      &lt;value value=&quot;28&quot;/&gt;
+      &lt;unit value=&quot;days&quot;/&gt;
+      &lt;system value=&quot;http://unitsofmeasure.org&quot;/&gt;
+      &lt;code value=&quot;d&quot;/&gt;
+    &lt;/repeatCycle&gt;
     &lt;step&gt;
       &lt;component&gt;
         &lt;timing&gt;
           &lt;repeat&gt;
-            &lt;endOffset&gt;
-              &lt;value value=&quot;7&quot;/&gt;
+            &lt;boundsDuration&gt;
+              &lt;value value=&quot;21&quot;/&gt;
               &lt;unit value=&quot;days&quot;/&gt;
               &lt;system value=&quot;http://unitsofmeasure.org&quot;/&gt;
               &lt;code value=&quot;d&quot;/&gt;
-            &lt;/endOffset&gt;
-            &lt;frequency value=&quot;21&quot;/&gt;
-            &lt;period value=&quot;28&quot;/&gt;
+            &lt;/boundsDuration&gt;
+            &lt;frequency value=&quot;1&quot;/&gt;
+            &lt;period value=&quot;1&quot;/&gt;
             &lt;periodUnit value=&quot;d&quot;/&gt;
           &lt;/repeat&gt;
         &lt;/timing&gt;
@@ -1460,8 +1474,8 @@ MedicationRequest
 
 <p><b>Notes:</b></p>
 <ul>
-  <li>Retail tri-phase contraceptives don’t work like this - they have placebos so that you take a pill every day, and the pills are all day-numbered. 
-    There's no way to represent 'take the right numbered pill for the day of your cycle' in the DosageDetails structure</li>
+  <li>Retail tri-phase contraceptives do not work like this - they have placebos so that you take a pill every day, and the pills are all day-numbered. 
+    There is no way to represent 'take the right numbered pill for the day of your cycle' in the DosageDetails structure</li>
 </ul>
 <!-------------------------------------------->
 
@@ -2564,7 +2578,7 @@ MedicationRequest
 <p><b>Notes:</b></p>
 <ul>
   <li>Note that the computational space of events is absolutely massive, so 
-    implementations that try to use this extension shouldn’t expect the event to actually be understood,
+    implementations that try to use this extension should not expect the event to actually be understood,
     just rendered - so marginal utility over just putting it in text</li>
 </ul>
 
@@ -2842,7 +2856,7 @@ MedicationRequest
 <p><b>Notes:</b></p>
 <ul>
   <li>The contextCode = if needed is different to dosage.asNeeded because the latter is ‘take a dose if needed’, where as the former is ‘do this entire dosage if needed’</li>
-  <li>There’s no hint as to what the 30% is about - 30% of *what*? This will be found in the renderedInstruction</li>
+  <li>There is no hint as to what the 30% is about - 30% of *what*? This will be found in the renderedInstruction</li>
   <li>Event when understood, 30% of body surface area requires external context</li>
 </ul> 
 
