@@ -2,6 +2,26 @@
 <Specimen xmlns="http://hl7.org/fhir">
     <id value="liver-biopsy"/>
     <contained>
+        <ServiceRequest>
+            <id value="liver-biopsy-request"/>
+            <status value="active"/>
+            <intent value="order"/>
+            <code>
+                <concept>
+                    <coding>
+                        <system value="http://loinc.org"/>
+                        <code value="11529-5"/>
+                        <display value="Surgical pathology study"/>
+                    </coding>
+                    <text value="Surgical pathology study of liver tissue"/>
+                </concept>
+            </code>
+            <subject>
+                <reference value="Patient/example"/>
+            </subject>
+        </ServiceRequest>
+    </contained>
+    <contained>
         <Procedure>
             <id value="liver-biopsy-procedure"/>
             <status value="completed"/>
@@ -42,8 +62,8 @@
     <type>
         <coding>
             <system value="http://snomed.info/sct"/>
-            <code value="119376003"/>
-            <display value="Tissue specimen"/>
+            <code value="128168004"/>
+            <display value="Tissue specimen from liver"/>
         </coding>
     </type>
     <subject>
@@ -52,7 +72,8 @@
     </subject>
     <receivedTime value="2024-03-15T10:30:00Z"/>
     <request>
-        <reference value="ServiceRequest/liver-biopsy-request"/>
+        <reference value="#liver-biopsy-request"/>
+        <display value="Surgical pathology study of liver tissue"/>
     </request>
     <collection>
         <collector>
@@ -68,8 +89,8 @@
         <method>
             <coding>
                 <system value="http://snomed.info/sct"/>
-                <code value="129314006"/>
-                <display value="Biopsy - action"/>
+                <code value="287489008"/>
+                <display value="Percutaneous needle biopsy of liver"/>
             </coding>
         </method>
         <procedure>

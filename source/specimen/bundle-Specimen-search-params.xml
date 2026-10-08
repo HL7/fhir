@@ -105,6 +105,26 @@
   <entry>
     <resource>
       <SearchParameter>
+        <id value="Specimen-focus"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Specimen.focus"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Specimen-focus"/>
+        <status value="active"/>
+        <description value="The entity from which the specimen was collected when it is not the subject of record"/>
+        <code value="focus"/>
+        <type value="reference"/>
+        <expression value="Specimen.focus"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
         <id value="Specimen-identifier"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="normative"/>
