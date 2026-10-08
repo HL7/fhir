@@ -26,6 +26,12 @@
 	<li>Guidance has been added to clarify intent behind DiagnosticReport and Observation organizer/grouping <a href="https://jira.hl7.org/browse/FHIR-54887">FHIR-54887</a></li>
   </ul>
 </blockquote>
+<blockquote class="stu-note" style="background-color: lightblue">
+  <p><b>Changes since 6.0.0-ballot5:</b></p>
+  <ul>
+    <li><a href="https://jira.hl7.org/browse/FHIR-58360">FHIR-58360</a> - Clarified that <code>Procedure.outcome</code> records procedure effects, while findings from diagnostic evaluations belong in observations and reports</li>
+  </ul>
+</blockquote>
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
 <p>
@@ -90,7 +96,10 @@ The results are assembled in "groups" which are nested structures of Observation
 <a name="bnr"></a>
 <h2>Boundaries and Relationships</h2>
 <p>
-Note that many diagnostic processes are procedures that generate observations and diagnostic reports. In many cases, such an observation does not require an explicit representation of the procedure used to create the observation, but where there are details of interest about how the diagnostic procedure was performed, the <a href="procedure.html">Procedure</a> resource is used to describe the activity.
+Many diagnostic processes are procedures that generate observations and diagnostic reports. In many cases, such an observation does not require an explicit representation of the procedure used to create the observation, but where there are details of interest about how the diagnostic procedure was performed, the <a href="procedure.html">Procedure</a> resource is used to describe the activity.
+</p>
+<p>
+The <a href="procedure-definitions.html#Procedure.outcome"><code>Procedure.outcome</code></a> element is for recording procedure effects (success, stent placed, reaction to contrast, etc.), not findings of evaluation procedures (lab results, radiology observations).
 </p>
 
 <p>

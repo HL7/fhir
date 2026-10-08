@@ -646,7 +646,7 @@
     </element>
     <element id="FamilyMemberHistory.condition.outcome">
       <path value="FamilyMemberHistory.condition.outcome"/>
-      <short value="deceased | permanent disability | etc"/>
+      <short value="E.g. deceased, permanent disability"/>
       <definition value="Indicates what happened following the condition.  If the condition resulted in death, deceased date is captured on the relation."/>
       <min value="0"/>
       <max value="1"/>
@@ -677,6 +677,9 @@
       </type>
     </element>
     <element id="FamilyMemberHistory.condition.onset[x]">
+	  <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="J#54184"/>
+      </extension>
       <path value="FamilyMemberHistory.condition.onset[x]"/>
       <short value="When condition first manifested"/>
       <definition value="Either the age of onset, range of approximate age or descriptive string can be recorded.  For conditions with multiple occurrences, this describes the first known occurrence."/>
@@ -694,6 +697,9 @@
       </type>
       <type>
         <code value="string"/>
+      </type>
+	  <type>
+        <code value="dateTime"/>
       </type>
       <mapping>
         <identity value="rim"/>

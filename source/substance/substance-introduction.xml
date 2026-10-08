@@ -7,6 +7,14 @@
     This artifact has not been changed since the previous Normative ballot, <a href="https://hl7.org/fhir/6.0.0-ballot4">FHIR R6 Ballot (1st Full Ballot) / 6.0.0-ballot4</a>.
     </p>
   </blockquote>
+
+<blockquote class="stu-note" style="background-color: lightblue">
+	<p><b>Changes since 6.0.0-ballot5:</b></p>
+	<ul>
+		<li><a href="https://jira.hl7.org/browse/FHIR-48405">FHIR-48405</a> - Removed the example substances "Dust" (f201) and "Staphylococcus" (f202).
+			Neither represented an instance of a substance, so are not relevant now.</li>
+	</ul>
+</blockquote>
 </div>
 
 <div>

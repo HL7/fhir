@@ -15,11 +15,27 @@
                     </coding>
                     <text value="Surgical pathology study of liver tissue"/>
                 </concept>
+        <Procedure>
+            <id value="liver-biopsy-procedure"/>
+            <status value="completed"/>
+            <code>
+                <coding>
+                    <system value="http://snomed.info/sct"/>
+                    <code value="287489008"/>
+                    <display value="Percutaneous needle biopsy of liver"/>
+                </coding>
             </code>
             <subject>
                 <reference value="Patient/example"/>
             </subject>
         </ServiceRequest>
+            <occurrenceDateTime value="2024-03-15T09:45:00Z"/>
+            <performer>
+                <actor>
+                    <reference value="Practitioner/gastroenterologist"/>
+                </actor>
+            </performer>
+        </Procedure>
     </contained>
     <identifier>
         <system value="http://lab.acme.org/specimens/2024"/>
@@ -71,6 +87,9 @@
                 <display value="Percutaneous needle biopsy of liver"/>
             </coding>
         </method>
+        <procedure>
+            <reference value="#liver-biopsy-procedure"/>
+        </procedure>
         <bodyStructure>
                 <concept>
                     <coding>

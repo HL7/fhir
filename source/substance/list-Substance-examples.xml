@@ -18,30 +18,6 @@
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="Dust Mite Example"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="substance-example-f201-dust"/>
-    </extension>
-    <item>
-      <reference value="Substance/f201"/>
-      <display value="Dust"/>
-    </item>
-  </entry>
-  <entry>
-    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="Staphylococcus Example"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="substance-example-f202-staphylococcus"/>
-    </extension>
-    <item>
-      <reference value="Substance/f202"/>
-      <display value="Staphylococcus"/>
-    </item>
-  </entry>
-  <entry>
-    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="Potassium Example"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">

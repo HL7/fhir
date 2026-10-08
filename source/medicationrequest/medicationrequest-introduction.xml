@@ -4,8 +4,8 @@
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
 <p>
-    This resource covers all type of orders for medications for a patient. This includes inpatient medication orders as well as community orders (whether filled by the prescriber or by a pharmacy). It also includes orders for over-the-counter medications (e.g., Aspirin), total parenteral nutrition and diet/vitamin supplements. It may be used to support the order of medication-related devices e.g., prefilled syringes such as patient-controlled analgesia (PCA) syringes, or syringes used to administer other types of medications. e.g., insulin, narcotics. It can can also be used to order medication or substances NOT be taken.</p>
-    <p>This resource would not be used when ordering a device(s) that may have a medication coating e.g. heparin coated stints, or similar types of devices. These types of devices would be ordered using the Device Request or the SupplyRequest resources.</p>
+    This resource covers all type of orders for medications for a patient. This includes inpatient medication orders as well as community orders (whether filled by the prescriber or by a pharmacy). It also includes orders for over-the-counter medications (e.g., Aspirin), total parenteral nutrition and diet/vitamin supplements. It may be used to support the order of medication-related devices e.g., prefilled syringes such as patient-controlled analgesia (PCA) syringes, or syringes used to administer other types of medications. e.g., insulin, narcotics. It can also be used to order medications or substances NOT to be taken.</p>
+    <p>This resource would not be used when ordering a device(s) that may have a medication coating e.g. heparin coated stints, or similar types of devices. These types of devices would be ordered using the <a href="devicerequest.html">DeviceRequest</a> or the SupplyRequest resources.</p>
     <p>It is not intended for use in prescribing particular diets, or for ordering non-medication-related items (eyeglasses, supplies, etc.).  In addition, the MedicationRequest may be used to report orders/request from external systems that have been reported for informational purposes and are not authoritative and are not expected to be acted upon (e.g. dispensed or administered).
 </p>
     <p>The MedicationRequest resource is a "request" resource from a FHIR workflow perspective - see <a href="workflow.html#request">Workflow Request.</a></p>
@@ -93,6 +93,21 @@ The elements around Dosage have been subject to breaking changes in R6:
 <p><b>Note to Balloters:</b>
 The code system used in medication request category is presented here but is expected to move to <a href="http://terminology.fhr.org">terminology.hl7.org</a>.
 </p>
+</blockquote>
+
+<blockquote class="stu-note" style="background-color: lightblue">
+<p><b>Changes since 6.0.0-ballot5:</b></p>
+<ul>
+<li><a href="https://jira.hl7.org/browse/FHIR-58591">FHIR-58591</a> - Corrected a typo in the description of the MedicationRequest Dispenser Instruction Codes value set.</li>
+<li><a href="https://jira.hl7.org/browse/FHIR-55007">FHIR-55007</a> - <code>MedicationRequest.device</code> can now also reference a Device, primarily to support instance orders.</li>
+<li><a href="https://jira.hl7.org/browse/FHIR-59309">FHIR-59309</a> - <code>MedicationRequest.informationSource</code> can now reference a Device (for example, an AI system).</li>
+<li><a href="https://jira.hl7.org/browse/FHIR-53978">FHIR-53978</a> - Corrected typos in the scope section.</li>
+<li><a href="https://jira.hl7.org/browse/FHIR-54095">FHIR-54095</a> - Replaced &quot;Device Request&quot; with a link to <a href="devicerequest.html">DeviceRequest</a> in the scope section.</li>
+<li><a href="https://jira.hl7.org/browse/FHIR-54447">FHIR-54447</a> - Added comments to <code>basedOn</code> and <code>priorPrescription</code> explaining when a request is based on an authorization and when it replaces or follows a prior order.</li>
+<li><a href="https://jira.hl7.org/browse/FHIR-56335">FHIR-56335</a> - The <code>MedicationRequest.intent</code> value set now uses the codes from the <a href="codesystem-request-intent.html">Request Intent</a> code system, with the same codes as before; the MedicationRequest-specific intent code system is removed.</li>
+<li><a href="https://jira.hl7.org/browse/FHIR-45330">FHIR-45330</a> - Added examples of medical gas orders: HeliOx with supplementary oxygen, linked by <code>groupIdentifier</code> (<a href="medicationrequest0351.html">medicationrequest0351</a>, <a href="medicationrequest0352.html">medicationrequest0352</a>).</li>
+<li><a href="https://jira.hl7.org/browse/FHIR-45329">FHIR-45329</a> - Example of a MedicationRequest that references a DeviceDefinition: the nasal cannula in <a href="medicationrequest0352.html">medicationrequest0352</a>.</li>
+</ul>
 </blockquote>
 
 

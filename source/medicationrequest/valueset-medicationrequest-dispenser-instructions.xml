@@ -20,7 +20,7 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="MedicationRequest Dispenser Insruction Codes"/>
+  <description value="MedicationRequest Dispenser Instruction Codes"/>
   <compose>
     <include>
       <system value="http://hl7.org/fhir/CodeSystem/medicationrequest-dispenser-instructions"/>

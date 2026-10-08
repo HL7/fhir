@@ -48,7 +48,7 @@
     </divergentElement>
     <divergentElement patternPath="Event.status" resourcePath="DeviceUsage.status">
         <shortUnmatched reason="Unknown">
-            <_pattern value="preparation | in-progress | not-done | suspended | aborted | completed | entered-in-error | unknown"/>
+            <_pattern value="preparation | in-progress | not-done | on-hold | stopped | completed | entered-in-error | unknown"/>
             <resource value="preparation | active | completed | not-done | entered-in-error +"/>
         </shortUnmatched>
         <commentsUnmatched reason="Unknown">
