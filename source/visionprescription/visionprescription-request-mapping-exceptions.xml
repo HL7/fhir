@@ -87,6 +87,21 @@
             <resource value=""/>
         </commentsUnmatched>
     </divergentElement>
+    <divergentElement patternPath="Request.category" resourcePath="VisionPrescription.category">
+        <bindingExistence _pattern="false" _resource="true" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Partitions the vision prescription into one or more categories that can be used to filter searching, to govern access control and/or to guide system behavior."/>
+            <resource value="Classification of prescription"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Partitions the vision prescription into one or more categories that can be used to filter searching, to govern access control and/or to guide system behavior."/>
+            <resource value="A code that classifies the vision prescription for searching, sorting and display purposes. Example values include safety wear, cosmetic, orthocorrective, and orthokeratology."/>
+        </definitionUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Categorization might be done automatically (inferred by code) or manually by user assertion.  The absence of a category may limit the ability to determine when the element should be handled, so strong consideration should be given to how systems will be able to determine category values for legacy data and how data that cannot be categorized will be handled.  As well, some categories might not be mutually exclusive, so systems should prepare for multiple declared categories - even within a single category 'axis'.&#10;In general, there should not be a 'strong' binding ('required' or 'extensible') on the category element overall.  Instead, the element can be sliced and bindings can be asserted that apply to particular repetitions."/>
+            <resource value=""/>
+        </requirementsUnmatched>
+    </divergentElement>
     <divergentElement patternPath="Request.subject" resourcePath="VisionPrescription.patient">
         <missingTypes _pattern="Reference(Group)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
@@ -151,7 +166,6 @@
     <unmappedElement patternPath="Request.supportingInfo" reason="Unknown"/>
     <unmappedElement patternPath="Request.note" reason="Unknown"/>
     <unmappedElement patternPath="Request.performer" reason="Unknown"/>
-    <unmappedElement patternPath="Request.category" reason="Unknown"/>
     <unmappedElement patternPath="Request.reason" reason="Unknown"/>
     <unmappedElement patternPath="Request.reported" reason="Unknown"/>
     <unmappedElement patternPath="Request.relevantHistory" reason="Unknown"/>

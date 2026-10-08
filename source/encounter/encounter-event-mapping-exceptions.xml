@@ -71,7 +71,7 @@
     </divergentElement>
     <divergentElement patternPath="Event.status" resourcePath="Encounter.status">
         <shortUnmatched reason="Unknown">
-            <_pattern value="preparation | in-progress | not-done | suspended | aborted | completed | entered-in-error | unknown"/>
+            <_pattern value="preparation | in-progress | not-done | on-hold | stopped | completed | entered-in-error | unknown"/>
             <resource value="planned | in-progress | on-hold | discharged | completed | cancelled | discontinued | entered-in-error | unknown"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
@@ -87,7 +87,7 @@
         <upperCardinality _pattern="1" _resource="*" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="What service was done"/>
-            <resource value="Specific type of encounter (e.g. e-mail consultation, surgical day-care, ...)"/>
+            <resource value="Specific type of encounter (e.g. annual diabetes screening, outpatient injection, ...)"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="A code that identifies the specific service or action that was or is being performed."/>

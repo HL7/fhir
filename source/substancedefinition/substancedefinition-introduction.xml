@@ -4,19 +4,29 @@
 		<h2>Scope and Usage</h2>
 		<p style="border:2px; border-style:solid; border-color:#999999; padding: 1em; border-radius: 4px 4px 4px 4px;"><b><i>For an overview of this resource and others in the Medication Definition domain, also see the <a href="medication-definition-module.html">module page</a></i></b></p>
     <blockquote class="ballot-note" id="bn1">
-    <p><b>Note to Balloters:</b> To ensure this resource is ready for Normative status, we are seeking ballot comment on the substantive content. The key changes made since the last R6 ballot are:</p>
+    <p><b>Note to Balloters:</b> To ensure this resource is ready for Normative status, we are seeking ballot comment on the substantive content. 
+	The key changes made since R5, present in the 6.0.0-ballot5, are:</p>
     <ul>
         <li>Updates to the following elements:</li>
             <ul>
-            	<li>SubstanceDefinition.moiety.identifier, which was made 0..* (previously 0..1)</li>
-            	<li>SubstanceDefinition.name.official.authority, value set (and code system) substance-name-authority has been extended with code: "UT", UMC Terminologies</li>
-            	<li>SubstanceDefinition.relationship.amount[x] now also allows RatioRange, replacing the separate .ratioHighLimitAmount field (which has been removed)</li>
-            	<li>New element SubstanceDefinition.glycosylationType (0..1 CodeableConcept) for the high-level glycosylation pattern of a substance, applicable to proteins and to structurally diverse substances such as vaccines</li>
-            	<li>New element SubstanceDefinition.protein.modificationType (0..1 CodeableConcept) for the high-level kind of protein modification, e.g. PEGylated, lipidated, Fc-fused</li>
+            	<li>SubstanceDefinition.moiety.identifier, which was made 0..* (previously 0..1) <a href="https://jira.hl7.org/browse/FHIR-55057">FHIR-55057</a></li>
+            	<li>SubstanceDefinition.name.official.authority, value set (and code system) substance-name-authority has been extended with code: "UT", UMC Terminologies <a href="https://jira.hl7.org/browse/FHIR-56036">FHIR-56036</a></li>
+            	<li>SubstanceDefinition.relationship.amount[x] now also allows RatioRange, replacing the separate .ratioHighLimitAmount field (which has been removed) <a href="https://jira.hl7.org/browse/FHIR-57710">FHIR-57710</a></li>
+            	<li>New element SubstanceDefinition.glycosylationType (0..1 CodeableConcept) for the high-level glycosylation pattern of a substance, applicable to proteins and to structurally diverse substances such as vaccines <a href="https://jira.hl7.org/browse/FHIR-57749">FHIR-57749</a></li>
+            	<li>New element SubstanceDefinition.protein.modificationType (0..1 CodeableConcept) for the high-level kind of protein modification, e.g. PEGylated, lipidated, Fc-fused <a href="https://jira.hl7.org/browse/FHIR-57749">FHIR-57749</a></li>
             </ul>
-        <li>Classes moved in from R5 resources SubstanceNucleicAcid, SubstancePolymer, SubstanceProtein and SubstanceReferenceInformation</li>
+        <li>Classes moved in from R5 resources SubstanceNucleicAcid, SubstancePolymer, SubstanceProtein and SubstanceReferenceInformation <a href="https://jira.hl7.org/browse/FHIR-57660">FHIR-57660</a></li>
     </ul>
     </blockquote>
+	<blockquote class="stu-note" style="background-color: lightblue">
+		<p><b>Changes since 6.0.0-ballot5:</b></p>
+		<ul>
+			<li><a href="https://jira.hl7.org/browse/FHIR-57485">FHIR-57485</a> - SubstanceDefinition is now a canonical resource, adding .url, .experimental and .date,
+				alongside the existing .identifier, .version and .status.
+				Note that SubstanceDefinition.name is the set of names applicable to the substance (a backbone element, 0..*)
+				and is not the canonical resource "name" element.</li>
+		</ul>
+	</blockquote>
 		<p>SubstanceDefinition is used for rich descriptions of substances, of any type, to support the detailed definition of medications, 
 		and in particular their ingredients (see <a href="ingredient.html">Ingredient</a>) and manufacturing.</p>
 		<p>This is a definitional resource describing types of substances, to a varying degree of specificity. 

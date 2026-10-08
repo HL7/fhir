@@ -76,13 +76,6 @@
       <definition value="A sample to be used for analysis."/>
       <min value="0"/>
       <max value="*"/>
-      <constraint>
-        <key value="spm-1"/>
-        <severity value="error"/>
-        <human value="Specimen.collection.collector SHALL only be present if Specimen.collection.procedure is not present"/>
-        <expression value="collection.collector.empty() or collection.procedure.empty()"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/Specimen"/>
-     </constraint>
       <mapping>
         <identity value="rim"/>
         <map value="Role[classCode=SPEC]"/>
@@ -188,7 +181,7 @@ For accession identifiers, the Accession Identifier code, ACSN, should be used i
     </element>
     <element id="Specimen.subject">
       <path value="Specimen.subject"/>
-      <short value="Who or what this specimen is from (subject of record)"/>
+      <short value="For whom or what the specimen was obtained (subject of record)"/>
       <definition value="The subject of record that the specimen is associated with.  This subject may be a patient, group, location, device, or another entity. If the specimen is collected from an entity different from the subject of record (Specimen.subject), that entity should be recorded using Specimen.focus. For example, a specimen may be collected from an animal for the purpose of providing care to a person rather than the animal itself."/>
       <comment value="If a specimen is from a BiologicallyDerivedProduct, it must be conveyed as the 'focus' (with patient as the subject) if the referenced record identifies a source patient.&#xD;&#xD;Group must only appear as a subject if it is an appropriate 'record target' for the system. This will be true for animal herds and for families in certain types of systems. If the record is for a specific patient, then the group must be conveyed as the 'focus' with the patient as the subject."/>
       <requirements value="Must know the subject context."/>
@@ -435,6 +428,7 @@ For accession identifiers, the Accession Identifier code, ACSN, should be used i
       <path value="Specimen.collection.collector"/>
       <short value="Who collected the specimen"/>
       <definition value="Person who collected the specimen."/>
+      <comment value="If both Specimen.collection.collector and Specimen.collection.procedure.performer are valued, they are expected to be consistent."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -445,7 +439,6 @@ For accession identifiers, the Accession Identifier code, ACSN, should be used i
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
       </type>
-      <condition value="spm-1"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="w5"/>
@@ -577,13 +570,13 @@ For accession identifiers, the Accession Identifier code, ACSN, should be used i
       <path value="Specimen.collection.procedure"/>
       <short value="The procedure that collects the specimen"/>
       <definition value="The procedure event during which the specimen was collected (e.g. the surgery leading to the collection of a pathology sample)."/>
+      <comment value="If both Specimen.collection.collector and Specimen.collection.procedure.performer are valued, they are expected to be consistent."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
       </type>
-      <condition value="spm-1"/>
     </element>
     <element id="Specimen.collection.bodyStructure">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">

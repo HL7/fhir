@@ -13,7 +13,7 @@
           <valueString value="DeviceAssociation.device"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/DeviceAssociation-code"/>
-        <description value="Search for products that match this code"/>
+        <description value="The device participating in the association."/>
         <code value="device"/>
         <type value="reference"/>
         <expression value="DeviceAssociation.device"/>
