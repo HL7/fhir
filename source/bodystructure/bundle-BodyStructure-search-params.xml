@@ -100,68 +100,6 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="BodyStructure-related"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="BodyStructure.includedStructure.related.reference"/>
-        </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/BodyStructure-related"/>
-        <description value="A BodyStructure related to an included structure"/>
-        <code value="related"/>
-        <type value="reference"/>
-        <expression value="BodyStructure.includedStructure.related.reference"/>
-        <processingMode value="normal"/>
-      </SearchParameter>
-    </resource>
-  </entry>
-  <entry>
-    <resource>
-      <SearchParameter>
-        <id value="BodyStructure-relationship"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="BodyStructure.includedStructure.related.type"/>
-        </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/BodyStructure-relationship"/>
-        <description value="The relationship to another BodyStructure"/>
-        <code value="relationship"/>
-        <type value="token"/>
-        <expression value="BodyStructure.includedStructure.related.type"/>
-        <processingMode value="normal"/>
-      </SearchParameter>
-    </resource>
-  </entry>
-  <entry>
-    <resource>
-      <SearchParameter>
-        <id value="BodyStructure-related-relationship"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
-        </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/BodyStructure-related-relationship"/>
-        <description value="A related BodyStructure and its relationship type"/>
-        <code value="related-relationship"/>
-        <type value="composite"/>
-        <expression value="BodyStructure.includedStructure.related"/>
-        <processingMode value="normal"/>
-        <component>
-          <definition value="related"/>
-          <expression value="reference"/>
-        </component>
-        <component>
-          <definition value="relationship"/>
-          <expression value="type"/>
-        </component>
-      </SearchParameter>
-    </resource>
-  </entry>
-  <entry>
-    <resource>
-      <SearchParameter>
         <id value="BodyStructure-patient"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="normative"/>
