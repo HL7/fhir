@@ -23,6 +23,21 @@
             </performer>
         </Procedure>
     </contained>
+    <contained>
+        <ServiceRequest>
+            <id value="liver-histopathology-request"/>
+            <status value="active"/>
+            <intent value="order"/>
+            <code>
+                <concept>
+                    <text value="Histopathological examination of liver biopsy tissue"/>
+                </concept>
+            </code>
+            <subject>
+                <reference value="Patient/example"/>
+            </subject>
+        </ServiceRequest>
+    </contained>
     <identifier>
         <system value="http://lab.acme.org/specimens/2024"/>
         <value value="LB-2024-001"/>
@@ -42,8 +57,8 @@
     <type>
         <coding>
             <system value="http://snomed.info/sct"/>
-            <code value="119376003"/>
-            <display value="Tissue specimen"/>
+            <code value="128168004"/>
+            <display value="Tissue specimen from liver"/>
         </coding>
     </type>
     <subject>
@@ -52,7 +67,7 @@
     </subject>
     <receivedTime value="2024-03-15T10:30:00Z"/>
     <request>
-        <reference value="ServiceRequest/liver-biopsy-request"/>
+        <reference value="#liver-histopathology-request"/>
     </request>
     <collection>
         <collector>
@@ -68,8 +83,8 @@
         <method>
             <coding>
                 <system value="http://snomed.info/sct"/>
-                <code value="129314006"/>
-                <display value="Biopsy - action"/>
+                <code value="287489008"/>
+                <display value="Percutaneous needle biopsy of liver"/>
             </coding>
         </method>
         <procedure>
