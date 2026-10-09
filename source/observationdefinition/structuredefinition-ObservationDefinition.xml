@@ -606,8 +606,8 @@
 					<valueString value="ObservationCode"/>
 				</extension>
 				<strength value="example"/>
-				<description value="Codes identifying names of simple observations."/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/observation-codes-observationorboth"/>
+				<description value="LOINC codes identifying types of observations, including panels."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/observation-codes"/>
 			</binding>
 			<mapping>
 				<identity value="w5"/>
