@@ -490,7 +490,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ResponseType"/>
         </extension>
-        <strength value="required"/>
+        <strength value="extensible"/>
         <description value="The kind of response to a message."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/response-code"/>
       </binding>
@@ -524,6 +524,13 @@
         <identity value="rim"/>
         <map value="AcknowledgementDetail or Observation[classCode=&quot;ALRT&quot; and moodCode=&quot;EVN&quot;]"/>
       </mapping>
+      <constraint>
+        <key value="msg-1"/>
+        <severity value="error"/>
+        <human value="If the response code is an error, details SHALL be populated"/>
+        <expression value="(code = 'fatal-error' or code = 'non-fatal-error') implies response.details.exists()"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/MessageHeader"/>
+      </constraint>
     </element>
     <element id="MessageHeader.focus">
       <path value="MessageHeader.focus"/>
