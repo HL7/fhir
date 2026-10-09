@@ -38,7 +38,7 @@
   </li>
   <li>Non-Substantive Changes
     <ul>
-		<li>None</li>
+		<li><a href="https://jira.hl7.org/browse/FHIR-43825">FHIR-43825</a>: AllergyIntolerance.lastOccurrence renamed lastReactionOccurrence</li>
     </ul>
   </li>
 </ul>
