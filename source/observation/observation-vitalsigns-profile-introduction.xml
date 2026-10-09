@@ -53,6 +53,7 @@
 			any code that is considered to be semantically equivalent to one of the codes that is included in the value set should also be considered to require that the Observation instance conform to both the Vital Signs Base and the corresponding specific 
 			Vital Signs Profile.
 		</p>
+		<p>Note that, since the vital-signs category code is not defined to be limited to the vital signs observations listed in the table below, other vital signs that are not conformant to the vital signs profiles can still be categorized with vital-signs category code.</p>
 	</div>
 	<div>
 		<a name="must-support"></a>
