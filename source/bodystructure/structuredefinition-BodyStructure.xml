@@ -146,6 +146,29 @@
         <map value="statusCode"/>
       </mapping>
     </element>
+    <element id="BodyStructure.spanningMorphology">
+      <path value="BodyStructure.spanningMorphology"/>
+      <short value="Spanning morphology"/>
+      <definition value="A single morphologic entity that encompasses or involves the multiple anatomical structures in the included structures."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="BodyStructureCode"/>
+        </extension>
+        <strength value="example"/>
+        <description value="SNOMED CT Morphologic Abnormalities"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/bodystructure-code"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+    </element>
     <element id="BodyStructure.includedStructure">
       <path value="BodyStructure.includedStructure"/>
       <short value="Included anatomic location(s)"/>

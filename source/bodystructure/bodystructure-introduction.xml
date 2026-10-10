@@ -22,6 +22,7 @@
 <blockquote class="stu-note" style="background-color: lightblue">
   <p><b>Changes since 6.0.0-ballot5:</b></p>
   <ul>
+    <li><a href="https://jira.hl7.org/browse/FHIR-57353">FHIR-57353</a> - Added <code>spanningMorphology</code> for a single morphology spanning multiple included structures, with supporting search parameters and an example</li>
     <li><a href="https://jira.hl7.org/browse/FHIR-57928">FHIR-57928</a> - Added a dermatology example showing facial skin as an included structure with eyelid skin excluded</li>
     <li><a href="https://jira.hl7.org/browse/FHIR-57929">FHIR-57929</a> - Added guidance to <code>BodyStructure.includedStructure</code> and <code>BodyStructure.excludedStructure</code> to avoid specifying the same anatomical area as both included and excluded</li>
     <li><a href="https://jira.hl7.org/browse/FHIR-58415">FHIR-58415</a> - Corrected the <code>BodyStructure.includedStructure.morphology</code> definition to describe the included structure without referencing the removed <code>BodyStructure.location</code> element</li>
@@ -36,6 +37,7 @@
 <p>BodyStructure is used when a coded concept alone does not provide sufficient detail, identity, persistence, or reuse for the use case. It supports representation of complex anatomical structures and locations using included and excluded structures and can provide additional detail such as laterality, directionality, qualifiers, morphology, images, landmark-based positioning, and spatial references.</p>
 <p>Some anatomical structures are discontiguous or consist of multiple related structures. A single BodyStructure instance may represent multiple included structures when they are considered a single anatomical or pathological entity for recording, tracking, or clinical management purposes. Separate BodyStructure instances should be used when structures need to be identified, assessed, tracked, treated, or managed independently over time.
 </p>
+<p><code>spanningMorphology</code> represents one morphologic entity that encompasses more than one included structure. In contrast, <code>includedStructure.morphology</code> applies only to the included structure in which it appears.</p>
 <p>The BodyStructure resource supports recording and tracking an anatomic location or structure on a patient outside the context of another resource.
 </p>
 </div>
