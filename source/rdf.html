@@ -91,16 +91,16 @@ Web Health Care and Life Sciences Community Group</a>.
         <!-- <mark>@@ TODO: Verify the ones below marked "VERIFY" @@ </mark> -->
 
 <pre>
-<span class="xmlcomment"># These are typically used in FHIR Turtle data:</span>
+<span class="turtlecomment"># These are typically used in FHIR Turtle data:</span>
 @prefix fhir:   &lt;http://hl7.org/fhir/&gt; .
 @prefix xsd:    &lt;http://www.w3.org/2001/XMLSchema#&gt; .
 @prefix rdf:    &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; .
 @prefix rdfs:   &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
 @prefix owl:    &lt;http://www.w3.org/2002/07/owl#&gt; .
-@prefix loinc:  &lt;http://loinc.org/rdf/&gt; . <span class="xmlcomment"># For LOINC codes</span>
-@prefix sct:    &lt;http://snomed.info/id/&gt; . <span class="xmlcomment"># For SNOMED-CT codes</span>
+@prefix loinc:  &lt;http://loinc.org/rdf/&gt; . <span class="turtlecomment"># For LOINC codes</span>
+@prefix sct:    &lt;http://snomed.info/id/&gt; . <span class="turtlecomment"># For SNOMED-CT codes</span>
 
-<span class="xmlcomment"># These are normally only used in the OWL ontology or ShEx schema:</span>
+<span class="turtlecomment"># These are normally only used in the OWL ontology or ShEx schema:</span>
 @prefix fhirvs: &lt;http://hl7.org/fhir/ValueSet/&gt; .
 @prefix fhirsd: &lt;http://hl7.org/fhir/StructureDefinition/&gt; .
 @prefix fhirw5: &lt;http://hl7.org/fhir/w5#&gt; .
@@ -117,15 +117,15 @@ Web Health Care and Life Sciences Community Group</a>.
 
 <pre class="spec">
 [ a fhir:Observation;
-  fhir:nodeRole fhir:treeRoot;     <span class="xmlcomment"># if this is the parser root</span>
-  <span class="xmlcomment"># from Resource: fhir:id; fhir:meta; fhir:implicitRules; and fhir:language</span>
-  <span class="xmlcomment"># from DomainResource: fhir:text; fhir:contained; fhir:extension; and fhir:modifierExtension</span>
-  fhir:identifier ( [ <a href="datatypes.html#Identifier">Identifier</a> ] ... ) ;  <span class="xmlcomment"># 0..* Business Identifier for observation</span>
-  fhir:status [ <a href="datatypes.html#code">code</a> ]; <span class="xmlcomment"># 1..1 registered | preliminary | final | amended ...</span>
-  fhir:code [ <a href="datatypes.html#CodeableConcept">CodeableConcept</a> ];   <span class="xmlcomment"># 1..1 Type of observation (code / type)</span>
-  fhir:subject [ <a href="references.html#Reference">Reference</a>(<a href="biologicallyderivedproduct.html#BiologicallyDerivedProduct">BiologicallyDerivedProduct</a>|<a href="device.html#Device">Device</a>|<a href="group.html#Group">Group</a>...) ]; <span class="xmlcomment"># 0..1 Who and/or what this is about</span>
-  fhir:encounter [ <a href="references.html#Reference">Reference</a>(<a href="encounter.html#Encounter">Encounter</a>) ]; <span class="xmlcomment"># 0..1 Healthcare event during which this observation is made</span>
-  <span class="xmlcomment"># effective[x]: 0..1 Clinically relevant time/time-period for observation. One of these 4:</span>
+  fhir:nodeRole fhir:treeRoot;     <span class="turtlecomment"># if this is the parser root</span>
+  <span class="turtlecomment"># from Resource: fhir:id; fhir:meta; fhir:implicitRules; and fhir:language</span>
+  <span class="turtlecomment"># from DomainResource: fhir:text; fhir:contained; fhir:extension; and fhir:modifierExtension</span>
+  fhir:identifier ( [ <a href="datatypes.html#Identifier">Identifier</a> ] ... ) ;  <span class="turtlecomment"># 0..* Business Identifier for observation</span>
+  fhir:status [ <a href="datatypes.html#code">code</a> ]; <span class="turtlecomment"># 1..1 registered | preliminary | final | amended ...</span>
+  fhir:code [ <a href="datatypes.html#CodeableConcept">CodeableConcept</a> ];   <span class="turtlecomment"># 1..1 Type of observation (code / type)</span>
+  fhir:subject [ <a href="references.html#Reference">Reference</a>(<a href="biologicallyderivedproduct.html#BiologicallyDerivedProduct">BiologicallyDerivedProduct</a>|<a href="device.html#Device">Device</a>|<a href="group.html#Group">Group</a>...) ]; <span class="turtlecomment"># 0..1 Who and/or what this is about</span>
+  fhir:encounter [ <a href="references.html#Reference">Reference</a>(<a href="encounter.html#Encounter">Encounter</a>) ]; <span class="turtlecomment"># 0..1 Healthcare event during which this observation is made</span>
+  <span class="turtlecomment"># effective[x]: 0..1 Clinically relevant time/time-period for observation. One of these 4:</span>
     fhir:effective [ a fhir:DateTime ; <a href="datatypes.html#dateTime">dateTime</a> ];
     fhir:effective [ a fhir:Period ; <a href="datatypes.html#Period">Period</a> ];
     fhir:effective [ a fhir:Timing ; <a href="datatypes.html#Timing">Timing</a> ];
@@ -178,18 +178,18 @@ Web Health Care and Life Sciences Community Group</a>.
           language and the additional conventions used by FHIR Turtle: </p>
 
 <pre class="rdf">
-                                  <span class="xmlcomment"># bgpanel has type fhir:Observation</span>
+                                  <span class="turtlecomment"># bgpanel has type fhir:Observation</span>
 &lt;http://hl7.org/fhir/Observation/bgpanel&gt; a fhir:Observation ;
-  fhir:nodeRole fhir:treeRoot ;   <span class="xmlcomment"># and is the root of this document.</span>
-  fhir:id [ fhir:v "bgpanel"] ;   <span class="xmlcomment"># Its id is bgpanel.</span>
-  fhir:status [ fhir:v "final"] ; <span class="xmlcomment"># It has an (extensible) status of final.</span>
-  fhir:code [                     <span class="xmlcomment"># It has code,</span>
-    a loinc:34532-2 ;             <span class="xmlcomment"># OPTIONALLY one or more concept IRIs</span>
-    fhir:coding ( [               <span class="xmlcomment"># derived from a list of Codings,</span>
-      fhir:system [               <span class="xmlcomment"># plus a code system URI</span>
-        fhir:l &lt;http://loinc.org&gt; ;             <span class="xmlcomment"># (as an OPTIONAL RDF node,</span>
-        fhir:v "http://loinc.org"^^xsd:anyURI   <span class="xmlcomment"># but always as a literal),</span>
-      ] ;                                       <span class="xmlcomment"># and a code:</span>
+  fhir:nodeRole fhir:treeRoot ;   <span class="turtlecomment"># and is the root of this document.</span>
+  fhir:id [ fhir:v "bgpanel"] ;   <span class="turtlecomment"># Its id is bgpanel.</span>
+  fhir:status [ fhir:v "final"] ; <span class="turtlecomment"># It has an (extensible) status of final.</span>
+  fhir:code [                     <span class="turtlecomment"># It has code,</span>
+    a loinc:34532-2 ;             <span class="turtlecomment"># OPTIONALLY one or more concept IRIs</span>
+    fhir:coding ( [               <span class="turtlecomment"># derived from a list of Codings,</span>
+      fhir:system [               <span class="turtlecomment"># plus a code system URI</span>
+        fhir:l &lt;http://loinc.org&gt; ;             <span class="turtlecomment"># (as an OPTIONAL RDF node,</span>
+        fhir:v "http://loinc.org"^^xsd:anyURI   <span class="turtlecomment"># but always as a literal),</span>
+      ] ;                                       <span class="turtlecomment"># and a code:</span>
       fhir:code [ fhir:v "34532-2" ]
      ] )
   ] ;
@@ -311,9 +311,9 @@ href="fhir.shex">fhir.shex</a>
             its <code>fhir:v</code> literal value.
           </p>
 <pre class="rdf">
-<b>fhir:value</b> [  <span class="xmlcomment"># From Observation.value[x] (Observation.valueQuantity)</span>
+<b>fhir:value</b> [  <span class="turtlecomment"># From Observation.value[x] (Observation.valueQuantity)</span>
   <b>a fhir:Quantity ;</b>
-  fhir:value [ fhir:v "185"^^xsd:decimal ] ;   <span class="xmlcomment"># From Quantity.value</span>
+  fhir:value [ fhir:v "185"^^xsd:decimal ] ;   <span class="turtlecomment"># From Quantity.value</span>
   fhir:unit [ fhir:v "lbs" ] ;
   fhir:system [ fhir:l &lt;http://unitsofmeasure.org&gt; ;
                 fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
@@ -415,8 +415,8 @@ fhir:coding <b>(</b>
             <code>fhir:v</code> assertion and possibly a
             type assertion, like one of the following: </p>
 <pre class="rdf">
-[ fhir:v "2"^^xsd:positiveInteger ]                       <span class="xmlcomment"># With implied FHIR type (and RDF type tag)</span>
-[ a fhir:PositiveInt ; fhir:v "2"^^xsd:positiveInteger ]  <span class="xmlcomment"># With explicit FHIR type</span>
+[ fhir:v "2"^^xsd:positiveInteger ]                       <span class="turtlecomment"># With implied FHIR type (and RDF type tag)</span>
+[ a fhir:PositiveInt ; fhir:v "2"^^xsd:positiveInteger ]  <span class="turtlecomment"># With explicit FHIR type</span>
 </pre>
 
           <p> The <code>fhir:v</code> property can never be empty. Either the
@@ -517,7 +517,7 @@ fhir:coding <b>(</b>
             element is represented using the same rules as above: </p>
 <pre class="rdf">
 fhir:subject [
-  <span class="xmlcomment"># a fhir:Reference ;</span>
+  <span class="turtlecomment"># a fhir:Reference ;</span>
   fhir:reference [ fhir:v "Patient/example" ];
   fhir:display [ fhir:v "Example Patient" ];
 ];
@@ -530,7 +530,7 @@ fhir:subject [
           </p>
 <pre class="rdf">
 fhir:subject [
-  <span class="xmlcomment"># a fhir:Reference ;</span>
+  <span class="turtlecomment"># a fhir:Reference ;</span>
   <b>fhir:l &lt;http://example.org/fhir/Patient/example&gt; ;</b>
   fhir:reference [ fhir:v "Patient/example" ];
   fhir:display [ fhir:v "Example Patient" ];
@@ -572,7 +572,7 @@ fhir:subject [
             </p>
 
 <pre class="rdf">
-<span class="xmlcomment"># This is the parent Bundle resource:</span>
+<span class="turtlecomment"># This is the parent Bundle resource:</span>
 &lt;http://hl7.org/fhir/Bundle/bundle-references&gt; a fhir:Bundle ;
   fhir:nodeRole fhir:treeRoot ;
   fhir:id [ fhir:v "bundle-references"] ;
@@ -584,7 +584,7 @@ fhir:subject [
       fhir:resource &lt;http://example.org/fhir/Patient/23&gt;
     ] )
 ...
-<span class="xmlcomment"># This is an entry of the above Bundle:</span>
+<span class="turtlecomment"># This is an entry of the above Bundle:</span>
 <b>&lt;http://example.org/fhir/Patient/23&gt;</b> a fhir:Patient ;
   fhir:id [ fhir:v "23"] ;
   fhir:text [
@@ -644,26 +644,26 @@ fhir:subject [
           </p>
 
 <pre class="rdf">
-<span class="xmlcomment"># KDN5 is the parent resource in this example:</span>
-&lt;http://example.org/PlanDefinition/KDN5&gt; a fhir:PlanDefinition ; <span class="xmlcomment"># Known URI</span>
+<span class="turtlecomment"># KDN5 is the parent resource in this example:</span>
+&lt;http://example.org/PlanDefinition/KDN5&gt; a fhir:PlanDefinition ; <span class="turtlecomment"># Known URI</span>
   fhir:nodeRole fhir:treeRoot ;
   fhir:id [ fhir:v "KDN5"] ;
-  <span class="xmlcomment"># fhir:contained gives a list of resources that are logically contained</span>
-  <span class="xmlcomment"># inside this (KDN5) resource, though Turtle serializes them separately:</span>
-  fhir:contained ( <b>&lt;http://example.org/PlanDefinition/KDN5#1111&gt;</b> ) ; <span class="xmlcomment"># assertion of containership</span>
+  <span class="turtlecomment"># fhir:contained gives a list of resources that are logically contained</span>
+  <span class="turtlecomment"># inside this (KDN5) resource, though Turtle serializes them separately:</span>
+  fhir:contained ( <b>&lt;http://example.org/PlanDefinition/KDN5#1111&gt;</b> ) ; <span class="turtlecomment"># assertion of containership</span>
   fhir:action ( [
     fhir:textEquivalent [ fhir:v "Gemcitabine 1250 mg/m² IV over 30 minutes on days 1 and 8" ] ;
     fhir:definition [
       a fhir:Canonical ;
-      <span class="xmlcomment"># Here the KDN5 parent references the contained resource:</span>
-      fhir:l <b>&lt;http://example.org/PlanDefinition/KDN5#1111&gt;</b> ; <span class="xmlcomment"># use of the contained Resource</span>
-      fhir:v "#1111"^^xsd:anyURI ;     <span class="xmlcomment"># Local reference starts with "#"</span>
+      <span class="turtlecomment"># Here the KDN5 parent references the contained resource:</span>
+      fhir:l <b>&lt;http://example.org/PlanDefinition/KDN5#1111&gt;</b> ; <span class="turtlecomment"># use of the contained Resource</span>
+      fhir:v "#1111"^^xsd:anyURI ;     <span class="turtlecomment"># Local reference starts with "#"</span>
     ]
   ] ) ;
 ...
-<span class="xmlcomment"># The definition of the (logically) contained resource #1111 is here:</span>
+<span class="turtlecomment"># The definition of the (logically) contained resource #1111 is here:</span>
 <b>&lt;http://example.org/PlanDefinition/KDN5#1111&gt;</b> a fhir:ActivityDefinition ;
-  fhir:id [ fhir:v "1111" ] ;   <span class="xmlcomment"># Local identifier</span>
+  fhir:id [ fhir:v "1111" ] ;   <span class="turtlecomment"># Local identifier</span>
   fhir:status [ fhir:v "draft" ] .
 ...
 </pre>
@@ -675,26 +675,26 @@ fhir:subject [
 
 <a name="example-no-parent-id"></a>
 <pre class="rdf">
-<span class="xmlcomment"># KDN5 is the parent resource in this example:</span>
-&lt;&gt; a fhir:PlanDefinition ; <span class="xmlcomment"># URI is relative to unspecified base URI</span>
+<span class="turtlecomment"># KDN5 is the parent resource in this example:</span>
+&lt;&gt; a fhir:PlanDefinition ; <span class="turtlecomment"># URI is relative to unspecified base URI</span>
   fhir:nodeRole fhir:treeRoot ;
-  <span class="xmlcomment"># fhir:contained gives a list of resources that are logically contained</span>
-  <span class="xmlcomment"># inside this (KDN5) resource, though Turtle serializes them separately:</span>
-  fhir:contained ( <b>&lt;#2222&gt;</b> ) ; <span class="xmlcomment"># Relative URI</span>
+  <span class="turtlecomment"># fhir:contained gives a list of resources that are logically contained</span>
+  <span class="turtlecomment"># inside this (KDN5) resource, though Turtle serializes them separately:</span>
+  fhir:contained ( <b>&lt;#2222&gt;</b> ) ; <span class="turtlecomment"># Relative URI</span>
   fhir:action ( [
     fhir:textEquivalent [ fhir:v "Gemcitabine 1250 mg/m² IV over 30 minutes on days 1 and 8" ] ;
     fhir:definition [
       a fhir:Canonical ;
-      <span class="xmlcomment"># Here the KDN5 parent references the contained resource:</span>
+      <span class="turtlecomment"># Here the KDN5 parent references the contained resource:</span>
       fhir:l <b>&lt;#2222&gt;</b> ;
-      fhir:v "#2222"^^xsd:anyURI ;     <span class="xmlcomment"># Local reference starts with "#"</span>
+      fhir:v "#2222"^^xsd:anyURI ;     <span class="turtlecomment"># Local reference starts with "#"</span>
     ]
   ] ) ;
 ...
-<span class="xmlcomment"># The body of the (logically) contained resource 2222 is here, and receives</span>
-<span class="xmlcomment"># a URI derived from its parent's URI:</span>
+<span class="turtlecomment"># The body of the (logically) contained resource 2222 is here, and receives</span>
+<span class="turtlecomment"># a URI derived from its parent's URI:</span>
 <b>&lt;#2222&gt;</b> a fhir:ActivityDefinition ;
-  fhir:id [ fhir:v "2222" ] ;   <span class="xmlcomment"># Local identifier</span>
+  fhir:id [ fhir:v "2222" ] ;   <span class="turtlecomment"># Local identifier</span>
   fhir:status [ fhir:v "draft" ] .
 ...
 </pre>
@@ -714,8 +714,8 @@ fhir:subject [
 <pre class="rdf">
 &lt;http://example.org/o1&gt; a fhir:Observation ;
   fhir:code [
-    <b>a loinc:29463-7</b>;   <span class="xmlcomment"># OPTIONAL, but RECOMMENDED</span>
-    <b>a sct:27113001</b>;    <span class="xmlcomment"># OPTIONAL, but RECOMMENDED</span>
+    <b>a loinc:29463-7</b>;   <span class="turtlecomment"># OPTIONAL, but RECOMMENDED</span>
+    <b>a sct:27113001</b>;    <span class="turtlecomment"># OPTIONAL, but RECOMMENDED</span>
     fhir:coding ( [
       fhir:system [ fhir:v "http://loinc.org" ];
       fhir:code [ fhir:v "29463-7" ];
@@ -736,12 +736,12 @@ fhir:subject [
   fhir:code ( [
     fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
     fhir:code [ fhir:v "100280-7" ] ;
-    fhir:extension ( [   <span class="xmlcomment"># OPTIONAL extension</span>
+    fhir:extension ( [   <span class="turtlecomment"># OPTIONAL extension</span>
       fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/rdf-concept-iri"^^xsd:anyURI ] ;
       fhir:value [ 
         a fhir:Uri ;
         fhir:v "http://loinc.org/rdf/100280-7"^^xsd:anyURI ;
-        fhir:l &lt;http://loinc.org/rdf/100280-7&gt; ;     <span class="xmlcomment"># OPTIONAL RDF link</span>
+        fhir:l &lt;http://loinc.org/rdf/100280-7&gt; ;     <span class="turtlecomment"># OPTIONAL RDF link</span>
       ] ;
     ] ) ;
   ] ) ;
@@ -928,7 +928,7 @@ fhir:birthDate [
 <pre class="rdf">
 &lt;http://example.org/fhir/MedicationRequest/MR321&gt; a <b>fhir:_MedicationRequest;</b>
   fhir:nodeRole fhir:treeRoot;
-  fhir:extension ( ... );           <span class="xmlcomment"># above bodyPosition and delta extensions</span>
+  fhir:extension ( ... );           <span class="turtlecomment"># above bodyPosition and delta extensions</span>
   <b>fhir:modifierExtension</b> ( [
     fhir:url [
       fhir:l &lt;http://example.org/fhir/StructureDefinition/anti-prescription&gt; ;
@@ -956,14 +956,14 @@ fhir:birthDate [
   ...
   fhir:<b>_occurrence</b> [
     a fhir:Timing;
-    fhir:repeat [        <span class="xmlcomment"># Once a day, every day</span>
+    fhir:repeat [        <span class="turtlecomment"># Once a day, every day</span>
       fhir:frequency [ fhir:v "1"^^xsd:positiveInteger ] ;
       fhir:period [ fhir:v "1.0"^^xsd:decimal ] ;
       fhir:periodUnit [ fhir:v "d" ]
     ] ;
     <b>fhir:modifierExtension</b> (
       [
-        fhir:url [       <span class="xmlcomment"># Except on Sundays</span>
+        fhir:url [       <span class="turtlecomment"># Except on Sundays</span>
           fhir:l &lt;http://example.org/fhir/StructureDefinition/NeverOnSunday&gt; ;
           fhir:v "http://example.org/fhir/StructureDefinition/NeverOnSunday"^^xsd:anyURI ] ;
         fhir:value [ a fhir:Boolean ; fhir:v true ]
