@@ -1,5 +1,5 @@
 [diagram]
-classes=DataType,BackboneType,Reference,Narrative,Extension,Meta,ElementDefinition,Dosage,xhtml,DosageDetails,DosageCondition,DosageSafety
+classes=DataType,BackboneType,Reference,Narrative,Extension,Meta,ElementDefinition,Dosage,xhtml,DosageInstruction,DosageCondition,DosageSafety
 attributes=false
 
 [size]
@@ -16,6 +16,6 @@ ElementDefinition=88;50
 BackboneType=110;0
 xhtml=-70;0
 Dosage=210;-50
-DosageDetails=230;+50
+DosageInstruction=230;+50
 DosageCondition=240;0
 DosageSafety=265;-50

@@ -54,9 +54,9 @@ This resource does not deal with the supply or transfer of non-medication relate
 The elements around Dosage have been subject to breaking changes in R6:
 </p>
 <ul>
- <li>A new data type <a href="dosage.html#DosageDetails"> DosageDetails</a> is introduced, containing rendered instructions and simple or structured <a href="dosage.html#Dosage"> Dosage</a>. </li>
+ <li>A new data type <a href="dosage.html#DosageInstruction"> DosageInstruction</a> is introduced, containing rendered instructions and simple or structured <a href="dosage.html#Dosage"> Dosage</a>. </li>
  <li><code>dosageInstruction</code> is now 0..1, and uses the new data type. The composition of complex dosages (with segments, repetitions etc.) can be done using the structure in that data type.</li>
- <li><code>renderedDosageInstruction</code> is removed from the resource and placed in <code>DosageDetails.renderedInstruction</code> in the <a href="dosage.html#DosageDetails"> DosageDetails</a> data type.</li>
+ <li><code>renderedDosageInstruction</code> is removed from the resource and placed in <code>DosageInstruction.renderedInstruction</code> in the <a href="dosage.html#DosageInstruction"> DosageInstruction</a> data type.</li>
  <li>A set of <a href="dosage-examples.html"> examples</a> is provided to show how structured dosages can be represented.</li>
 </ul>
 
@@ -75,6 +75,7 @@ The code system used in medication dispense category is presented here but is ex
 <li><a href="https://jira.hl7.org/browse/FHIR-54374">FHIR-54374</a> - Explained in the comment on <code>partOf</code> when a dispense is part of a medication administration (for example, from ward stock or an emergency cart).</li>
 <li><a href="https://jira.hl7.org/browse/FHIR-54372">FHIR-54372</a> - Lowered invariant mdd-1 (whenHandedOver cannot be before whenPrepared) from an error to a warning.</li>
 <li><a href="https://jira.hl7.org/browse/FHIR-49864">FHIR-49864</a> - Added an example with the authorizing MedicationRequest contained in the MedicationDispense, showing the number of authorized repeats: <a href="medicationdispense0337.html">medicationdispense0337</a>.</li>
+<li><a href="https://jira.hl7.org/browse/FHIR-54340">FHIR-54340</a> - The type of <code>dosageInstruction</code> is now <a href="dosage.html#DosageInstruction">DosageInstruction</a> (the data type previously named DosageDetails).</li>
 </ul>
 </blockquote>
 
