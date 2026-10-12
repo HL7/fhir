@@ -130,7 +130,7 @@
       <path value="Medication.identifier"/>
       <short value="Business identifier for this medication"/>
       <definition value="Business identifier for this medication."/>
-      <comment value="The serial number could be included as an identifier."/>
+      <comment value="This is the business identifier of the Medication record. It is particularly important when the Medication represents a kind of medication, including when it is used as a canonical resource (with `url` and `version`), so that the medication can be identified and referenced across systems. For a Medication that represents a physical instance, the business identifier is less relevant: the serial number of the item is conveyed in `Medication.instance.identifier`, and the batch or lot number in `Medication.instance.lotNumber`."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -701,6 +701,7 @@
       <path value="Medication.instance.identifier"/>
       <short value="Identifier for the physical instance, typically a serial number"/>
       <definition value="Identifier for the physical instance, typically a serial number."/>
+      <comment value="The unique identifier of the physical item, typically a serial number, following the [Product pattern](product.html). This may differ from the business identifier of the Medication record (`Medication.identifier`). It is not used for batch or lot numbers, which are conveyed in `Medication.instance.lotNumber`."/>
       <min value="0"/>
       <max value="*"/>
       <type>
