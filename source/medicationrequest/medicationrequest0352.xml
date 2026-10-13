@@ -88,14 +88,6 @@
                     <text value="if SpO2 is below 88%"/>
                 </condition>
                 <text value="Oxygen 2 L/min (1 to 3 L/min) via nasal cannula if SpO2 is below 88%, titrated to SpO2"/>
-                <asNeededFor>
-                    <coding>
-                        <system value="http://snomed.info/sct"/>
-                        <code value="449171008"/>
-                        <display value="Oxygen saturation below reference range"/>
-                    </coding>
-                    <text value="SpO2 below 88%"/>
-                </asNeededFor>
                 <route>
                     <coding>
                         <system value="http://snomed.info/sct"/>
