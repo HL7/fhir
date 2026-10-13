@@ -92,7 +92,7 @@
         <key value="mdd-1"/>
         <severity value="warning"/>
         <human value="whenHandedOver cannot be before whenPrepared"/>
-        <expression value="(whenHandedOver.hasValue() and whenPrepared.hasValue()) implies whenHandedOver >= whenPrepared"/>
+        <expression value="(whenHandedOver.hasValue() and whenPrepared.hasValue()) implies whenHandedOver.highBoundary() >= whenPrepared.lowBoundary()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/MedicationDispense"/>
       </constraint>
       <mapping>
