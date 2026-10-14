@@ -726,10 +726,10 @@
     </element>
     <element id="ImagingSelection.instance.referencedContentItemIdentifier">
       <path value="ImagingSelection.instance.referencedContentItemIdentifier"/>
-      <short value="Selected content items"/>
+      <short value="Selected content item"/>
       <definition value="A sequence of positive integers that identify a single Referenced Content Item selected from a DICOM SR or other structured document SOP Instance (See [DICOM PS3.3 C.17.3.2.5](https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.17.3.2.5.html))."/>
       <requirements value="Only allowed if the value of `instance.sopClass` corresponds to a DICOM SR or other structured document SOP Class."/>
-      <comment value="The Content Item Identifier is only reliably if the order of sequence items in the referenced DICOM SOP Instance is consistent. Some applications may re-order sequence items, invalidating this reference."/>
+      <comment value="The Content Item Identifier is only reliable if the order of sequence items in the referenced DICOM SOP Instance is consistent. Some applications may re-order sequence items, invalidating this reference."/>
       <min value="0"/>
       <max value="*"/>
       <type>

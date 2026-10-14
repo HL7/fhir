@@ -427,7 +427,7 @@ For further details on DICOM WADO-URI capabilities including additional renderin
     <ul>
       <li>A SOP Instance UID, when the Imaging Selection references a specific DICOM SOP Instance</li>
       <li>A Series Instance UID, when the Imaging Selection references an entire DICOM Series</li>
-      <li>An Observation UID (see <a href="https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.17.3.4.html#table_C.17-6">DICOM PS3.3 Table C.17-6</a>), when the Imaging Selection references a content item in a DICOM Structure Report or other structured document</li>
+      <li>An Observation UID (see <a href="https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.17.3.4.html#table_C.17-6">DICOM PS3.3 Table C.17-6</a>), when the Imaging Selection references a content item in a DICOM Structured Report or other structured document</li>
     </ul>
   </p>
   <p>
