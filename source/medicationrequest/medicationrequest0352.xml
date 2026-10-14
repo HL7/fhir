@@ -69,6 +69,24 @@
         <renderedInstruction value="Oxygen 2 L/min (1 to 3 L/min) via nasal cannula if SpO2 is below 88%, titrated to SpO2"/>
         <step>
             <component>
+                <condition>
+                    <code>
+                        <coding>
+                            <system value="http://loinc.org"/>
+                            <code value="59408-5"/>
+                            <display value="Oxygen saturation in Arterial blood by Pulse oximetry"/>
+                        </coding>
+                        <text value="SpO2"/>
+                    </code>
+                    <operation value="lt"/>
+                    <valueQuantity>
+                        <value value="88"/>
+                        <unit value="%"/>
+                        <system value="http://unitsofmeasure.org"/>
+                        <code value="%"/>
+                    </valueQuantity>
+                    <text value="if SpO2 is below 88%"/>
+                </condition>
                 <text value="Oxygen 2 L/min (1 to 3 L/min) via nasal cannula if SpO2 is below 88%, titrated to SpO2"/>
                 <asNeededFor>
                     <coding>

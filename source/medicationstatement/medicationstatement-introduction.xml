@@ -83,7 +83,7 @@ Using MedicationStatement resources to convey statements such as 'no known medic
 
 <blockquote class="ballot-note" id="bn1">
 <p><b>Note to Balloters:</b>
-The <code>MedicationStatement.medication</code> element now explicitly supports representing statements such as 'no medications are known / taken.'
+The <code>MedicationStatement.medication</code> element now explicitly supports representing statements such as 'no known medications'.
 </p>
 <p>
 Balloters are invited to comment on this approach, impact and possible limitations.
