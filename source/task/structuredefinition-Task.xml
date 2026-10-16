@@ -232,8 +232,8 @@
     <element id="Task.statusReason">
       <path value="Task.statusReason"/>
       <short value="Reason for current status"/>
-      <definition value="An explanation as to why this task is held, failed, was refused, etc."/>
-      <comment value="This applies to the current status.  Look at the history of the task to see reasons for past statuses."/>
+      <definition value="An explanation of the current status of the Task (depending on a combination of Task.status, Task.businessStatus, Task.input, and Task.output)."/>
+      <comment value="This applies to the current state, which is dependent on a combination of Task.status, Task.businessStatus, Task.input, and Task.output (when there are values for the optional fields)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
