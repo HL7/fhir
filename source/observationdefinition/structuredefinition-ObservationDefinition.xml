@@ -628,7 +628,7 @@
 		</element>
 		<element id="ObservationDefinition.permittedDataType">
 			<path value="ObservationDefinition.permittedDataType"/>
-			<short value="Quantity | CodeableConcept | string | boolean | integer | Range | Ratio | SampledData | time | dateTime | Period"/>
+			<short value="Quantity | CodeableConcept | string | boolean | integer | Range | Ratio | SampledData | time | dateTime | Period | Reference"/>
 			<definition value="The data types allowed for the value element of the instance observations conforming to this ObservationDefinition."/>
 			<min value="0"/>
 			<max value="*"/>
@@ -1062,7 +1062,7 @@
 		</element>
 		<element id="ObservationDefinition.component.permittedDataType">
 			<path value="ObservationDefinition.component.permittedDataType"/>
-			<short value="Quantity | CodeableConcept | string | boolean | integer | Range | Ratio | SampledData | time | dateTime | Period"/>
+			<short value="Quantity | CodeableConcept | string | boolean | integer | Range | Ratio | SampledData | time | dateTime | Period | Reference"/>
 			<definition value="The data types allowed for the value element of the instance of these component observations."/>
 			<min value="0"/>
 			<max value="*"/>

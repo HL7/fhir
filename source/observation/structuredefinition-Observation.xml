@@ -749,6 +749,10 @@
       <type>
         <code value="Attachment"/>
       </type>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
+      </type>
       <condition value="obs-7"/>
       <condition value="obs-6"/>
       <condition value="obs-11"/>
@@ -1465,6 +1469,10 @@
       </type>
       <type>
         <code value="Attachment"/>
+      </type>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
       </type>
       <condition value="obs-10"/>
       <isSummary value="true"/>
