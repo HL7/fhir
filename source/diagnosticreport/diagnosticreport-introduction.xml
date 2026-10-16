@@ -34,6 +34,7 @@
     <li><a href="https://jira.hl7.org/browse/FHIR-58053">FHIR-58053</a> - Clarified that a diagnostic report may describe a preliminary, partial, or final investigation</li>
     <li><a href="https://jira.hl7.org/browse/FHIR-58360">FHIR-58360</a> - Clarified that <code>Procedure.outcome</code> records procedure effects, while findings from diagnostic evaluations belong in observations and reports</li>
     <li><a href="https://jira.hl7.org/browse/FHIR-59299">FHIR-59299</a> - Added <code>Device</code> as a permitted interpreter of DiagnosticReport results.</li>
+    <li><a href="https://jira.hl7.org/browse/FHIR-58537">FHIR-58537</a> - Allowed <code>DiagnosticReport.media.link</code> to reference an <code>ImagingSelection</code> for key images as well as a <code>DocumentReference</code>.</li>
   </ul>
 </blockquote>
 <a name="scope"></a>

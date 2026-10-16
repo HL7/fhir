@@ -761,6 +761,7 @@
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ImagingSelection"/>
       </type>
       <mapping>
         <identity value="rim"/>
