@@ -34,6 +34,7 @@
       <ul>
         <li><a href="https://jira.hl7.org/browse/FHIR-57683">FHIR-57683</a> - Added <code>valueReference(Location)</code> and <code>component.valueReference(Location)</code>, with reference-value search parameters.</li>
         <li><a href="https://jira.hl7.org/browse/FHIR-58250">FHIR-58250</a> - Added the <code>organizer</code> search parameter for finding organizer Observations.</li>
+        <li><a href="https://jira.hl7.org/browse/FHIR-54569">FHIR-54569</a> - Clarified in the grouping guidance that <code>Observation.organizer</code> can mark an Observation using <code>hasMember</code> as a grouper.</li>
         <li><a href="https://jira.hl7.org/browse/FHIR-58062">FHIR-58062</a> - Renamed the <code>Observation.bodyStructure.reference</code> search parameter code to <code>body-structure-reference</code></li>
         <li><a href="https://jira.hl7.org/browse/FHIR-24662">FHIR-24662</a> - Added paired-Observation examples showing both a period-based EKG annotation and coded per-sample annotations using <code>SampledData.codeMap</code></li>
         <li><a href="https://jira.hl7.org/browse/FHIR-56305">FHIR-56305</a> - Added a compound blood-pressure example demonstrating additional IEEE 11073 and SNOMED CT codings alongside the required LOINC codings</li>
