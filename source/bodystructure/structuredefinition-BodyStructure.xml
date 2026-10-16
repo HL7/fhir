@@ -146,6 +146,26 @@
         <map value="statusCode"/>
       </mapping>
     </element>
+    <element id="BodyStructure.morphology">
+      <path value="BodyStructure.morphology"/>
+      <short value="Morphology of the body structure"/>
+      <definition value="A single morphologic entity that spans multiple anatomical entries in the included structures."/>
+      <comment value="Use this element when a morphology applies to the overall body structure or spans multiple structures and cannot be attributed to a single included structure. Morphologies specific to an individual included or excluded structure should be represented using BodyStructure.includedStructure.morphology or BodyStructure.excludedStructure.morphology."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="BodyStructureCode"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes describing anatomic morphology."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/bodystructure-code"/>
+      </binding>
+    </element>
     <element id="BodyStructure.includedStructure">
       <path value="BodyStructure.includedStructure"/>
       <short value="Included anatomic location(s)"/>
@@ -424,7 +444,7 @@
         <valueString value="#13394."/>
       </extension>
       <path value="BodyStructure.includedStructure.morphology"/>
-      <short value="Kind of Structure"/>
+      <short value="Structure morphology"/>
       <definition value="The morphology of the included anatomical or pathological structure. This can define both normal and abnormal morphologies."/>
       <comment value="The minimum cardinality of 0 supports the use case of specifying a location without defining a morphology. When multiple morphologic characteristics apply to the same body structure, a single pre-coordinated terminology concept or post-coordinated expression may be used when an appropriate representation exists. Multiple repetitions of morphology can be used to represent individual morphologic characteristics when no suitable single concept or expression is available."/>
       <min value="0"/>
@@ -471,7 +491,7 @@
     <element id="BodyStructure.excludedStructure">
       <path value="BodyStructure.excludedStructure"/>
       <short value="Excluded anatomic locations(s)"/>
-      <definition value="The anatomical location(s) or region(s) not occupied or represented by the specimen, lesion, or body structure."/>
+      <definition value="The anatomical location(s) or region(s) not occupied or represented by the body structure, morphologic entity, or specimen."/>
       <comment value="An excluded structure should identify an area omitted from an included structure, not repeat the same fully specified area. The same structure code may appear in both when other details, such as laterality or qualifiers, distinguish the included and excluded areas."/>
       <min value="0"/>
       <max value="*"/>
