@@ -6,6 +6,8 @@ _type
 _lastupdated
 _filter
 _list
+lifecycle
+subject_state
 _profile
 _tag
 _has
@@ -13,3 +15,4 @@ _source
 _id
 _content
 _text
+hrf
