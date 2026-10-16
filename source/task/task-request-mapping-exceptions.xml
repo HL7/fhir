@@ -243,11 +243,11 @@
         </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Request.performer" resourcePath="Task.owner">
-        <missingTypes _pattern="Reference(HealthcareService, Device)" reason="Unknown"/>
+        <missingTypes _pattern="Reference(HealthcareService)" reason="Unknown"/>
         <extraTypes _resource="Reference(Group)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Specific desired (non)performer"/>
-            <resource value="Responsible individual"/>
+            <resource value="Responsible party"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="Indicates who or what is being asked to perform (or not perform) the {{request}}."/>
