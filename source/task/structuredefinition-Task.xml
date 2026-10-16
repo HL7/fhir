@@ -677,7 +677,7 @@
     </element>
     <element id="Task.owner">
       <path value="Task.owner"/>
-      <short value="Responsible individual"/>
+      <short value="Responsible party"/>
       <definition value="Party responsible for managing task execution."/>
       <comment value="Tasks may be created with an owner not yet identified. Group is only allowed in the circumstance where the group represents a family or a household, and should not represent groups of Practitioners where other more specific resources can be used instead."/>
       <requirements value="Identifies who is expected to perform this task."/>
@@ -694,6 +694,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
       </type>
       <isSummary value="true"/>
       <mapping>
