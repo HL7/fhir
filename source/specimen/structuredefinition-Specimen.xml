@@ -426,8 +426,8 @@ For accession identifiers, the Accession Identifier code, ACSN, should be used i
     </element>
     <element id="Specimen.collection.collector">
       <path value="Specimen.collection.collector"/>
-      <short value="Who collected the specimen"/>
-      <definition value="Person who collected the specimen."/>
+      <short value="Who or what collected the specimen"/>
+      <definition value="The person, organization, or device that collected the specimen."/>
       <comment value="If both Specimen.collection.collector and Specimen.collection.procedure.performer are valued, they are expected to be consistent."/>
       <min value="0"/>
       <max value="1"/>
@@ -438,6 +438,7 @@ For accession identifiers, the Accession Identifier code, ACSN, should be used i
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -709,6 +710,7 @@ For accession identifiers, the Accession Identifier code, ACSN, should be used i
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
       </type>
       <isSummary value="true"/>
       <mapping>
