@@ -32,6 +32,7 @@
 				<li><a href="https://jira.hl7.org/browse/FHIR-58530">FHIR-58530</a> - Added FamilyMemberHistory, MedicationAdministration, MedicationRequest, and AllergyIntolerance as reference targets on ServiceRequest.reason</li>
 				<li><a href="https://jira.hl7.org/browse/FHIR-58291">FHIR-58291</a> - Clarified that ServiceRequest.subject identifies the individual or entity of record for the service</li>
 				<li><a href="https://jira.hl7.org/browse/FHIR-58290">FHIR-58290</a> - Added LOINC and SNOMED CT Observable Entity guidance for laboratory and radiology request codes</li>
+				<li><a href="https://jira.hl7.org/browse/FHIR-58292">FHIR-58292</a> - Corrected and expanded HL7 v2 mappings for priority, order detail, quantity, occurrence, and requester.</li>
 			</ul>
 		</blockquote>
 		<a name="scope"></a>
