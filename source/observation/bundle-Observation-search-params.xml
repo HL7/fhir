@@ -685,6 +685,25 @@
   <entry>
     <resource>
       <SearchParameter>
+        <id value="Observation-organizer"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Observation.organizer"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Observation-organizer"/>
+        <description value="Whether the observation organizes a set of sub-observations"/>
+        <code value="organizer"/>
+        <type value="token"/>
+        <expression value="Observation.organizer"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
         <id value="Observation-part-of"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="normative"/>
