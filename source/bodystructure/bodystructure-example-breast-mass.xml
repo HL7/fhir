@@ -42,6 +42,13 @@
                 </value>
             </distanceFromLandmark>
         </bodyLandmarkOrientation>
+        <qualifier>
+            <coding>
+                <system value="http://snomed.info/sct" />
+                <code value="261183002" />
+                <display value="Upper" />
+            </coding>
+        </qualifier>
         <morphology>
             <coding>
                 <system value="http://snomed.info/sct" />

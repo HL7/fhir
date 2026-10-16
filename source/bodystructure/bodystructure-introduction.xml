@@ -28,6 +28,7 @@
     <li><a href="https://jira.hl7.org/browse/FHIR-57931">FHIR-57931</a> - Clarified that a body landmark description locates the corresponding structure</li>
     <li><a href="https://jira.hl7.org/browse/FHIR-57930">FHIR-57930</a> - Corrected a grammatical typo in the clock-face position definition</li>
     <li><a href="https://jira.hl7.org/browse/FHIR-57353">FHIR-57353</a> - Added overall <code>BodyStructure.morphology</code> for a single morphology spanning included structures, clarified the per-structure morphology description, and revised the excluded-structure definition.</li>
+    <li><a href="https://jira.hl7.org/browse/FHIR-58261">FHIR-58261</a> - Restored left and right to the included-structure qualifier value set, clarified how qualifier differs from laterality, and updated an example to show both.</li>
   </ul>
 </blockquote>
 <a name="scope"></a>
@@ -38,6 +39,7 @@
 <p>Some anatomical structures are discontiguous or consist of multiple related structures. A single BodyStructure instance may represent multiple included structures when they are considered a single anatomical or pathological entity for recording, tracking, or clinical management purposes. Separate BodyStructure instances should be used when structures need to be identified, assessed, tracked, treated, or managed independently over time.
 </p>
 <p>Use <code>BodyStructure.morphology</code> when a single morphology applies across multiple included structures and cannot be assigned to one entry. Use <code>includedStructure.morphology</code> for a morphology specific to an individual included structure.</p>
+<p>Use <code>includedStructure.laterality</code> to distinguish a paired structure, such as the left or right breast. Use <code>includedStructure.qualifier</code> to describe a part of a structure, such as an upper region or the left wall of an unpaired organ. Both can be present when they describe different aspects of the same included structure.</p>
 <p>The BodyStructure resource supports recording and tracking an anatomic location or structure on a patient outside the context of another resource.
 </p>
 </div>

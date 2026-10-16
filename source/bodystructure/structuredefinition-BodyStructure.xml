@@ -222,7 +222,8 @@
     <element id="BodyStructure.includedStructure.laterality">
       <path value="BodyStructure.includedStructure.laterality"/>
       <short value="Code that represents the included structure laterality"/>
-      <definition value="Code that represents the included structure laterality."/>
+      <definition value="Code that distinguishes the side of a paired included structure."/>
+      <comment value="Use laterality to distinguish paired structures, such as the left or right breast. Use qualifier to describe a part of a structure, including a left or right region of a structure that is not itself paired."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -408,7 +409,8 @@
     <element id="BodyStructure.includedStructure.qualifier">
       <path value="BodyStructure.includedStructure.qualifier"/>
       <short value="Code that represents the included structure qualifier"/>
-      <definition value="Code that represents the included structure qualifier."/>
+      <definition value="Code that describes a part or region of the included structure."/>
+      <comment value="A left or right qualifier may describe a region of an unpaired structure; laterality distinguishes between paired structures. Both elements may be used when needed to describe different aspects of an included structure."/>
       <min value="0"/>
       <max value="*"/>
       <type>
