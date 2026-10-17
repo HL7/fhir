@@ -16,6 +16,7 @@
 		<p><b>Changes since 6.0.0-ballot5:</b></p>
 		<ul>
 		  <li><a href="https://jira.hl7.org/browse/FHIR-54661">FHIR-54661</a> - Added a category element for classifying vision prescriptions.</li>
+		  <li><a href="https://jira.hl7.org/browse/FHIR-59321">FHIR-59321</a> - Added <code>Device</code> as a permitted <code>VisionPrescription.prescriber</code> reference target.</li>
 		</ul>
 		</blockquote>
 
@@ -25,7 +26,7 @@
 The VisionPrescription resource represents an authorization for corrective optical lenses to be provided to a patient. Eyeglasses and contact lenses usually require a prescription for patient-specific lenses. Details about the fulfillment of the authorization are handled by the <a href="task.html">Task</a> resource. For further information about this separation of responsibilities, refer to the <a href="request.html#fulfillment">Fulfillment/Execution</a> section of the Request pattern.
 		</p>
 		<p>
-Vision prescriptions may only be issued by providers who have optical diagnosis within their scope of practice, typically ophthalmologists and optometrists. The prescription is a time-limited, typically two year, authorization for the provision of an unlimited number of lenses, glasses or contacts, which conform to the authorized specification by providers that have lens provision within their scope of practice, typically ophthalmologists, optometrists and opticians.
+Rules about who or what may authorize a vision prescription depend on the relevant jurisdiction. Prescriptions are typically issued by providers who have optical diagnosis within their scope of practice, such as ophthalmologists and optometrists. The prescription is a time-limited, typically two year, authorization for the provision of an unlimited number of lenses, glasses or contacts, which conform to the authorized specification by providers that have lens provision within their scope of practice, typically ophthalmologists, optometrists and opticians.
 		</p>
 		<p>Health insurers typically require a copy of the prescription to ensure that a vision professional has examined the patient and that the power of the lenses exceeds some minimum, such as +/- 0.75 diopters, to qualify for reimbursement under the insurance coverage.</p>
 		
