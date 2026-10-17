@@ -542,7 +542,7 @@
       </extension>
       <path value="DiagnosticReport.resultsInterpreter"/>
       <short value="Who analyzed and reported the conclusions and interpretations"/>
-      <definition value="The practitioner or organization that is responsible for the report's conclusions and interpretations."/>
+      <definition value="The party responsible for the report's conclusions and interpretations."/>
       <comment value="Might not be the same entity that takes responsibility for the clinical report."/>
       <requirements value="Need to know whom to contact if there are queries about the results. Also may need to track the source of reports for secondary data analysis."/>
       <alias value="Analyzed by"/>
@@ -557,6 +557,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -760,6 +761,7 @@
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ImagingSelection"/>
       </type>
       <mapping>
         <identity value="rim"/>

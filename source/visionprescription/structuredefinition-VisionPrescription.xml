@@ -395,15 +395,16 @@
     </element>
     <element id="VisionPrescription.prescriber">
       <path value="VisionPrescription.prescriber"/>
-      <short value="Who authorized the vision prescription"/>
-      <definition value="The healthcare professional responsible for authorizing the prescription."/>
-      <requirements value="Need to record the authorizing practitioner."/>
+      <short value="Who or what authorized the vision prescription"/>
+      <definition value="The practitioner, practitioner role, or device responsible for authorizing the prescription."/>
+      <requirements value="Need to record the authorizing prescriber."/>
       <min value="1"/>
       <max value="1"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
       </type>
       <isSummary value="true"/>
       <mapping>
