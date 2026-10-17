@@ -45,7 +45,7 @@
 		<p>Many observations need to be grouped together in some fashion to document critical
 		relationships for interpretation of the observations. The methods to do so primarily are
 		through DiagnosticReport using <code>DiagnosticReport.result</code> and Observation using
-		<code>Observation.component</code>, <code>Observation.hasMember</code>, and <code>Observation.derivedFrom</code>. The <code>Observation.organizer</code> element can indicate that an Observation is acting as a grouper when it uses <code>Observation.hasMember</code>. See the <a href="diagnostics-module.html#org-dr-obs">Diagnostics Module</a> for specific guidance on the supported patterns; a brief summary is here for convenience only.</p>
+		<code>Observation.component</code>, <code>Observation.hasMember</code>, and <code>Observation.derivedFrom</code>. The <code>Observation.organizer</code> element can indicate that an Observation is acting as a grouper when it uses <code>Observation.hasMember</code>. See the <a href="diagnostics-module.html#org-dr-obs">Diagnostics Module</a> for guidance related to Microbiology reporting and relevant relationships necessary to support reflex, follow-up, and add-on orders.</p>
 		<p>Note that Composition may also be used to organize observations and
 		diagnostic reports, but that is only for purpose of readability, not to record critical
 		relationships for interpretation. See <a href="diagnosticreport-definitions.html#DiagnosticReport.composition">DiagnosticReport.composition</a> and <a href="composition.html">Composition</a> for
