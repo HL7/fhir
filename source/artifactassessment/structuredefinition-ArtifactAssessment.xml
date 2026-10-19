@@ -23,6 +23,9 @@
   <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
     <valueCode value=".workflowStatus = entered-in-error"/>
   </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/template">
+    <valueString value="MetadataResource"/>
+  </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/ArtifactAssessment"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
@@ -71,7 +74,7 @@
   <kind value="resource"/>
   <abstract value="false"/>
   <type value="ArtifactAssessment"/>
-  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DomainResource"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/MetadataResource"/>
   <derivation value="specialization"/>
   <differential>
     <element id="ArtifactAssessment">
@@ -80,6 +83,13 @@
       <definition value="This Resource provides one or more comments, classifiers or ratings about a Resource and supports attribution and rights management metadata for the added content."/>
       <min value="0"/>
       <max value="*"/>
+      <constraint>
+        <key value="cnl-0"/>
+        <severity value="warning"/>
+        <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
+        <expression value="name.exists() implies name.matches('^[A-Z]([A-Za-z0-9_]){1,254}$')"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
+      </constraint>
       <mapping>
         <identity value="rim"/>
         <map value="Act[classCode=ACT; moodCode=DEFN]"/>
@@ -87,6 +97,30 @@
       <mapping>
         <identity value="w5"/>
         <map value="clinical.general"/>
+      </mapping>
+    </element>
+    <element id="ArtifactAssessment.url">
+      <path value="ArtifactAssessment.url"/>
+      <short value="Canonical identifier for this ArtifactAssessment, represented as an absolute URI (globally unique)"/>
+      <definition value="An absolute URI that is used to identify this ArtifactAssessment when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this ArtifactAssessment is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the ArtifactAssessment is stored on different servers."/>
+      <comment value="Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred. Multiple instances may share the same URL if they have a distinct version.&#xA;&#xA;The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author. Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions).&#xA;&#xA;In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found."/>
+      <requirements value="Allows the ArtifactAssessment to be referenced by a single globally unique identifier."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <constraint>
+        <key value="cnl-1"/>
+        <severity value="warning"/>
+        <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
+        <expression value="exists() implies matches('^[^|# ]+$')"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
+      </constraint>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.identifier"/>
       </mapping>
     </element>
     <element id="ArtifactAssessment.identifier">
@@ -114,6 +148,55 @@
         <map value="no-gen-base"/>
       </mapping>
     </element>
+    <element id="ArtifactAssessment.version">
+      <path value="ArtifactAssessment.version"/>
+      <short value="Canonical version of the ArtifactAssessment"/>
+      <definition value="The identifier that is used to identify this version of the ArtifactAssessment when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the ArtifactAssessment author and is not expected to be globally unique. For example, it might be a SemVer version, timestamp (e.g. yyyymmdd), or incrementing number. There is no expectation that versions can be placed in a lexicographical sequence without additional knowledge."/>
+      <comment value="There may be different ArtifactAssessments that have the same canonical url but different versions. The version can be appended to the url in a reference to allow a reference to a particular canonical version of the ArtifactAssessment with the format [url]|[version]. Note that the canonical version of a resource is not related to a server resource instance version (`Resource.meta.versionId`). For more information, see [Version Matching for Canonical Resources](references.html#matching). The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.version"/>
+      </mapping>
+    </element>
+    <element id="ArtifactAssessment.versionAlgorithm[x]">
+      <path value="ArtifactAssessment.versionAlgorithm[x]"/>
+      <short value="How to compare versions"/>
+      <definition value="Indicates the mechanism used to compare canonical versions to determine which is more current."/>
+      <comment value="If set as a string, this is a FHIRPath expression that has two additional context variables passed in - %version1 and %version2 and will return a negative number if version1 is newer, a positive number if version2 and a 0 if the version ordering can't be successfully be determined. For more information, see [Choosing the right Canonical Reference](references.html#canonical-matching)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <type>
+        <code value="Coding"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <strength value="extensible"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/version-algorithm"/>
+      </binding>
+    </element>
+    <element id="ArtifactAssessment.name">
+      <path value="ArtifactAssessment.name"/>
+      <short value="Name for this ArtifactAssessment (computer friendly)"/>
+      <definition value="A natural language name identifying the ArtifactAssessment. This name should be usable as an identifier for the resource by machine processing applications such as code generation."/>
+      <comment value="The name is not expected to be globally unique. The name should be a simple alphanumeric type no-whitespace name to ensure that it is machine-processing friendly."/>
+      <requirements value="Supports code generation."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <condition value="cnl-0"/>
+      <isSummary value="true"/>
+    </element>
     <element id="ArtifactAssessment.title">
       <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
         <valueBoolean value="true"/>
@@ -127,37 +210,325 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="ArtifactAssessment.citeAs">
-      <path value="ArtifactAssessment.citeAs"/>
-      <short value="How to cite the comment or rating"/>
-      <definition value="Display of the bibliographic citation of the comment, classifier, or rating."/>
+    <element id="ArtifactAssessment.status">
+      <path value="ArtifactAssessment.status"/>
+      <short value="draft | active | retired | unknown"/>
+      <definition value="The current state of this ArtifactAssessment."/>
+      <comment value="A nominal state-transition diagram can be found in the [Definition pattern](definition.html#statemachine) documentation.&#xA;&#xA;Unknown does not represent 'other' - one of the defined statuses must apply. Unknown is used when the authoring system is not sure what the current status is.&#xa;&#xa;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).&#xa;&#xa;If a server wishes to reflect whether a given canonical resource is 'supported' or 'enabled' on that server, this is NOT done with status. Instead, expose support for the resource using a 'feature' in the server's CapabilityStatement."/>
+      <requirements value="Enables tracking the life-cycle of the content and filtering of ArtifactAssessments that are appropriate for use versus not."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isModifier value="true"/>
+      <isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not use a retired ArtifactAssessment without due consideration"/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="PublicationStatus"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+          <valueBoolean value="true"/>
+        </extension>
+        <strength value="required"/>
+        <description value="The lifecycle status of an artifact."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.status"/>
+      </mapping>
+    </element>
+    <element id="ArtifactAssessment.experimental">
+      <path value="ArtifactAssessment.experimental"/>
+      <short value="For testing only - never for real usage"/>
+      <definition value="A Boolean value to indicate that this ArtifactAssessment is authored for testing purposes (or education/evaluation/marketing) and no version of this resource will ever be intended for genuine usage."/>
+      <comment value="Allows filtering of ArtifactAssessments that are appropriate for use versus not. Experimental resources might include example instances in implementation guides, instances created solely for testing purposes, etc. If experimental is 'true' for any version of a resource, it should be true for all versions of the resource. (If experimental changes, then it is being misused or a resource that was never intended for real-world use has unexpectedly changed its purpose.).&#10;&#10;Experimental resources are not expected to be stable and may well have breaking changes without a corresponding change to the 'version' element."/>
+      <requirements value="Enables experimental content to be developed following the same lifecycle that would be used for a production-level ArtifactAssessment."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <meaningWhenMissing value="If absent, this resource is treated as though it is not experimental."/>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.class"/>
+      </mapping>
+    </element>
+    <element id="ArtifactAssessment.date">
+      <path value="ArtifactAssessment.date"/>
+      <short value="Date last changed"/>
+      <definition value="The date  (and optionally time) when the artifact assessment was published. The date must change when the disposition changes and it must change if the workflow status code changes. In addition, it should change when the substantive content of the artifact assessment changes."/>
+      <comment value="The date is often not tracked until the resource is published, but may be present on draft content. Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the artifact assessment. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource."/>
+      <alias value="Revision Date"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.recorded"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=AUT].time"/>
+      </mapping>
+    </element>
+    <element id="ArtifactAssessment.publisher">
+      <path value="ArtifactAssessment.publisher"/>
+      <short value="Name of the publisher/steward (organization or individual)"/>
+      <definition value="The name of the organization or individual responsible for the release and ongoing maintenance of the ArtifactAssessment."/>
+      <comment value="Usually an organization but may be an individual. The publisher (or steward) of the ArtifactAssessment is the organization or individual primarily responsible for the maintenance and upkeep of the ArtifactAssessment. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the ArtifactAssessment. This item SHOULD be populated unless the information is available from context. The publisher is not necessarily an entity that is involved in developing the content of the resource."/>
+      <requirements value="Helps establish the &quot;authority/credibility&quot; of the ArtifactAssessment. May also allow for contact."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.witness"/>
+      </mapping>
+    </element>
+    <element id="ArtifactAssessment.contact">
+      <path value="ArtifactAssessment.contact"/>
+      <short value="Contact details for the publisher"/>
+      <definition value="Contact details to assist a user in finding and communicating with the publisher."/>
+      <comment value="May be a web site, an email address, a telephone number, etc.&#xa;&#xa;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ContactDetail"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="ArtifactAssessment.description">
+      <path value="ArtifactAssessment.description"/>
+      <short value="Natural language description of the ArtifactAssessment"/>
+      <definition value="A free text natural language description of the ArtifactAssessment from a consumer's perspective."/>
+      <comment value="This description can be used to capture details such as comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the ArtifactAssessment as conveyed in the 'text' field of the resource itself. This item SHOULD be populated unless the information is available from context."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="markdown"/>
       </type>
     </element>
-    <element id="ArtifactAssessment.artifact[x]">
-      <path value="ArtifactAssessment.artifact[x]"/>
-      <short value="The artifact assessed, commented upon or rated"/>
-      <definition value="A reference to a resource, canonical resource, or non-FHIR resource which the comment or assessment is about."/>
-      <min value="1"/>
+    <element id="ArtifactAssessment.useContext">
+      <path value="ArtifactAssessment.useContext"/>
+      <short value="The context that the content is intended to support"/>
+      <definition value="The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate ArtifactAssessments."/>
+      <comment value="When multiple useContexts are specified, there is no expectation that all or even any of the contexts apply."/>
+      <requirements value="Assist in searching for appropriate content."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="UsageContext"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="ArtifactAssessment.jurisdiction">
+      <path value="ArtifactAssessment.jurisdiction"/>
+      <short value="Jurisdiction of the authority that maintains the ArtifactAssessment (if applicable)"/>
+      <definition value="A legal or geographic region in which the authority that maintains the resource is operating. In general, the jurisdiction is also found in the useContext. The useContext may reference additional jurisdictions because the defining jurisdiction does not necessarily limit the jurisdictions of use."/>
+      <comment value="It may be possible for the ArtifactAssessment to be used in jurisdictions other than those for which it was originally designed or intended."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="Jurisdiction"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+          <valueBoolean value="true"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="Countries and regions within which this artifact is targeted for use."/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/jurisdiction"/>
+      </binding>
+    </element>
+    <element id="ArtifactAssessment.purpose">
+      <path value="ArtifactAssessment.purpose"/>
+      <short value="Why this ArtifactAssessment is defined"/>
+      <definition value="Explanation of why this ArtifactAssessment is needed and why it has been designed as it has."/>
+      <comment value="This element does not describe the usage of the ArtifactAssessment. Instead, it provides traceability of &quot;why&quot; the resource is either needed or &quot;why&quot; it is defined as it is. This may be used to point to source materials or specifications that drove the structure of this ArtifactAssessment."/>
+      <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Any"/>
+        <code value="markdown"/>
       </type>
+      <mapping>
+        <identity value="objimpl"/>
+        <map value="no-gen-base"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.why[x]"/>
+      </mapping>
+    </element>
+    <element id="ArtifactAssessment.copyright">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="There is ongoing discussion about the uses of copyright, particularly around modeling information such as license, copyright, and disclaimers."/>
+      </extension>
+      <path value="ArtifactAssessment.copyright"/>
+      <short value="Notice about intellectual property ownership, can include restrictions on use"/>
+      <definition value="A copyright statement relating to the artifact assessment and/or its contents. Copyright statements are notices of intellectual property ownership and can include restrictions on the use and publishing of the artifact assessment."/>
+      <requirements value="Consumers must be able to determine any legal restrictions on the use of the artifact assessment and/or its content."/>
+      <alias value="License"/>
+      <alias value="Restrictions"/>
+      <min value="0"/>
+      <max value="1"/>
       <type>
-        <code value="canonical"/>
+        <code value="markdown"/>
       </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
+      <mapping>
+        <identity value="objimpl"/>
+        <map value="no-gen-base"/>
+      </mapping>
+    </element>
+    <element id="ArtifactAssessment.copyrightLabel">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
+      <path value="ArtifactAssessment.copyrightLabel"/>
+      <short value="Copyright holder and year(s)"/>
+      <definition value="A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are restricted. (e.g. 'All rights reserved', 'Some rights reserved')."/>
+      <comment value="The copyright symbol and the '(c)' textual representation SHOULD NOT be included in this string. It will be added by software when rendering the notation. Full details about licensing, restrictions, warrantees, etc. goes in the more general 'copyright' element."/>
+      <requirements value="Defines the content expected to be rendered in all representations of the artifact."/>
+      <min value="0"/>
+      <max value="1"/>
       <type>
-        <code value="uri"/>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="ArtifactAssessment.usage">
+      <path value="ArtifactAssessment.usage"/>
+      <short value="Describes the clinical usage of the ArtifactAssessment"/>
+      <definition value="A detailed description of how the ArtifactAssessment is used from a clinical/user perspective."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+      <mapping>
+        <identity value="objimpl"/>
+        <map value="no-gen-base"/>
+      </mapping>
+    </element>
+    <element id="ArtifactAssessment.approvalDate">
+      <path value="ArtifactAssessment.approvalDate"/>
+      <short value="When the artifact assessment was approved by publisher"/>
+      <definition value="The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage."/>
+      <comment value="The 'date' element may be more recent than the approval date because of minor changes or editorial corrections."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="date"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=&quot;SUBJ&quot;].act[classCode=CACT;moodCode=EVN;code=&quot;approval&quot;].effectiveTime"/>
+      </mapping>
+      <mapping>
+        <identity value="objimpl"/>
+        <map value="no-gen-base"/>
+      </mapping>
+    </element>
+    <element id="ArtifactAssessment.lastReviewDate">
+      <path value="ArtifactAssessment.lastReviewDate"/>
+      <short value="When the artifact assessment was last reviewed by the publisher"/>
+      <definition value="The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date."/>
+      <comment value="If specified, this date follows the original approval date."/>
+      <requirements value="Gives a sense of how &quot;current&quot; the content is. Resources that have not been reviewed in a long time may have a risk of being less appropriate/relevant."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="date"/>
       </type>
       <isSummary value="true"/>
       <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.what[x]"/>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=&quot;SUBJ&quot;; subsetCode=&quot;RECENT&quot;].act[classCode=CACT;moodCode=EVN;code=&quot;review&quot;].effectiveTime"/>
       </mapping>
+      <mapping>
+        <identity value="objimpl"/>
+        <map value="no-gen-base"/>
+      </mapping>
+    </element>
+    <element id="ArtifactAssessment.effectivePeriod">
+      <path value="ArtifactAssessment.effectivePeriod"/>
+      <short value="When the ArtifactAssessment is expected to be used"/>
+      <definition value="The period during which the ArtifactAssessment content was or is planned to be in active use."/>
+      <comment value="The effective period for a ArtifactAssessment  determines when the content is applicable for usage and is independent of publication and review dates. For example, a measure intended to be used for the year 2016 might be published in 2015.&#xa;&#xa;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
+      <requirements value="Allows establishing a transition before a resource comes into effect and also allows for a sunsetting  process when new versions of the ArtifactAssessment are or are expected to be used instead."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Period"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="objimpl"/>
+        <map value="no-gen-base"/>
+      </mapping>
+    </element>
+    <element id="ArtifactAssessment.author">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="The author, editor, reviewer, and endorser elements were originally modeled with a Contributor data type and a contributionType for the role, but the use of explicit elements makes the relationship more clear and is easier for implementers to understand and work with. Additional contribution types should be modeled with a specific extension for the contribution type to follow this pattern"/>
+      </extension>
+      <path value="ArtifactAssessment.author"/>
+      <short value="Who authored the ArtifactAssessment"/>
+      <definition value="An individual or organization primarily involved in the development of the content in the ArtifactAssessment."/>
+      <comment value="An author does not necessarily have the authority to manage the actual publication of releases of the resource."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ContactDetail"/>
+      </type>
+    </element>
+    <element id="ArtifactAssessment.editor">
+      <path value="ArtifactAssessment.editor"/>
+      <short value="Who edited the ArtifactAssessment"/>
+      <definition value="An individual or organization primarily responsible for internal coherence of the ArtifactAssessment."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ContactDetail"/>
+      </type>
+    </element>
+    <element id="ArtifactAssessment.reviewer">
+      <path value="ArtifactAssessment.reviewer"/>
+      <short value="Who reviewed the ArtifactAssessment"/>
+      <definition value="An individual or organization asserted by the publisher to be primarily responsible for review of some aspect of the ArtifactAssessment."/>
+      <comment value="See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ContactDetail"/>
+      </type>
+    </element>
+    <element id="ArtifactAssessment.endorser">
+      <path value="ArtifactAssessment.endorser"/>
+      <short value="Who endorsed the ArtifactAssessment"/>
+      <definition value="An individual or organization asserted by the publisher to be responsible for officially endorsing the ArtifactAssessment for use in some setting."/>
+      <comment value="See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ContactDetail"/>
+      </type>
     </element>
     <element id="ArtifactAssessment.relatesTo">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
@@ -214,89 +585,36 @@
             <code value="markdown"/>
         </type>
     </element>
-    <element id="ArtifactAssessment.date">
-      <path value="ArtifactAssessment.date"/>
-      <short value="Date last changed"/>
-      <definition value="The date  (and optionally time) when the artifact assessment was published. The date must change when the disposition changes and it must change if the workflow status code changes. In addition, it should change when the substantive content of the artifact assessment changes."/>
-      <comment value="The date is often not tracked until the resource is published, but may be present on draft content. Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the artifact assessment. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource."/>
-      <alias value="Revision Date"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="dateTime"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.recorded"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".participation[typeCode=AUT].time"/>
-      </mapping>
-    </element>
-    <element id="ArtifactAssessment.copyright">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="There is ongoing discussion about the uses of copyright, particularly around modeling information such as license, copyright, and disclaimers."/>
-      </extension>
-      <path value="ArtifactAssessment.copyright"/>
-      <short value="Notice about intellectual property ownership, can include restrictions on use"/>
-      <definition value="A copyright statement relating to the artifact assessment and/or its contents. Copyright statements are notices of intellectual property ownership and can include restrictions on the use and publishing of the artifact assessment."/>
-      <requirements value="Consumers must be able to determine any legal restrictions on the use of the artifact assessment and/or its content."/>
-      <alias value="License"/>
-      <alias value="Restrictions"/>
+    <element id="ArtifactAssessment.citeAs">
+      <path value="ArtifactAssessment.citeAs"/>
+      <short value="How to cite the comment or rating"/>
+      <definition value="Display of the bibliographic citation of the comment, classifier, or rating."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="markdown"/>
       </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?)"/>
-      </mapping>
-      <mapping>
-        <identity value="objimpl"/>
-        <map value="no-gen-base"/>
-      </mapping>
     </element>
-    <element id="ArtifactAssessment.approvalDate">
-      <path value="ArtifactAssessment.approvalDate"/>
-      <short value="When the artifact assessment was approved by publisher"/>
-      <definition value="The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage."/>
-      <comment value="The 'date' element may be more recent than the approval date because of minor changes or editorial corrections."/>
-      <min value="0"/>
+    <element id="ArtifactAssessment.artifact[x]">
+      <path value="ArtifactAssessment.artifact[x]"/>
+      <short value="The artifact assessed, commented upon or rated"/>
+      <definition value="A reference to a resource, canonical resource, or non-FHIR resource which the comment or assessment is about."/>
+      <min value="1"/>
       <max value="1"/>
       <type>
-        <code value="date"/>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Any"/>
       </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=&quot;SUBJ&quot;].act[classCode=CACT;moodCode=EVN;code=&quot;approval&quot;].effectiveTime"/>
-      </mapping>
-      <mapping>
-        <identity value="objimpl"/>
-        <map value="no-gen-base"/>
-      </mapping>
-    </element>
-    <element id="ArtifactAssessment.lastReviewDate">
-      <path value="ArtifactAssessment.lastReviewDate"/>
-      <short value="When the artifact assessment was last reviewed by the publisher"/>
-      <definition value="The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date."/>
-      <comment value="If specified, this date follows the original approval date."/>
-      <requirements value="Gives a sense of how &quot;current&quot; the content is.  Resources that have not been reviewed in a long time may have a risk of being less appropriate/relevant."/>
-      <min value="0"/>
-      <max value="1"/>
       <type>
-        <code value="date"/>
+        <code value="canonical"/>
+      </type>
+      <type>
+        <code value="uri"/>
       </type>
       <isSummary value="true"/>
       <mapping>
-        <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=&quot;SUBJ&quot;; subsetCode=&quot;RECENT&quot;].act[classCode=CACT;moodCode=EVN;code=&quot;review&quot;].effectiveTime"/>
-      </mapping>
-      <mapping>
-        <identity value="objimpl"/>
-        <map value="no-gen-base"/>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
       </mapping>
     </element>
     <element id="ArtifactAssessment.content">

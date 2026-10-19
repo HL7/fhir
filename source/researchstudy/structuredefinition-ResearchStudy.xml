@@ -966,10 +966,10 @@
     </element>
     <element id="ResearchStudy.comparisonGroup">
       <path value="ResearchStudy.comparisonGroup"/>
-      <short value="Defined path through the study for a subject"/>
-      <definition value="Describes an expected event or sequence of events for one of the subjects of a study. E.g. for a living subject: exposure to drug A, wash-out, exposure to drug B, wash-out, follow-up. E.g. for a stability study: {store sample from lot A at 25 degrees for 1 month}, {store sample from lot A at 40 degrees for 1 month}."/>
-      <comment value="In many clinical trials this is refered to as the ARM of the study, but such a term is not used in other sorts of trials even when there is a comparison between two or more groups."/>
+      <short value="A cohort of study participants that is compared to another group"/>
+      <definition value="Describes a group of subjects (participants) in a study that is compared to another group. This group may be an arm of the study, such as controlled trials that define groups for assignment into specific paths or protocols involving different exposures. This group may also be defined for other types of comparisons, such as descriptive or predictive studies characterizing populations by their characteristics."/>
       <alias value="arm"/>
+      <alias value="cohort"/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -1179,7 +1179,7 @@
       <path value="ResearchStudy.objective.outcomeMeasure.intervention"/>
       <short value="Comparison group of interest"/>
       <definition value="Comparison group of interest."/>
-      <comment value="To re-use and reference a Group represented in ResearchStudy.comparisonGroup.eligibility, one may include the Group Resource in ResearchStudy.contained and then reference the same (internal) Group by its id"/>
+      <comment value="The referenced Group Resource may be the same as a reference noted in ResearchStudy.comparisonGroup.eligibility"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1191,7 +1191,7 @@
       <path value="ResearchStudy.objective.outcomeMeasure.comparator"/>
       <short value="Comparison group for comparison"/>
       <definition value="Comparison group for comparison."/>
-      <comment value="To re-use and reference a Group represented in ResearchStudy.comparisonGroup.eligibility, one may include the Group Resource in ResearchStudy.contained and then reference the same (internal) Group by its id"/>
+      <comment value="The referenced Group Resource may be the same as a reference noted in ResearchStudy.comparisonGroup.eligibility"/>
       <min value="0"/>
       <max value="1"/>
       <type>

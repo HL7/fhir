@@ -39,7 +39,7 @@
   </li>
   <li>Non-Substantive Changes
     <ul>
-		<li>None</li>
+		<li><a href="https://jira.hl7.org/browse/FHIR-58359">FHIR-58359</a>: Procedure boundaries updated</li>
     </ul>
   </li>
 </ul>
@@ -80,7 +80,7 @@ Note that many diagnostic processes are procedures that generate <a href="observ
 <a href="diagnosticreport.html">DiagnosticReports</a>. In many cases, 
 such an observation does not require an explicit representation of the procedure used to create the 
 observation, but where there are details of interest about how the diagnostic procedure was performed, 
-the Procedure resource is used to describe the activity.
+the Procedure resource is used to describe the activity. The Procedure.outcome element is for recording procedure effects (success, stent placed, reaction to contrast, etc.), not findings of evaluation procedures (lab results, radiology observations).
 </p>
 <p> Some diagnostic procedures might not have a Procedure record. The Procedure record is only necessary when 
 there is a need to capture information about the physical intervention that was performed to capture the diagnostic 
@@ -94,3 +94,5 @@ A <a href="task.html">Task</a> resource often exists in parallel with clinical r
 </div>
 
 </div>
+
+

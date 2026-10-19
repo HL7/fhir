@@ -278,8 +278,8 @@
     </element>
     <element id="MedicationRequest.statusChanged">
       <path value="MedicationRequest.statusChanged"/>
-      <short value="When the status was changed"/>
-      <definition value="The date (and perhaps time) when the status was changed."/>
+      <short value="When the status was last changed"/>
+      <definition value="The date (and perhaps time) when the status of the MedicationRequest was last changed."/>
       <min value="0"/>
       <max value="1"/>
       <type>
