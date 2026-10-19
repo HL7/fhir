@@ -8,7 +8,7 @@
     <p>This resource would not be used when ordering a device(s) that may have a medication coating e.g. heparin coated stints, or similar types of devices. These types of devices would be ordered using the <a href="devicerequest.html">DeviceRequest</a> or the SupplyRequest resources.</p>
     <p>It is not intended for use in prescribing particular diets, or for ordering non-medication-related items (eyeglasses, supplies, etc.).  In addition, the MedicationRequest may be used to report orders/request from external systems that have been reported for informational purposes and are not authoritative and are not expected to be acted upon (e.g. dispensed or administered).
 </p>
-    <p>The MedicationRequest resource is a "request" resource from a FHIR workflow perspective - see <a href="workflow.html#request">Workflow Request.</a></p>
+    <p>The MedicationRequest resource is a "request" resource from a FHIR workflow perspective - see <a href="workflow.html#request">Workflow Request</a> – it serves as an authorization, which doesn't make it necessarily actionable, unless it has the 'actionable' tag set, or used in combination with a Task resource or in specific workflows - more information on the <a href="workflow-management.html">workflow pages</a>.</p>
 
 
 <p>
@@ -108,6 +108,7 @@ The code system used in medication request category is presented here but is exp
 <li><a href="https://jira.hl7.org/browse/FHIR-45330">FHIR-45330</a> - Added examples of medical gas orders: HeliOx with supplementary oxygen, linked by <code>groupIdentifier</code> (<a href="medicationrequest0351.html">medicationrequest0351</a>, <a href="medicationrequest0352.html">medicationrequest0352</a>). The supplementary oxygen is given if SpO2 is below 88%, expressed as a computable <code>condition</code> (SpO2, <code>lt</code>, 88 %).</li>
 <li><a href="https://jira.hl7.org/browse/FHIR-45329">FHIR-45329</a> - Example of a MedicationRequest that references a DeviceDefinition: the nasal cannula in <a href="medicationrequest0352.html">medicationrequest0352</a>.</li>
 <li><a href="https://jira.hl7.org/browse/FHIR-58457">FHIR-58457</a> - Clarified that <code>statusChanged</code> is the date (and perhaps time) when the status of the MedicationRequest was last changed.</li>
+<li><a href="https://jira.hl7.org/browse/FHIR-58643">FHIR-58643</a> - Removed <code>isRecordOfRequest</code> (R5 <code>reported</code>). A MedicationRequest serves as an authorization, which is not necessarily actionable unless it has the 'actionable' tag or is used with a Task or in specific workflows (see Scope and Usage). This also resolves <a href="https://jira.hl7.org/browse/FHIR-53305">FHIR-53305</a>, <a href="https://jira.hl7.org/browse/FHIR-54446">FHIR-54446</a>, <a href="https://jira.hl7.org/browse/FHIR-58459">FHIR-58459</a>, <a href="https://jira.hl7.org/browse/FHIR-55006">FHIR-55006</a>, and makes <a href="https://jira.hl7.org/browse/FHIR-49863">FHIR-49863</a> and <a href="https://jira.hl7.org/browse/FHIR-55005">FHIR-55005</a> moot.</li>
 </ul>
 </blockquote>
 
