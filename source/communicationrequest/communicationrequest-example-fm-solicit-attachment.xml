@@ -20,7 +20,7 @@
 
   <contained>
     <Organization>
-      <id value="payor"/>
+      <id value="payer"/>
       <identifier>
         <system value="http://www.jurisdiction.com/insurer"/>
         <value value="123456"/>
@@ -86,7 +86,7 @@
       <reference value="#provider"/>
   </recipient>
    <informationProvider>
-     <reference value="#payor"/>
+     <reference value="#payer"/>
    </informationProvider>
    
 

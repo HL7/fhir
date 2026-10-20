@@ -31,7 +31,7 @@
     </requester>
     
     <dosageInstruction>
-        <simple>
+        <step><component>
         <text value="apply one patch three times per week"/>
         <timing>
             <repeat>
@@ -55,7 +55,7 @@
                 <code value="PATCH"/>
             </doseQuantity>
         </doseAndRate>
-       </simple> 
+       </component></step> 
     </dosageInstruction>
     
     <dispenseRequest>

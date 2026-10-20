@@ -17,7 +17,7 @@
         <lowerCardinality _pattern="0" _resource="1" reason="More specific to the use-case"/>
         <upperCardinality _pattern="*" _resource="1" reason="More specific to the use-case"/>
         <bindingExistence _pattern="false" _resource="true" reason="not sure"/>
-        <commentsUnmatched reason="Unknown">
+        <commentsUnmatched reason="Normative words need to be uppercase">
             <_pattern value="Categorization might be done automatically (inferred by code) or manually by user assertion.  The absence of a category may limit the ability to determine when the element should be handled, so strong consideration should be given to how systems will be able to determine category values for legacy data and how data that cannot be categorized will be handled.  As well, some categories might not be mutually exclusive, so systems should prepare for multiple declared categories - even within a single category 'axis'.&#10;In general, there should not be a 'strong' binding ('required' or 'extensible') on the category element overall.  Instead, the element can be sliced and bindings can be asserted that apply to particular repetitions."/>
             <resource value="Categorization might be done automatically (inferred by code) or manually by user assertion.  The absence of a category MAY limit the ability to determine when the element SHOULD be handled, so strong consideration SHOULD be given to how systems will be able to determine category values for legacy data and how data that cannot be categorized will be handled.  As well, some categories might not be mutually exclusive, so systems SHOULD prepare for multiple declared categories - even within a single category 'axis'.&#10;In general, there SHOULD NOT be a 'strong' binding ('required' or 'extensible') on the category element overall.  Instead, the element can be sliced and bindings can be asserted that apply to particular repetitions."/>
         </commentsUnmatched>
@@ -44,9 +44,7 @@
             <_pattern value="The individual or set of individuals the action is being or was performed on."/>
             <resource value="The patient element is available to enable deterministic tracking of activities that involve the patient as the subject of the data used in an activity."/>
         </definitionUnmatched>
-        <requirementsUnmatched reason="Unknown">
-            <!--Old resource: When the .patient is populated it shall be accurate to the subject of the used data. The .patient shall not be populated when the used data used/created/updated/deleted (.entity) by the activity does not involve a subject. Note that when the patient is an agent, they will be recorded as an agent. When the Patient resource is Created, Updated, or Deleted it will be recorded as an entity.  May also affect access control.-->
-            <!--Old reason: More specific to the use-case-->
+        <requirementsUnmatched reason="More specific to the use-case">
             <_pattern value="Links the audit event to the Patient context.  May also affect access control."/>
             <resource value="When the .patient is populated it SHALL be accurate to the subject of the used data. The .patient SHALL NOT be populated when the used data used/created/updated/deleted (.entity) by the activity does not involve a subject. Note that when the patient is an agent, they will be recorded as an agent. When the Patient resource is Created, Updated, or Deleted it will be recorded as an entity.  May also affect access control."/>
         </requirementsUnmatched>
@@ -57,13 +55,11 @@
             <_pattern value="Encounter the audit event is part of"/>
             <resource value="Encounter within which this event occurred or which the event is tightly associated"/>
         </shortUnmatched>
-        <definitionUnmatched reason="Unknown">
-            <!--Old resource: This will typically be the encounter the event occurred, but some events may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g. pre-admission lab tests).-->
-            <!--Old reason: More specific description-->
+        <definitionUnmatched reason="More specific description">
             <_pattern value="The Encounter during which this audit event was created or to which the creation of this record is tightly associated."/>
             <resource value="This will typically be the encounter the event occurred, but some events MAY be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g. pre-admission lab tests)."/>
         </definitionUnmatched>
-        <commentsUnmatched reason="Unknown">
+        <commentsUnmatched reason="Normative words need to be uppercase">
             <_pattern value="This will typically be the encounter the audit event was created during, but some audit events may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g. pre-admission lab tests)."/>
             <resource value="This will typically be the encounter the audit event was created during, but some audit events MAY be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g. pre-admission lab tests)."/>
         </commentsUnmatched>
@@ -79,10 +75,7 @@
             <_pattern value="The date, period or timing when the audit event did occur or is occurring."/>
             <resource value="The time or period during which the activity occurred."/>
         </definitionUnmatched>
-        <commentsUnmatched reason="Unknown">
-            <!--Old pattern: This indicates when the activity actually occurred or is occurring, not when it was asked/requested/ordered to occur.  For the latter, look at the occurence element of the  Request this {{event}} is "basedOn".  The status code allows differentiation of whether the timing reflects a historic event or an ongoing event.  Ongoing events SHOULD NOT include an upper bound in the Period or Timing.bounds.
-.-->
-            <!--Old reason: More specific description-->
+        <commentsUnmatched reason="More specific description">
             <_pattern value="This indicates when the activity actually occurred or is occurring, not when it was asked/requested/ordered to occur.  For the latter, look at the occurence element of the  Request this {{event}} is &quot;basedOn&quot;.  The status code allows differentiation of whether the timing reflects a historic event or an ongoing event.  Ongoing events should not include an upper bound in the Period or Timing.bounds.&#10;."/>
             <resource value="The time or period can be a little arbitrary; where possible, the time SHOULD correspond to human assessment of the activity time."/>
         </commentsUnmatched>
@@ -105,21 +98,18 @@
             <_pattern value="Type of performance"/>
             <resource value="How agent participated"/>
         </shortUnmatched>
-        <definitionUnmatched reason="Unknown">
-            <!--Old resource: The Functional Role of the user when performing the event.-->
-            <!--Old reason: More specific description-->
+        <definitionUnmatched reason="More specific description">
             <_pattern value="Distinguishes the type of involvement of the performer in the audit event.."/>
             <resource value="The way the agent participated in the event."/>
         </definitionUnmatched>
-        <requirementsUnmatched reason="Unknown">
-            <!--Old resource: Functional roles reflect functional aspects of relationships between entities. Functional roles are bound to the realization/performance of acts, where actions might be concatenated to an activity or even to a process. This element will hold the functional role that the agent played in the activity that is the focus of this Provenance. Where an agent played multiple functional roles, they will be listed as multiple .agent elements representing each functional participation. See ISO 21298:2018 - Health Informatics - Functional and structural roles, and ISO 22600-2:2014 - Health Informatics - Privilege Management and Access Control - Part 2: formal models.-->
-            <!--Old reason: More specific description-->
+        <requirementsUnmatched reason="More specific description">
             <_pattern value="Allows disambiguation of the types of involvement of different performers."/>
             <resource value="What was the function of the agent in the activity that is being recorded. Where an agent played multiple types of participation, they will be listed as multiple .agent elements representing each type of participation."/>
         </requirementsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.performer.actor" resourcePath="AuditEvent.agent.who">
-        <extraTypes _resource="Reference(DeviceDefinition,Group,HealthcareService)" reason="Unknown"/>
+        <missingTypes _pattern="Reference(HealthCareService)" reason="Unknown"/>
+        <extraTypes _resource="Reference(DeviceDefinition,Group,HealthcareService)" reason="Use-case allows these additional types"/>
         <shortUnmatched reason="More specific description">
             <_pattern value="Who performed audit event"/>
             <resource value="Identifier of who"/>
@@ -145,10 +135,7 @@
         </requirementsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.reason" resourcePath="AuditEvent.authorization">
-        <missingTypes _pattern="CodeableReference(Condition, Observation, DiagnosticReport, DocumentReference)" reason="Unknown">
-            <!--Old pattern: CodeableReference(Condition,Observation,DiagnosticReport,DocumentReference)-->
-            <!--Old reason: Not Appropriate-->
-        </missingTypes>
+        <missingTypes _pattern="CodeableReference(Condition, Observation, DiagnosticReport, DocumentReference)" reason="Not Appropriate"/>
         <extraTypes _resource="CodeableConcept" reason="Use-Case need"/>
         <shortUnmatched reason="Use-Case need">
             <_pattern value="Why was audit event performed?"/>

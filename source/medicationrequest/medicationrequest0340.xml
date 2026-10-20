@@ -34,12 +34,11 @@
         <reference value="Patient/pat1"/>
         <display value="Donald Duck"/> 
     </requester>
-    <isRecordOfRequest value="true"></reported>
     
     <dosageInstruction>
-      <simple>
+      <step><component>
         <text value="Apply to affected areas four times daily"/>
-      </simple>
+      </component></step>
     </dosageInstruction>
     
 </MedicationRequest>

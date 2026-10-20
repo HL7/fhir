@@ -9,6 +9,7 @@
         <li>Updates to the following elements:</li>
             <ul>
             	<li>The definitions of the two values of MedicinalProductDefinition.type were improved</li>
+            	<li>MedicinalProductDefinition.name.usage.language cardinality relaxed from 1..1 to 0..1, to permit cases where a name usage is recorded without an explicit language code (FHIR-55050)</li>
             </ul>
     </ul>
     </blockquote>

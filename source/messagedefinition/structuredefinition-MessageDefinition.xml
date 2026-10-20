@@ -412,7 +412,7 @@
 			<path value="MessageDefinition.jurisdiction"/>
 			<short value="Jurisdiction of the authority that maintains the message definition (if applicable)"/>
 			<definition value="A legal or geographic region in which the authority that maintains the resource is operating.  In general, the jurisdiction is also found in the useContext.  The useContext may reference additional jurisdictions because the defining jurisdiction does not necessarily limit the jurisdictions of use."/>
-			<comment value="It may be possible for the message definition to be used in jurisdictions other than those for which it was originally designed or intended.&#xa;&#xa;DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)"/>
+			<comment value="It may be possible for the message definition to be used in jurisdictions other than those for which it was originally designed or intended."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
@@ -595,24 +595,24 @@
 		<element id="MessageDefinition.focus.code">
 			<path value="MessageDefinition.focus.code"/>
 			<short value="Type of resource"/>
-			<definition value="The kind of resource that must be the focus for this message."/>
+			<definition value="The kind of resource that must be the focus for this message. This must be a resource, or a type with a [[[http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics]]] of [[[http://hl7.org/fhir/type-characteristics-code#can-be-target]]]."/>
 			<comment value="Multiple focuses addressing different resources may occasionally occur.  E.g. to link or unlink a resource from a particular account or encounter, etc."/>
 			<min value="1"/>
 			<max value="1"/>
 			<type>
-				<code value="code"/>
+				<code value="uri"/>
 			</type>
 			<isSummary value="true"/>
-			<binding>
+			<binding> 
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="ResourceType"/>
+					<valueString value="FHIRTypes"/>
 				</extension>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
-					<valueBoolean value="true"/>
+				<extension url="http://hl7.org/fhir/build/StructureDefinition/copyright">
+					<valueString value="FHIR"/>
 				</extension>
-				<strength value="required"/>
-				<description value="One of the resource types defined as part of this version of FHIR."/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/resource-types"/>
+				<strength value="extensible"/>
+				<description value="Either a resource or a data type, including logical model types."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/version-independent-resource-types"/>
 			</binding>
 		</element>
 		<element id="MessageDefinition.focus.profile">

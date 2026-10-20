@@ -6,6 +6,9 @@
     <divergentElement patternPath="FiveWs.what[x]" resourcePath="NutritionOrder.oralDiet.type">
         <upperCardinality _pattern="1" _resource="*" reason="Unknown"/>
     </divergentElement>
+    <divergentElement patternPath="FiveWs.what[x]" resourcePath="NutritionOrder.enteralFormula.type">
+        <upperCardinality _pattern="1" _resource="*" reason="Unknown"/>
+    </divergentElement>
     <unmappedElement patternPath="FiveWs.actor" reason="Unknown"/>
     <unmappedElement patternPath="FiveWs.cause" reason="Unknown"/>
     <unmappedElement patternPath="FiveWs.version" reason="Unknown"/>

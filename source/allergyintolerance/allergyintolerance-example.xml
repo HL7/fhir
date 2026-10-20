@@ -80,9 +80,9 @@
 	<reference value="Patient/example"/> 
   </asserter>
 
-  <!-- last happened June 2012. Typically, systems either track lastOccurrence,
+  <!-- last happened June 2012. Typically, systems either track lastReactionOccurrence,
      or a list of events. -->
-  <lastOccurrence value="2012-06"/>
+  <lastReactionOccurrence value="2012-06"/>
   
   <!-- an additional note about the allergy propensity by the recorder -->
   <note>

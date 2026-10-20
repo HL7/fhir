@@ -382,7 +382,7 @@
        class="diagram-class-detail"><a
    id="n1318"
    xlink:href="conceptmap-definitions.html#ConceptMap.author"><title
-   id="title1460">An individiual or organization primarily involved in the creation and maintenance of the ConceptMap</title>author</a> : <a
+   id="title1460">An individual or organization primarily involved in the creation and maintenance of the ConceptMap</title>author</a> : <a
    id="n1319"
    xlink:href="metadatatypes.html#ContactDetail">ContactDetail</a> [0..*]</text>
     <text

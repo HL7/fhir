@@ -33,7 +33,7 @@
 
 
   <dosageInstruction>
-    <simple>
+    <step><component>
       <text value="5ml three times daily" />
       <additionalInstruction>
         <coding>
@@ -71,7 +71,7 @@
           <code value="ml"/>
         </doseQuantity>
       </doseAndRate>
-    </simple>    
+    </component></step>    
   </dosageInstruction>
 
   <dispenseRequest>

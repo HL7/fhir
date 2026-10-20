@@ -1,7 +1,6 @@
 <!DOCTYPE HTML>
 
 
-
 [%settitle Using Codes and Terminologies%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
@@ -17,11 +16,49 @@
 <h1>Using Codes in Resources</h1>
 <table class="colsn"><tr><td id="wg">Responsible Owner: <a _target="blank" href="[%wg vocab%]">[%wgt vocab%]</a> Work Group</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
 
+<blockquote class="ballot-note" id="bn1">
+<p><b>Note to Balloters:</b> Key changes made since FHIR 6.0.0-ballot4:</p>
+<ul>
+  <li>Non-compatible Changes
+    <ul>
+      <li>None</li>
+    </ul>
+  </li>
+  <li>Compatible, Substantive Changes
+    <ul>
+      <li>None</li>
+    </ul>
+  </li>
+  <li>Non-substantive Changes
+    <ul>
+      <li><a href="https://jira.hl7.org/browse/FHIR-54555">FHIR-54555</a>: Clarified use of the terms 'concept code' and 'code' throughout the specification</li>
+      <li><a href="https://jira.hl7.org/browse/FHIR-51120">FHIR-51120</a>: Retired the ISO-3166 2-letter code value set in favor of the equivalent THO value set</li>
+    </ul>
+  </li>
+</ul>
+<p></p>
+</blockquote>
+<blockquote style="background-color: lightblue">
+  <p><b>All Changes (including Technical Corrections not listed above):</b></p>
+  <ul>
+      <li><a href="https://jira.hl7.org/browse/FHIR-53821">FHIR-53821</a>: Typo in Using Codes in Resources page</li>
+      <li><a href="https://jira.hl7.org/browse/FHIR-53839">FHIR-53839</a>: Typo in Terminologies Systems page</li>
+  </ul>
+</blockquote>
+
+
 <a name="bindings"></a>
 <p>
 Many elements in the FHIR resources have a <b>coded value</b>: some fixed string
-(a sequence of characters) assigned elsewhere that identifies some defined "concept". The
-sequence of characters and its meaning may be defined in one of several places:
+(a sequence of characters) assigned elsewhere that identifies some defined <i>concept</i>. 
+Throughout this specification, the term <i>concept code</i> (see <a href="codesystem-definitions.html#CodeSystem.concept.code">CodeSystem.concept.code</a>) 
+refers to this identifying string. The word <i>code</i> is used as a shorthand for <i>concept code</i> in most prose descriptions in this specification, 
+and the two terms should be treated as equivalent. Note that <code>code</code> is also the name of a FHIR primitive <a href="datatypes.html#code">data type</a> 
+&mdash; a string taken from a set of controlled values where the applicable code system is implicit rather than carried in the instance. Where element definitions, type 
+declarations, or constraint expressions reference <code>code</code> in this sense, they refer to the data type, not to a <i>concept code</i>.
+</p>
+<p>
+The coded value and its meaning may be defined in one of several places:
 </p>
 <ul>
  <li>As one of a set of fixed values defined in this specification</li>
@@ -103,7 +140,7 @@ specification <b>"binds"</b> a value set to the element, and for the types code,
 </p>
 <ul>
  <li><b><a href="codesystem.html">Code Systems</a></b> define concepts and give them meaning through formal definitions, and assign codes that represent the concepts</li>
- <li><b><a href="valueset.html">Value Sets</a></b> specifies a set of codes defined by code systems that can be used in a specific context</li>
+ <li><b><a href="valueset.html">Value Sets</a></b> specify a set of codes defined by code systems that can be used in a specific context</li>
  <li><b><a href="#binding">Bindings</a></b> apply a value set to an element and specify the rules around the use of the value set</li>
 </ul>
 <p>
@@ -217,9 +254,10 @@ The name is not part of the formal definition of the binding, and is not used in
 <a href="https://hl7.org/fhir/extensions/5.3.0-ballot-tc1/StructureDefinition-elementdefinition-bindingName.html">extension Binding name</a>.
 </p>    
 <p>
-In addition, elements may have <a href="elementdefinition-definitions.html#ElementDefinition.binding.additional">additional bindings</a>. These additional bindings do not replace 
-the main binding (the main binding always applies), but provide additional information and/or rules about the use of codes in the element
-sometimes in particular contexts of use. Additional bindings have the following properties:
+In addition, elements may define <a href="elementdefinition-definitions.html#ElementDefinition.binding.additional">additional bindings</a>. These additional bindings do not replace or constrain the main binding, which always applies. 
+They provide supplementary guidance or rules for concept code usage, sometimes in specific contexts of use. 
+Additional bindings are not required to be subsets of the main binding; they may overlap with, extend beyond, or differ from it. 
+Additional bindings have the following properties:
 </p>
 <table class="grid">
   <tr><td><b>purpose</b></td><td>The use of this additional binding. See <a href="#strength">below for details</a>.</td></tr>
@@ -243,11 +281,19 @@ sometimes in particular contexts of use. Additional bindings have the following 
 </table>
 
 <p>
-It's possible for there to be multiple applicable required bindings to non-overlapping value sets
-If the data type is CodeableConcept or CodeableReference, then that would mean that multiple Codings
-are needed to satisfy the bindings. For other data types, this would be an error (in way or another).
+It's possible for there to be multiple applicable required bindings to non-overlapping value sets If the data type is CodeableConcept or CodeableReference, 
+then that would mean that multiple Codings are needed to satisfy the bindings. For other data types, this would be an error (in way or another).
 </p>
 
+<p>
+The conceptual spaces of all bindings on an element must be overlapping. 
+For example, it would not be appropriate to have a binding for concepts representing color and a binding for concepts representing shape on the same element unless handled through slices. 
+</p>
+
+<p>
+Note that if the element data type is a code or coding, the value must satisfy all bindings. 
+If the conformance expectations of the bindings are disjoint, it will not be possible to satisfy the bindings and no data will be valid. 
+</p>
 	
 <a name="references"></a>
 
@@ -513,6 +559,27 @@ will work together to choose actual working value sets.
 <p>
 If the binding strength is required, the data element SHALL contain one of the values in the bound value set.
 </p>
+<p>For these bindings:
+</p>
+<ul>
+  <li><b>code</b>: The code SHALL contain a code from the ValueSet</li>
+  <li><b>Coding</b>: the system/code values SHALL identify one of the codes in the value set</li>
+  <li><b>CodeableConcept</b>: one of the coding elements SHALL contain a system/code that is in the value set</li>
+</ul>
+<p>
+Version may be required - depending on the code system and applicable local policies.
+</p>
+<p>
+For these bindings:
+</p>
+<ul>
+<li><b>code</b>: The code SHALL contain a code from the ValueSet</li>
+<li><b>Coding</b>: the system/code values SHALL identify one of the codes in the value set</li>
+<li><b>CodeableConcept</b>: at least one of the coding elements SHALL contain a system/code that is in the value set</li>
+</ul> 
+<p>
+Version may be required - depending on the code system and applicable local policies.
+</p>
 <p>
 Required binding strength is used for elements where the value needs to be strictly controlled so the element 
 can be interpreted with confidence. Required binding strength SHALL be used for elements with type code (unless 
@@ -557,8 +624,8 @@ The following  rules apply when required bindings are used with the <a href="dat
  <li>If the bound value set is defined external to the specification, the binding must specify a value set version.</li>
 </ul>
 <p>
-When an element is bound to a required value set, <a href="profiling.html">derived profiles</a>
-may state rules on which codes can be used, including removing codes from allowed use, but cannot specify additional codes for these elements.
+When an element is bound to a value set with required binding strength, <a href="profiling.html">derived profiles</a>
+can remove concept codes and cannot specify additional concept codes to be used. This does not prevent additional codes for other instances of CodeableConcept.coding in the same element.
 </p>
 <p>
   For examples of Required bindings, see <a href="terminologies-binding-examples.html#required">Terminology Binding Examples</a>.

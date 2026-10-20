@@ -76,16 +76,16 @@
       </coding>
     </concept>
   </event>
-  <bodySite>
-	  <concept>
-		  <coding>
-			<!-- Added body site to support duplicate checking example -->
-			<system value="http://snomed.info/sct"/>
-			<code value="67734004"/>
-			<display value="Upper Trunk Structure"/>
-		  </coding>
-	  </concept>
-	</bodySite>  
+  <bodyStructure>
+  	<concept>
+			  <coding>
+				<!-- Added body site to support duplicate checking example -->
+				<system value="http://snomed.info/sct"/>
+				<code value="67734004"/>
+				<display value="Upper Trunk Structure"/>
+			  </coding>
+  	</concept>
+	</bodyStructure>  
 
   <author>
     <display value="G.E. Medical Systems"/>

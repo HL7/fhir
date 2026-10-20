@@ -33,6 +33,7 @@
   </note>
   <dosage>
     <renderedInstruction value="One capsule three times daily by mouth."/>
+    <step><component>
     <text value="one capsule three times daily" />
     <timing>
       <repeat>
@@ -65,6 +66,7 @@
             </period>
         </doseLimit>
     </safety>
+  </component></step>
   </dosage>
 <adherence>
   <code>

@@ -39,13 +39,15 @@
          <text value="Malignant tumor of lung"/>
        </concept>
     </reason>
-    <bodySite>
-            <coding>
-                <system value="http://snomed.info/sct"/>
-                <code value="39607008"/>
-                <display value="Lung structure"/>
-            </coding>
-    </bodySite>
+    <bodyStructure>
+            <concept>
+                    <coding>
+                        <system value="http://snomed.info/sct"/>
+                        <code value="39607008"/>
+                        <display value="Lung structure"/>
+                    </coding>
+            </concept>
+    </bodyStructure>
     <outcome>
       <text value="improved blood circulation"/>
     </outcome>

@@ -10,10 +10,10 @@
 		<display value="Peter Chalmers"/>
 	</subject>
 	<dateTime value="2014-09-17"/>
-	<orderer>
+	<requester>
 		<reference value="Practitioner/example"/>
 		<display value="Dr Adam Careful"/>
-	</orderer>
+	</requester>
 	<oralDiet>
 		<!-- EH:  list type of diet showing standard code and local codes -->
 		<type>
@@ -51,14 +51,14 @@
 				</coding>
 				<text value="Regular, Chopped Meat"/>
 			</modifier>
-			<foodType>
+			<type>
 				<coding>
 					<system value="http://snomed.info/sct"/>
 					<code value="28647000"/>
 					<display value="Meat"/>
 				</coding>
 				<text value="Regular, Chopped Meat"/>
-			</foodType>
+			</type>
 		</texture>
 	</oralDiet>
 </NutritionOrder>

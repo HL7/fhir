@@ -5,8 +5,10 @@
             <_pattern value="Business identifier for document reference"/>
             <resource value="Business identifiers for the document"/>
         </shortUnmatched>
-        <commentsUnmatched reason="More specific to the use-case for this resource">
-            <_pattern value="Note: This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number."/>
+        <commentsUnmatched reason="Unknown">
+            <!--Old pattern: Note: This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number.-->
+            <!--Old reason: More specific to the use-case for this resource-->
+            <_pattern value="Note: This is a business identifier, not a resource identifier (see [general discussion](resource.html#identifiers) and [event-specific discussion](event.html#identifier)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number."/>
             <resource value="The structure and format of this identifier would be consistent with the specification corresponding to the format of the document. (e.g. for a DICOM standard document, a 64-character numeric UID; for an HL7 CDA format, the CDA Document Id root and extension)."/>
         </commentsUnmatched>
         <requirementsUnmatched reason="More specific to the use-case for this resource">
@@ -16,7 +18,7 @@
     </divergentElement>
     <divergentElement patternPath="Event.basedOn" resourcePath="DocumentReference.basedOn">
         <missingTypes _pattern="Reference(Request)" reason="More specific to the use-case for this resource"/>
-        <extraTypes _resource="Reference(Appointment,AppointmentResponse,CarePlan,Claim,CommunicationRequest,Contract,CoverageEligibilityRequest,DeviceRequest,EnrollmentRequest,MedicationRequest,NutritionOrder,RequestOrchestration,ServiceRequest,VisionPrescription)" reason="Unknown">
+        <extraTypes _resource="Reference(Appointment,AppointmentResponse,CarePlan,Claim,CommunicationRequest,CoverageEligibilityRequest,DeviceRequest,MedicationRequest,NutritionOrder,RequestOrchestration,ServiceRequest,VisionPrescription)" reason="Unknown">
             <!--Old pattern: -->
             <!--Old resource: Reference(Appointment,AppointmentResponse,CarePlan,Claim,CommunicationRequest,Contract,CoverageEligibilityRequest,DeviceRequest,EnrollmentRequest,ImmunizationRecommendation,MedicationRequest,NutritionOrder,RequestOrchestration,ServiceRequest,SupplyRequest,VisionPrescription)-->
             <!--Old reason: More specific to the use-case for this resource-->
@@ -43,7 +45,7 @@
         <shortUnmatched reason="Unknown">
             <!--Old resource: current | superseded | entered-in-error-->
             <!--Old reason: More specific to the use-case for this resource-->
-            <_pattern value="preparation | in-progress | not-done | suspended | aborted | completed | entered-in-error | unknown"/>
+            <_pattern value="preparation | in-progress | not-done | on-hold | stopped | completed | entered-in-error | unknown"/>
             <resource value="current | superseded | entered-in-error | unknown"/>
         </shortUnmatched>
         <commentsUnmatched reason="More specific to the use-case for this resource">
@@ -63,7 +65,7 @@
         </definitionUnmatched>
         <commentsUnmatched reason="More specific to the use-case for this resource">
             <_pattern value="Categorization might be done automatically (inferred by code) or manually by user assertion.  The absence of a category may limit the ability to determine when the element should be handled, so strong consideration should be given to how systems will be able to determine category values for legacy data and how data that cannot be categorized will be handled.  As well, some categories might not be mutually exclusive, so systems should prepare for multiple declared categories - even within a single category 'axis'.&#10;In general, there should not be a 'strong' binding ('required' or 'extensible') on the category element overall.  Instead, the element can be sliced and bindings can be asserted that apply to particular repetitions."/>
-            <resource value="Key metadata element describing the the category or classification of the document. This is a broader perspective that groups similar documents based on how they would be used. This is a primary key used in searching."/>
+            <resource value="Key metadata element describing the category or classification of the document. This is a broader perspective that groups similar documents based on how they would be used. This is a primary key used in searching."/>
         </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.code" resourcePath="DocumentReference.type">
@@ -164,6 +166,7 @@
     <divergentElement patternPath="Event.performer.actor" resourcePath="DocumentReference.author">
         <lowerCardinality _pattern="1" _resource="0" reason="Not always known"/>
         <upperCardinality _pattern="1" _resource="*" reason="Need more than one to enable broad use."/>
+        <missingTypes _pattern="Reference(HealthCareService)" reason="Unknown"/>
         <extraTypes _resource="Reference(Group)" reason="More specific to the use-case need"/>
         <shortUnmatched reason="Not always a who, sometimes a what.">
             <_pattern value="Who performed document reference"/>
@@ -176,7 +179,7 @@
     </divergentElement>
     <divergentElement patternPath="Event.performer.actor" resourcePath="DocumentReference.attester.party">
         <lowerCardinality _pattern="1" _resource="0" reason="Not always known or relevant"/>
-        <missingTypes _pattern="Reference(CareTeam, Device)" reason="Unknown">
+        <missingTypes _pattern="Reference(CareTeam, Device, HealthCareService)" reason="Unknown">
             <!--Old pattern: Reference(CareTeam,Device)-->
             <!--Old reason: Attestation requires specific actors-->
         </missingTypes>

@@ -15,5 +15,5 @@
 		<system value="url"/>
 		<value value="http://acme.com"/>
 	</contact>
-	<url value="http://acme.com/goodhealth/ehr/"/>
+	<!-- <url value="http://acme.com/goodhealth/ehr/"/> -->
   </Device>

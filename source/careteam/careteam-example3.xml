@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CareTeam xmlns="http://hl7.org/fhir">
+  <id value="example3"/>
+  <!--   a multi-disciplinary, home based-focused care team,
+   illustrating a team with several participants in different clinical roles,
+   not associated with a patient. This CareTeam describes a standing or reusable team definition, organized around a set of participant roles that can later be referenced and linked to a specific patient   -->
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">West Main Home Health Agency Home Care Team.</div>
+  </text>
+  <contained>
+    <Practitioner>
+      <id value="prac-sw"/>
+      <name>
+        <text value="Social Worker"/>
+      </name>
+    </Practitioner>
+  </contained>
+  <contained>
+    <Practitioner>
+      <id value="prac-hha"/>
+      <name>
+        <text value="Home Health Aide"/>
+      </name>
+    </Practitioner>
+  </contained>
+  <contained>
+    <Practitioner>
+      <id value="prac-ncc"/>
+      <name>
+        <text value="Nurse Care Coordinator"/>
+      </name>
+    </Practitioner>
+  </contained>
+  <contained>
+    <Practitioner>
+      <id value="prac-pt"/>
+      <name>
+        <text value="Physical Therapist"/>
+      </name>
+    </Practitioner>
+  </contained>
+  <contained>
+    <Practitioner>
+      <id value="prac-ot"/>
+      <name>
+        <text value="Occupational Therapist"/>
+      </name>
+    </Practitioner>
+  </contained>
+  <status value="active"/>
+  <category>
+    <coding>
+      <system value="http://loinc.org"/>
+      <code value="LA28866-4"/>
+      <display value="Home &amp; Community Based Services (HCBS)-focused care team"/>
+    </coding>
+  </category>
+  <name value="West Main Home Health Agency Home Health Care Team"/>
+  <participant>
+    <role>
+      <text value="Social Worker"/>
+    </role>
+    <member>
+      <reference value="#prac-sw"/>
+      <display value="Social Worker"/>
+    </member>
+  </participant>
+  <participant>
+    <role>
+      <text value="Home Health Aide"/>
+    </role>
+    <member>
+      <reference value="#prac-hha"/>
+      <display value="Home Health Aide"/>
+    </member>
+  </participant>
+  <participant>
+    <role>
+      <text value="Nurse Care Coordinator"/>
+    </role>
+    <member>
+      <reference value="#prac-ncc"/>
+      <display value="Nurse Care Coordinator"/>
+    </member>
+  </participant>
+  <participant>
+    <role>
+      <text value="Physical Therapist"/>
+    </role>
+    <member>
+      <reference value="#prac-pt"/>
+      <display value="Physical Therapist"/>
+    </member>
+  </participant>
+  <participant>
+    <role>
+      <text value="Occupational Therapist"/>
+    </role>
+    <member>
+      <reference value="#prac-ot"/>
+      <display value="Occupational Therapist"/>
+    </member>
+  </participant>
+  <managingOrganization>
+      <reference value="Organization/f001"/>
+  </managingOrganization>
+</CareTeam>

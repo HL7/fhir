@@ -1,0 +1,15 @@
+{
+  "resourceType" : "Questionnaire",
+  "status" : "draft",
+  "item" : [{
+    "linkId" : "test",
+    "type" : "text",
+    "enableWhen": [
+      {
+        "question" : "test",
+        "operator" : "exists",
+        "answerCoding": { "system": "http://something", "code" : "foo" }
+      }
+    ]
+ }]
+}

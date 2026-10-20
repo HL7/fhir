@@ -1,6 +1,17 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
+<blockquote class="ballot-note" data-augury-generated="true" id="bn1">
+  <p><b>Note to Balloters:</b> Changes since the last ballot: RelatedPerson was updated as part of the coordinated removal of the Contract resource from this release (FHIR-55563): RelatedPerson references and search wiring that targeted Contract were removed.</p>
+  <p><b>Non-compatible</b></p>
+  <ul>
+    <li>Removed the RelatedPerson references and search wiring that targeted the retired Contract resource [<a href="https://jira.hl7.org/browse/FHIR-55563">FHIR-55563</a>]</li>
+  </ul>
+</blockquote>
+</div>
+
+
+<div>
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
 <p>

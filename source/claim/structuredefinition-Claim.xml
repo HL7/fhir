@@ -83,6 +83,12 @@
       <alias value="Predetermination Request"/>
       <min value="0"/>
       <max value="*"/>
+      <constraint>
+        <key value="clm-3"/>
+        <severity value="error"/>
+        <human value="One and only one .insurance entry may have focal=true."/>
+        <expression value="insurance.exists() implies insurance.where(focal=true).count()=1"/>
+      </constraint>
       <mapping>
         <identity value="workflow"/>
         <map value="Request"/>
@@ -477,10 +483,10 @@
         <code value="Identifier"/>
       </type>
     </element>
-    <element id="Claim.prescription">
-      <path value="Claim.prescription"/>
-      <short value="Prescription authorizing services and products"/>
-      <definition value="Prescription is the document/authorization given to the claim author for them to provide products and services for which consideration (reimbursement) is sought. Could be a RX for medications, an 'order' for oxygen or wheelchair or physiotherapy treatments."/>
+    <element id="Claim.request">
+      <path value="Claim.request"/>
+      <short value="Request authorizing services and products"/>
+      <definition value="Request is the document/authorization given to the claim author for them to provide products and services for which consideration (reimbursement) is sought. Could be a RX for medications, an 'order' for oxygen or wheelchair or physiotherapy treatments."/>
       <requirements value="Required to authorize the dispensing of controlled substances and devices."/>
       <min value="0"/>
       <max value="1"/>
@@ -488,6 +494,8 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceRequest"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionOrder"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RequestOrchestration"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/VisionPrescription"/>
       </type>
@@ -543,7 +551,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
           <valueBoolean value="true"/>
         </extension>
-        <strength value="example"/>
+        <strength value="preferred"/>
         <description value="A code for the party to be reimbursed."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/payeetype"/>
       </binding>
@@ -732,7 +740,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="CareTeamRole"/>
         </extension>
-        <strength value="preferred"/>
+        <strength value="extensible"/>
         <description value="The role codes for the care team members."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/claim-careteamrole"/>
       </binding>
@@ -927,18 +935,22 @@
         <code value="positiveInt"/>
       </type>
     </element>
-    <element id="Claim.diagnosis.diagnosis[x]">
-      <path value="Claim.diagnosis.diagnosis[x]"/>
+    <element id="Claim.diagnosis.diagnosis">
+      <path value="Claim.diagnosis.diagnosis"/>
       <short value="Nature of illness or problem"/>
       <definition value="The nature of illness or problem in a coded form or as a reference to an external defined Condition."/>
       <requirements value="Provides health context for the evaluation of the products and/or services."/>
       <min value="1"/>
       <max value="1"/>
+      <constraint>
+        <key value="clm-0"/>
+        <severity value="error"/>
+        <human value="Either a concept or a reference is provided but not both."/>
+        <expression value="concept.exists() xor reference.exists()"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Claim"/>
+      </constraint>
       <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <type>
-        <code value="Reference"/>
+        <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Condition"/>
       </type>
       <binding>
@@ -1048,18 +1060,22 @@
         <code value="dateTime"/>
       </type>
     </element>
-    <element id="Claim.procedure.procedure[x]">
-      <path value="Claim.procedure.procedure[x]"/>
+    <element id="Claim.procedure.procedure">
+      <path value="Claim.procedure.procedure"/>
       <short value="Specific clinical procedure"/>
       <definition value="The code or reference to a Procedure resource which identifies the clinical intervention performed."/>
       <requirements value="This identifies the actual clinical procedure."/>
       <min value="1"/>
       <max value="1"/>
+      <constraint>
+        <key value="clm-1"/>
+        <severity value="error"/>
+        <human value="Either a concept or a reference is provided but not both."/>
+        <expression value="concept.exists() xor reference.exists()"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Claim"/>
+      </constraint>
       <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <type>
-        <code value="Reference"/>
+        <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
       </type>
       <binding>

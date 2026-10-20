@@ -59,7 +59,7 @@
         </coding>
       </code>
       <criteria>
-        <language value="text/cql-identifier"/>
+        <language value="text/plain"/>
         <expression value="Initial Population"/>
       </criteria>
     </population>
@@ -72,7 +72,7 @@
         </coding>
       </code>
       <criteria>
-        <language value="text/cql-identifier"/>
+        <language value="text/plain"/>
         <expression value="Denominator"/>
       </criteria>
     </population>
@@ -85,7 +85,7 @@
         </coding>
       </code>
       <criteria>
-        <language value="text/cql-identifier"/>
+        <language value="text/plain"/>
         <expression value="Denominator Exclusion"/>
       </criteria>
     </population>
@@ -98,7 +98,7 @@
         </coding>
       </code>
       <criteria>
-        <language value="text/cql-identifier"/>
+        <language value="text/plain"/>
         <expression value="Numerator"/>
       </criteria>
     </population>
@@ -111,7 +111,7 @@
       </coding>
     </usage>
     <criteria>
-      <language value="text/cql-identifier"/>
+      <language value="text/plain"/>
       <expression value="SDE Sex"/>
     </criteria>
   </supplementalData>

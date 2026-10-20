@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- shows how to use a filter defined in a code system resource --><ValueSet xmlns="http://hl7.org/fhir">
+  <id value="example-sub-filter"/>
+
+  <url value="http://hl7.org/fhir/ValueSet/example-sub-filter"/>
+  <name value="ACMECholCodesPlasmaBySubFilter"/>
+  <title value="ACME Codes for Cholesterol: Plasma only by SubFilter"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <date value="2018-11-01"/>
+	<publisher value="HL7 International / Terminology Infrastructure"/>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://hl7.org/fhir"/>
+		</telecom>
+	</contact>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://www.hl7.org/Special/committees/Vocab/index.cfm"/>
+		</telecom>
+	</contact>
+  <description value="ACME Codes for Cholesterol: Plasma only - demonstrating the use of a filter with a sub-filter defined in a CodeSystem"/>
+
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/CodeSystem/example"/>
+      <!--
+        Use an `in` operator here to demonstrate the use of a sub-filter
+        to specify the set of codes for a filter
+      -->
+      <filter>
+        <property value="concept"/>
+        <op value="in"/>
+        <!--  
+          Use the filter defined in the code system. Note that filters like
+          this need custom code to support them, and are generally only found
+          in high value published code systems (e.g. SNOMED CT). Unlike this example.        
+        -->
+        <filter>
+          <property value="acme-plasma"/>
+          <op value="="/>
+          <value value="true"/>
+        </filter>
+      </filter>
+    </include>
+    <property value="status"/>
+  </compose>
+</ValueSet>

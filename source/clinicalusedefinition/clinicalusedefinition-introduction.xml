@@ -1,4 +1,15 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<div>
+<blockquote class="ballot-note" data-augury-generated="true" id="bn1">
+  <p><b>Note to Balloters:</b> Changes are limited to a terminology-binding relaxation and editorial corrections; no element-level structural changes were made to the resource. The binding on <code>ClinicalUseDefinition.category</code> was relaxed to an example binding, and the example-only code systems and value sets used by this resource were marked <code>experimental</code> (with an "Example" name suffix) and confirmed as not candidates for terminology.hl7.org (THO/UTG). The remaining changes correct typos in the undesirable-effect-frequency code system / value set and in a search-parameter URL.</p>
+  <p><b>Compatible substantive</b></p>
+  <ul>
+    <li>Binding strength for <code>ClinicalUseDefinition.category</code> relaxed to <code>example</code>; the category value set and code system were updated to match (example-only). [<a href="https://jira.hl7.org/browse/FHIR-57712">FHIR-57712</a>]</li>
+  </ul>
+</blockquote>
+</div>
+
 	<div>
 		<a name="scope"> </a>
 		<h2>Scope and Usage</h2>

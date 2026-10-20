@@ -652,18 +652,22 @@
         <map value="Request.reasonReference"/>
       </mapping>
     </element>
-    <element id="CoverageEligibilityRequest.item.diagnosis.diagnosis[x]">
-      <path value="CoverageEligibilityRequest.item.diagnosis.diagnosis[x]"/>
+    <element id="CoverageEligibilityRequest.item.diagnosis.diagnosis">
+      <path value="CoverageEligibilityRequest.item.diagnosis.diagnosis"/>
       <short value="Nature of illness or problem"/>
       <definition value="The nature of illness or problem in a coded form or as a reference to an external defined Condition."/>
       <requirements value="Provides health context for the evaluation of the products and/or services."/>
       <min value="0"/>
       <max value="1"/>
+      <constraint>
+        <key value="cer-0"/>
+        <severity value="error"/>
+        <human value="Either a concept or a reference is provided but not both."/>
+        <expression value="concept.exists() xor reference.exists()"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/CoverageEligibilityRequest"/>
+      </constraint>
       <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <type>
-        <code value="Reference"/>
+        <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Condition"/>
       </type>
       <binding>

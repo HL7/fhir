@@ -53,5 +53,11 @@
 			<text value="PARACHUTE Trial Participants that declined randomization"/>
 		</concept>
 	</definition>
-	<handling value="boolean"/>
+	<handling>
+        <coding>
+            <system value="https://fevir.net/sevco"/>
+            <code value="STATO:0000724"/>
+            <display value="boolean variable"/>
+        </coding>  
+    </handling>
 </EvidenceVariable>

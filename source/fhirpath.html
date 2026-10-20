@@ -14,17 +14,25 @@
 <ul>
   <li>Non-compatible Changes
     <ul>
-      <li>None</li>
+      <li><a href="https://jira.hl7.org/browse/FHIR-54745">FHIR-54745</a>: FHIRpath - <a href="https://build.fhir.org/ig/HL7/api-incubator-ig/fhirpath.html#type-factory">Type Factory moved to incubator</a></li>
+      <li><a href="https://jira.hl7.org/browse/FHIR-54742">FHIR-54742</a>: FHIRpath - <a href="https://build.fhir.org/ig/HL7/api-incubator-ig/fhirpath.html#general-service-api">General Service API</a> moved to incubator</li>
+      <li><a href="https://jira.hl7.org/browse/FHIR-54746">FHIR-54746</a>: FHIRpath - <a href="https://build.fhir.org/ig/HL7/api-incubator-ig/fhirpath.html#terminology-service-api">Terminology Service API</a> moved to incubator</li>
     </ul>
   </li>
   <li>Compatible, Substantive Changes
     <ul>
       <li><a href="https://jira.hl7.org/browse/FHIR-56303">FHIR-56303</a>: Allow htmlChecks() to be invoked on strings in addition to xhtml</li>
+      <li><a href="https://jira.hl7.org/browse/FHIR-55637">FHIR-55637</a>: FHIRPath FHIR.date maps to System.Date not System.DateTime</li>
     </ul>
   </li>
   <li>Non-substantive Changes
     <ul>
-      <li>None</li>
+      <li><a href="https://jira.hl7.org/browse/FHIR-55495">FHIR-55495</a>: fhirpath pages refers to System.string instead of System.string</li>
+      <li><a href="https://jira.hl7.org/browse/FHIR-53958">FHIR-53958</a>: Additional Functions section cleanup - remove comparable (now in fhirpath stu3) and re-organize headings</li>
+      <li><a href="https://jira.hl7.org/browse/FHIR-55417">FHIR-55417</a>: missing ".where" in fhirpath example</li>
+      <li><a href="https://jira.hl7.org/browse/FHIR-53949">FHIR-53949</a>: fhirpath page refers to functions as operations</li>
+      <li><a href="https://jira.hl7.org/browse/FHIR-54084">FHIR-54084</a>: FHIRpath resolve() should include an example on its use on uri's</li>
+      <li><a href="https://jira.hl7.org/browse/FHIR-36040">FHIR-36040</a>: Include link to ActivityDefinition $apply usage of FHIRPath expressions</li>
     </ul>
   </li>
 </ul>
@@ -109,7 +117,7 @@ Patient.name.given
 The name can also include super types such as DomainResource:
 </p>
 <pre>
-DomainResource.contained(id = 23).exists()
+DomainResource.contained.where(id = 23).exists()
 </pre>
 <p>
 These statements apply to any resource that specializes <a href="domainresource.html">DomainResource</a>.
@@ -119,18 +127,18 @@ These statements apply to any resource that specializes <a href="domainresource.
 <h4>Using FHIR types in expressions</h4>
 <p>
 The namespace for the types defined in FHIR (primitive datatypes, datatypes, resources) is
-FHIR. So, for example:
+<code>FHIR</code>. So, for example:
 </p>
 <pre>
 Patient.is(FHIR.Patient)
 </pre>
 <p>
-The first element - the type name - is not namespaced, but the parameter to the is() operation is.
+The first element - the type name - is not namespaced, but the parameter to the <code>is()</code> function is.
 </p>
 <p>
-Understanding the primitive types is critical: FHIR.string is a different type to System.String.
-The FHIR.string type specializes FHIR.Element, and has the properties id, extension, and also
-the implicit value property that is actually of type of System.String.
+Understanding the primitive types is critical: <code>FHIR.string</code> is a different type to <code>System.String</code>.
+The <code>FHIR.string</code> type specializes <code>FHIR.Element</code>, and has the properties <code>id</code>, <code>extension</code>, and also
+the implicit <code>value</code> property that is actually of type <code>System.String</code>.
 </p>
 
 <p>
@@ -164,8 +172,12 @@ to FHIRPath types when they are used in expressions according to the following m
 <td>System.Decimal</td>
 </tr>
 <tr>
-<td>FHIR.date, FHIR.dateTime, FHIR.instant</td>
+<td>FHIR.dateTime, FHIR.instant</td>
 <td>System.DateTime</td>
+</tr>
+<tr>
+<td>FHIR.date</td>
+<td>System.Date</td>
 </tr>
 <tr>
 <td>FHIR.time</td>
@@ -187,12 +199,12 @@ Patient.name.given.extension.first().value = true     // extension of the primit
 <p>
 The automatic conversion means that in most respects, a FHIR primitive can
 generally be treated as if it was the equivalent FHIRPath system type. The primary
-exception is the is() operation, where the difference is explicit:
+exception is the <code>is()</code> function, where the difference is explicit:
 </p>
 <pre class="fhirpath">
 Patient.name.given.is(FHIR.string)
-Patient.name.given.is(System.string).not()
-Patient.name.given.getValue().is(System.string)
+Patient.name.given.is(System.String).not()
+Patient.name.given.getValue().is(System.String)
 </pre>
 <p>
 This also applies to e.g. Resource.id:
@@ -202,13 +214,13 @@ Patient.id is System.String
 (Patient.id is FHIR.id).not
 </pre>
 <p>
-As shown, all FHIR primitives have the operation <code>getValue()</code> defined (see below)
+As shown, all FHIR primitives have the function <code>getValue()</code> defined (see below)
 for the few edge cases where the automatic conversion is not appropriate. Note
 that ofType() does not have such restrictions - both of the following are valid:
 </p>
 <pre class="fhirpath">
 Patient.name.given.ofType(FHIR.string)
-Patient.name.given.ofType(System.string)
+Patient.name.given.ofType(System.String)
 </pre>
 
 
@@ -246,7 +258,7 @@ but in general, this approach matches what users expect most closely.
 [%dragons-end%]
 
 <a name="variables"></a>
-<h4>FHIR Specific Variables</h4>
+<h3>FHIR Specific Variables</h3>
 
 <p>FHIR defines two specific variables that are always in scope when FHIRPath is used
 in any of the contexts above:
@@ -271,13 +283,12 @@ In addition to the general purpose variables above, additional variables and/or 
 <ul>
   <li><a href="subscriptiontopic.html#resource-trigger-update">SubscriptionTopic</a></li>
   <li><a href="questionnaireresponse.html#fhirpath">QuestionnaireResponse</a></li>
+  <li><a href="activitydefinition.html#apply">ActivityDefinition and its $apply operation</a></li>
 </ul>
 
 <a name="functions"></a>
-<h4>Additional functions</h4>
+<h3>Additional functions</h3>
 <p>FHIR adds (compatible) functionality to the set of common FHIRPath functions.
-Some of these functions are candidates for elevation to the base version of 
-FHIRPath when the next version is released.
 </p>
 
 <p>
@@ -288,7 +299,7 @@ In addition to the general purpose functions below, additional functions functio
 </ul>
 
 <a name="fn-extension"> </a>
-<h5><b>extension(url : string) : collection</b></h5>
+<h4>extension(url : string) : collection</h4>
 <p>Will filter the input collection for items named "extension" with the given <code>url</code>. 
   This is a syntactical shortcut for <code>.extension.where(url = string)</code>, 
   but is simpler to write. If the input collection is empty or the url is empty, 
@@ -300,7 +311,7 @@ Patient.extension('http://hl7.org/fhir/StructureDefinition/patient-mothersMaiden
 
 <hr/>
 <a name="fn-hasValue"> </a>
-<h5><b>hasValue() : Boolean</b></h5>
+<h4>hasValue() : Boolean</h4>
 <p>If the input collection contains a single value which is a FHIR primitive, then will
   return true if the single value is a primitive value (e.g., as opposed to not having a
   value and just having extensions) and false if not. If the input collection is not a
@@ -318,21 +329,8 @@ Patient.active.hasValue()
 </pre>
 
 <hr/>
-<a name="fn-toString"> </a>
-<h5><b>toString() : string</b></h5>
-<p>If the input collection contains a single item, this function will return a single String if the type 
-  is a primitive, and it has a value (e.g. if <code>hasValue() = true</code>), and the primitive type 
-  has a System type for which <a href="https://hl7.org/fhirpath/N1/#tostring-string">toString() is defined</a>.
-  Otherwise the result is an empty collection.
-</p>
-
-<pre class="fhirpath">
-Patient.birthDate.toString()
-</pre>
-
-<hr/>
 <a name="fn-getValue"> </a>
-<h5><b>getValue() : System.[type]</b></h5>
+<h4>getValue() : System.[type]</h4>
 <p>Return the underlying system value for the FHIR primitive if the input collection contains a single value which is a FHIR primitive, 
   and it has a primitive value (see discussion for hasValue()). Otherwise, the return value is empty.</p>
 
@@ -342,7 +340,7 @@ Patient.birthDate.getValue() // returns just the primitive, does not include ext
 
   <hr/>
 <a name="fn-resolve"> </a>
-<h5><b>resolve() : collection</b></h5>
+<h4>resolve() : collection</h4>
 <p>For each item in the collection, if it is a string that is a <a href="datatypes.html#uri">uri</a>
    (or <a href="datatypes.html#canonical">canonical</a> or <a href="datatypes.html#url">url</a>), locate the 
    target of the reference, and add it to the resulting collection. If the item does not resolve to a resource, 
@@ -355,30 +353,24 @@ Patient.managingOrganization.resolve().name
 Observation.subject.where(resolve() is Patient)
 </pre>
 
-  <hr/>
-<a name="fn-ofType2"> </a><a name="fn-ofType"> </a>
-<h5><b>ofType(type : type specifier) : collection</b></h5>
-<p>Returns a collection that contains all items in the input collection that are of the given <code>type</code> or a subclass thereof.
-  This is as defined as in the base FHIRPath specification, but implementers should be aware that in FHIR, 
-  only concrete core types are allowed as an argument. All primitives are considered to be independent 
-  types (so <code>markdown</code> is <strong>not</strong> a subclass of <code>string</code>). Profiled types are 
-  not allowed, so to select <code>SimpleQuantity</code> one would pass <code>Quantity</code> as an argument.</p>
-
+<p>
+When implementing <code>resolve()</code>, it is at the discretion of the engine what protocols, 
+FHIR formats and versions are supported and whether and which logical models are handled.
+</p>
 <pre class="fhirpath">
-Observation.value.ofType(canonical)
-Observation.value.ofType(dateTime) | Observation.value.ofType(Period).start // selects either dateTime or Period starts (both of type dateTime)
+DocumentReference.content.attachment.url.resolve() // When using DocumentReference as an index entry to resources stored elsewhere
 </pre>
 
-<hr/>
+  <hr/>
 <a name="fn-elementDefinition"> </a>
-<h5><b>elementDefinition() : collection</b></h5>
+<h4>elementDefinition() : collection</h4>
 <p>Returns the FHIR element definition information for each element in the input collection. If the 
   input collection is empty, the return value will be an empty collection.
 </p>
 
 <hr/>
 <a name="fn-slice"> </a>
-<h5><b>slice(structure : string, name : string) : collection</b></h5>
+<h4>slice(structure : string, name : string) : collection</h4>
 <p>
   Returns the input collection filtered to items that conform to the specified profile slice.
 </p>
@@ -411,14 +403,14 @@ NOTE: not all FHIRPath engines are in a position to implement <code>slice()</cod
 
 <hr/>
 <a name="fn-checkModifiers"> </a>
-<h5><b>checkModifiers(modifier : string) : collection</b></h5>
+<h4>checkModifiers(modifier : string) : collection</h4>
 
 <p>For each element in the input collection, verifies that there are no modifying extensions defined other than the ones given by the <code>modifier</code> argument (comma-separated string). 
   If the check passes, the input collection is returned. Otherwise, an error is thrown, including if modifier is empty.</p>
 
   <hr/>
 <a name="fn-conformsTo"> </a>
-<h5><b>conformsTo(structure : string) : Boolean</b></h5>
+<h4>conformsTo(structure : string) : Boolean</h4>
 <p>Returns <code>true</code> if the single input element conforms to the profile specified by the <code>structure</code> argument, 
   and false otherwise. If the input is not a single item, the structure is empty, or the structure cannot be resolved to a valid profile, 
   the return value is empty.</p>
@@ -429,7 +421,7 @@ Patient.conformsTo('http://hl7.org/fhir/StructureDefinition/Patient')
 
   <hr/>
 <a name="fn-memberOf"> </a>
-<h5><b>memberOf(valueset : string) : Boolean</b></h5>
+<h4>memberOf(valueset : string) : Boolean</h4>
 
 <p>
 When invoked on a single code-valued element, returns true if the code is a member of the given <code>valueset</code>.
@@ -451,7 +443,7 @@ Observation.component.where(code.memberOf('http://hl7.org/fhir/ValueSet/observat
 
 <hr/>
 <a name="fn-subsumes"> </a>
-<h5><b>subsumes(code : Coding | CodeableConcept) : Boolean</b></h5>
+<h4>subsumes(code : Coding | CodeableConcept) : Boolean</h4>
 
 <p>When invoked on a Coding-valued element and the given <code>code</code> is Coding-valued, returns true if the source code is equivalent to the given code, or if the source code subsumes the given code (i.e., the source code is an ancestor of the given code in a subsumption hierarchy), and false otherwise.</p>
 <p>If the Codings are from different code systems, the relationships between the code systems must be well-defined or the return value is empty.</p>
@@ -465,7 +457,7 @@ Observation.component.where(code.memberOf('http://hl7.org/fhir/ValueSet/observat
 
 <hr/>
 <a name="fn-subsumedBy"> </a>
-<h5><b>subsumedBy(code: Coding | CodeableConcept) : Boolean</b></h5>
+<h4>subsumedBy(code: Coding | CodeableConcept) : Boolean</h4>
 
 <p>When invoked on a Coding-valued element and the given <code>code</code> is Coding-valued, returns true if the source code is equivalent to the given code, or if the source code is subsumed by the given code (i.e., the given code is an ancestor of the source code in a subsumption hierarchy), and false otherwise.</p>
 <p>If the Codings are from different code systems, the relationships between the code systems must be well-defined or a run-time error is thrown.</p>
@@ -475,7 +467,7 @@ Observation.component.where(code.memberOf('http://hl7.org/fhir/ValueSet/observat
 
 <hr/>
 <a name="fn-htmlChecks"> </a>
-<h5><b>htmlChecks : Boolean</b></h5>
+<h4>htmlChecks : Boolean</h4>
 
 <p>When invoked on a single <a href="narrative.html#xhtml">xhtml</a> element, the function returns true if the <a href="narrative.html#rules">rules around
 HTML usage</a> are met, and false if they are not.  If invoked on items of type 'string', the contents of the string are
@@ -484,37 +476,61 @@ The return value is empty on any other kind of element or if invoked on a collec
 </p>
 
 <hr/>
-<a name="fn-comparable"> </a>
-<h5><b>comparable(quantity) : boolean</b></h5>
+<a name="fn-weight"> </a>
+<h4>weight() : decimal</h4>
+<p>
+  This functions returns the ordinal value for an element. This may be based on an <a href="[%extensions-location%]StructureDefinition-itemWeight.html">itemWeight extension</a> defined on an element such as QuestionnaireResponse answer, or it may be based on the <a href="codesystem.html#defined-props">weight property</a> defined on a code.  In some cases, this may require looking across resources.  For example, QuestionnaireResponse.item.where(linkId='123').answer.first().weight() may need to find the corresponding item in the Questionnaire and then look up the coding specified in 'answer' with the corresponding answerOption in Questionnaire.item with the same linkId.  If no weight is defined for the context element, the return value is empty. If the FHIRPath engine is unable to resolve the corresponding value set, code system or questionnaire options, it SHOULD cause the expression to fail.
+</p>
+<p>  
+  This function will typically be used to support scoring of Questionnaires, but it can be used with observations or potentially other elements as well.
+</p>
+<hr/>
 
-<p>
-This function returns true if the engine executing the FHIRPath statement can compare the singleton Quantity
-with the singleton other Quantity and determine their relationship to each other. Comparable means that both 
-have values and that the code and system for the units are the same (irrespective of system) or both have code + system, 
-system is recognized by the FHIRPath implementation and the codes are comparable within that code system.  e.g., days and hours or inches and cm.
+<a name="overloads"></a>
+<h3>Function Overrides</h3>
+<p>FHIR also includes overrides to some functions providing details on how the function will work with FHIR specific types.
 </p>
-<p>
-This function is intended to be added to the core FHIRPath specification in a future version.
+
+<a name="fn-toString"> </a>
+<h4>toString() : string</h4>
+<p>If the input collection contains a single item, this function will return a single String if the type 
+  is a FHIR primitive, and it has a value (e.g. if <code>hasValue() = true</code>), and the primitive type 
+  has a System type for which <a href="https://hl7.org/fhirpath/N1/#tostring-string">toString() is defined</a>.
+  Otherwise the result is an empty collection.
 </p>
+
+<pre class="fhirpath">
+Patient.birthDate.toString()
+</pre>
 
 <hr/>
-<a name="fn-weight"> </a>
-<h5><b>weight() : decimal</b></h5>
+<a name="fn-ofType2"> </a><a name="fn-ofType"> </a>
+<h4>ofType(type : «type specifier») : collection</h4>
+<p>Returns a collection that contains all items in the input collection that are of the given <code>type</code> or a subclass thereof.
+  This is as defined as in the base FHIRPath specification, but implementers should be aware that in FHIR, 
+  only concrete core types are allowed as an argument. All primitives are considered to be independent 
+  types (so <code>markdown</code> is <strong>not</strong> a subclass of <code>string</code>). Profiled types are 
+  not allowed, so to select <code>SimpleQuantity</code> one would pass <code>Quantity</code> as an argument.</p>
 
-This functions returns the ordinal value for an element. This may be based on an <a href="[%extensions-location%]StructureDefinition-itemWeight.html">itemWeight extension</a> defined on an element such as QuestionnaireResponse answer, or it may be based on the <a href="codesystem.html#defined-props">weight property</a> defined on a code.  In some cases, this may require looking across resources.  For example, QuestionnaireResponse.item.where(linkId='123').answer.first().weight() may need to find the corresponding item in the Questionnaire and then look up the coding specified in 'answer' with the corresponding answerOption in Questionnaire.item with the same linkId.  If no weight is defined for the context element, the return value is empty. If the FHIRPath engine is unable to resolve the corresponding value set, code system or questionnaire options, it SHOULD cause the expression to fail.
+<pre class="fhirpath">
+Observation.value.ofType(canonical)
+Observation.value.ofType(dateTime) | Observation.value.ofType(Period).start // selects either dateTime or Period starts (both of type dateTime)
+</pre>
 
-This function will typically be used to support scoring of Questionnaires, but it can be used with observations or potentially other elements as well.
+<hr/>
+
 
 <a name="changes"></a>
-<h4>Changes to operators</h4>
+<h3>Operator Overrides</h3>
 
-<p><b>~ (Equivalence)</b><a name="fn-Equivalence"> </a></p>
+<a name="fn-Equivalence"> </a>
+<h4>~ (Equivalence)</h4>
 <p>Equivalence works in exactly the same manner, but with the addition that for complex types, equality requires all child properties to be equal, <strong>except for "id" elements</strong>.</p>
 <p>In addition, for Coding values, equivalence is defined based on the code and system elements only. The version, display, and userSelected elements are ignored for the purposes of determining Coding equivalence.</p>
 <p>For CodeableConcept values, equivalence is defined as a non-empty intersection of Coding elements, using equivalence. In other words, two CodeableConcepts are considered equivalent if any Coding in one is equivalent to any Coding in the other.</p>
 
 <a name="vars"></a>
-<h4>Environment variables</h4>
+<h3>Environment variables</h3>
 <p>The FHIR specification adds support for additional environment variables:</p>
 <p>The following environmental values are set for all contexts:</p>
 <pre class="fhirpath">
@@ -576,707 +592,6 @@ The following locations use this restricted FHIRPath language:
  <li><a href="operationoutcome-definitions.html#OperationOutcome.issue.expression">OperationOutcome.issue.expression</a></li>
 </ul>
     
-<a name="factory"> </a>
-<h3>Type Factory</h3>
-<p>
-The variable %factory is a reference to a class factory that provides the following type methods.
-Note that a future version of FHIRPath may provide a factory framework directly, in which case 
-this factory API may be withdrawn or deprecated.
-</p>
-<p>
-This API provides specific methods for constructing common types, and some general methods for 
-constructing any type.
-</p>
-<p>
-For the specific type constructors, all the parameters are optional. Note that since all 
-variables / outputs in FHIRPath are collections, all the parameters are inherently collections,
-but when the underlying element referred to is a singleton element, the collection cannot 
-contain more than one item. Use the value <code>{}</code> if there is no value to provide.
-</p>
-
-<hr/>
-
-<a name="fn-factory-primitives"></a>
-<h4>
-%factory.{primitive}(value, extensions) : {primitive}
-</h4>
-<p>
-Create an instance of the type with the value and possibly one or more extensions. e.g., <code>%factory.code('final')</code>.
-</p>
-<p>
-Parameters:
-</p>
-<ul>
- <li><b>value</b>: a primitive type (string, or will be converted to a string if necessary) that contains the value for the primitive type.</li>
- <li><b>extensions</b>: a collection of extensions for the primitive type</li>
-</ul>
-<p>
-<b>Return Value:</b> the primitive type, or an error.
-</p>
-
-<hr/>
-
-<a name="fn-factory-Extension"></a>
-<h4>
-%factory.Extension(url, value) : Extension
-</h4>
-<p>
-Creates an extension with the given url and value: <code>%factory.extension('http://hl7.org/fhir/StructureDefinition/artifact-copyrightLabel', 'CC0-1.0')</code>.
-</p>
-<p>
-Parameters:
-</p>
-<ul>
-  <li><b>url</b>: a string value that identifies the extension</li>
-  <li><b>value</b>: the value of the extension (<a href="datatypes.html#open">any valid type</a> for <a href="extensibility.html">extension.value[x]</a></li>
-</ul>
-<p>
-<b>Return Value:</b> An extension with the specified properties.
-</p>
-
-<hr/>
-
-<a name="fn-factory-Identifier"></a>
-<h4>
-%factory.Identifier(system, value, use, type) : Identifier
-</h4>
-<p>
-Creates an identifier with the given properties: <code>%factory.Identifier('urn:ietf:rfc:3986', 'urn:oid:1.2.3.4.5', 'official')</code>.
-</p>
-<p>
-Parameters:
-</p>
-<ul>
-  <li><b>system</b>: a string value that goes in Identifier.system</li>
-  <li><b>value</b>: a string value that goes in Identifier.value</li>
-  <li><b>use</b>: a string value that goes in Identifier.use</li>
-  <li><b>type</b>: a CodeableConcept that goes in Identifier.type</li>
-</ul>
-<p>
-<b>Return Value:</b> An identifier with the specified properties .
-</p>
-
-<hr/>
-
-<a name="fn-factory-HumanName"></a>
-<h4>
-%factory.HumanName(family, given, prefix, suffix, text, use) : HumanName
-</h4>
-<p>
-Create a human name with the given properties: <code>%factory.HumanName('Smith', 'Julia', {}, {}, 'Julia Smith')</code>.
-</p>
-<p>
-Parameters:
-</p>
-<ul>
-  <li><b>family</b>: a string value that goes in HumanName.system</li>
-  <li><b>given</b>: a collection of string values that goes in HumanName.given</li>
-  <li><b>prefix</b>: a string value that goes in HumanName.prefix</li>
-  <li><b>suffix</b>: a string value that goes in HumanName.suffix</li>
-  <li><b>text</b>: a string value that goes in HumanName.text</li>
-  <li><b>use</b>:a string value that goes in HumanName.use</li>
-</ul>
-<p>
-<b>Return Value:</b> a HumanName.
-</p>
-
-<hr/>
-
-<a name="fn-factory-ContactPoint"></a>
-<h4>
-%factory.ContactPoint(system, value, use) : ContactPoint
-</h4>
-<p>
-Creates a ContactPoint: <code>%factory.ContactPoint('email', 'coyote@acme.com', 'work')</code>
-</p>
-<p>
-Parameters:
-</p>
-<ul>
-  <li><b>system</b>: a string value that goes in ContactPoint.system</li>
-  <li><b>value</b>: a string value that goes in ContactPoint.value</li>
-  <li><b>use</b>: a string value that goes in ContactPoint.use</li>
-</ul>
-<p>
-<b>Return Value:</b> a ContactPoint.
-</p> 
-
-<hr/>
-
-<a name="fn-factory-Address"></a>
-<h4>
-%factory.Address(line, city, state, postalCode, country, use, type) : Address
-</h4>
-<p>
-  Creates an Address: <code>%factory.Address('5 Nowhere Road', 'coyote@acme.com', 'EW', '0000', {}, 'home', 'physical')</code>
-</p>
-<p>
-Parameters:
-</p>
-<ul>
-  <li><b>line</b>: a collection of string values that goes in Address.line</li>
-  <li><b>city</b>: a string value that goes in Address.city</li>
-  <li><b>state</b>: a string value that goes in Address.state</li>
-  <li><b>postalCode</b>: a string value that goes in Address.postalCode</li>
-  <li><b>country</b>: a string value that goes in Address.country</li>
-  <li><b>use</b>: a string value that goes in Address.use</li>
-  <li><b>type</b>: a string value that goes in Address.type</li>
-</ul>
-<p>
-<b>Return Value:</b> An address.
-</p>
-
-<hr/>
-
-<a name="fn-factory-Quantity"></a>
-<h4>
-%factory.Quantity(system, code, value, unit) : Quantity
-</h4>
-<p>
-  Creates a Quantity: <code>%factory.Quantity('http://unitsofmeasure.org', 'mg/dL', '5.03', 'mg/dL')</code>
-</p>
-<p>
-Parameters:
-</p>
-<ul>
-  <li><b>system</b>: a string value that goes in Quantity.system</li>
-  <li><b>code</b>: a string value that goes in Quantity.code</li>
-  <li><b>value</b>: a string or decimal value that goes in Quantity.value</li>
-  <li><b>unit</b>: a string value that goes in Quantity.unit</li>
-</ul>
-<p>
-<b>Return Value:</b> a Quantity.
-</p>
-
-<hr/>
-
-<a name="fn-factory-Coding"></a>
-<h4>
-%factory.Coding(system, code, display, version) : Coding
-</h4>
-<p>
-  Creates a Coding: <code>%factory.Coding('http://loinc.org', '1234-5, 'An example test', '1.02')</code>
-</p>
-<p>
-Parameters:
-</p>
-<ul>
-  <li><b>system</b>: a string value that goes in Coding.system</li>
-  <li><b>code</b>: a string value that goes in Coding.code</li>
-  <li><b>display</b>: a string value that goes in Coding.display</li>
-  <li><b>version</b>: a string value that goes in Coding.version</li>
-</ul>
-<p>
-<b>Return Value:</b> A coding.
-</p>
-
-<hr/>
-
-<a name="fn-factory-CodeableConcept"></a>
-<h4>
-%factory.CodeableConcept(coding, text) : CodeableConcept
-</h4>
-<p>
-  Creates a CodeableConcept: <code>%factory.CodeableConcept(%factory.Coding(...), "Example Test")</code>
-</p>
-<p>
-Parameters:
-</p>
-<ul>
-  <li><b>coding</b>: a collection of Coding that goes in CodeableConcept.coding</li>
-  <li><b>text</b>: a string value that goes in CodeableConcept.text</li>
-</ul>
-<p>
-<b>Return Value:</b> a CodeableConcept.
-</p>
-
-
-<p>
-  For the general type constructors, all the parameters are mandatory. Note that since all 
-  variables / outputs in FHIRPath are collections, all the parameters are inherently collections,
-  but when the underlying property referred to is a singleton element, the collection cannot 
-  contain more than one item. Use the value <code>{}</code> if there is no value to provide.
-</p>
-<hr/>
-
-<a name="fn-factory-create"></a>
-<h4>
-%factory.create(type) : {type}
-</h4>
-<p>
-Create an instance of the named type: <code>%factory.create(SampledData)</code>
-</p>
-<p>
-Parameters:
-</p>
-<ul>
-  <li><b>type</b>: a value that is the type to create. This is a FHIRPath type specifier, and the default namespace is 'FHIR'</li>
-</ul>
-<p>
-<b>Return Value:</b> an instance of the named type.
-</p>
-
-
-<hr/>
-
-<a name="fn-factory-withExtension"></a>
-<h4>
-%factory.withExtension(instance : T, url : string, value) : T
-</h4>
-<p>
-Add an extension, and return the new type: <code>%factory.withExtension(%factory.create(Money), 'http:/acme.com/extension/example', %factory.code('test'))</code>
-</p>
-<p>
-Parameters:
-</p>
-<ul>
-  <li><b>instance</b>: The instance to add the URL to </li>
-  <li><b>url</b>: a string value that goes in Extension.url </li>
-  <li><b>value</b>: the value of the extension </li>
-</ul>
-<p>
-<b>Return Value:</b> A copy of the instance of the type with the extension added. Extensions that already exist with the same url are not removed.
-</p>
-
-<hr/>
-
-<a name="fn-factory-withProperty"></a>
-<h4>
-%factory.withProperty(instance : T, name : string, value) : T
-</h4>
-<p>
-  Set a property value, and return the new type: <code>%factory.withProperty(%factory.create(Address), 'http:/acme.com/extension/example', %factory.create(Period))</code>
-</p>
-<p>
-Parameters:
-</p>
-<ul>
-  <li><b>instance</b>: The instance to set the property on </li>
-  <li><b>name</b>: a string value that identifies the property to set </li>
-  <li><b>value</b>: the value of the property </li>
-</ul>
-<p>
-<b>Return Value:</b> A copy of the instance of the type with the named property set. Any existing value(s) for the named property will be deleted.
-</p>
-
-<a name="txapi"></a>
-<h3>Terminology Service API</h3>
-
-<p>
-In order to support terminological reasoning in FHIRPath statements, FHIR defines
-a general %terminologies object that FHIRPath implementations should make available.
-Calls to this object are passed through a <a href="terminology-service.html">standard FHIR terminology service</a>.
-</p>
-<p>
-Summary:
-</p>
-<pre class="fhirpath">
-%terminologies : TerminologyServer // default terminology server (application controls context)
-%terminologies.at(url) : TerminologyServer // terminology server at specified address
-
-%terminologies.expand(valueSet, params) : ValueSet
-%terminologies.lookup(coded, params) : Parameters
-%terminologies.validateVS(valueSet, coded, params) : Parameters
-%terminologies.validateCS(codeSystem, coded, params) : Parameters
-%terminologies.subsumes(system, coded1, coded2, params) : code
-%terminologies.translate(conceptMap, code, params) : Parameters
-</pre>
-
-<p>
-For all these functions, if any of the parameters are empty, or a collection with more than one value, or one or
-more of the parameters are not valid, the return value is empty.
-</p>
-
-<hr/>
-
-<a name="fn-terminologies-at"></a>
-<h4>
-%terminologies.at(url) : TerminologyServer
-</h4>
-<p>
-Get a terminology server object pointing at a particular server. Note: The %terminologies object points to the default terminology server as specified by the application evaluating the FHIRPath.
-</p>
-<p>
-Parameters:
-</p>
-<ul>
- <li><b>url</b>: A URL that points to a FHIR RESTful API.</li>
-</ul>
-<p>
-<b>Return Value:</b> A terminology server that points at the specified URL. No errors - they will come when/if the terminology server object is used.
-</p>
-
-<hr/>
-
-<a name="fn-expand"></a>
-<h4>
-%terminologies.expand(valueSet, params) : ValueSet
-</h4>
-<p>
-This calls the <a href="terminology-service.html#expand">Terminology Service $expand</a> operation (<a href="valueset-operation-expand.html">formal definition</a>).
-</p>
-<p>
-Parameters:
-</p>
-<ul>
- <li><b>valueSet</b>: either an actual <a href="valueset.html">ValueSet</a>, or a <a href="references.html#canonical">canonical URL</a> reference to a value set.</li>
- <li><b>params</b>: a URL encoded string with other parameters for the expand operation (e.g., 'displayLanguage=en&amp;activeOnly=true')</li>
-</ul>
-<p>
-<b>Return Value:</b> a <a href="valueset.html">ValueSet</a> with an expansion. If an error occurs, the return value is empty.
-</p>
-
-<hr/>
-
-<hr/>
-
-<a name="fn-lookup"></a>
-<h4>
-%terminologies.lookup(coded, params) : Parameters
-</h4>
-<p>
-This calls the <a href="terminology-service.html#lookup">Terminology Service $lookup</a> operation (<a href="codesystem-operation-lookup.html">formal definition</a>).
-</p>
-<p>
-Parameters:
-</p>
-<ul>
- <li><b>coded</b>: either a <a href="datatypes.html#coding">Coding</a>, a <a href="datatypes.html#CodeableConcept">CodeableConcept</a>, or a resource element that is a <a href="datatypes.html#code">code</a></li>
- <li><b>params</b>: a URL encoded string with other parameters for the lookup operation (e.g., 'date=2011-03-04&amp;displayLanguage=en')</li>
-</ul>
-<p>
-<b>Return Value:</b>
-</p>
-
-<hr/>
-
-<a name="fn-validateVS"></a>
-<h4>
-%terminologies.validateVS(valueSet, coded, params) : Parameters
-</h4>
-<p>
-This calls the <a href="terminology-service.html#expand">Terminology Service $validate-code</a> operation on a value set
-(<a href="valueset-operation-validate-code.html">formal definition</a>).
-</p>
-<p>
-Parameters:
-</p>
-<ul>
- <li><b>valueSet</b>: either an actual <a href="valueset.html">ValueSet</a>, or a <a href="references.html#canonical">canonical URL</a> reference to a value set.</li>
- <li><b>coded</b>: either a <a href="datatypes.html#coding">Coding</a>, a <a href="datatypes.html#CodeableConcept">CodeableConcept</a>, or a resource element that is a <a href="datatypes.html#code">code</a></li>
- <li><b>params</b>: a URL encoded string with other parameters for the validate-code operation (e.g., 'date=2011-03-04&amp;displayLanguage=en')</li>
-</ul>
-<p>
-<b>Return Value:</b> A <a href="parameters.html">Parameters</a> resource with the results of the validation operation.
-</p>
-
-<hr/>
-
-<a name="fn-validateCS"></a>
-<h4>
-%terminologies.validateCS(codeSystem, coded, params) : Parameters
-</h4>
-<p>
-This calls the <a href="terminology-service.html#expand">Terminology Service $validate-code</a> operation on a code system
-(<a href="codesystem-operation-validate-code.html">formal definition</a>).
-</p>
-<p>
-Parameters:
-</p>
-<ul>
- <li><b>codeSystem</b>: either an actual <a href="codesystem.html">CodeSystem</a>, or a <a href="references.html#canonical">canonical URL</a> reference to a code system.</li>
- <li><b>coded</b>: either a <a href="datatypes.html#coding">Coding</a>, a <a href="datatypes.html#CodeableConcept">CodeableConcept</a>, or a resource element that is a <a href="datatypes.html#code">code</a></li>
- <li><b>params</b>: a URL encoded string with other parameters for the validate-code operation (e.g., 'date=2011-03-04&amp;displayLanguage=en')</li>
-</ul>
-<p>
-<b>Return Value:</b> A <a href="parameters.html">Parameters</a> resource with the results of the validation operation.
-</p>
-
-<hr/>
-
-<a name="fn-subsumes"></a>
-<h4>
-%terminologies.subsumes(system, coded1, coded2, params) : code
-</h4>
-<p>
-This calls the <a href="terminology-service.html#subsumes">Terminology Service $subsumes</a> operation (<a href="codesystem-operation-subsumes.html">formal definition</a>).
-</p>
-<p>
-Parameters:
-</p>
-<ul>
- <li><b>system</b>: the URI of a code system within which the subsumption testing occurs</li>
- <li><b>coded1</b>: A <a href="datatypes.html#coding">Coding</a> or a resource element that is a <a href="datatypes.html#code">code</a></li>
- <li><b>coded2</b>: A <a href="datatypes.html#coding">Coding</a> or a resource element that is a <a href="datatypes.html#code">code</a></li>
- <li><b>params</b>: a URL encoded string with other parameters for the validate-code operation (e.g., 'version=2014-05-06')</li>
-</ul>
-<p>
-<b>Return Value:</b> a code as specified for the subsumes operation.
-</p>
-
-<hr/>
-
-<a name="fn-translate"></a>
-<h4>
-%terminologies.translate(conceptMap, coded, params) : Parameters
-</h4>
-<p>
-This calls the <a href="terminology-service.html#translate">Terminology Service $translate</a> operation (<a href="conceptmap-operation-translate.html">formal definition</a>).
-</p>
-<p>
-Parameters:
-</p>
-<ul>
- <li><b>conceptMap</b>: either an actual <a href="conceptmap.html">ConceptMap</a>, or a <a href="references.html#canonical">canonical URL</a> reference to a value set.</li>
- <li><b>coded</b>: The source to translate: a <a href="datatypes.html#coding">Coding</a> or a resource element that is a <a href="datatypes.html#code">code</a></li>
- <li><b>params</b>: a URL encoded string with other parameters for the validate-code operation (e.g., 'source=http://acme.org/valueset/23&amp;target=http://acme.org/valueset/23')</li>
-</ul>
-<p>
-<b>Return Value:</b> A <a href="parameters.html">Parameters</a> resource with the results of the translation operation.
-</p>
-
-<a name="srvr-api"></a>
-<h3>General Service API</h3>
-
-<p>
-In order to support interaction with a server in FHIRPath statements, FHIR defines
-a general %server object that FHIRPath implementations should make available.
-Calls to this object are passed through a <a href="http.html">FHIR RESTful framework</a>.
-</p>
-<p>
-Summary:
-</p>
-<pre class="fhirpath">
-%server : Server // default server (application controls context)
-%server.at(url) : Server // server at specified address
-
-%server.read(type, id) : Resource
-%server.create(resource) : Resource
-%server.update(resource) : Resource
-%server.delete(resource) : boolean
-%server.patch(parameters) : Resource
-%server.search(doPost, parameters) : Bundle
-%server.capabilities(mode) : Resource
-%server.validate(resource, mode, parameters) : OperationOutcome
-%server.transform(source, content) : Resource
-%server.everything(type, id, parameters) : Bundle
-%server.apply(resource, subject, parameters) : Bundle
-</pre>
-
-<hr/>
-
-<a name="fn-server-at"></a>
-<h4>
-%server.at(url) : Server
-</h4>
-<p>
-Get a server object pointing at a particular server.
-Note: The %server object points to the default server as specified by the application evaluating the FHIRPath.
-</p>
-<p>
-Parameters:
-</p>
-<ul>
-  <li><b>url</b>: A URL that points to a FHIR RESTful API.</li>
-</ul>
-<p><b>Return Value:</b> A server that points at the specified URL. No errors - they will come when/if the server object is used.</p>
-
-<hr/>
-
-<a name="fn-server-read"></a>
-<h4>
-%server.read(type, id) : Resource
-</h4>
-<p>
-Get a resource from the server.
-</p>
-<p>
-Parameters:
-</p>
-<ul>
-  <li><b>type</b>: The type of the resource to read.</li>
-  <li><b>id</b>: The id of the resource to read.</li>
-</ul>
-<p><b>Return Value:</b> The resource at type/id. If not found, the return value is empty.</p>
-
-<hr/>
-
-<a name="fn-server-create"></a>
-<h4>
-%server.create(resource) : Resource
-</h4>
-<p>
-Create a resource on the server.
-</p>
-<p>
-Parameters:
-</p>
-<ul>
-  <li><b>resource</b>: The resource to create. If the resource has an id, it will be ignored.</li>
-</ul>
-<p><b>Return Value:</b> The resource after it was stored. If the create operation failed, the return value is empty.</p>
-
-<hr/>
-
-<a name="fn-server-update"></a>
-<h4>
-%server.update(resource) : Resource
-</h4>
-<p>
-Store a resource on the server.
-</p>
-<p>
-Parameters:
-</p>
-<ul>
-  <li><b>resource</b>: The resource to create. The resource must have an id.</li>
-</ul>
-<p><b>Return Value:</b> The resource after it was stored. If the create operation failed, the return value is empty.</p>
-
-<hr/>
-
-<a name="fn-server-delete"></a>
-<h4>
-%server.delete(resource) : boolean
-</h4>
-<p>
-Delete a resource on the server.
-</p>
-<p>
-Parameters:
-</p>
-<ul>
-  <li><b>resource</b>: The resource to delete (must have an id).</li>
-</ul>
-<p><b>Return Value:</b> true if the resource was deleted, or false.</p>
-
-<hr/>
-
-<a name="fn-server-search"></a>
-<h4>
-%server.search(doPost, parameters) : Bundle
-</h4>
-<p>
-Perform a search on the server.
-</p>
-<p>
-Parameters:
-</p>
-<ul>
-  <li><b>doPost</b>: A boolean value - true to use a POST, false to use a GET</li>
-  <li><b>parameters</b>: A parameters resource, or a string with URL parameters (name=value&amp;etc.)</li>
-</ul>
-<p><b>Return Value:</b> A bundle with the search results. If the search fails, the return value is empty.</p>
-
-<hr/>
-
-<a name="fn-server-patch"></a>
-<h4>
-%server.patch(parameters) : Resource
-</h4>
-<p>
-Perform a patch operation on the server.
-</p>
-<p>
-Parameters:
-</p>
-<ul>
-  <li><b>parameters</b>: A parameters resource for <a href="fhirpatch.html">FHIRPath Patch</a></li>
-</ul>
-<p><b>Return Value:</b> The resource after the patch. If the patch fails, the return value is empty.</p>
-
-<hr/>
-
-<a name="fn-server-capabilities"></a>
-<h4>
-%server.capabilities(mode) : Resource
-</h4>
-<p>
-Get the capabilities from the server
-</p>
-<p>
-Parameters:
-</p>
-<ul>
-  <li><b>mode</b>: Optional: the mode to fetch.</li>
-</ul>
-<p><b>Return Value:</b> The resource returned (CapabilitiesStatement or TerminologyCapabilities resource). If not available, the return value is empty.</p>
-
-<hr/>
-
-<a name="fn-server-validate"></a>
-<h4>
-%server.validate(resource, mode, parameters) : OperationOutcome
-</h4>
-<p>
-Validate a resource on the server.
-</p>
-<p>
-Parameters:
-</p>
-<ul>
-  <li><b>resource</b>: The resource to validate.</li>
-  <li><b>mode</b>: how to validate - see <a href="resource-operation-validate.html">Validation Operation</a>.</li>
-  <li><b>parameters</b>: A parameters resource, or a string with URL parameters (name=value&amp;etc.)</li>
-</ul>
-<p><b>Return Value:</b> An operation outcome with issues. If the validation couldn't be performed, the return value is empty.</p>
-
-<hr/>
-
-<a name="fn-server-transform"></a>
-<h4>
-%server.transform(source, content) : Resource
-</h4>
-<p>
-Run the $transform operation on the server.
-</p>
-<p>
-Parameters:
-</p>
-<ul>
-  <li><b>source</b>: The structure map to use.</li>
-  <li><b>content</b>: The resource to convert (often a binary)</li>
-</ul>
-<p><b>Return Value:</b> The resource returned from the transform. If the transform fails, the return value is empty.</p>
-
-<hr/>
-
-<a name="fn-server-everything"></a>
-<h4>
-%server.everything(type, id, parameters) : Bundle
-</h4>
-<p>
-Get a resource from the server.
-</p>
-<p>
-Parameters:
-</p>
-<ul>
-  <li><b>type</b>: The type of the resource to read.</li>
-  <li><b>id</b>: The id of the resource to read.</li>
-  <li><b>parameters</b>: A parameters resource, or a string with URL parameters (name=value&amp;etc.)</li>
-</ul>
-<p><b>Return Value:</b> The Bundle for type/id. If not available, the return value is empty.</p>
-
-<hr/>
-
-<a name="fn-server-apply"></a>
-<h4>
-%server.apply(resource, subject, parameters) : Bundle
-</h4>
-<p>
-Get a resource from the server.
-</p>
-<p>
-Parameters:
-</p>
-<ul>
-  <li><b>resource</b>: The resource to drive the $apply operation (PlanDefinition, ActivityDefinition).</li>
-  <li><b>subject</b>: The subject to apply to - can be a resource, or a string containing type/id for the subject.</li>
-  <li><b>parameters</b>: A parameters resource, or a string with URL parameters (name=value&amp;etc.)</li>
-</ul>
-<p><b>Return Value:</b> The bundle from $apply. If the operation fails, the return value is empty.</p>
-
 
 [%file newfooter%]
 </body>

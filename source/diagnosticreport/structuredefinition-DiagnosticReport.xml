@@ -94,7 +94,7 @@
       <max value="*"/>
       <constraint>
         <key value="dgr-1"/>
-        <severity value="error"/>
+        <severity value="warning"/>
         <human value="When a Composition is referenced in `DiagnosticReport.composition`, all Observation resources referenced in `Composition.entry` must also be referenced in `DiagnosticReport.result` or in the `Observation.hasMember` references."/>
         <expression value="composition.exists() implies (composition.resolve().section.entry.reference.all($this.resolve() is Observation implies $this in (%resource.result.reference|%resource.result.reference.resolve().hasMember.reference)))"/>
       </constraint>
@@ -140,7 +140,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="OBR-51/ for globally unique filler ID  - OBR-3 , For non-globally unique filler-id the flller/placer number must be combined with the universal service Id -  OBR-2(if present)+OBR-3+OBR-4"/>
+        <map value="The DiagnosticReport .identifier element is not to be used for the V2 order numbers, it is the instance identifier of the DiagnosticReport. HL7 Version 2 has no formal equivalent to these identifiers. The V2 order number should be located on the basedOn element instead."/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -169,7 +169,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="ORC? OBR-2/3?"/>
+        <map value="ORC-2, ORC-3, ORC-4, OBR-2 and OBR-3"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -215,6 +215,29 @@
       <mapping>
         <identity value="rim"/>
         <map value="statusCode  Note: final and amended are distinguished by whether observation is the subject of a ControlAct event of type &quot;revise&quot;"/>
+      </mapping>
+    </element>
+    <element id="DiagnosticReport.statusReason">
+      <path value="DiagnosticReport.statusReason"/>
+      <short value="Reason for current status"/>
+      <definition value="Captures the reason for the current state of the DiagnosticReport."/>
+      <comment value="This is generally only used for &quot;exception&quot; statuses such as &quot;not-done&quot;, &quot;suspended&quot; or &quot;cancelled&quot;."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DiagnosticReportStatusReason"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes identifying the reason for the current state of a diagnostic report."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/diagnostic-report-status-reason"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.statusReason"/>
       </mapping>
     </element>
     <element id="DiagnosticReport.category">
@@ -391,7 +414,7 @@
       <path value="DiagnosticReport.effective[x]"/>
       <short value="Clinically relevant time/time-period for the results that are included in the report"/>
       <definition value="The time or time-period the observed values are related to. When the subject of the report is a patient, this is usually either the time of the procedure or of specimen collection(s), but very often the source of the date/time is not known, only the date/time itself."/>
-      <comment value="See the notes on Clinically Relevant Time in the DiagnosticReport resource notes."/>
+      <comment value="See the [notes](diagnosticreport.html#10.3.6.1) on Clinically Relevant Time in the DiagnosticReport resource notes."/>
       <requirements value="Need to know where in the patient history to file/present this report."/>
       <alias value="Observation time"/>
       <alias value="Effective Time"/>
@@ -519,7 +542,7 @@
       </extension>
       <path value="DiagnosticReport.resultsInterpreter"/>
       <short value="Who analyzed and reported the conclusions and interpretations"/>
-      <definition value="The practitioner or organization that is responsible for the report's conclusions and interpretations."/>
+      <definition value="The party responsible for the report's conclusions and interpretations."/>
       <comment value="Might not be the same entity that takes responsibility for the clinical report."/>
       <requirements value="Need to know whom to contact if there are queries about the results. Also may need to track the source of reports for secondary data analysis."/>
       <alias value="Analyzed by"/>
@@ -534,6 +557,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -737,6 +761,7 @@
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ImagingSelection"/>
       </type>
       <mapping>
         <identity value="rim"/>

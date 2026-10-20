@@ -30,7 +30,7 @@
     <text value="Father indicates they miss the occasional dose"/>
   </note>
   <dosage>
-    <simple>
+    <step><component>
       <text value="5ml three times daily" />
       <asNeeded value="false" />
       <route>
@@ -68,6 +68,6 @@
               </period>
           </doseLimit>
       </safety>
-    </simple>
+    </component></step>
   </dosage>
 </MedicationStatement>

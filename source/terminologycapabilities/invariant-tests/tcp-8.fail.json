@@ -35,12 +35,12 @@
 			"uri": "http://example.org/codesystem1",
 			"version": [
 				{
-					"code": "1",
+					"value": "1",
 					"isDefault": true,
 					"compositional": true
 				},
 				{
-					"code": "2",
+					"value": "2",
 					"isDefault": true,
 					"compositional": true
 				}
@@ -52,11 +52,11 @@
 			"uri": "http://example.org/codesystem2",
 			"version": [
 				{
-					"code": "1",
+					"value": "1",
 					"compositional": true
 				},
 				{
-					"code": "2",
+					"value": "2",
 					"compositional": true,
 					"isDefault": true
 				}

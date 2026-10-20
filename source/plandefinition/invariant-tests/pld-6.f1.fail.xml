@@ -8,7 +8,7 @@
   <relatedArtifact>
     <type value="depends-on"/>
     <display value="Practice Guideline for the Treatment of Patients with Major Depressive Disorder"/>
-    <artifactMarkdown value="http://psychiatryonline.org/pb/assets/raw/sitewide/practice_guidelines/guidelines/mdd.pdf"/> <!-- This should be an error to define a markdown dependency -->
+    <citation value="http://psychiatryonline.org/pb/assets/raw/sitewide/practice_guidelines/guidelines/mdd.pdf"/> <!-- This should be an error to define a markdown dependency -->
   </relatedArtifact>
    <!-- Actions -->
    <action>

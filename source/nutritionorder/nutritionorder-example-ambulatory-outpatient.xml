@@ -7,10 +7,10 @@
     <display value='Ambulatory/Outpatient'/>
   </subject>
   <dateTime value='2024-10-23T00:00:00Z'/>
-  <orderer>
+  <requester>
     <reference value='Practitioner/example'/>
     <display value=' Physician'/>
-  </orderer>
+  </requester>
   <oralDiet>
     <type>
       <coding>
@@ -50,21 +50,24 @@
         <display value='Instillation, gastrostomy feeding'/>
       </coding>
     </routeOfAdministration>
+    <!--
     <baseFormulaType>
       <coding>
         <system value='http://snomed.info/sct'/>
         <code value='442991000124104'/>
         <display value='Adult high protein formula'/>
       </coding>
-    </baseFormulaType>
+    </baseFormulaType>-->
     <administration>
       <schedule>
-        <repeat>
-          <frequency value='1'/>
-          <period value='1'/>
-          <periodUnit value='d'/>
-          <timeOfDay value='19:00'/>
-        </repeat>
+        <timing>
+          <repeat>
+            <frequency value='1'/>
+            <period value='1'/>
+            <periodUnit value='d'/>
+            <timeOfDay value='19:00:00'/>
+          </repeat>
+        </timing>
       </schedule>
       <quantity>
         <value value='750'/>

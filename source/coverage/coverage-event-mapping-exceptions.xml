@@ -10,7 +10,7 @@
             <resource value="The identifier of the coverage as issued by the insurer."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="Note: This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number."/>
+            <_pattern value="Note: This is a business identifier, not a resource identifier (see [general discussion](resource.html#identifiers) and [event-specific discussion](event.html#identifier)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number."/>
             <resource value="The main (and possibly only) identifier for the coverage - often referred to as a Member Id, Certificate number, Personal Health Number or Case ID. May be constructed as the concatenation of the Coverage.SubscriberID and the Coverage.dependent. Note that not all insurers issue unique member IDs therefore searches may result in multiple responses."/>
         </commentsUnmatched>
         <requirementsUnmatched reason="Unknown">
@@ -20,7 +20,7 @@
     </divergentElement>
     <divergentElement patternPath="Event.status" resourcePath="Coverage.status">
         <shortUnmatched reason="Unknown">
-            <_pattern value="preparation | in-progress | not-done | suspended | aborted | completed | entered-in-error | unknown"/>
+            <_pattern value="preparation | in-progress | not-done | on-hold | stopped | completed | entered-in-error | unknown"/>
             <resource value="active | cancelled | draft | entered-in-error"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
@@ -36,15 +36,15 @@
         <missingTypes _pattern="Reference(Group)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Individual service was done for/to"/>
-            <resource value="Plan beneficiary"/>
+            <resource value="Party receiving treatment"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="The individual or set of individuals the action is being or was performed on."/>
-            <resource value="The party who benefits from the insurance coverage; the patient when products and/or services are provided."/>
+            <resource value="The party who receives products or services which may be paid for in whole or in part by insurance or through self payment."/>
         </definitionUnmatched>
         <requirementsUnmatched reason="Unknown">
             <_pattern value="Links the coverage to the Patient context.  May also affect access control."/>
-            <resource value="This is the party who receives treatment for which the costs are reimbursed under the coverage."/>
+            <resource value="This is the party who receives treatment."/>
         </requirementsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.occurrence[x]" resourcePath="Coverage.period">

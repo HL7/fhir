@@ -68,10 +68,10 @@
           </denominator>
         </strengthRatio>
       </ingredient>
-      <batch>
+      <instance>
         <lotNumber value="9494788"/>
         <expirationDate value="2017-05-22"/>
-      </batch> 
+      </instance> 
 
     </Medication>
   </contained>
@@ -122,7 +122,7 @@
     <text value="Patient indicates they miss the occasional dose" />
   </note>
   <dosage>
-    <simple>
+    <step><component>
     <text value="1-2 tablets once daily at bedtime as needed for restless legs" />
     <additionalInstruction>
       <text value="Taking at bedtime"/>
@@ -171,6 +171,6 @@
         </high>
       </doseRange>
     </doseAndRate>
-    </simple>
+    </component></step>
   </dosage>
 </MedicationStatement>

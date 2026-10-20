@@ -15,7 +15,7 @@
   <version value="6.0.0"/>
   <name value="Iso316612"/>
   <title value="Iso 3166 Part 1: 2 Letter Codes"/>
-  <status value="active"/>
+  <status value="retired"/>
   <experimental value="false"/>
   <publisher value="HL7 International / FHIR Infrastructure"/>
   <contact>
@@ -24,7 +24,7 @@
       <value value="http://www.hl7.org/Special/committees/fiwg"/>
     </telecom>
   </contact>
-  <description value="This value set defines the ISO 3166 Part 1 2-letter codes"/>
+  <description value="NOTE: This value set has been retired in favor of the THO value set: http://terminology.hl7.org/ValueSet/v3-Country2. This value set defines the ISO 3166 Part 1 2-letter codes."/>
   <compose>
     <include>
       <system value="urn:iso:std:iso:3166"/>

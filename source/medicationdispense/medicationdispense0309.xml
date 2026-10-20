@@ -57,7 +57,7 @@
     <whenPrepared value="2015-01-15"/>
     <whenHandedOver value="2016-01-15"/>
     <dosageInstruction>
-        <simple>
+        <step><component>
         <text value="10 drops four times daily - apply in mouth using cotton swab or finger"/>
         <timing>
             <repeat>
@@ -81,7 +81,7 @@
                 <code value="DROP"/>
             </doseQuantity>
         </doseAndRate>
-			</simple>
+			</component></step>
 
     </dosageInstruction>
 </MedicationDispense>

@@ -6,14 +6,6 @@
 		<system value="http://goodhealth.org/bodystructure/identifiers"/>
 		<value value="12345"/>
 	</identifier>
-	<morphology>
-		<coding>
-			<system value="http://snomed.info/sct"/>
-			<code value="4147007"/>
-			<display value="Mass (morphologic abnormality)"/>
-		</coding>
-		<text value="Splenic mass"/>
-	</morphology>
 	<includedStructure>
 		<structure>
 		  <coding>
@@ -23,6 +15,14 @@
 		  </coding>
 		  <text value="Spleen"/>
 		</structure>
+		<morphology>
+			<coding>
+				<system value="http://snomed.info/sct"/>
+				<code value="4147007"/>
+				<display value="Mass (morphologic abnormality)"/>
+			</coding>
+			<text value="Splenic mass"/>
+		</morphology>
 	</includedStructure>
 	<description value="7 cm maximum diameter"/>
 	<image>

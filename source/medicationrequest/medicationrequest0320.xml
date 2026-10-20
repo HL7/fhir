@@ -38,7 +38,7 @@
     </reason>
 
     <dosageInstruction>
-        <simple>
+        <step><component>
             <text value="20 Units SC three times daily" />
             <timing>
                 <repeat>
@@ -69,7 +69,7 @@
                     <code value="U"/>
                 </doseQuantity>
             </doseAndRate>
-        </simple>
+        </component></step>
 
     </dosageInstruction>
 

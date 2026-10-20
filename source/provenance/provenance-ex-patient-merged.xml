@@ -15,12 +15,10 @@
   </target>
   <recorded value="2024-06-01T19:00:00Z"/>
   <authorization>
-    <concept>
-      <coding>
-        <system value="http://terminology.hl7.org/CodeSystem/v3-ActReason"/>
-        <code value="HQUALIMP"/>
-      </coding>
-    </concept>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ActReason"/>
+      <code value="HQUALIMP"/>
+    </coding>
   </authorization>
   <why value="Merge Patient Records that were matched by SSN and confirmed by review, with the data linked to the non-surviving patient is also fixed up to point at the surviving patient."/>
   <activity>

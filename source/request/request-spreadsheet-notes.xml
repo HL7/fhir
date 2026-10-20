@@ -199,7 +199,7 @@ If there is a need to convey 'categories' for resources, those can be conveyed i
   <p>
     This pattern contains an element called "relevantHistory" that points to <a href="provenance.html">Provenance</a>.  This allows the
     resource to summarize key events that have happened over the lifespan of the resource.  For example, when the request was created,
-    when it was suspended, when it was released, etc.  The list of referenced Provenence entries don't necessarily include <i>all</i> events
+    when it was suspended, when it was released, etc.  The list of referenced Provenance entries don't necessarily include <i>all</i> events
     that have occurred over the lifespan of the resource.  Instead, they list those the author considers 'significant' and relevant to
     downstream users.  Modifications to drafts or small corrections that do not impact fulfillment might not be needed.  In some cases,
     Provenance for changes to other resources (e.g. fulfilling events) might also be included if the source system tracks those as
@@ -223,4 +223,17 @@ If there is a need to convey 'categories' for resources, those can be conveyed i
     relevantHistory perspective.  The <a href="provenance-relevant-history.html">Provenance Relevant History</a> profile is included to give guidance
     on what data elements are most likely to be relevant for systems looking at Provenance from the perspective of relevantHistory.
   </p>
+  
+  <a name="code"> </a>
+  <h2>Choosing an Intent Code</h2>
+  <p>
+In most cases, a sending system will know the specific intent code to transmit.  Systems SHOULD transmit the most specific code applicable.  I.e. It is better to transmit "filler-order" or "instance-order" than just "order". However, if a system is not sure of which more specific code applies (because their system doesn't differentiate), it is acceptable to transmit a higher-level code.  Consuming systems SHOULD be able to handle both generic and specific codes.
+  </p>
+  <p>
+In rare circumstances, a system might have legacy or external data that does not differentiate whether the record represents a plan, proposal, or order.  In this situation, the system SHOULD use an 'intent' of "proposal" as it is the safest and most encompassing concept.  Systems that infer intent in this way should never be used to initiate workflow.
+  </p>
+  <p>
+The 'Other' code is reserved for use where none of the existing codes are applicable.  In most cases, this will be when expressing a concept introduced in a future version of FHIR that needs to be conveyed in an older version of FHIR
+  </p>
+
 </div>

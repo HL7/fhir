@@ -33,7 +33,7 @@
   		  </valueExpression>
   		  <exclude value="false"/>
    		  <description value="mRS 3-6 at 90 days"/>
-   		  <timing>
+   		  <relativeTime>
    		    <contextCode>
    		      <coding>
    		        <system value="http://hl7.org/fhir/evidence-variable-event"/>
@@ -47,7 +47,7 @@
    		      <system value="http://unitsofmeasure.org"/>
    		      <code value="d"/>
    		    </offsetDuration>
-   		  </timing>
+   		  </relativeTime>
 		</characteristic>
 	</Group>
   </contained>
@@ -61,5 +61,11 @@
 		<reference value="#Definition-Group"/>
 	  </reference>
     </definition>
-  <handling value="dichotomous"/>
+      <handling>
+        <coding>
+            <system value="https://fevir.net/sevco"/>
+            <code value="STATO:0000090"/>
+            <display value="dichotomous variable"/>
+        </coding>  
+    </handling>
 </EvidenceVariable>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="observation-status-reason"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="informative"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <url value="http://hl7.org/fhir/CodeSystem/observation-status-reason"/>
+  <version value="6.0.0"/>
+  <name value="ObservationStatusReasonCodes"/>
+  <title value="Observation Status Reason Codes"/>
+  <status value="active"/>
+  <experimental value="true"/>
+  <publisher value="HL7 International - Orders and Observations"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/orders/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="Codes indicating why an observation is in its current status."/>
+  <copyright value="Copyright HL7. Licensed under creative commons public domain"/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/observation-status-reason"/>
+  <content value="complete"/>
+  <concept>
+    <code value="patient-mismatch"/>
+    <display value="Patient Mismatch"/>
+    <definition value="The patient identity or subject context did not match the expected patient or subject."/>
+  </concept>
+  <concept>
+    <code value="sample-mismatch"/>
+    <display value="Sample Mismatch"/>
+    <definition value="The specimen, sample, or referenced result did not match the expected subject, order, container, or report."/>
+  </concept>
+  <concept>
+    <code value="invalid-calibration"/>
+    <display value="Invalid Calibration"/>
+    <definition value="The device, instrument, or analyzer calibration used for referenced results was invalid, expired, or otherwise unreliable."/>
+  </concept>
+  <concept>
+    <code value="reagent-issue"/>
+    <display value="Reagent issue"/>
+    <definition value="An incorrect, invalid, expired, recalled, or otherwise unsuitable reagent or reagent lot was used or identified for referenced results."/>
+  </concept>
+  <concept>
+    <code value="duplicate"/>
+    <display value="Duplicate"/>
+    <definition value="The observation duplicates another observation."/>
+  </concept>
+</CodeSystem>

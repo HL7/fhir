@@ -333,7 +333,7 @@
         <valueString value="default: final"/>
       </extension>
       <path value="Observation.status"/>
-      <short value="registered | specimen-in-process | preliminary | final | amended | corrected | appended | cancelled | entered-in-error | unknown | cannot-be-obtained"/>
+      <short value="registered | in-process | specimen-in-process | preliminary | final | amended | corrected | appended | cancelled | entered-in-error | unknown | cannot-be-obtained"/>
       <definition value="The status of the result value."/>
       <comment value="This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid."/>
       <requirements value="Need to track the status of individual results. Some results are finalized before the whole report is finalized."/>
@@ -372,6 +372,29 @@
       <mapping>
         <identity value="rim"/>
         <map value="status  Amended &amp; Final are differentiated by whether it is the subject of a ControlAct event with a type of &quot;revise&quot;"/>
+      </mapping>
+    </element>
+    <element id="Observation.statusReason">
+      <path value="Observation.statusReason"/>
+      <short value="Reason for current status"/>
+      <definition value="Captures the reason for the current state of the Observation."/>
+      <comment value="This is generally only used for &quot;exception&quot; statuses such as &quot;not-done&quot;, &quot;suspended&quot; or &quot;cancelled&quot;."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ObservationStatusReason"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes identifying the reason for the current state of an observation."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/observation-status-reason"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.statusReason"/>
       </mapping>
     </element>
     <element id="Observation.category">
@@ -686,7 +709,7 @@
       <path value="Observation.value[x]"/>
       <short value="Actual result"/>
       <definition value="The information determined as a result of making the observation, if the information has a simple value."/>
-      <comment value="- An observation may have:&#xA;  1.  a single value here&#xA;  1.  both a value and a set of related or component values&#xA;  1.  only a set of related or component values.&#xA;-  If a value is present, the datatype for this element should be determined by the `code`.&#xA;-  *CodeableConcept* with just a text would be used instead of a string if the field was usually coded, or if the type associated with the `code` defines a coded value.&#xA;-  *Attachment* is used if the observation result value is a binary file such as an image.  If the observation result value is derived from the binary file (for example 'X' detected and here is the the proof in this image), the binary file may be directly represented using *DocumentReference* and referenced by `derivedFrom`.&#xA;- For additional guidance, see the [Notes section](observation.html#notes) below. &#xA;- See [Interoperability Issues using code value pairs in FHIR](observation.html#code-interop) for additional information."/>
+      <comment value="- An observation may have:&#xA;  1.  a single value here&#xA;  1.  both a value and a set of related or component values&#xA;  1.  only a set of related or component values.&#xA;-  If a value is present, the datatype for this element should be determined by the `code`.&#xA;-  *CodeableConcept* with just a text would be used instead of a string if the field was usually coded, or if the type associated with the `code` defines a coded value.&#xA;-  *Attachment* is used if the observation result value is a binary file such as an image.  If the observation result value is derived from the binary file (for example 'X' detected and here is the proof in this image), the binary file may be directly represented using *DocumentReference* and referenced by `derivedFrom`.&#xA;- For additional guidance, see the [Notes section](observation.html#notes) below. &#xA;- See [Interoperability Issues using code value pairs in FHIR](observation.html#code-interop) for additional information."/>
       <requirements value="An observation exists to have a value, though it might not if it is in error, or if it represents a group of observations."/>
       <min value="0"/>
       <max value="1"/>
@@ -725,6 +748,10 @@
       </type>
       <type>
         <code value="Attachment"/>
+      </type>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
       </type>
       <condition value="obs-7"/>
       <condition value="obs-6"/>
@@ -817,11 +844,11 @@
         <map value="363713009 |Has interpretation|"/>
       </mapping>
     </element>
-    <element id="Observation.interpretationContext">
-      <path value="Observation.interpretationContext"/>
+    <element id="Observation.context">
+      <path value="Observation.context"/>
       <short value="Context for understanding the observation"/>
-      <definition value="Other preceding or concurrent information that is critical to understand the context and significance of the observation."/>
-      <comment value="This element provides essential contextual information that affects how the observation should be interpreted. For example, knowing that a patient is diabetic, fasting, or paraplegic may be critical to properly understanding lab results or other observations."/>
+      <definition value="Contextual information that is relevant to understanding the observation value or interpretation.  The referenced information may be concurrent or precede the observation."/>
+      <comment value="This element provides essential contextual information that affects how the observation should be interpreted. For example, knowing that a patient is diabetic, fasting, or paraplegic may be critical to properly understanding lab results or other observations. Similarly, information about the timing, view, or imaging mode may be relevant to understanding an imaging measurement. This element is intended for interpretive context and not for conveying order, request, or fulfillment workflow information."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -830,11 +857,11 @@
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ObservationInterpretationContext"/>
+          <valueString value="ObservationContext"/>
         </extension>
         <strength value="example"/>
         <description value="Codes identifying contextual factors that affect interpretation of observations."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/observation-interpretation-context"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/observation-context"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -1030,6 +1057,25 @@
         <map value="424226004 |Using device|"/>
       </mapping>
     </element>
+    <element id="Observation.supportingDevice">
+      <path value="Observation.supportingDevice"/>
+      <short value="Device supporting generation of the measurement"/>
+      <definition value="A reference to additional devices, kits, or reagents (e.g., Test Kit, Calibration Kit, QC materials) used to support the generation of the measurement."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DeviceType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Type of device supporting the generation of the measurement."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/device-type"/>
+      </binding>
+    </element>    
     <element id="Observation.referenceRange">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="The change from the SimpleQuantity to Quantity datatype for Observation.referenceRange 'low'          and 'high' elements enables the use of Quantity.comparator to fully express the different ranges in use.           It makes a clear distinction between &gt; vs. &gt;= and &lt; vs. &lt;=.  In FHIR R5 and earlier, absent the          ability to use the 'comparator' element in SimpleQuantity (SimpleQuantity is a datatype profile of Quantity that          disallows the use of 'comparator'), the interpretation of the range is &lt;=, which is different than how that          may have been expressed in other reporting, technically requiring different valuations across reporting methods,          e.g., if valued 5 in one method where it is interpreted as &lt;5 should then be represented in          Observation.referenceRange in FHIR R5 or earlier as 4.999999999 when interpreted as &lt;=4.999999999.          Observation.referenceRange in FHIR R6 fixes that by being able to align across any reporting methods."/>
@@ -1155,7 +1201,7 @@
       </extension>
       <path value="Observation.referenceRange.type"/>
       <short value="Reference range qualifier"/>
-      <definition value="Codes to indicate the what part of the targeted reference population it applies to. For example, the normal or therapeutic range."/>
+      <definition value="Codes to indicate what part of the targeted reference population it applies to. For example, the normal or therapeutic range."/>
       <comment value="This SHOULD be populated if there is more than one range.  If this element is not present then the normal range is assumed."/>
       <requirements value="Need to be able to say what kind of reference range this is - normal, recommended, therapeutic, etc.,  - for proper interpretation."/>
       <min value="0"/>
@@ -1384,7 +1430,7 @@
       <path value="Observation.component.value[x]"/>
       <short value="Actual component result"/>
       <definition value="The information determined as a result of making the observation, if the information has a simple value."/>
-      <comment value="Used when observation has a set of component observations:&#xA;-  An observation may have both a value (e.g. an  Apgar score) and component observations (the observations from which the Apgar score was derived). &#xA;-  If a value is present, the datatype for this element should be determined by the `code`.&#xA;-  *CodeableConcept* with just a text would be used instead of a string if the field was usually coded, or if the type associated with the `code` defines a coded value.&#xA;-  *Attachment* is used if the observation result value is a binary file such as an image.  If the observation result value is derived from the binary file (for example 'X' detected and here is the the proof in this image), the binary file may be directly represented using *DocumentReference* and referenced by `derivedFrom`.&#xA;- If a value is present, the datatype for this element should be determined by the `code`.&#xA;-  *CodeableConcept* with just a text would be used instead of a string if the field was usually coded, or if the type associated with the `code` defines a coded value.&#xA;-  *Attachment* is used if the observation result value is a binary file such as an image.  If the observation result value is derived from the binary file (for example 'X' detected and here is the the proof in this image), the binary file may be directly represented using *DocumentReference* and referenced by `derivedFrom`.&#xA;- For additional guidance, see the [Notes section](observation.html#notes) below."/>
+      <comment value="Used when observation has a set of component observations:&#xA;-  An observation may have both a value (e.g. an  Apgar score) and component observations (the observations from which the Apgar score was derived). &#xA;-  If a value is present, the datatype for this element should be determined by the `code`.&#xA;-  *CodeableConcept* with just a text would be used instead of a string if the field was usually coded, or if the type associated with the `code` defines a coded value.&#xA;-  *Attachment* is used if the observation result value is a binary file such as an image.  If the observation result value is derived from the binary file (for example 'X' detected and here is the proof in this image), the binary file may be directly represented using *DocumentReference* and referenced by `derivedFrom`.&#xA;- If a value is present, the datatype for this element should be determined by the `code`.&#xA;-  *CodeableConcept* with just a text would be used instead of a string if the field was usually coded, or if the type associated with the `code` defines a coded value.&#xA;-  *Attachment* is used if the observation result value is a binary file such as an image.  If the observation result value is derived from the binary file (for example 'X' detected and here is the proof in this image), the binary file may be directly represented using *DocumentReference* and referenced by `derivedFrom`.&#xA;- For additional guidance, see the [Notes section](observation.html#notes) below."/>
       <requirements value="An observation exists to have a value, though it might not if it is in error, or if it represents a group of observations."/>
       <min value="0"/>
       <max value="1"/>
@@ -1423,6 +1469,10 @@
       </type>
       <type>
         <code value="Attachment"/>
+      </type>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
       </type>
       <condition value="obs-10"/>
       <isSummary value="true"/>

@@ -38,7 +38,7 @@
   <note>
     <text value="Patient reports they used the given patches over the last 30 days"/>
   </note>
-  <dosage>
+  <dosage><step><component>
   <doseAndRate>
     <doseQuantity>
       <value value="1"/>
@@ -47,6 +47,7 @@
       <code value="TPATH24"/>
     </doseQuantity>
   </doseAndRate>
+  </component></step>
   </dosage>
 
 </MedicationStatement>

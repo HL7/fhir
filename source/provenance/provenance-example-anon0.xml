@@ -162,13 +162,15 @@
                         <display value="Burn of ear"/> 
                     </coding> 
                 </code> 
-                <bodySite> 
-                    <coding> 
-                        <system value="http://snomed.info/sct"/> 
-                        <code value="49521004"/> 
-                        <display value="Left external ear structure"/> 
-                    </coding> 
-                </bodySite> 
+                <bodyStructure>
+                    <concept> 
+                        <coding> 
+                            <system value="http://snomed.info/sct"/> 
+                            <code value="49521004"/> 
+                            <display value="Left external ear structure"/> 
+                        </coding> 
+                    </concept>
+                </bodyStructure> 
                 <subject> 
                     <!-- patient as anon0 id -->
                     <reference value="Patient/anon0"/> 

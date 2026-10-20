@@ -6,8 +6,8 @@
   <status value="draft"/>
   <relatedArtifact>
     <type value="depends-on"/>
-    <artifactAttachment> <!-- This should be an error to depend on an attachment -->
+    <attachment> <!-- This should be an error to depend on an attachment -->
       <url value="http://example.org/dependency"/>
-    </artifactAttachment>
+    </attachment>
   </relatedArtifact>
 </Measure>

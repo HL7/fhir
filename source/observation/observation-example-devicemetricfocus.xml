@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <Bundle xmlns="http://hl7.org/fhir">
 	<id value="example-observation-device-flowratemetric"/>
 	<type value="collection"/>
@@ -46,14 +46,21 @@
 				<device>
 					<reference value="Device/example-IV-pump"/>
 				</device>
-				<status value="active"/>
-				<associationStatus>
+				<relationship>
 					<coding>
-					<system value="http://hl7.org/fhir/CodeSystem/deviceassociation-association-status"/>
-					<code value="attached"/>
-					<display value="Attached"/>
+					<system value="http://hl7.org/fhir/deviceassociation-relationship"/>
+					<code value="attached-to"/>
+					<display value="Attached To"/>
 					</coding>
-				</associationStatus>
+				</relationship>
+				<status value="active"/>
+				<relationshipStatus>
+					<coding>
+					<system value="http://hl7.org/fhir/deviceassociation-relationship-status"/>
+					<code value="active"/>
+					<display value="Active"/>
+					</coding>
+				</relationshipStatus>
 				<subject>
 					<reference value="Patient/pat1"/>
 					<display value="Donald Duck"/>
@@ -68,23 +75,6 @@
 				<id value="example-iv-pump-flowratemetric"/>
 				<status value="active"/>
 				<operationalStatus value="on"/>
-				<type>
-					<coding>
-						<system value="urn:iso:std:iso:11073:10101"/>
-						<code value="157784"/>
-						<display value="MDC_FLOW_FLUID_PUMP"/>
-					</coding>
-				</type>
-				<unit>
-					<coding>
-						<system value="http://unitsofmeasure.org"/>
-						<code value="mL/(8.h)"/>
-						<display value="mL/(8.h)"/>
-					</coding>
-				</unit>
-				<device>
-					<reference value="Device/example-IV-pump"/>
-				</device>
 				<category>
 					<coding>
 						<system value="http://hl7.org/fhir/metric-category"/>
@@ -92,6 +82,23 @@
 						<display value="Measurement"/>
 					</coding>
 				</category>
+				<type>
+					<coding>
+						<system value="urn:iso:std:iso:11073:10101"/>
+						<code value="157784"/>
+						<display value="MDC_FLOW_FLUID_PUMP"/>
+					</coding>
+				</type>
+				<device>
+					<reference value="Device/example-IV-pump"/>
+				</device>
+				<unit>
+					<coding>
+						<system value="http://unitsofmeasure.org"/>
+						<code value="mL/(8.h)"/>
+						<display value="mL/(8.h)"/>
+					</coding>
+				</unit>
 			</DeviceMetric>
 		</resource>
 	</entry>

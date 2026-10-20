@@ -112,8 +112,8 @@
     </element>
     <element id="EpisodeOfCare.status">
       <path value="EpisodeOfCare.status"/>
-      <short value="planned | waitlist | active | onhold | finished | cancelled | entered-in-error"/>
-      <definition value="planned | waitlist | active | onhold | finished | cancelled."/>
+      <short value="planned | waitlist | active | onhold | finished | cancelled | entered-in-error | unknown"/>
+      <definition value="planned | waitlist | active | onhold | finished | cancelled | entered-in-error | unknown."/>
       <comment value="This element is labeled as a modifier because the status contains codes that mark the episode as not currently valid."/>
       <min value="1"/>
       <max value="1"/>
@@ -155,8 +155,8 @@
     </element>
     <element id="EpisodeOfCare.statusHistory.status">
       <path value="EpisodeOfCare.statusHistory.status"/>
-      <short value="planned | waitlist | active | onhold | finished | cancelled | entered-in-error"/>
-      <definition value="planned | waitlist | active | onhold | finished | cancelled."/>
+      <short value="planned | waitlist | active | onhold | finished | cancelled | entered-in-error | unknown"/>
+      <definition value="planned | waitlist | active | onhold | finished | cancelled | entered-in-error | unknown."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -183,7 +183,7 @@
     </element>
     <element id="EpisodeOfCare.type">
       <path value="EpisodeOfCare.type"/>
-      <short value="Type/class  - e.g. specialist referral, disease management"/>
+      <short value="Type/class  - e.g. post acute care, home and community care"/>
       <definition value="A classification of the type of episode of care; e.g. specialist referral, disease management, type of funded care."/>
       <comment value="The type can be very important in processing as this could be used in determining if the EpisodeOfCare is relevant to specific government reporting, or other types of classifications."/>
       <min value="0"/>
@@ -319,7 +319,7 @@
     </element>
     <element id="EpisodeOfCare.diagnosis.use">
       <path value="EpisodeOfCare.diagnosis.use"/>
-      <short value="Role that this diagnosis has within the episode of care (e.g. admission, billing, discharge …)"/>
+      <short value="Role that this diagnosis has within the episode of care (e.g. working, final …)"/>
       <definition value="Role that this diagnosis has within the episode of care (e.g. admission, billing, discharge …)."/>
       <min value="0"/>
       <max value="*"/>
@@ -367,7 +367,7 @@
       <path value="EpisodeOfCare.managingOrganization"/>
       <short value="Organization that assumes responsibility for care coordination"/>
       <definition value="The organization that has assumed the specific responsibilities for care coordination, care delivery, or other services for the specified duration."/>
-      <comment value="If multiple organizations are involved in care delivery, the care teams from those organizations would be represented in EpisodeOfCare.team, while the primary organization managing the care would be listed in EpisodeOfCare.managingOrganization.   Other organizations may have their own EpisodeOfCare for tracking their activities."/>
+      <comment value="If multiple organizations are involved in care delivery, the care teams from those organizations would be represented in EpisodeOfCare.careTeam, while the primary organization managing the care would be listed in EpisodeOfCare.managingOrganization.   Other organizations may have their own EpisodeOfCare for tracking their activities."/>
       <min value="0"/>
       <max value="1"/>
       <type>

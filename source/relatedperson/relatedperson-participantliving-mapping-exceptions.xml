@@ -46,11 +46,11 @@
         <bindingExistence _pattern="true" _resource="false" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Language used by related person"/>
-            <resource value="A language which may be used to communicate with the related person about the patient's health"/>
+            <resource value="A language which may be used to communicate with the related person"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="The language which can be used to communicate with the related person."/>
-            <resource value="A language which may be used to communicate with the related person about the patient's health."/>
+            <resource value="A language which may be used to communicate with the related person."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
             <_pattern value="The ISO-639-1 alpha 2 code in lower case for the language, optionally followed by a hyphen and the ISO-3166-1 alpha 2 code for the region in upper case; e.g. &quot;en&quot; for English, or &quot;en-US&quot; for American English versus &quot;en-AU&quot; for Australian English."/>

@@ -60,6 +60,18 @@
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of DICOM WADO-URI endpoint"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="endpoint-example-wado-uri"/>
+    </extension>
+    <item>
+      <reference value="Endpoint/example-wado-uri"/>
+      <display value="dicom-uri"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="Example of a DIRECT endpoint"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">

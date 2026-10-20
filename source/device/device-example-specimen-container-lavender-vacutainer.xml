@@ -11,6 +11,10 @@
 		<system value="http://acme.com/containers/id"/>
 		<value value="345675"/>
 	</identifier>
+	<biologicalSourceEvent>
+		<system value="http://terminology.hl7.org/NamingSystem/ib"/>
+		<value value="A999908123456"/>
+	</biologicalSourceEvent>
 	<!-- <displayName value="Lavender Tube" /> -->
 	<name>
 		<value value="Lavender Tube"/>
@@ -22,12 +26,6 @@
 			</coding>
 		</type>
 	</name>
-	<biologicalSourceEvent>
-		<Identifier>
-			<system value="http://terminology.hl7.org/NamingSystem/ib"/>
-			<value value="A999908123456"/>
-		</Identifier>
-	</biologicalSourceEvent>
 	<property>
 		<type>
 			<coding>

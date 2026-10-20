@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><NamingSystem xmlns="http://hl7.org/fhir">
   <id value="example-metadata-2"/>
-  <meta>
-    
-  </meta>
   <url value="http://hl7.org/fhir/NamingSystem/example-metadata-2"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>

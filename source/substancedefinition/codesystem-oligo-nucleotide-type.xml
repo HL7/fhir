@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="oligo-nucleotide-type"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="brr"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="informative"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <url value="http://hl7.org/fhir/oligo-nucleotide-type"/>
+  <version value="6.0.0"/>
+  <name value="OligoNucleotideTypeExample"/>
+  <title value="Oligonucleotide Type"/>
+  <status value="active"/>
+  <experimental value="true"/>
+  <date value="2026-06-21"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="The class of oligonucleotide, where relevant (e.g. antisense, siRNA, aptamer)."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/oligo-nucleotide-type"/>
+  <content value="complete"/>
+  <concept>
+    <code value="antisense"/>
+    <display value="Antisense oligonucleotide"/>
+    <definition value="An antisense oligonucleotide (ASO) that binds to a complementary mRNA sequence to inhibit gene expression."/>
+  </concept>
+  <concept>
+    <code value="sirna"/>
+    <display value="Small interfering RNA (siRNA)"/>
+    <definition value="A short double-stranded RNA that triggers degradation of a target mRNA through the RNA interference pathway."/>
+  </concept>
+  <concept>
+    <code value="mirna"/>
+    <display value="MicroRNA (miRNA)"/>
+    <definition value="A short non-coding RNA that regulates gene expression by base-pairing with target mRNAs."/>
+  </concept>
+  <concept>
+    <code value="aptamer"/>
+    <display value="Aptamer"/>
+    <definition value="A short single-stranded oligonucleotide that binds a specific target through its three-dimensional structure."/>
+  </concept>
+  <concept>
+    <code value="decoy"/>
+    <display value="Decoy oligonucleotide"/>
+    <definition value="An oligonucleotide that mimics a regulatory binding site to sequester a transcription factor or other binding protein."/>
+  </concept>
+  <concept>
+    <code value="ribozyme"/>
+    <display value="Ribozyme / DNAzyme"/>
+    <definition value="A catalytic oligonucleotide capable of cleaving a target nucleic acid."/>
+  </concept>
+  <concept>
+    <code value="gene-fragment"/>
+    <display value="Gene fragment"/>
+    <definition value="A fragment of a gene such as a promoter, enhancer, coding region or silencer."/>
+  </concept>
+</CodeSystem>

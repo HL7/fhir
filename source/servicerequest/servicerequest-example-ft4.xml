@@ -1,6 +1,30 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ServiceRequest xmlns="http://hl7.org/fhir">
 	<id value="ft4"/>
+	<contained>
+		<ServiceRequest>
+			<id value="tsh"/>
+			<status value="completed"/>
+			<intent value="original-order"/>
+			<code>
+				<concept>
+					<coding>
+						<system value="http://loinc.org"/>
+						<code value="3016-3"/>
+						<display value="Thyrotropin [Units/volume] in Serum or Plasma"/>
+					</coding>
+					<text value="TSH"/>
+				</concept>
+			</code>
+			<subject>
+				<reference value="Patient/pat2"/>
+			</subject>
+		</ServiceRequest>
+	</contained>
+	<basedOn>
+		<reference value="#tsh"/>
+		<display value="Original request for TSH test"/>
+	</basedOn>
 	<status value="active"/>
 	<intent value="reflex-order"/>
 	<code>

@@ -44,6 +44,11 @@
 			<system value="http://acme.org/tests"/>
 			<code value="LIPID"/>
 		  </coding>
+		  <coding>
+			<system value="http://loinc.org"/>
+			<code value="100898-6"/>
+			<display value="Lipid panel - Serum or Plasma"/>
+		  </coding>
 		  <text value="Lipid Panel"/>
 		</concept>
 	</code>

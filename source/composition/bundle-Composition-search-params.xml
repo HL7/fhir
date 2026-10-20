@@ -250,7 +250,7 @@
           <valueString value="Composition.status"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Composition-status"/>
-        <description value="preliminary | final | amended | entered-in-error"/>
+        <description value="registered | partial | preliminary | final | amended | corrected | appended | cancelled | entered-in-error | deprecated | unknown"/>
         <code value="status"/>
         <type value="token"/>
         <expression value="Composition.status"/>
@@ -326,7 +326,7 @@
           <valueString value="{{name}}.url"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Composition-url"/>
-        <description value="The uri that identifies the activity definition"/>
+        <description value="The uri that identifies the composition"/>
         <code value="url"/>
         <type value="uri"/>
         <expression value="Composition.url"/>
@@ -345,7 +345,7 @@
           <valueString value="{{name}}.version"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Composition-version"/>
-        <description value="The business version of the activity definition"/>
+        <description value="The business version of the composition"/>
         <code value="version"/>
         <type value="token"/>
         <expression value="Composition.version"/>

@@ -21,11 +21,25 @@
 #   2. Have a REVIEW_PROFILE.md at its root describing review patterns.
 #   3. Have a wrapper workflow that defines its triggers and calls this file.
 #
+# Review modes
+# ------------
+# review_mode controls which evaluation paradigm Claude uses:
+#   - "ticket-alignment" (default): every PR must reference a Jira ticket
+#     whose resolution authorized the change; Claude verifies the diff
+#     implements that agreed change. Requires JIRA_API_TOKEN to resolve
+#     tickets referenced in PR titles/bodies.
+#   - "profile-only": no Jira ticket lookup, no ticket-alignment check, no
+#     ticket data in the Claude output or the notification email. Claude
+#     evaluates the PR strictly against REVIEW_PROFILE.md. Use this for
+#     repos (e.g. JIRA-Spec-Artifacts) whose PRs aren't tied to individual
+#     Jira ticket resolutions.
+#
 # Jira authentication / rotation
 # ------------------------------
 # JIRA_API_TOKEN is a Personal Access Token. HL7 Jira PATs expire after at
 # most 1 year. When the token is missing, expired, or revoked, the workflow
-# emails a dedicated alert and skips Claude analysis for that run.
+# emails a dedicated alert and skips Claude analysis for that run. This only
+# applies to repos running in "ticket-alignment" mode.
 #
 # Rotation procedure:
 #   1. Log into https://jira.hl7.org as the service account.
@@ -40,10 +54,9 @@
 # Because JIRA_API_TOKEN may have write access during the personal-token
 # phase, every PR is scanned for suspicious content before any sensitive
 # step runs. Tier 1 findings (file outside allowlist, secret references,
-# shell command substitution, curl/wget, base64 blobs) hard-fail the run
-# and trigger a dedicated alert email. Tier 2 findings (.bak files,
-# prompt-injection language) are advisory and appended to the normal
-# triage email.
+# network fetch commands) hard-fail the run and trigger a dedicated alert
+# email. Tier 2 findings (.bak files, prompt-injection language) are
+# advisory and appended to the normal triage email.
 # =============================================================================
 
 name: Claude PR Triage (shared)
@@ -64,6 +77,16 @@ on:
         required: false
         type: string
         default: ''
+      review_mode:
+        description: >-
+          Review paradigm: "ticket-alignment" (default — verifies the PR
+          against a Jira ticket whose resolution authorized the change) or
+          "profile-only" (evaluates the PR strictly against
+          REVIEW_PROFILE.md; no Jira ticket lookup, no ticket-alignment
+          check, no ticket data in the output or email).
+        required: false
+        type: string
+        default: 'ticket-alignment'
 
 permissions:
   contents: read
@@ -79,22 +102,55 @@ jobs:
       pr_number: ${{ steps.check.outputs.pr_number }}
       head_sha: ${{ steps.check.outputs.head_sha }}
       base_sha: ${{ steps.check.outputs.base_sha }}
+      base_ref: ${{ steps.check.outputs.base_ref }}
       html_url: ${{ steps.check.outputs.html_url }}
       trigger_kind: ${{ steps.check.outputs.trigger_kind }}
       build_timeout: ${{ steps.wait.outputs.build_timeout }}
       pr_title: ${{ steps.check.outputs.pr_title }}
+      security_override: ${{ steps.check.outputs.security_override }}
+      is_fork: ${{ steps.check.outputs.is_fork }}
+      fork_label: ${{ steps.check.outputs.fork_label }}
 
     steps:
       - name: Evaluate trigger eligibility
         id: check
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           script: |
             const eventName = context.eventName;
             const { owner, repo } = context.repo;
             let prNumber;
 
-            if (eventName === 'pull_request_target') {
+            if (eventName === 'workflow_run') {
+              const wr = context.payload.workflow_run;
+              if (wr.conclusion !== 'success' || wr.event !== 'pull_request') {
+                core.notice(`workflow_run not eligible (conclusion=${wr.conclusion}, event=${wr.event})`);
+                core.setOutput('should_triage', 'false');
+                return;
+              }
+
+              let prs = wr.pull_requests;
+              if (!prs || prs.length === 0) {
+                // For fork PRs, pull_requests is empty — look up by branch.
+                const headOwner = wr.head_repository && wr.head_repository.owner
+                  ? wr.head_repository.owner.login
+                  : owner;
+                const { data: found } = await github.rest.pulls.list({
+                  owner, repo,
+                  state: 'open',
+                  head: `${headOwner}:${wr.head_branch}`,
+                });
+                prs = found;
+              }
+
+              if (!prs || prs.length === 0) {
+                core.notice(`No PR found for ${wr.head_branch} at ${wr.head_sha}`);
+                core.setOutput('should_triage', 'false');
+                return;
+              }
+              prNumber = prs[0].number;
+
+            } else if (eventName === 'pull_request_target') {
               prNumber = context.payload.pull_request.number;
             } else if (eventName === 'issue_comment') {
               if (!context.payload.issue.pull_request) {
@@ -117,7 +173,10 @@ jobs:
 
             let triggerKind;
 
-            if (eventName === 'pull_request_target') {
+            if (eventName === 'workflow_run') {
+              triggerKind = 'build_passed';
+
+            } else if (eventName === 'pull_request_target') {
               const action = context.payload.action;
               if (action === 'opened' || action === 'synchronize') {
                 triggerKind = 'pr_updated';
@@ -133,7 +192,85 @@ jobs:
               const comment = context.payload.comment;
               const prAuthor = pr.user.login;
 
+              // Security override path: an admin comment containing
+              // "securityok" (case-insensitive) re-triggers triage and
+              // bypasses the Tier 1 hard-fail in the diff scan. This is
+              // independent of the author-response logic below — it fires
+              // regardless of who the PR author is, as long as the commenter
+              // is a repo admin. Non-admins get no override.
+              if (/securityok/i.test(comment.body || '')) {
+                let commenterPerm = 'none';
+                try {
+                  const { data: perm } = await github.rest.repos.getCollaboratorPermissionLevel({
+                    owner, repo, username: comment.user.login,
+                  });
+                  commenterPerm = perm.permission;
+                } catch (err) {
+                  commenterPerm = 'none';
+                }
+
+                if (commenterPerm === 'admin') {
+                  core.notice(`Security override requested by admin ${comment.user.login}.`);
+                  core.setOutput('should_triage', 'true');
+                  core.setOutput('security_override', 'true');
+                  core.setOutput('pr_number', String(prNumber));
+                  core.setOutput('head_sha', pr.head.sha);
+                  core.setOutput('base_sha', pr.base.sha);
+                  core.setOutput('base_ref', pr.base.ref);
+                  core.setOutput('html_url', pr.html_url);
+                  core.setOutput('trigger_kind', 'security_override');
+                  core.setOutput('pr_title', pr.title || '');
+                  const isFork_so = pr.head.repo && pr.head.repo.full_name !== pr.base.repo.full_name;
+                  core.setOutput('is_fork', isFork_so ? 'true' : 'false');
+                  core.setOutput('fork_label', isFork_so ? pr.head.repo.full_name : '');
+                  return;
+                } else {
+                  core.notice(`"securityok" comment from non-admin ${comment.user.login} — ignoring override.`);
+                  // Fall through to normal author-response logic below.
+                }
+              }
+
               if (comment.user.login !== prAuthor) {
+                // Admin /triage command: forces a cold triage when the normal
+                // pull_request_target event was skipped (e.g. fork PRs held
+                // by GitHub's approval gate). Only admin comments are honored.
+                //
+                // An admin issuing /triage is itself the safety judgment —
+                // the admin has already vetted the content/submitter — so
+                // /triage ALSO bypasses the Tier 1 diff safety scan (same
+                // effect as the standalone "securityok" command). Non-admin
+                // /triage comments are ignored entirely.
+                if (/\/triage\b/i.test(comment.body || '')) {
+                  let commenterPerm = 'none';
+                  try {
+                    const { data: perm } = await github.rest.repos.getCollaboratorPermissionLevel({
+                      owner, repo, username: comment.user.login,
+                    });
+                    commenterPerm = perm.permission;
+                  } catch (err) {
+                    commenterPerm = 'none';
+                  }
+
+                  if (commenterPerm === 'admin') {
+                    core.notice(`Admin ${comment.user.login} requested /triage — Tier 1 scan will be bypassed.`);
+                    core.setOutput('should_triage', 'true');
+                    core.setOutput('security_override', 'true');
+                    core.setOutput('pr_number', String(prNumber));
+                    core.setOutput('head_sha', pr.head.sha);
+                    core.setOutput('base_sha', pr.base.sha);
+                    core.setOutput('base_ref', pr.base.ref);
+                    core.setOutput('html_url', pr.html_url);
+                    core.setOutput('trigger_kind', 'admin_triage');
+                    core.setOutput('pr_title', pr.title || '');
+                    const isFork_t = pr.head.repo && pr.head.repo.full_name !== pr.base.repo.full_name;
+                    core.setOutput('is_fork', isFork_t ? 'true' : 'false');
+                    core.setOutput('fork_label', isFork_t ? pr.head.repo.full_name : '');
+                    return;
+                  } else {
+                    core.notice(`"/triage" from non-admin ${comment.user.login} — ignoring.`);
+                  }
+                }
+
                 core.notice(`Comment is not from PR author (${comment.user.login} vs ${prAuthor}) — skipping.`);
                 core.setOutput('should_triage', 'false');
                 return;
@@ -172,26 +309,29 @@ jobs:
               }
 
               if (!priorAdminComment) {
-                core.notice('No prior admin comment — skipping.');
-                core.setOutput('should_triage', 'false');
-                return;
+                core.notice('No prior admin comment — will do cold triage.');
               }
 
               triggerKind = 'author_responded';
             }
 
             core.setOutput('should_triage', 'true');
+            core.setOutput('security_override', 'false');
             core.setOutput('pr_number', String(prNumber));
             core.setOutput('head_sha', pr.head.sha);
             core.setOutput('base_sha', pr.base.sha);
+            core.setOutput('base_ref', pr.base.ref);
             core.setOutput('html_url', pr.html_url);
             core.setOutput('trigger_kind', triggerKind);
             core.setOutput('pr_title', pr.title || '');
+            const isFork = pr.head.repo && pr.head.repo.full_name !== pr.base.repo.full_name;
+            core.setOutput('is_fork', isFork ? 'true' : 'false');
+            core.setOutput('fork_label', isFork ? pr.head.repo.full_name : '');
 
       - name: Wait for required check run
         id: wait
         if: steps.check.outputs.should_triage == 'true' && inputs.wait_for_check_run != ''
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         env:
           CHECK_NAME: ${{ inputs.wait_for_check_run }}
           HEAD_SHA: ${{ steps.check.outputs.head_sha }}
@@ -201,11 +341,15 @@ jobs:
             const checkName = process.env.CHECK_NAME;
             const headSha = process.env.HEAD_SHA;
 
-            // 120s × 120 attempts = 4 hours
+            // 120s × 120 attempts = 4 hours (for a check that exists but hasn't completed)
+            // If the check never appears at all, bail after NO_SHOW_LIMIT attempts
+            // and let triage proceed with a warning rather than blocking indefinitely.
             const POLL_INTERVAL_MS = 120 * 1000;
             const MAX_ATTEMPTS = 120;
+            const NO_SHOW_LIMIT = 3; // ~6 minutes before declaring check absent
 
             const sleep = (ms) => new Promise(r => setTimeout(r, ms));
+            let everSeen = false;
 
             for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
               const { data } = await github.rest.checks.listForRef({
@@ -219,20 +363,29 @@ jobs:
 
               if (!match) {
                 core.notice(`Attempt ${attempt}/${MAX_ATTEMPTS}: no "${checkName}" check run found yet for ${headSha}. Waiting ${POLL_INTERVAL_MS / 1000}s.`);
-              } else if (match.status === 'completed') {
-                if (match.conclusion === 'success') {
-                  core.notice(`"${checkName}" succeeded. Proceeding with triage.`);
+                if (!everSeen && attempt >= NO_SHOW_LIMIT) {
+                  core.warning(`"${checkName}" has not appeared after ${NO_SHOW_LIMIT} attempts (~${NO_SHOW_LIMIT * POLL_INTERVAL_MS / 60000} min). Proceeding with triage; CI build may not have triggered.`);
                   core.setOutput('should_triage', 'true');
-                  core.setOutput('build_timeout', 'false');
-                  return;
-                } else {
-                  core.notice(`"${checkName}" completed with conclusion="${match.conclusion}". Skipping triage silently.`);
-                  core.setOutput('should_triage', 'false');
-                  core.setOutput('build_timeout', 'false');
+                  core.setOutput('build_timeout', 'true');
                   return;
                 }
               } else {
-                core.notice(`Attempt ${attempt}/${MAX_ATTEMPTS}: "${checkName}" status="${match.status}". Waiting ${POLL_INTERVAL_MS / 1000}s.`);
+                everSeen = true;
+                if (match.status === 'completed') {
+                  if (match.conclusion === 'success') {
+                    core.notice(`"${checkName}" succeeded. Proceeding with triage.`);
+                    core.setOutput('should_triage', 'true');
+                    core.setOutput('build_timeout', 'false');
+                    return;
+                  } else {
+                    core.notice(`"${checkName}" completed with conclusion="${match.conclusion}". Skipping triage silently.`);
+                    core.setOutput('should_triage', 'false');
+                    core.setOutput('build_timeout', 'false');
+                    return;
+                  }
+                } else {
+                  core.notice(`Attempt ${attempt}/${MAX_ATTEMPTS}: "${checkName}" status="${match.status}". Waiting ${POLL_INTERVAL_MS / 1000}s.`);
+                }
               }
 
               if (attempt < MAX_ATTEMPTS) {
@@ -246,7 +399,10 @@ jobs:
 
   build_timeout_alert:
     needs: eligibility
-    if: needs.eligibility.outputs.build_timeout == 'true'
+    # Only fire when the check appeared but stalled for 4 hours (should_triage
+    # will be false in that case). The never-appeared case sets should_triage
+    # true and flows through the normal triage job with a warning in the email.
+    if: needs.eligibility.outputs.build_timeout == 'true' && needs.eligibility.outputs.should_triage == 'false'
     runs-on: ubuntu-latest
     environment: claude-triage
 
@@ -321,9 +477,14 @@ jobs:
 
     steps:
       - name: Checkout PR code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
-          ref: ${{ needs.eligibility.outputs.head_sha }}
+          # For workflow_run events and fork PRs (pull_request_target),
+          # actions/checkout@v6 refuses to check out fork commits in a
+          # trusted context (base repo secrets/token). Fall back to the
+          # base branch — we only need REVIEW_PROFILE.md from the base
+          # repo; Claude reads the actual diff via gh commands.
+          ref: ${{ (github.event_name == 'workflow_run' || needs.eligibility.outputs.is_fork == 'true') && needs.eligibility.outputs.base_ref || needs.eligibility.outputs.head_sha }}
           fetch-depth: 0
 
       - name: Add PR context to run summary
@@ -343,17 +504,44 @@ jobs:
       - name: Scan diff for suspicious content
         id: scan
         env:
-          BASE_SHA: ${{ needs.eligibility.outputs.base_sha }}
+          BASE_REF: ${{ needs.eligibility.outputs.base_ref }}
           HEAD_SHA: ${{ needs.eligibility.outputs.head_sha }}
+          SECURITY_OVERRIDE: ${{ needs.eligibility.outputs.security_override }}
+          IS_FORK: ${{ needs.eligibility.outputs.is_fork }}
+          PR_NUMBER: ${{ needs.eligibility.outputs.pr_number }}
         run: |
           set -e
-          git fetch --no-tags --depth=1 origin "$BASE_SHA" 2>/dev/null || true
+
+          # For fork PRs (and workflow_run), the checkout is on the base
+          # branch so the fork's commits aren't in local history. Fetch
+          # the PR ref so HEAD_SHA is available for the diff.
+          if [ "$IS_FORK" = "true" ]; then
+            git fetch --no-tags origin "refs/pull/$PR_NUMBER/head"
+          fi
+
+          # Fetch the current tip of the base branch so we can compute the
+          # merge base accurately. The recorded pr.base.sha goes stale as
+          # the base branch advances, which makes a straight base..head
+          # diff include unrelated changes the PR has merged in from master.
+          # Diffing from the merge base instead matches what GitHub shows
+          # in the PR "Files changed" tab. The checkout step uses
+          # fetch-depth: 0 so the merge base is already in local history;
+          # we just need origin/BASE_REF as a current ref pointer.
+          git fetch --no-tags origin "$BASE_REF"
+
+          MERGE_BASE=$(git merge-base "origin/$BASE_REF" "$HEAD_SHA")
+          echo "Base branch tip:  $(git rev-parse origin/$BASE_REF)"
+          echo "Merge base:       $MERGE_BASE"
+          echo "Head SHA:         $HEAD_SHA"
+
+          export DIFF_BASE="$MERGE_BASE"
 
           python3 <<'PY'
           import os, re, subprocess, sys
 
-          base_sha = os.environ["BASE_SHA"]
+          base_sha = os.environ["DIFF_BASE"]
           head_sha = os.environ["HEAD_SHA"]
+          security_override = os.environ.get("SECURITY_OVERRIDE", "") == "true"
           gh_output = os.environ.get("GITHUB_OUTPUT", "")
 
           def write_output(key, value):
@@ -366,10 +554,17 @@ jobs:
                       f.write(f"{key}={value}\n")
 
           ALLOWED_EXTS = {
-              "json", "xml", "md", "txt", "xlsx", "datestamp", "fhirmap",
-              "svg", "pdf", "jpg", "diagram", "png", "html", "plantuml",
-              "cql", "gif", "ini", "no-inkscape", "csv", "liquid", "pptx",
-              "docx", "doc", "dic", "jstemp", "bak",
+              # Text / markup (content-scanned)
+              "cql", "css", "csv", "datestamp", "diagram", "draw", "fhirmap",
+              "g4", "html", "ini", "jstemp", "liquid", "md", "no-inkscape",
+              "plantuml", "puml", "svg", "txt", "xsd", "xslt",
+              # Data (content-scanned)
+              "json", "xml",
+              # Binary documents / images (allowlisted, not content-scanned)
+              "dic", "doc", "docx", "drawio", "eapx", "gif", "ico", "jpeg",
+              "jpg", "pdf", "png", "pptx", "vdx", "vsd", "vsdx", "xcf", "xlsx",
+              # Misc
+              "bak",
           }
 
           TIER1_PATTERNS = [
@@ -379,12 +574,18 @@ jobs:
               ("Network fetch command",
                re.compile(r"\b(curl|wget) "),
                False),
-              ("Shell command substitution",
-               re.compile(r"\$\(|`[^`]+`"),
-               False),
-              ("Possible base64 payload",
-               re.compile(r"[A-Za-z0-9+/=]{100,}"),
-               False),
+              # Shell command substitution rule was removed: PR content is
+              # never fed to a shell or eval'd in our pipeline. The patterns
+              # `$(...)` and backtick-pairs collide constantly with legitimate
+              # technical content (markdown inline code, jQuery, Make variables,
+              # template literals). Other rules + the Claude tool restriction
+              # (`Bash(gh:*)` only) cover the actual threat surface.
+              #
+              # Base64 payload rule was removed: the pipeline never decodes or
+              # evals PR content, so encoded instructions carry no execution
+              # risk. The pattern generates constant false positives against
+              # legitimate FHIR content (protein sequences, encoded binary
+              # data in resource examples).
           ]
 
           TIER2_PATTERNS = [
@@ -457,9 +658,13 @@ jobs:
                           "file": path, "line": None, "excerpt": f"extension: .{ext}", "redact": False,
                       })
 
-          TEXT_EXTS = {"json", "xml", "md", "txt", "html", "csv", "liquid",
-                       "fhirmap", "plantuml", "cql", "diagram", "ini", "svg",
-                       "datestamp", "no-inkscape", "dic", "jstemp", "bak"}
+          TEXT_EXTS = {
+              "json", "xml", "md", "txt", "html", "csv", "liquid",
+              "fhirmap", "plantuml", "puml", "cql", "diagram", "ini", "svg",
+              "datestamp", "no-inkscape", "dic", "jstemp", "bak",
+              # New plaintext additions
+              "css", "draw", "g4", "xsd", "xslt",
+          }
 
           for path in changed:
               ext = ext_of(path)
@@ -512,19 +717,33 @@ jobs:
               return "\n".join(lines)
 
           tier1_text = render_findings(tier1_findings, "### Tier 1 findings (triage skipped)")
+          tier1_overridden_text = render_findings(tier1_findings, "### Tier 1 findings (OVERRIDDEN by securityok)")
           tier2_text = render_findings(tier2_findings, "### Advisory findings")
 
-          if tier1_findings:
+          if tier1_findings and security_override:
+              # Admin used "securityok" to bypass the hard-fail. Proceed with
+              # triage, but record what was overridden so it appears in the
+              # triage email for audit purposes.
+              sys.stderr.write(f"TIER 1 findings present but OVERRIDDEN by securityok: {len(tier1_findings)}\n")
+              for f in tier1_findings:
+                  sys.stderr.write(f"  - (overridden) {f['rule']} in {f['file']}\n")
+              write_output("suspicious", "false")
+              write_output("tier1_findings", "")
+              write_output("tier1_overridden", tier1_overridden_text)
+              write_output("tier2_advisory", tier2_text)
+          elif tier1_findings:
               sys.stderr.write(f"TIER 1 findings: {len(tier1_findings)}\n")
               for f in tier1_findings:
                   sys.stderr.write(f"  - {f['rule']} in {f['file']}\n")
               write_output("suspicious", "true")
               write_output("tier1_findings", tier1_text)
+              write_output("tier1_overridden", "")
               write_output("tier2_advisory", tier2_text)
           else:
               sys.stderr.write(f"No Tier 1 findings. Tier 2: {len(tier2_findings)}\n")
               write_output("suspicious", "false")
               write_output("tier1_findings", "")
+              write_output("tier1_overridden", "")
               write_output("tier2_advisory", tier2_text)
           PY
 
@@ -565,7 +784,6 @@ jobs:
 
           SUBJECT="[$LABEL] ALERT: Suspicious content in PR #$PR_NUMBER"
 
-          # Convert comma-separated TO_LIST into a JSON array.
           TO_JSON=$(echo "$TO_LIST" | python3 -c '
           import sys, json
           addrs = [a.strip() for a in sys.stdin.read().split(",") if a.strip()]
@@ -586,7 +804,7 @@ jobs:
 
       - name: Fetch and filter Jira tickets
         id: jira
-        if: steps.scan.outputs.suspicious != 'true'
+        if: steps.scan.outputs.suspicious != 'true' && inputs.review_mode == 'ticket-alignment'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}
@@ -603,7 +821,7 @@ jobs:
 
           set +e
           python3 <<'PY' > jira-tickets.json
-          import json, os, re, subprocess, sys
+          import json, os, re, subprocess, sys, time
           from datetime import datetime, timezone
 
           AUTHORIZING_RESOLUTIONS = {
@@ -619,7 +837,27 @@ jobs:
           def write_output(key, value):
               if gh_output:
                   with open(gh_output, "a") as f:
-                      f.write(f"{key}={value}\n")
+                      if "\n" in value:
+                          f.write(f"{key}<<JIRAOUT_42\n{value}\nJIRAOUT_42\n")
+                      else:
+                          f.write(f"{key}={value}\n")
+
+          keys = set()
+          for m in re.findall(r"\bFHIR-(\d+)\b", combined):
+              keys.add(f"FHIR-{m}")
+          for m in re.findall(r"\bJ#(\d+)\b", combined):
+              keys.add(f"FHIR-{m}")
+          # Also handle full Jira URLs: https://jira.hl7.org/browse/FHIR-NNNN
+          for m in re.findall(r"jira\.hl7\.org/browse/FHIR-(\d+)", combined):
+              keys.add(f"FHIR-{m}")
+
+          # Token is only required if there are tickets to look up.
+          # Repos like JIRA-Spec-Artifacts may not reference Jira tickets.
+          if not token and not keys:
+              sys.stderr.write("No JIRA_API_TOKEN and no tickets — skipping Jira lookup\n")
+              write_output("auth_failure", "false")
+              json.dump({"tickets": {}, "fetchErrors": []}, sys.stdout)
+              sys.exit(0)
 
           if not token:
               sys.stderr.write("ERROR: JIRA_API_TOKEN is empty\n")
@@ -627,12 +865,6 @@ jobs:
               write_output("auth_failure_status", "missing_token")
               write_output("auth_failure_url", "")
               sys.exit(2)
-
-          keys = set()
-          for m in re.findall(r"\bFHIR-(\d+)\b", combined):
-              keys.add(f"FHIR-{m}")
-          for m in re.findall(r"\bJ#(\d+)\b", combined):
-              keys.add(f"FHIR-{m}")
           keys = sorted(keys)
 
           sys.stderr.write(f"Ticket keys found: {keys or '(none)'}\n")
@@ -690,14 +922,44 @@ jobs:
           authorizing = []
           fetch_errors = []
 
-          for key in keys:
-              url = f"https://jira.hl7.org/rest/api/2/issue/{key}?fields={fields_param}"
+          # Whether we ever successfully talked to Jira (got a 200 with
+          # parseable JSON). Used at the end to decide whether to promote
+          # repeated ELB 403s into an auth_failure alert.
+          successful_jira_reaches = 0
+
+          # ELB 403 retry policy. Backoffs are per-ticket. Total wait across
+          # the whole batch is capped by MAX_RETRY_BUDGET_SECONDS.
+          MAX_RETRY_BUDGET_SECONDS = 3600
+          RETRY_BACKOFFS = [30, 60, 120]
+
+          # Tracks the most recent ELB 403 we saw. If we end the batch with
+          # zero successful fetches, this is promoted to an auth_failure so
+          # the alert email carries the diagnostic info.
+          last_elb_403 = None
+          retry_budget_used = 0
+
+          def split_headers_body(text):
+              # Find the last "\r\n\r\n" or "\n\n" — that's the boundary
+              # between final headers and body. The -i response may include
+              # intermediate header blocks (100 Continue, redirects); we
+              # want the last one.
+              idx_crlf = text.rfind("\r\n\r\n")
+              idx_lf = text.rfind("\n\n")
+              if idx_crlf > idx_lf:
+                  return text[:idx_crlf], text[idx_crlf + 4:]
+              if idx_lf >= 0:
+                  return text[:idx_lf], text[idx_lf + 2:]
+              return "", text
+
+          def fetch_ticket_once(url):
               # User-Agent: HL7's Jira sits behind an AWS ELB that filters
               # requests whose User-Agent doesn't look browser-like. The
               # combination of "Mozilla/5.0", "AppleWebKit", and "Gecko" is
               # what gets us past the filter while still identifying ourselves.
+              # -i: include response headers in output (for diagnostics)
+              # -w: append final status code so we can parse it reliably
               result = subprocess.run(
-                  ["curl", "-s",
+                  ["curl", "-s", "-i",
                    "-w", "\n%{http_code}",
                    "-H", "User-Agent: Mozilla/5.0 (compatible; Lloyd-HL7-PR-Triage-Workflow/1.0; AppleWebKit) like Gecko",
                    "-H", f"Authorization: Bearer {token}",
@@ -705,30 +967,125 @@ jobs:
                   capture_output=True, text=True,
               )
               if result.returncode != 0:
-                  sys.stderr.write(f"{key}: curl exit {result.returncode}: {result.stderr.strip()}\n")
-                  fetch_errors.append(key)
-                  continue
+                  return {"curl_failed": True, "stderr": result.stderr.strip()}
 
               output = result.stdout
               newline_idx = output.rfind("\n")
-              body = output[:newline_idx] if newline_idx >= 0 else ""
               status_str = output[newline_idx + 1:] if newline_idx >= 0 else output
+              content = output[:newline_idx] if newline_idx >= 0 else ""
+              headers_text, body = split_headers_body(content)
+
+              server_header = ""
+              for line in headers_text.splitlines():
+                  if line.lower().startswith("server:"):
+                      server_header = line.split(":", 1)[1].strip()
+                      break
+
               try:
                   status = int(status_str.strip())
               except ValueError:
-                  sys.stderr.write(f"{key}: couldn't parse status from curl output\n")
-                  fetch_errors.append(key)
+                  return {"parse_failed": True}
+
+              return {
+                  "status": status,
+                  "headers_text": headers_text,
+                  "server_header": server_header,
+                  "body": body,
+              }
+
+          for key in keys:
+              url = f"https://jira.hl7.org/rest/api/2/issue/{key}?fields={fields_param}"
+
+              # Retry loop for this ticket. Only ELB 403s are retried; all
+              # other outcomes break out immediately.
+              attempt = 0
+              res = None
+              while True:
+                  res = fetch_ticket_once(url)
+
+                  if res.get("curl_failed"):
+                      sys.stderr.write(f"{key}: curl failed: {res.get('stderr', '')}\n")
+                      fetch_errors.append(key)
+                      break
+
+                  if res.get("parse_failed"):
+                      sys.stderr.write(f"{key}: couldn't parse status from curl output\n")
+                      fetch_errors.append(key)
+                      break
+
+                  status = res["status"]
+                  server = res["server_header"]
+                  is_elb_403 = (status == 403 and "awselb" in server.lower())
+
+                  if not is_elb_403:
+                      break
+
+                  # ELB 403 path: remember it (in case we need to promote
+                  # to auth_failure later) and decide whether to retry.
+                  last_elb_403 = {
+                      "url": url,
+                      "status": status,
+                      "server": server,
+                      "headers_text": res["headers_text"],
+                      "body": res["body"],
+                  }
+
+                  if attempt >= len(RETRY_BACKOFFS):
+                      sys.stderr.write(f"{key}: ELB 403 after {len(RETRY_BACKOFFS)} retries; giving up\n")
+                      fetch_errors.append(key)
+                      break
+
+                  backoff = RETRY_BACKOFFS[attempt]
+                  if retry_budget_used + backoff > MAX_RETRY_BUDGET_SECONDS:
+                      sys.stderr.write(
+                          f"{key}: ELB 403; retry budget exhausted "
+                          f"({retry_budget_used}s used of {MAX_RETRY_BUDGET_SECONDS}s); giving up on this ticket\n"
+                      )
+                      fetch_errors.append(key)
+                      break
+
+                  sys.stderr.write(
+                      f"{key}: ELB 403 (attempt {attempt + 1}); "
+                      f"waiting {backoff}s before retry (budget used so far: {retry_budget_used}s)\n"
+                  )
+                  time.sleep(backoff)
+                  retry_budget_used += backoff
+                  attempt += 1
+                  # loop continues
+
+              # After the retry loop: handle whatever non-retry outcome
+              # the loop ended on.
+              if res is None or "status" not in res:
+                  # curl_failed or parse_failed; already recorded in fetch_errors
                   continue
 
+              status = res["status"]
+              server_header = res["server_header"]
+              headers_text = res["headers_text"]
+              body = res["body"]
+
+              # ELB 403 that exhausted retries / budget: already in fetch_errors
+              if status == 403 and "awselb" in server_header.lower():
+                  continue
+
+              # Any other 401/403: immediate auth failure (token issue, Jira
+              # permission issue, etc.). These won't get better with retries.
               if status in (401, 403):
-                  sys.stderr.write(f"{key}: AUTH FAILURE ({status}). Aborting Jira fetch.\n")
+                  sys.stderr.write(f"{key}: AUTH FAILURE ({status})\n")
+                  sys.stderr.write(f"  Server: {server_header or '(not set)'}\n")
+                  sys.stderr.write(f"  Response headers:\n{headers_text}\n")
+                  sys.stderr.write(f"  Response body (first 1000 chars):\n{body[:1000]}\n")
                   write_output("auth_failure", "true")
                   write_output("auth_failure_status", str(status))
                   write_output("auth_failure_url", url)
+                  write_output("auth_failure_server", server_header)
+                  write_output("auth_failure_body_excerpt", body[:1000])
                   sys.exit(2)
 
               if status >= 400:
                   sys.stderr.write(f"{key}: HTTP {status}\n")
+                  sys.stderr.write(f"  Server: {server_header or '(not set)'}\n")
+                  sys.stderr.write(f"  Response body (first 500 chars):\n{body[:500]}\n")
                   fetch_errors.append(key)
                   continue
 
@@ -738,6 +1095,10 @@ jobs:
                   sys.stderr.write(f"{key}: not JSON. First 200 bytes: {body[:200]}\n")
                   fetch_errors.append(key)
                   continue
+
+              # If we got here, Jira itself responded — auth + WAF were OK
+              # for this request, regardless of what's in the response.
+              successful_jira_reaches += 1
 
               fields = raw.get("fields", {}) or {}
               resolution = fields.get("resolution") or {}
@@ -761,6 +1122,23 @@ jobs:
               # ticket["changeImpact"] = (fields.get("customfield_10511") or {}).get("value", "")
 
               authorizing.append(ticket)
+
+          # Decide whether to promote repeated ELB 403s into a full
+          # auth_failure alert. This fires only when we never successfully
+          # reached Jira (zero 200s) AND we did observe an ELB 403 along
+          # the way. Mixed results (some 200s, some ELB 403s) fall through
+          # to the normal output with the failures listed in fetchErrors.
+          if successful_jira_reaches == 0 and last_elb_403 is not None:
+              sys.stderr.write(
+                  "All fetch attempts ended without reaching Jira; "
+                  "promoting last ELB 403 to auth_failure.\n"
+              )
+              write_output("auth_failure", "true")
+              write_output("auth_failure_status", str(last_elb_403["status"]))
+              write_output("auth_failure_url", last_elb_403["url"])
+              write_output("auth_failure_server", last_elb_403["server"])
+              write_output("auth_failure_body_excerpt", last_elb_403["body"][:1000])
+              sys.exit(2)
 
           json.dump({
               "tickets": authorizing,
@@ -789,6 +1167,8 @@ jobs:
         env:
           AUTH_STATUS: ${{ steps.jira.outputs.auth_failure_status }}
           AUTH_URL: ${{ steps.jira.outputs.auth_failure_url }}
+          AUTH_SERVER: ${{ steps.jira.outputs.auth_failure_server }}
+          AUTH_BODY: ${{ steps.jira.outputs.auth_failure_body_excerpt }}
           PR_NUMBER: ${{ needs.eligibility.outputs.pr_number }}
           PR_URL: ${{ needs.eligibility.outputs.html_url }}
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -800,6 +1180,8 @@ jobs:
           import os
           status = os.environ.get("AUTH_STATUS", "unknown")
           url = os.environ.get("AUTH_URL", "")
+          server = os.environ.get("AUTH_SERVER", "")
+          body_excerpt = os.environ.get("AUTH_BODY", "")
           pr_number = os.environ.get("PR_NUMBER", "?")
           pr_url = os.environ.get("PR_URL", "")
           run_url = os.environ.get("RUN_URL", "")
@@ -809,7 +1191,7 @@ jobs:
           elif status == "401":
               cause = "Token rejected (401 Unauthorized) — likely expired or revoked"
           elif status == "403":
-              cause = "Token rejected (403 Forbidden) — token may be valid but lacks permission, or has expired"
+              cause = "Token rejected (403 Forbidden) — token may be valid but lacks permission, or rejected at gateway/WAF before reaching Jira"
           else:
               cause = f"Unexpected auth status: {status}"
 
@@ -824,11 +1206,26 @@ jobs:
               print(f"Failing URL: {url}")
           if run_url:
               print(f"Workflow run: {run_url}")
+
+          if server or body_excerpt:
+              print()
+              print("--- Response diagnostics (forward to admins if needed) ---")
+              if server:
+                  print(f"Server header: {server}")
+                  if "awselb" in server.lower() or "cloudflare" in server.lower():
+                      print("  (Response came from a load balancer / WAF, not Jira itself —")
+                      print("  the request was likely rejected before reaching Jira.)")
+              if body_excerpt:
+                  print()
+                  print("Response body:")
+                  print(body_excerpt.strip())
+              print("--- end diagnostics ---")
+
           print()
           print("Triage was skipped for this PR. Subsequent PRs will continue")
-          print("to fail until the token is rotated.")
+          print("to fail until the underlying problem is resolved.")
           print()
-          print("Rotation procedure:")
+          print("Rotation procedure (if token genuinely expired):")
           print("  1. Log into https://jira.hl7.org as the service account.")
           print("  2. Profile -> Personal Access Tokens.")
           print("  3. Revoke the old token, create a new one (max 1 year).")
@@ -859,91 +1256,386 @@ jobs:
             -H "Content-Type: application/json" \
             -d "$PAYLOAD"
 
+      - name: Build PR timeline
+        id: timeline
+        if: steps.scan.outputs.suspicious != 'true' && steps.jira.outputs.auth_failure != 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ needs.eligibility.outputs.pr_number }}
+          HEAD_SHA: ${{ needs.eligibility.outputs.head_sha }}
+          BASE_SHA: ${{ needs.eligibility.outputs.base_sha }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: |
+          set -e
+          python3 <<'PY'
+          import json, os, subprocess, sys
+          from datetime import datetime, timezone
+
+          pr_number = os.environ["PR_NUMBER"]
+          head_sha  = os.environ["HEAD_SHA"]
+          base_sha  = os.environ["BASE_SHA"]
+          repo      = os.environ["GITHUB_REPOSITORY"]
+          gh_output = os.environ.get("GITHUB_OUTPUT", "")
+
+          def write_output(key, value):
+              if gh_output:
+                  with open(gh_output, "a") as f:
+                      if "\n" in str(value):
+                          f.write(f"{key}<<TLEOF_42\n{value}\nTLEOF_42\n")
+                      else:
+                          f.write(f"{key}={value}\n")
+
+          def gh_api(path):
+              result = subprocess.run(
+                  ["gh", "api", "--paginate", path],
+                  capture_output=True, text=True, check=True,
+              )
+              # --paginate may emit multiple JSON arrays; join them
+              text = result.stdout.strip()
+              if text.startswith("["):
+                  combined = []
+                  # naive merge: collect all top-level arrays
+                  for chunk in text.replace("][", "]\n[").splitlines():
+                      chunk = chunk.strip()
+                      if chunk:
+                          combined.extend(json.loads(chunk))
+                  return combined
+              return json.loads(text)
+
+          def parse_dt(s):
+              if not s:
+                  return datetime.min.replace(tzinfo=timezone.utc)
+              s = s.rstrip("Z") + "+00:00" if s.endswith("Z") else s
+              return datetime.fromisoformat(s)
+
+          # ----------------------------------------------------------------
+          # Fetch commits and comments
+          # ----------------------------------------------------------------
+          raw_commits  = gh_api(f"/repos/{repo}/pulls/{pr_number}/commits")
+          raw_comments = gh_api(f"/repos/{repo}/issues/{pr_number}/comments")
+
+          # ----------------------------------------------------------------
+          # Determine admin status for every unique commenter
+          # ----------------------------------------------------------------
+          logins = {c["user"]["login"] for c in raw_comments if c.get("user")}
+          perm_cache = {}
+          for login in logins:
+              try:
+                  result = subprocess.run(
+                      ["gh", "api", f"/repos/{repo}/collaborators/{login}/permission"],
+                      capture_output=True, text=True, check=True,
+                  )
+                  perm_cache[login] = json.loads(result.stdout).get("permission", "none")
+              except subprocess.CalledProcessError:
+                  perm_cache[login] = "none"
+
+          def is_admin(login):
+              return perm_cache.get(login, "none") == "admin"
+
+          # ----------------------------------------------------------------
+          # Build unified timeline entries
+          # ----------------------------------------------------------------
+          timeline = []
+
+          for c in raw_commits:
+              timeline.append({
+                  "type":    "commit",
+                  "sha":     c["sha"],
+                  "ts":      c["commit"]["committer"]["date"],
+                  "author":  (c.get("author") or {}).get("login", "unknown"),
+                  "message": c["commit"]["message"].splitlines()[0],
+              })
+
+          for c in raw_comments:
+              login = (c.get("user") or {}).get("login", "unknown")
+              role  = "admin" if is_admin(login) else "contributor"
+              timeline.append({
+                  "type":   "comment",
+                  "id":     c["id"],
+                  "ts":     c["created_at"],
+                  "author": login,
+                  "role":   role,
+                  "body":   c["body"] or "",
+              })
+
+          timeline.sort(key=lambda e: parse_dt(e["ts"]))
+
+          # ----------------------------------------------------------------
+          # Find the anchor commit:
+          # The most recent commit that has at least one admin comment
+          # following it (before the next commit or end of timeline).
+          #
+          # Algorithm: walk the timeline building a list of (commit_index,
+          # has_trailing_admin_comment). A commit "has trailing admin
+          # comments" if there is at least one admin comment between it
+          # and the next commit (or end of list).
+          # ----------------------------------------------------------------
+          commit_indices = [i for i, e in enumerate(timeline) if e["type"] == "commit"]
+
+          anchor_sha   = None   # commit SHA before the admin conversation
+          diff_base    = base_sha  # default: full PR diff
+
+          if commit_indices:
+              # For each commit position, find the slice of entries between
+              # it and the next commit, and check for admin comments there.
+              for pos in range(len(commit_indices) - 1, -1, -1):
+                  ci = commit_indices[pos]
+                  next_ci = commit_indices[pos + 1] if pos + 1 < len(commit_indices) else len(timeline)
+                  between = timeline[ci + 1 : next_ci]
+                  has_admin_comment = any(
+                      e["type"] == "comment" and e["role"] == "admin"
+                      for e in between
+                  )
+                  if has_admin_comment:
+                      anchor_sha = timeline[ci]["sha"]
+                      diff_base  = anchor_sha
+                      break
+
+          # If the anchor commit IS the head commit, the admin commented on
+          # the latest state with no subsequent commits to evaluate
+          # incrementally. Fall back to a cold triage of the full diff.
+          if anchor_sha and anchor_sha == head_sha:
+              anchor_sha = None
+              diff_base  = base_sha
+
+          has_admin_comments = anchor_sha is not None
+          write_output("anchor_sha", anchor_sha or "")
+          write_output("diff_base",  diff_base)
+          write_output("has_admin_comments", "true" if has_admin_comments else "false")
+
+          # ----------------------------------------------------------------
+          # Write pr-timeline.json for Claude
+          # ----------------------------------------------------------------
+          output = {
+              "has_admin_comments": has_admin_comments,
+              "anchor_sha":         anchor_sha,
+              "diff_base":          diff_base,
+              "head_sha":           head_sha,
+              "timeline":           timeline,
+          }
+          with open("pr-timeline.json", "w") as f:
+              json.dump(output, f, indent=2)
+
+          sys.stderr.write(
+              f"Timeline: {len(raw_commits)} commits, {len(raw_comments)} comments. "
+              f"Anchor: {anchor_sha or '(none — cold triage)'}. "
+              f"Diff base: {diff_base}\n"
+          )
+          PY
+
+      - name: Build review-mode prompt section
+        id: promptbuild
+        if: steps.scan.outputs.suspicious != 'true' && steps.jira.outputs.auth_failure != 'true'
+        env:
+          REVIEW_MODE: ${{ inputs.review_mode }}
+        run: |
+          if [ "$REVIEW_MODE" = "profile-only" ]; then
+          SECTION=$(cat <<'PROMPTEOF'
+          === Evaluation basis ===
+
+          This repo does not use Jira-ticket-driven review. There is no
+          jira-tickets.json and no ticket to verify alignment against — do
+          not look for one, do not require a Jira/FHIR ticket reference in
+          the PR title or body, and do not treat the absence of one as an
+          issue.
+
+          Evaluate the PR strictly and only against the rubric in
+          REVIEW_PROFILE.md. That file is the sole source of review
+          criteria for this repo.
+          PROMPTEOF
+          )
+          SCHEMA=$(cat <<'SCHEMAEOF'
+          recommendation: "approve" | "request_changes" | "discuss"
+          suggestedResponse: GitHub-flavored markdown describing questions or issues to address before approval. Empty string if no issues.
+          confidence: "high" | "medium" | "low"
+          SCHEMAEOF
+          )
+          else
+          SECTION=$(cat <<'PROMPTEOF'
+          === Jira ticket verification ===
+
+          Every PR must reference at least one Jira ticket (in the title or
+          body) whose resolution authorized a change. Only three resolutions
+          authorize changes: "Persuasive", "Persuasive with Modification",
+          and "Not Persuasive with Modification".
+
+          Ticket data has already been fetched and filtered. Read the file
+          `jira-tickets.json` at the repo root. Its schema:
+
+            {
+              "tickets": [
+                {
+                  "key": "FHIR-NNNN",
+                  "summary": "...",
+                  "status": "...",
+                  "resolutionName": "Persuasive" | "Persuasive with Modification" | "Not Persuasive with Modification",
+                  "description": "original proposal",
+                  "resolutionDescription": "what was AGREED (authoritative)",
+                  "comments": [ { "author": "...", "body": "..." }, ... ]
+                }
+              ],
+              "fetchErrors": ["FHIR-NNNN", ...],
+              "noAuthorizingTickets": true | false
+            }
+
+          Rules:
+
+          1. If noAuthorizingTickets is true → blocking issue. No tickets
+             that authorized changes were specified. The PR is not covered
+             by a ticket agreement.
+
+          2. For each ticket in `tickets`:
+
+             a. The change that should be in the diff is described by
+                resolutionDescription. This is the AGREED change, which
+                may differ from the original proposal.
+
+             b. If resolutionName is exactly "Persuasive" AND
+                resolutionDescription is empty, fall back to description
+                (the original proposal) as the agreed change.
+
+             c. resolutionDescription may reference "the description" or a
+                comment (e.g., "as per Joe's comment"). Use description and
+                comments to resolve those references.
+
+          3. Verify alignment between the PR diff and each agreed change:
+             - Does the PR implement what was agreed?
+             - Are there substantive out-of-scope changes? (Minor drive-by
+               fixes are fine; new behavior without ticket backing is not.)
+             - Is anything agreed-upon missing from the implementation?
+
+          4. Ignore unrequested changes to:
+             - Files ending `-mapping-exceptions.xml`
+             - Files with `example` in their name, or other files that appear
+               to be example instances impacted by authorized changes
+             - Any file under `tools/tx/` or `source/spelling/` — these are
+               auto-generated and not in the committer's control
+
+          5. For any key in fetchErrors, flag that the ticket could not be
+             verified.
+
+          Do NOT fetch tickets yourself. All necessary data is already in
+          jira-tickets.json.
+          PROMPTEOF
+          )
+          SCHEMA=$(cat <<'SCHEMAEOF'
+          recommendation: "approve" | "request_changes" | "discuss"
+          suggestedResponse: GitHub-flavored markdown describing questions or issues to address before approval. Empty string if no issues.
+          confidence: "high" | "medium" | "low"
+          ticketAlignment: {
+            authorizingTickets: [list of FHIR-NNNN keys],
+            fetchErrors: [list of keys that couldn't be fetched],
+            scopeMatch: "aligned" | "partial" | "mismatch" | "no_authorizing_tickets",
+            concerns: markdown describing alignment issues, or empty string
+          }
+          SCHEMAEOF
+          )
+          fi
+
+          {
+            echo "section<<PROMPTSEC_42"
+            echo "$SECTION"
+            echo "PROMPTSEC_42"
+            echo "schema<<PROMPTSCHEMA_42"
+            echo "$SCHEMA"
+            echo "PROMPTSCHEMA_42"
+          } >> "$GITHUB_OUTPUT"
+
       - name: Claude analyzes PR
         id: claude
         if: steps.scan.outputs.suspicious != 'true' && steps.jira.outputs.auth_failure != 'true'
-        uses: anthropics/claude-code-action@v1
+        # We use claude-code-base-action (a pure execution wrapper), NOT the
+        # unified claude-code-action. The unified action runs a built-in
+        # security gate that aborts unless the *triggering actor*
+        # (github.actor) has write permission to the repo:
+        #   "Actor does not have write permissions to the repository"
+        # That is fundamentally incompatible with this workflow's purpose:
+        # triaging external contributors' PRs and their comment replies —
+        # actors who by definition lack write access (e.g. fork PRs via
+        # pull_request_target, and author-response issue_comment events).
+        # Eligibility is already gated by the `eligibility` job above, Claude
+        # is told not to post comments, and we parse the execution log
+        # ourselves, so none of the unified action's GitHub-trigger features
+        # are needed here. The base action has no actor permission check.
+        #
+        # GH_TOKEN is exposed as an env var so Claude's `Bash(gh:*)` calls are
+        # authenticated (the unified action's `github_token` input did this;
+        # the base action does not take a github_token input).
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: anthropics/claude-code-base-action@main
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
-          github_token: ${{ secrets.GITHUB_TOKEN }}
           claude_args: >-
             --model claude-opus-4-7
             --allowedTools "Read,Bash(gh:*),Glob,Grep"
-          show_full_output: true
           prompt: |
             Read REVIEW_PROFILE.md for the user's review patterns.
             Analyze PR #${{ needs.eligibility.outputs.pr_number }} against those patterns.
 
-            Trigger context: ${{ needs.eligibility.outputs.trigger_kind }}
-              - "pr_updated": PR was opened non-draft or received new commits. Do a full triage.
-              - "ready_for_review": a draft was just marked ready. Do a full triage.
+            Trigger: ${{ needs.eligibility.outputs.trigger_kind }}
+            (For your information only — does not change the analysis algorithm below.)
+              - "build_passed": a CI build just completed successfully.
+              - "pr_updated": PR was opened non-draft or received new commits.
+              - "ready_for_review": a draft was just marked ready.
               - "author_responded": the PR author replied to a prior admin comment.
-                Use `gh pr view` and `gh api` to fetch the full comment thread.
-                Evaluate whether the author's reply resolves the concerns that
-                were raised. If it does, recommend approve. If not, restate the
-                unresolved concern.
+              - "admin_triage": an admin used /triage to manually request
+                triage; this also bypasses the Tier 1 diff safety scan.
+              - "security_override": an admin bypassed the security scan.
 
-            === Jira ticket verification ===
+            === Review context ===
 
-            Every PR must reference at least one Jira ticket (in the title or
-            body) whose resolution authorized a change. Only three resolutions
-            authorize changes: "Persuasive", "Persuasive with Modification",
-            and "Not Persuasive with Modification".
-
-            Ticket data has already been fetched and filtered. Read the file
-            `jira-tickets.json` at the repo root. Its schema:
+            Read `pr-timeline.json`. It contains the full chronological history
+            of commits and comments on this PR, with each comment tagged with
+            the commenter's role ("admin" or "contributor"). Its schema:
 
               {
-                "tickets": [
-                  {
-                    "key": "FHIR-NNNN",
-                    "summary": "...",
-                    "status": "...",
-                    "resolutionName": "Persuasive" | "Persuasive with Modification" | "Not Persuasive with Modification",
-                    "description": "original proposal",
-                    "resolutionDescription": "what was AGREED (authoritative)",
-                    "comments": [ { "author": "...", "body": "..." }, ... ]
-                  }
-                ],
-                "fetchErrors": ["FHIR-NNNN", ...],
-                "noAuthorizingTickets": true | false
+                "has_admin_comments": true | false,
+                "anchor_sha": "<sha>" | null,
+                "diff_base": "<sha>",
+                "head_sha": "<sha>",
+                "timeline": [
+                  // commit entry:
+                  { "type": "commit", "sha": "...", "ts": "...",
+                    "author": "...", "message": "..." },
+                  // comment entry:
+                  { "type": "comment", "id": 123, "ts": "...",
+                    "author": "...", "role": "admin" | "contributor",
+                    "body": "..." }
+                ]
               }
 
-            Rules:
+            Use the timeline to understand what analysis has already been done
+            and what the admin has identified as needing attention.
 
-            1. If noAuthorizingTickets is true → blocking issue. No tickets
-               that authorized changes were specified. The PR is not covered
-               by a ticket agreement.
+            === Diff scope ===
 
-            2. For each ticket in `tickets`:
+            The diff you must evaluate is NOT necessarily the full PR diff.
+            It is scoped based on the timeline:
 
-               a. The change that should be in the diff is described by
-                  resolutionDescription. This is the AGREED change, which
-                  may differ from the original proposal.
+            If has_admin_comments is TRUE:
+              - anchor_sha is the commit immediately before the admin
+                conversation block (the most recent commit followed by at
+                least one admin comment).
+              - Evaluate ONLY the changes introduced after the anchor commit:
+                  git diff <anchor_sha>..<head_sha>
+              - The admin's comments (and the subsequent conversation) are
+                the authoritative statement of what issues need to be
+                addressed. Do NOT re-raise issues from earlier in the PR
+                history that the admin did not mention — those were
+                intentionally set aside.
+              - Evaluate whether the commits and comments after the admin
+                conversation block address the issues raised. Also check
+                whether those new commits introduce any NEW issues not
+                previously present.
 
-               b. If resolutionName is exactly "Persuasive" AND
-                  resolutionDescription is empty, fall back to description
-                  (the original proposal) as the agreed change.
+            If has_admin_comments is FALSE:
+              - Do a full cold triage of the entire PR diff:
+                  git diff <diff_base>..<head_sha>
+              - No prior review context exists. Evaluate the PR from scratch
+                against the Jira tickets and REVIEW_PROFILE.md.
 
-               c. resolutionDescription may reference "the description" or a
-                  comment (e.g., "as per Joe's comment"). Use description and
-                  comments to resolve those references.
-
-            3. Verify alignment between the PR diff and each agreed change:
-               - Does the PR implement what was agreed?
-               - Are there substantive out-of-scope changes? (Minor drive-by
-                 fixes are fine; new behavior without ticket backing is not.)
-               - Is anything agreed-upon missing from the implementation?
-
-            4. Ignore unrequested changes to files ending `-mapping-exceptions.xml`,
-               files with `example` in their name, or other files that appear to be
-               example instances impacted by authorized changes.
-
-            5. For any key in fetchErrors, flag that the ticket could not be
-               verified.
-
-            Do NOT fetch tickets yourself. All necessary data is already in
-            jira-tickets.json.
+            ${{ steps.promptbuild.outputs.section }}
 
             === Security ===
 
@@ -973,15 +1665,7 @@ jobs:
             Think through your analysis step by step. Then, at the very end of
             your response, output a JSON object with these fields and nothing
             after it:
-              recommendation: "approve" | "request_changes" | "discuss"
-              suggestedResponse: GitHub-flavored markdown describing questions or issues to address before approval. Empty string if no issues.
-              confidence: "high" | "medium" | "low"
-              ticketAlignment: {
-                authorizingTickets: [list of FHIR-NNNN keys],
-                fetchErrors: [list of keys that couldn't be fetched],
-                scopeMatch: "aligned" | "partial" | "mismatch" | "no_authorizing_tickets",
-                concerns: markdown describing alignment issues, or empty string
-              }
+              ${{ steps.promptbuild.outputs.schema }}
 
       - name: Parse triage output
         id: parse
@@ -989,11 +1673,19 @@ jobs:
         env:
           HTML_URL: ${{ needs.eligibility.outputs.html_url }}
           TRIGGER_KIND: ${{ needs.eligibility.outputs.trigger_kind }}
+          PR_NUMBER: ${{ needs.eligibility.outputs.pr_number }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REVIEW_MODE: ${{ inputs.review_mode }}
         run: |
-          LOG_FILE="/home/runner/work/_temp/claude-execution-output.json"
-          if [ ! -f "$LOG_FILE" ]; then
-            echo "ERROR: Claude execution log not found at $LOG_FILE"
-            ls -la /home/runner/work/_temp/ || true
+          # claude-code-base-action exposes the execution log path via its
+          # `execution_file` output. (The unified action wrote to a fixed
+          # $RUNNER_TEMP path; the base action's output is the robust way to
+          # locate it.)
+          LOG_FILE="${{ steps.claude.outputs.execution_file }}"
+          if [ -z "$LOG_FILE" ] || [ ! -f "$LOG_FILE" ]; then
+            echo "ERROR: Claude execution log not found at '$LOG_FILE'"
+            ls -la "${RUNNER_TEMP:-/home/runner/work/_temp}/" || true
             exit 1
           fi
 
@@ -1050,15 +1742,29 @@ jobs:
 
           if [ "$RECOMMENDATION" = "request_changes" ]; then
             LINK_URL="$HTML_URL/files"
+          elif [ "$RECOMMENDATION" = "approve" ]; then
+            # If the PR currently has a "changes requested" review state,
+            # link to /files so the admin can click Approve without
+            # navigating manually.
+            CHANGES_REQUESTED=$(gh api \
+              "/repos/$GITHUB_REPOSITORY/pulls/$PR_NUMBER/reviews" \
+              --jq '[.[] | select(.state == "CHANGES_REQUESTED")] | length > 0' \
+              2>/dev/null || echo "false")
+            if [ "$CHANGES_REQUESTED" = "true" ]; then
+              LINK_URL="$HTML_URL/files"
+            else
+              LINK_URL="$HTML_URL"
+            fi
           else
             LINK_URL="$HTML_URL"
           fi
           echo "link_url=$LINK_URL" >> $GITHUB_OUTPUT
 
           case "$TRIGGER_KIND" in
-            author_responded) SUBJECT_TAG="follow-up" ;;
-            ready_for_review) SUBJECT_TAG="ready for review" ;;
-            *)                SUBJECT_TAG="triage" ;;
+            author_responded)  SUBJECT_TAG="follow-up" ;;
+            ready_for_review)  SUBJECT_TAG="ready for review" ;;
+            security_override) SUBJECT_TAG="security override" ;;
+            *)                 SUBJECT_TAG="triage" ;;
           esac
           echo "subject_tag=$SUBJECT_TAG" >> $GITHUB_OUTPUT
 
@@ -1067,26 +1773,28 @@ jobs:
           echo "SRMEOF_42" >> $GITHUB_OUTPUT
 
           TICKET_LINES=""
-          if [ -z "$TICKET_KEYS" ]; then
-            TICKET_LINES="- Authorizing tickets: (none)"$'\n'
-          else
-            LINKED=""
-            IFS=', ' read -ra KEY_ARRAY <<< "$TICKET_KEYS"
-            for key in "${KEY_ARRAY[@]}"; do
-              [ -z "$key" ] && continue
-              if [ -n "$LINKED" ]; then
-                LINKED="$LINKED, "
-              fi
-              LINKED="$LINKED[$key](https://jira.hl7.org/browse/$key)"
-            done
-            TICKET_LINES="- Authorizing tickets: $LINKED"$'\n'
-          fi
-          TICKET_LINES="$TICKET_LINES- Scope match: $SCOPE_MATCH"$'\n'
-          if [ -n "$TICKET_ERRORS" ]; then
-            TICKET_LINES="$TICKET_LINES- Fetch errors: $TICKET_ERRORS"$'\n'
-          fi
-          if [ -n "$TICKET_CONCERNS" ] && [ "$TICKET_CONCERNS" != "null" ]; then
-            TICKET_LINES="$TICKET_LINES"$'\n'"$TICKET_CONCERNS"$'\n'
+          if [ "$REVIEW_MODE" = "ticket-alignment" ]; then
+            if [ -z "$TICKET_KEYS" ]; then
+              TICKET_LINES="- Authorizing tickets: (none)"$'\n'
+            else
+              LINKED=""
+              IFS=', ' read -ra KEY_ARRAY <<< "$TICKET_KEYS"
+              for key in "${KEY_ARRAY[@]}"; do
+                [ -z "$key" ] && continue
+                if [ -n "$LINKED" ]; then
+                  LINKED="$LINKED, "
+                fi
+                LINKED="$LINKED[$key](https://jira.hl7.org/browse/$key)"
+              done
+              TICKET_LINES="- Authorizing tickets: $LINKED"$'\n'
+            fi
+            TICKET_LINES="$TICKET_LINES- Scope match: $SCOPE_MATCH"$'\n'
+            if [ -n "$TICKET_ERRORS" ]; then
+              TICKET_LINES="$TICKET_LINES- Fetch errors: $TICKET_ERRORS"$'\n'
+            fi
+            if [ -n "$TICKET_CONCERNS" ] && [ "$TICKET_CONCERNS" != "null" ]; then
+              TICKET_LINES="$TICKET_LINES"$'\n'"$TICKET_CONCERNS"$'\n'
+            fi
           fi
 
           echo "ticket_block<<TBEOF_42" >> $GITHUB_OUTPUT
@@ -1100,6 +1808,9 @@ jobs:
           SUGGESTED_RESPONSE_MD: ${{ steps.parse.outputs.suggested_response_md }}
           TICKET_BLOCK: ${{ steps.parse.outputs.ticket_block }}
           TIER2_ADVISORY: ${{ steps.scan.outputs.tier2_advisory }}
+          TIER1_OVERRIDDEN: ${{ steps.scan.outputs.tier1_overridden }}
+          SECURITY_OVERRIDE: ${{ needs.eligibility.outputs.security_override }}
+          HEAD_SHA: ${{ needs.eligibility.outputs.head_sha }}
           CONFIDENCE: ${{ steps.parse.outputs.confidence }}
           RECOMMENDATION: ${{ steps.parse.outputs.recommendation }}
           LINK_URL: ${{ steps.parse.outputs.link_url }}
@@ -1108,6 +1819,19 @@ jobs:
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
           LABEL: ${{ inputs.label }}
           TO_LIST: ${{ inputs.to }}
+          REVIEW_MODE: ${{ inputs.review_mode }}
+          GH_EVENT_NAME: ${{ github.event_name }}
+          GH_EVENT_ACTION: ${{ github.event.action }}
+          GH_RUN_ID: ${{ github.run_id }}
+          GH_RUN_NUMBER: ${{ github.run_number }}
+          GH_RUN_ATTEMPT: ${{ github.run_attempt }}
+          GH_SERVER_URL: ${{ github.server_url }}
+          GH_REPOSITORY: ${{ github.repository }}
+          TRIGGER_KIND: ${{ needs.eligibility.outputs.trigger_kind }}
+          IS_FORK: ${{ needs.eligibility.outputs.is_fork }}
+          FORK_LABEL: ${{ needs.eligibility.outputs.fork_label }}
+          BUILD_TIMEOUT: ${{ needs.eligibility.outputs.build_timeout }}
+          PR_NUMBER_FOR_FORK: ${{ needs.eligibility.outputs.pr_number }}
         run: |
           BODY=$(python3 <<'PY'
           import os
@@ -1115,27 +1839,95 @@ jobs:
           confidence = os.environ["CONFIDENCE"]
           suggested_md = os.environ.get("SUGGESTED_RESPONSE_MD", "")
           ticket_block = os.environ.get("TICKET_BLOCK", "")
+          review_mode = os.environ.get("REVIEW_MODE", "ticket-alignment")
           tier2 = os.environ.get("TIER2_ADVISORY", "")
+          tier1_overridden = os.environ.get("TIER1_OVERRIDDEN", "")
+          security_override = os.environ.get("SECURITY_OVERRIDE", "") == "true"
+          head_sha = os.environ.get("HEAD_SHA", "")
           link_url = os.environ["LINK_URL"]
+          is_fork = os.environ.get("IS_FORK", "") == "true"
+          fork_label = os.environ.get("FORK_LABEL", "")
+          build_timeout = os.environ.get("BUILD_TIMEOUT", "") == "true"
+          pr_number = os.environ.get("PR_NUMBER_FOR_FORK", "")
+
+          # Debug info
+          event_name    = os.environ.get("GH_EVENT_NAME", "")
+          event_action  = os.environ.get("GH_EVENT_ACTION", "")
+          run_id        = os.environ.get("GH_RUN_ID", "")
+          run_number    = os.environ.get("GH_RUN_NUMBER", "")
+          run_attempt   = os.environ.get("GH_RUN_ATTEMPT", "1")
+          server_url    = os.environ.get("GH_SERVER_URL", "https://github.com")
+          repository    = os.environ.get("GH_REPOSITORY", "")
+          trigger_kind  = os.environ.get("TRIGGER_KIND", "")
 
           has_content = suggested_md.strip() and suggested_md.strip().lower() != "null"
           body_text = suggested_md.strip() if has_content else "No issues found."
 
           print(f"Recommendation: {recommendation}")
           print(f"Confidence: {confidence}")
+
+          if security_override:
+              print()
+              print(f"NOTE: Security scan was overridden via securityok for commit {head_sha}.")
+
           print()
           print(body_text)
-          print()
-          print("--- Jira alignment ---")
-          print(ticket_block.strip())
+
+          if review_mode == "ticket-alignment":
+              print()
+              print("--- Jira alignment ---")
+              print(ticket_block.strip())
+
+          if tier1_overridden and tier1_overridden.strip():
+              print()
+              print("--- Security findings OVERRIDDEN ---")
+              print(tier1_overridden.strip())
 
           if tier2 and tier2.strip():
               print()
               print("--- Advisory ---")
               print(tier2.strip())
 
+          # Fork PR reminder
+          if is_fork:
+              fork_desc = f" ({fork_label})" if fork_label else ""
+              print()
+              print(f"⚠️  FORK PR{fork_desc} — manual steps required before merge:")
+              print(f"  1. Review diff carefully for security issues (fork PRs bypass Azure Pipelines CI).")
+              print(f"  2. Fetch and push to trigger CI build:")
+              print(f"       git fetch origin pull/{pr_number}/head:review/pr-{pr_number}")
+              print(f"       git push origin review/pr-{pr_number}")
+
+          # CI build warning
+          if build_timeout:
+              print()
+              if is_fork:
+                  print("⚠️  No CI build was detected. This is expected for fork PRs — see steps above.")
+              else:
+                  print("⚠️  No CI build was detected within the wait window. The Azure Pipelines build")
+                  print("    may not have triggered, or may require manual approval. Verify before merging.")
+
           print()
           print(link_url)
+
+          # Collapsible debug section
+          event_str = event_name
+          if event_action:
+              event_str += f" / {event_action}"
+          run_str = f"#{run_number}"
+          if run_attempt and run_attempt != "1":
+              run_str += f" (attempt {run_attempt} — re-run)"
+          run_url = f"{server_url}/{repository}/actions/runs/{run_id}"
+
+          print()
+          print("<details>")
+          print("<summary>Debug info</summary>")
+          print()
+          print(f"Event:        {event_str}")
+          print(f"Trigger kind: {trigger_kind}")
+          print(f"Run:          {run_str} — {run_url}")
+          print(f"Head SHA:     {head_sha}")
+          print("</details>")
           PY
           )
 

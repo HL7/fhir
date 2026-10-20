@@ -31,7 +31,7 @@
     </requester>
     
     <dosageInstruction>
-        <simple>
+        <step><component>
         <text value="Use two sprays twice daily"/>
         <additionalInstruction>
             <text value="Shake Well"/>
@@ -58,7 +58,7 @@
                 <code value="ORINHL"/>
             </doseQuantity>
         </doseAndRate>
-        </simple>
+        </component></step>
     </dosageInstruction>
     
     <dispenseRequest>

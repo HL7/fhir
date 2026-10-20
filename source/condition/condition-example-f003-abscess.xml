@@ -36,13 +36,15 @@
       <display value="Retropharyngeal abscess"/>
     </coding>
   </code>
-  <bodySite>
-    <coding>
-      <system value="http://snomed.info/sct"/>
-      <code value="280193007"/>
-      <display value="Entire retropharyngeal area"/>
-    </coding>
-  </bodySite>
+  <bodyStructure>
+    <concept>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="280193007"/>
+        <display value="Entire retropharyngeal area"/>
+      </coding>
+    </concept>
+  </bodyStructure>
   <subject>
     <reference value="Patient/f001"/>
     <display value="P. van de Heuvel"/>

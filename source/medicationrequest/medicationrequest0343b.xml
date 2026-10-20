@@ -46,7 +46,7 @@
         </requester>
 
     <dosageInstruction>
-      <simple>
+      <step><component>
         <text
             value="4mg IM twice daily as needed for nausea"/>
         <timing>
@@ -78,7 +78,7 @@
                 <code value="mg"/>
             </doseQuantity>
         </doseAndRate>
-       </simple>   
+       </component></step>   
     </dosageInstruction>
 
 </MedicationRequest>

@@ -3,6 +3,19 @@
 <div>
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
+    <blockquote class="ballot-note" id="bn1">
+    <p><b>Note to Balloters:</b> Changes made since the previous ballot</p>
+    <ul>
+        <li>Substantive:</li>
+            <ul>
+                <li><a href="https://jira.hl7.org/browse/FHIR-54102">FHIR-54102</a> - Added .supportingInfo.subCategory to match Claim.</li>
+            </ul>
+        <li>Non-substantive:</li>
+            <ul>
+                <li><a href="https://jira.hl7.org/browse/FHIR-53099">FHIR-53099</a> - Change binding strength of payeeType to Preferred</li>
+            </ul>
+    </ul>
+    </blockquote>
 <p>
 The ClaimResponse resource provides application level adjudication results, or an application level error,
  which are the result of processing a submitted Claim resource where that Claim may be the functional corollary of
@@ -63,7 +76,7 @@ the provider will settle the claim and potentially recover costs against specifi
 			<a href="explanationofbenefit.html">ExplanationOfBenefit</a> should be used instead.
 		</p>
 
-		<p>When responding whether the patient's coverage is inforce, whether it is valid at this or a specified date, or returning
+		<p>When responding whether the patient's coverage is in-force, whether it is valid at this or a specified date, or returning
 		the benefit details or preauthorization requirements associated with a coverage
 		<a href="coverageeligibilityresponse.html">CoverageEligibilityResponse</a> should be used instead and be the response to a
 		<a href="coverageeligibilityrequest.html">CoverageEligibilityRequest</a>.

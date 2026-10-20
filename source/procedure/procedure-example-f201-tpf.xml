@@ -42,13 +42,15 @@
        </concept>
   </reason>
   <!--TODO Why can't this be Resource (any) AND String?-->
-  <bodySite>
-      <coding>
-        <system value="http://snomed.info/sct"/>
-        <code value="272676008"/>
-        <display value="Entire sphenoid bone (body structure)"/>
-      </coding>
-  </bodySite>
+  <bodyStructure>
+      <concept>
+          <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="272676008"/>
+            <display value="Entire sphenoid bone (body structure)"/>
+          </coding>
+      </concept>
+  </bodyStructure>
   <!--No outcomes, reports, complications or follow-ups were available-->
   <note> 
     <text value="Eerste neo-adjuvante TPF-kuur bij groot proces in sphenoid met intracraniale uitbreiding."/>

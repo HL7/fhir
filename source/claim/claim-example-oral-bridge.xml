@@ -122,9 +122,11 @@
 	<procedure>
 		<sequence value="1"/>
 		<date value="2014-07-04"/>
-		<procedureCodeableConcept>
+		<procedure>
+		  <concept>
 			<text value="Resection of gum to increase exposed tooth."/>
-		</procedureCodeableConcept>
+		  </concept>
+		</procedure>
 	</procedure>
 
 	<insurance>

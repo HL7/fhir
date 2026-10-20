@@ -75,6 +75,30 @@ can be used to identify the Questionnaire as the data source for the other resou
 <a href="profiling.html">Profiling</a> can be used to define the constraints of a set of Questionnaires - for example that a particular system only supports Questionnaires where answers have certain data types, only recognizes certain extensions, mandates the presence of certain metadata, etc.  However, profiling should NOT be used to define the content of a specific Questionnaire instance.  To define a Questionnaire instance, simply create an instance of Questionnaire as you would any other resource.
 </p>
 
+<a name="fhirpath"> </a>
+<h3>
+FHIRPath Additions
+</h3>
+<p>
+The following additional guidance applies to using <a href="fhirpath.html">FHIRPath</a> with Questionnaire and QuestionnaireResponses:
+</p>
+<ul>
+  <li>The <code>%resource</code> variable when it appears in expressions on elements in Questionnaire will be evaluated as the root of the QuestionnaireResponse.
+</li>
+<li>The <code>%context</code> variable will be set to the QuestionnaireResponse if the expression extension is defined on the Questionnaire root. Otherwise, it will be interpreted as the QuestionnaireResponse.item(s) whose linkId matches the linkId of the Questionnaire.item the expression extension was defined in. I.e. while the extensions and expressions are defined in the Questionnaire, they are evaluated in the context of the corresponding item(s) in the QuestionnaireResponse.
+</li>
+<li>
+All expressions that specify a 'name' can be accessed by other expressions appearing on the same item or any descendant item as though that name was part of context. The same is true for the 'name' element in the <a href="https://hl7.org/fhir/uv/sdc/STU3/StructureDefinition-sdc-questionnaire-launchContext.html">launchContext extension</a>. For example, a variable with the name 'score' could be accessed in FHIRPath or CQL using %score.
+</li>
+</ul>
+<p>
+In addition, a couple of additional variables are defined for use with extensions evaluated in the context of a QuestionnaireResponse:
+</p>
+<ul>
+  <li><code>%questionnaire</code> corresponds to the Questionnaire resource resolved to by the QuestionnaireResponse.questionnaire element. It is in scope for all expressions defined in the Questionnaire.</li>
+  <li><code>%qitem</code> is defined as a shortcut to get to the Questionnaire.item that corresponds to the context QuestionnaireResponse.item (based on matching linkId). It is only valid for FHIRPath expressions defined within a Questionnaire item.</li>
+</ul>
+
 <a name="structure"> </a>
 <h3>Structure of the Questionnaire</h3>
 <p>
@@ -246,6 +270,30 @@ Where the names are the same (ignoring case), the "answer" must use the specifie
     </tr>
   </tbody>
 </table>
+
+
+<a name="coded"> </a>
+<h3>Using Coded Answers</h3>
+<p>
+It's not uncommon for legacy questionnaires to have "coded" questions that have a code but no system or
+sometimes even just a display value.  While this is not prohibited, it's not good practice.
+</p>
+<p>
+A Coding with no code cannot be meaningfully computed on, and a Coding with no system has no semantic meaning.
+If only a display is available, consider using the <code>string</code> type.  If the codes are 'made up', simply define a
+CodeSystem url based on the Questionnaire url and itemId or some other unique string.
+</p>
+
+
+<a name="alternativetype"> </a>
+<h3>Handling alternative question types</h3>
+<p>In most cases, if there is a need to capture an answer type not in the list of allowed types, the preferred solution is to use a group with child questions that define 
+the needed data.  However, if there is a genuine need to convey an unsupported type (e.g. SampledData), the recommended solution is as follows:</p>
+<ol>
+  <li>Set the item.type to 'string'</li>
+  <li>Place a modifier extension on the item that indicates that the type is not actually a string, but something else</li>
+  <li>Communicate the answer (and if necessary initial values, min values, max values, etc. with an extension with a value of the desired data type)</li>
+</ol>
 
 <a name="choices"></a>
 <h3>Permitted values for questions</h3>

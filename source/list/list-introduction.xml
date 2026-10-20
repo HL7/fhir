@@ -1,5 +1,18 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
+<blockquote class="ballot-note" data-augury-generated="true" id="bn1">
+  <p><b>Note to Balloters:</b> Changes since the last ballot: the one substantive change to the List resource in this window is the addition of a new <code>List.contributor</code> element; all other edits are editorial (spelling and abbreviation corrections) to the resource notes and two examples.</p>
+  <p><b>Compatible substantive</b></p>
+  <ul>
+    <li>Added a new <code>List.contributor</code> element to the List resource, so a list can record additional contributors; resolves the request that <code>List.source</code> be repeatable (a dedicated contributor element was added rather than relaxing the cardinality of <code>List.source</code>). [<a href="https://jira.hl7.org/browse/FHIR-53061">FHIR-53061</a>]</li>
+  </ul>
+  <p><b>Technical Correction</b></p>
+  <ul>
+    <li>Applied planned spelling and abbreviation corrections to the List resource notes and the examples. [<a href="https://jira.hl7.org/browse/FHIR-55172">FHIR-55172</a>]</li>
+    <li>Corrected the &ldquo;processsing&rdquo; spelling error to &ldquo;processing&rdquo; in the List resource notes. [<a href="https://jira.hl7.org/browse/FHIR-53788">FHIR-53788</a>]</li>
+  </ul>
+</blockquote>
+
 <div>
 <a name="scope"></a>
 <h2>Scope and Usage</h2>

@@ -16,12 +16,10 @@
 		<reference value="Location/1/_history/1"/>
 	</location>
 	<authorization>
-		<concept>
-			<coding>
-				<system value="http://terminology.hl7.org/CodeSystem/v3-ActReason"/>
-				<code value="TREAT"/>
-			</coding>
-		</concept>
+		<coding>
+			<system value="http://terminology.hl7.org/CodeSystem/v3-ActReason"/>
+			<code value="TREAT"/>
+		</coding>
 	</authorization>
 	<activity>
 		<coding>

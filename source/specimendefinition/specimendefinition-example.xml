@@ -29,23 +29,13 @@
         </type>
        <preference value="preferred" />
        <container>
-          <material>
-              <text value="glass"/>
-          </material>
-          <type>
+          <deviceCodeableConcept>
             <coding>
                 <system value="http://snomed.info/sct"/>
                 <code value="702281005"/>
                 <display value="Evacuated blood collection tube with thrombin and clot activator and gel separator"/>
             </coding>
-           </type>
-           <cap>
-              <coding>
-                <system value="http://terminology.hl7.org/5.1.0/CodeSystem-container-cap.html"/>
-                <code value="yellow"/>
-                <display value="yellow cap"/>
-              </coding>
-            </cap>
+          </deviceCodeableConcept>
             <minimumVolumeQuantity>
                  <value value="2"/>
                  <unit value="ml"/>

@@ -2499,7 +2499,7 @@ Future todo:
 			</xs:element>
 			<xs:element name="email" type="EMail" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The e-mail address at which the individiual can be reached.</xs:documentation>
+					<xs:documentation>The e-mail address at which the individual can be reached.</xs:documentation>
 					<xs:documentation>UML: Part of a complex tag value</xs:documentation>
 				</xs:annotation>
 			</xs:element>

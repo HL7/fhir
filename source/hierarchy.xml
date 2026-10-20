@@ -229,8 +229,8 @@ signatures.html
 
       <page title="Validating Resources" filename="validation.html"/>
       <page title="Mappings to other Standards" filename="mappings.html"/>
-      <page title="Mapping Language" filename="mapping-language.html">
-        <page title="Mapping Language Tutorial" filename="mapping-tutorial.html"/>
+      <page title="Mapping Language" filename="https://build.fhir.org/ig/HL7/mapping-language-ig/fml.html">
+        <page title="Mapping Language Tutorial" filename="https://build.fhir.org/ig/HL7/mapping-language-ig/tutorial.html"/>
       </page>
       <page type="resource" resource="StructureMap"/>
       <page title="Common Usages" filename="usecases.html"/>

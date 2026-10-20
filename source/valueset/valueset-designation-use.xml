@@ -53,5 +53,11 @@
         <code value="900000000000013009"/>
       </concept>
     </include>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+      <concept>
+        <code value="preferredForLanguage"/>
+      </concept>
+    </include>
   </compose>
 </ValueSet>
