@@ -3,7 +3,9 @@
   <id value="example"/>
   <type value="contraindication"/>
   <subject>
-    <reference value="MedicinalProductDefinition/example"/>
+    <reference>
+      <reference value="MedicinalProductDefinition/example"/>
+    </reference>
   </subject>
   <!-- example product is contraindicated with Hepatic disease -->
   <contraindication>

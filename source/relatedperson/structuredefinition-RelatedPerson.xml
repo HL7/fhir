@@ -412,8 +412,8 @@
     </element>
     <element id="RelatedPerson.communication">
       <path value="RelatedPerson.communication"/>
-      <short value="A language which may be used to communicate with the related person about the patient's health"/>
-      <definition value="A language which may be used to communicate with the related person about the patient's health."/>
+      <short value="A language which may be used to communicate with the related person"/>
+      <definition value="A language which may be used to communicate with the related person."/>
       <comment value="If no language is specified, this *implies* that the default local language is spoken.  If you need to convey proficiency for multiple modes, then you need multiple RelatedPerson.Communication associations.   If the RelatedPerson does not speak the default local language, then the Interpreter Required Standard can be used to explicitly declare that an interpreter is required."/>
       <requirements value="If a related person does not speak the local language, interpreters may be required, so languages spoken and proficiency is an important things to keep track of both for patient and other persons of interest."/>
       <min value="0"/>
@@ -432,7 +432,7 @@
     </element>
     <element id="RelatedPerson.communication.language">
       <path value="RelatedPerson.communication.language"/>
-      <short value="The language which can be used to communicate with the related person about the patient's health"/>
+      <short value="The language which can be used to communicate with the related person"/>
       <definition value="The language which may be used to communicate with the individual." />
       <comment value="The language is commonly represented using the ISO-639-1 alpha code in lower case for the language, optionally followed by a hyphen and the ISO-3166-1 alpha code for the region in upper case.  For example, &quot;en&quot; for English, or &quot;en-US&quot; for American English versus &quot;en-AU&quot; for Australian English, sgn-US for American Sign Language, sgn-NL for Dutch Sign Language, etc.&#xD;&#xD;Not all systems actually code this but instead have it as free text. Hence CodeableConcept instead of code as the data type." />
       <requirements value="Most systems in multilingual countries will want to convey language. Not all systems actually need the regional dialect."/>

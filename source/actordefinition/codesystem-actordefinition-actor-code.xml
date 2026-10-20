@@ -50,14 +50,17 @@
       <concept>
         <code value="patient"/>
         <display value="Patient"/>
+        <definition value="An individual or animal that is the subject of health-related care, services, or processes"/>
       </concept>
       <concept>
         <code value="practitioner"/>
         <display value="Practitioner"/>
+        <definition value="A person who is directly or indirectly involved in the provisioning of healthcare or related services"/>
       </concept>
       <concept>
         <code value="related-person"/>
         <display value="Related Person"/>
+        <definition value="A person involved in a patient's health or care, but who is not the primary target of healthcare"/>
       </concept>
     </concept>
     <concept>
@@ -76,19 +79,28 @@
       <concept>
         <code value="care-team"/>
         <display value="Care Team"/>
+        <definition value="The people, organizations, and care teams who participate or plan to participate in the coordination and delivery of care"/>
       </concept>
       <concept>
         <code value="group"/>
         <display value="Group"/>
+        <definition value="A collection of entities that may be discussed or acted upon collectively, but which are not typically expected to act collectively"/>
       </concept>
       <concept>
         <code value="healthcare-service"/>
         <display value="Healthcare Service"/>
+        <definition value="A healthcare service available at a location"/>
       </concept>
       <concept>
         <code value="organization"/>
         <display value="Organization"/>
+        <definition value="A formally or informally recognized grouping of people or organizations formed to achieve some form of collective action"/>
       </concept>
     </concept>
+  </concept>
+  <concept>
+    <code value="system"/>
+    <display value="System"/>
+    <definition value="Software and/or hardware involved in data exchange"/>
   </concept>
 </CodeSystem>

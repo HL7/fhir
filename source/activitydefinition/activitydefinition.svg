@@ -446,7 +446,7 @@
        class="diagram-class-detail"><a
    id="n1250"
    xlink:href="activitydefinition-definitions.html#ActivityDefinition.author"><title
-   id="title178">An individiual or organization primarily involved in the creation and maintenance of the content</title>author</a> : <a
+   id="title178">An individual or organization primarily involved in the creation and maintenance of the content</title>author</a> : <a
    id="n1251"
    xlink:href="metadatatypes.html#ContactDetail">ContactDetail</a> [0..*]</text>
     <text

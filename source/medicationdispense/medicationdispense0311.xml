@@ -45,7 +45,7 @@
     <whenPrepared value="2015-01-15T10:20:00Z"/>
     <whenHandedOver value="2015-01-15T16:20:00Z"/>
     <dosageInstruction>
-        <simple>
+        <step><component>
             <text value="Insert two suppositories (240mg) rectally twice daily as needed for fever to a maximim of 6 per day"/>
             <additionalInstruction>
                 <coding>
@@ -99,6 +99,6 @@
                     </period>
                 </doseLimit>
             </safety>
-        </simple>
+        </component></step>
     </dosageInstruction>
 </MedicationDispense>

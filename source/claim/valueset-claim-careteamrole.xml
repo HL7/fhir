@@ -22,7 +22,7 @@
   <name value="ClaimCareTeamRoleCodes"/>
   <title value="Claim Care Team Role Codes"/>
   <status value="active"/>
-  <experimental value="true"/>
+  <experimental value="false"/>
   <publisher value="Financial Management"/>
   <contact>
     <telecom>

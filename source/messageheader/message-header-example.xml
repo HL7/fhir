@@ -61,9 +61,11 @@
 		  <enterer>
 		    <reference value="Practitioner/example"/>
 		  </enterer>
+		  <!--
 		  <author>
 		    <reference value="Practitioner/example"/>
 		  </author>
+		  -->
 		  <source>
 		    <name value="Acme Central Patient Registry"/>
 		    <software value="FooBar Patient Manager"/>

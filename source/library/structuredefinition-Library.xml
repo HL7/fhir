@@ -14,7 +14,7 @@
 		<valueInteger value="3"/>
 	</extension>
 	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
-		<valueCode value="anonymous"/>
+		<valueCode value="business"/>
 	</extension>
 	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
 		<valueCode value="cds"/>
@@ -156,7 +156,7 @@
 		<element id="Library.version">
 			<path value="Library.version"/>
 			<short value="Business version of the library"/>
-			<definition value="The identifier that is used to identify this version of the library when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the library author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge artifacts, refer to the Decision Support Service specification. Note that a version is required for non-experimental active artifacts."/>
+			<definition value="The identifier that is used to identify this version of the library when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the library author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence.  For more information on versioning knowledge artifacts, refer to the Canonical Resource Management Infrastructure (CRMI) implementation guide artifact versioning discussion (http://hl7.org/fhir/uv/crmi/artifact-lifecycle.html#artifact-versioning)."/>
 			<comment value="There may be different library instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the library with the format [url]|[version]. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format)."/>
 			<min value="0"/>
 			<max value="1"/>
@@ -475,7 +475,7 @@
 			<path value="Library.jurisdiction"/>
 			<short value="Jurisdiction of the authority that maintains the library (if applicable)"/>
 			<definition value="A legal or geographic region in which the authority that maintains the resource is operating.  In general, the jurisdiction is also found in the useContext.  The useContext may reference additional jurisdictions because the defining jurisdiction does not necessarily limit the jurisdictions of use."/>
-			<comment value="It may be possible for the library to be used in jurisdictions other than those for which it was originally designed or intended.&#xa;&#xa;DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)"/>
+			<comment value="It may be possible for the library to be used in jurisdictions other than those for which it was originally designed or intended."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
@@ -650,13 +650,9 @@
 			</mapping>
 		</element>
 		<element id="Library.topic">
-			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-				<valueCode value="deprecated"/>
-			</extension>
 			<path value="Library.topic"/>
 			<short value="E.g. Education, Treatment, Assessment, etc"/>
 			<definition value="Descriptive topics related to the content of the library. Topics provide a high-level categorization of the library that can be useful for filtering and searching."/>
-			<comment value="DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'topic' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#topic and useContext.valueCodeableConcept indicating the topic)"/>
 			<requirements value="Repositories must be able to determine how to categorize the library so that it can be found by topical searches."/>
 			<min value="0"/>
 			<max value="*"/>
@@ -679,7 +675,7 @@
 		<element id="Library.author">
 			<path value="Library.author"/>
 			<short value="Who authored the content"/>
-			<definition value="An individiual or organization primarily involved in the creation and maintenance of the content."/>
+			<definition value="An individual or organization primarily involved in the creation and maintenance of the content."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
@@ -749,7 +745,7 @@
 				<key value="lib-2"/>
 				<severity value="warning"/>
 				<human value="Dependencies and components of a Library should reference a resource"/>
-				<expression value="type in ('depends-on' | 'composed-of' | 'part-of') implies ((resource.exists() xor resourceReference.exists()) or (artifact is canonical xor artifact is Reference))"/>
+				<expression value="type in ('depends-on' | 'composed-of' | 'part-of') implies ((resource.exists() xor resourceReference.exists()))"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/Library"/>
 			</constraint>
 			<mapping>

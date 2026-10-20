@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BodyStructure xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/bodystructure.xsd">
+    <id value="breast-mass" />
+    <includedStructure>
+        <structure>
+            <coding>
+                <system value="http://snomed.info/sct" />
+                <code value="76752008" />
+                <display value="Breast" />
+            </coding>
+        </structure>
+        <laterality>
+            <coding>
+                <system value="http://snomed.info/sct" />
+                <code value="7771000" />
+                <display value="Left" />
+            </coding>
+        </laterality>
+        <bodyLandmarkOrientation>
+            <clockFacePosition>
+                <coding>
+                    <system value="http://snomed.info/sct" />
+                    <code value="260328008" />
+                    <display value="2 o'clock position" />
+                </coding>
+            </clockFacePosition>
+        </bodyLandmarkOrientation>
+        <bodyLandmarkOrientation>
+            <landmarkDescription>
+                <coding>
+                    <system value="http://snomed.info/sct" />
+                    <code value="24142002" />
+                    <display value="Nipple" />
+                </coding>
+            </landmarkDescription>
+            <distanceFromLandmark>
+                <value>
+                    <value value="3" />
+                    <unit value="cm" />
+                    <system value="http://unitsofmeasure.org" />
+                    <code value="cm" />
+                </value>
+            </distanceFromLandmark>
+        </bodyLandmarkOrientation>
+        <qualifier>
+            <coding>
+                <system value="http://snomed.info/sct" />
+                <code value="261183002" />
+                <display value="Upper" />
+            </coding>
+        </qualifier>
+        <morphology>
+            <coding>
+                <system value="http://snomed.info/sct" />
+                <code value="89164003" />
+                <display value="Breast mass" />
+            </coding>
+        </morphology>
+    </includedStructure>
+    <patient>
+        <reference value="Patient/genetics-example1" />
+    </patient>
+</BodyStructure>

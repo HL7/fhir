@@ -412,9 +412,23 @@
        y="406.0"
        fill="black"
        class="diagram-class-detail"><a
+	    id="n1587"
+   xlink:href="measure-definitions.html#Measure.topic"><title
+   id="title84996">Descriptive topics related to the content of the measure. Topics provide a high-level categorization grouping types of measures that can be useful for filtering and searching</title>topic</a> : <a
+   id="n1588"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n1589"
+   xlink:href="valueset-definition-topic.html"><title
+   id="n1590">null (Strength=Example)</title>DefinitionTopic</a>?? »</text>
+    <text
+       id="n1596"
+       x="6.0"
+       y="420.0"
+       fill="black"
+       class="diagram-class-detail"><a
    id="n1597"
    xlink:href="measure-definitions.html#Measure.author"><title
-   id="title85003">An individiual or organization primarily involved in the creation and maintenance of the content</title>author</a> : <a
+   id="title85003">An individual or organization primarily involved in the creation and maintenance of the content</title>author</a> : <a
    id="n1598"
    xlink:href="metadatatypes.html#ContactDetail">ContactDetail</a> [0..*]</text>
     <text

@@ -9,12 +9,10 @@
   </target>
   <recorded value="2026-04-25T19:00:00Z"/>
   <authorization>
-    <concept>
-      <coding>
-        <system value="http://terminology.hl7.org/CodeSystem/v3-ActReason"/>
-        <code value="RECORDMGT"/>
-      </coding>
-    </concept>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ActReason"/>
+      <code value="RECORDMGT"/>
+    </coding>
   </authorization>
   <why value="Data verification. The data was properly changed to be associated with the primary patient record."/>
   <activity>

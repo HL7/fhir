@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="risk-assessment-type-example"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="cds"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="informative"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/risk-assessment-type-example"/>
+  <version value="6.0.0"/>
+  <name value="RiskAssessmentTypeExample"/>
+  <title value="Risk Assessment Type Example"/>
+  <status value="active"/>
+  <experimental value="true"/>
+  <publisher value="FHIR Project team"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="Example value set illustrating possible codes for identifying the types of risk assessment; e.g. Renal, Cardiovascular, or Hepatic risk."/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/risk-assessment-type-example"/>
+    </include>
+  </compose>
+</ValueSet>

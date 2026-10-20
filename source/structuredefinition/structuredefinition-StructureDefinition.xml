@@ -518,7 +518,7 @@
 			<path value="StructureDefinition.jurisdiction"/>
 			<short value="Jurisdiction of the authority that maintains the structure definition (if applicable)"/>
 			<definition value="A legal or geographic region in which the authority that maintains the resource is operating.  In general, the jurisdiction is also found in the useContext.  The useContext may reference additional jurisdictions because the defining jurisdiction does not necessarily limit the jurisdictions of use."/>
-			<comment value="It may be possible for the structure definition to be used in jurisdictions other than those for which it was originally designed or intended.&#xa;&#xa;DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)"/>
+			<comment value="It may be possible for the structure definition to be used in jurisdictions other than those for which it was originally designed or intended."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
@@ -718,6 +718,7 @@
 			<path value="StructureDefinition.kind"/>
 			<short value="primitive-type | complex-type | resource | logical"/>
 			<definition value="Defines the kind of structure that this definition is describing."/>
+			<comment value="If pre-adopting a new 'kind' from a future version, set the type to 'logical' and specify the details of the new kind as an extension."/>
 			<min value="1"/>
 			<max value="1"/>
 			<type>

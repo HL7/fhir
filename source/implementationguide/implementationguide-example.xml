@@ -44,9 +44,14 @@
   <dependsOn>
     <uri value="http://example.org/fhir/ImplementationGuide/base"/>
   </dependsOn>
+  <!-- either a US or an AU patient -->
   <global>
     <type value="Patient"/>
     <profile value="http://hl7.org/fhir/us/core/StructureDefinition/patient"/>
+  </global>
+  <global>
+    <type value="Patient"/>
+    <profile value="http://hl7.org/fhir/au/core/StructureDefinition/patient"/>
   </global>
   <definition>
     <grouping>

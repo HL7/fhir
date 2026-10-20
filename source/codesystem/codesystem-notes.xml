@@ -49,6 +49,20 @@ Code Systems may be distributed in fragments for the following reasons:
  <li>Special purpose modules for specific purposes</li>
  <li>Distribution of proposed content for evaluation</li>
 </ul>
+
+<blockquote class="ballot-note" id="bn1">
+<p><b>Note to Balloters:</b></p>
+<p>
+We have deliberately left certain behaviors up to terminology server implementers given the
+variety of approaches and complexity in dealing with multiple CodeSystem fragments for the
+same CodeSystem. We are interested in hearing from developers and implementers on how they
+have managed this situation.  
+</p>
+<p>
+Also see <a href="terminologycapabilities.html#TerminologyCapabilities.implementation.fragmentSupport">TerminologyCapabilities.implementation.fragmentSupport</a> element definition.
+</p>
+</blockquote>
+
 <p>
 The following rules apply to code system fragments:
 </p>
@@ -58,6 +72,7 @@ The following rules apply to code system fragments:
  <li>Fragments cannot contain any codes, concepts or properties that would not be found in a complete representation of the code system, if one exists. Implementers should note that a "complete representation" of the code system might not exist in a single authoritative publication (e.g., SNOMED International with all modules/extensions)</li>
  <li>Publishing a code system in multiple fragments can create confusion for terminology servers and terminology service consumers.</li>
  <li>The intent, bounds and consequences of the fragmentation are clearly defined in the fragment or the code system documentation.</li>
+ <li>If a fragment is drawn from a versioned code system, the fragment SHOULD provide a value for CodeSystem.version.</li>
 </ul>
 
 <a name="supplements"></a>
@@ -72,7 +87,7 @@ describes a code system supplement. The following rules apply to code system sup
  <li>The <code>CodeSystem.url</code> for a supplement must be under the control of the authority creating or publishing the supplement 
    (e.g. not in the same space as the code system being supplemented, unless the supplement is being issued by the same authority as the original code system</li>
  <li> A codesystem supplement cannot define any new CodeSystem.concept.code. i.e.: all CodeSystem.concept.code in the supplement must 
-   be a code from the "supplemented" code system. Some code systems reserve code space for local use without explicitly declaring codes; these codes may be referenced in a supplement</li>
+   be a code from the "supplemented" code system. Some code systems reserve code space for local use that may also be referenced in a supplement</li>
 </ul>
 <p>
 If a supplement needs to define new concepts/codes to use as property values, it can be paired with a new (possibly contained)
@@ -88,13 +103,17 @@ is often longer. All concepts SHOULD have a <code>display</code> and a <code>def
 mandatory because there are many cases where no such properties are provided, in spite of their utility and importance
 for clear and safe communication.
 </p>
+
 <p>
-In addition to the display and definition, a concept can have one or more <code>designation</code> elements. 
-The display is equivalent to a special designation with an implied <code>designation.use</code> meaning "primary code/designation" 
-and a language equal to the <a href="resource.html#language">Resource Language</a>. The designations can provide additional displays
-for other language, as well as designations for other purposes. 
-When using concepts, applications use the <code>display</code> and <code>designation</code> unless the language or usage in context provides a reason
-to use one of the designations.
+The display is equivalent to a designation with an implied <code>designation.use</code> of <i>preferredForLanguage</i> and a language equal to the <a href="resource.html#language">Resource Language</a>.
+</p>
+
+<p>
+In addition to the display and definition, a concept can have one or more <code>designation</code> elements. The designations can provide additional displays for other languages, as well as designations for other purposes. When using concepts, applications use the <code>display</code> unless the language or usage in context provides a reason to use one of the designations.
+</p>
+
+<p>
+Language translations can be provided in a <a href="codesystem.html#supplements">code system supplement</a> if they cannot be provided in the code system itself.
 </p>
 
 <a name="properties"></a>
@@ -366,6 +385,12 @@ rules apply:
 The status also relates to properties such as deprecation and retirement date. The status of the concept SHOULD 
 always be consistent with these other properties.
 </p>
+<p>
+Due to variations in editorial process and the uncertainty introduced by distributed lifecycle management, these rules are not always 
+followed, though they should be considered best practice.  When they are not followed we recommend that the status overrides any date 
+related properties when present, and codes should only be considered inactive if the inactive concept property has a value of true or 
+in the presence of editorial intent.
+</p>
 
 <a name="synonyms"></a>
 <h3>Synonyms and Alternate Codes</h3>
@@ -375,8 +400,8 @@ Many code systems define multiple codes for the same real world concept. Some co
 (e.g. case-sensitive vs case insensitive) while others arise over time as the editorial process unfolds. Some 
 established code systems treat these as synonym codes for the same concept, while others treat them as synonym
 concepts - duplicated concepts with the same real world meaning, though the definition sometimes differ. Another 
-reason for duplicated concepts is to deal with implied poly-heirarchical concepts in systems that do not support 
-formal poly-heirarchies.
+reason for duplicated concepts is to deal with implied polyhierarchical concepts in systems that do not support 
+formal polyhierarchies.
 </p>
 <p>
 Whatever the reason, in FHIR code systems, all kinds of synonyms are represented the same way: as 
@@ -623,9 +648,14 @@ would not match a concept with a retiredDate of 2022-09-12.
 <a name="implicit-code-systems"> </a>
 <h2>Implicit Code Systems</h2>
 <p>
-Some other parts of the FHIR infrastructure define set of concepts that may also be treated as code systems. This is most useful when mapping between systems using <a title="[%resdesc ConceptMap%]" href="conceptmap.html">Concept Maps</a>, but might also be useful for other code system related functionality (e.g. subsetting using <a title="[%resdesc ValueSet%]" href="valueset.html">Value Sets</a>). The table below summarizes how to treat these items as a code system:
+Instead of an explicit code system definition (e.g., a FHIR CodeSystem instance), implicit CodeSystems can be inferred from an instance of each of the Resources below. The value of various CodeSystem elements is inferred from elements in the corresponding resources based on the mapping table below. Such code systems are particularly useful when mapping between the underpinning structures in the table below using <a title="[%resdesc ConceptMap%]" href="conceptmap.html">Concept Maps</a>. The table below summarizes how to treat these items as a code system:
 </p>
 <table class="grid">
+   <tr>
+     <th>Implicit Code System Resource Type</th>
+     <th>Code System Element</th>
+     <th>Implicit Code System Resource Type Source Element</th>
+   </tr>
  <!-- StructureDefinition -->
    <tr>
    <td rowspan="5"><b><a title="[%resdesc StructureDefinition%]" href="structuredefinition.html">StructureDefinition</a></b></td>

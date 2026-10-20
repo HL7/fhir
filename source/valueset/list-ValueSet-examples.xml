@@ -66,18 +66,6 @@
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="Common UCUM codes"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="valueset-ucum-common"/>
-    </extension>
-    <item>
-      <reference value="ValueSet/ucum-common"/>
-      <display value="UCUM Common"/>
-    </item>
-  </entry>
-  <entry>
-    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="All CPT codes"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">

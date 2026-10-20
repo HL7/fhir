@@ -26,5 +26,11 @@
 	  </coding>
 	</concept>
   </definition>
-  <handling value="dichotomous"/>
+      <handling>
+        <coding>
+            <system value="https://fevir.net/sevco"/>
+            <code value="STATO:0000090"/>
+            <display value="dichotomous variable"/>
+        </coding>  
+    </handling>
 </EvidenceVariable>

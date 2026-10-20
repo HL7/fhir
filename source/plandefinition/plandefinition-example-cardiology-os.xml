@@ -52,7 +52,7 @@
       <productReference>
         <reference value="#metoprololTartrate25Medication"/>
       </productReference>
-      <dosage>
+      <dosageInstruction><step><component>
         <text value="1 tablet oral 2 time daily"/>
         <timing>
           <repeat>
@@ -81,7 +81,7 @@
             <unit value="{tbl}"/>
           </doseQuantity>
         </doseAndRate>
-      </dosage>
+      </component></step></dosageInstruction>
       <dynamicValue>
         <path value="medicationRequest.priority"/>
         <expression>
@@ -111,9 +111,13 @@
       </doseForm>
       <ingredient>
         <item>
-          <reference>
-          <reference value="#metoprololTartrate25Substance"/>
-          </reference>
+          <concept>
+            <coding>
+              <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
+              <code value="6918"/>
+            </coding>
+            <text value="Metoprolol"/>
+          </concept>
         </item>
         <strengthRatio>
           <numerator>
@@ -129,21 +133,6 @@
     </Medication>
   </contained>
   <contained>
-    <Substance>
-      <id value="metoprololTartrate25Substance"/>
-      <instance value="false"/>
-      <code>
-        <concept>
-          <coding>
-            <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
-            <code value="6918"/>
-          </coding>
-          <text value="Metoprolol"/>
-        </concept>
-      </code>
-    </Substance>
-  </contained>
-  <contained>
     <ActivityDefinition>
       <id value="metoprololTartrate50Prescription"/>
       <status value="draft"/>
@@ -151,7 +140,7 @@
       <productReference>
         <reference value="#metoprololTartrate50Medication"/>
       </productReference>
-      <dosage>
+     <dosageInstruction><step><component>
         <text value="1 tablet oral 2 time daily"/>
         <timing>
           <repeat>
@@ -180,7 +169,7 @@
             <unit value="{tbl}"/>
           </doseQuantity>
         </doseAndRate>
-      </dosage>
+      </component></step></dosageInstruction>
       <dynamicValue>
         <path value="medicationRequest.priority"/>
         <expression>
@@ -210,9 +199,13 @@
       </doseForm>
       <ingredient>
         <item>
-        <reference>
-          <reference value="#metoprololTartrate50Substance"/>
-        </reference>
+          <concept>
+            <coding>
+              <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
+              <code value="6918"/>
+            </coding>
+            <text value="Metoprolol"/>
+          </concept>
         </item>
         <strengthRatio>
           <numerator>
@@ -228,21 +221,6 @@
     </Medication>
   </contained>
   <contained>
-    <Substance>
-      <id value="metoprololTartrate50Substance"/>
-      <instance value="false"/>
-      <code>
-        <concept>
-          <coding>
-            <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
-            <code value="6918"/>
-          </coding>
-          <text value="Metoprolol"/>
-        </concept>
-      </code>
-    </Substance>
-  </contained>
-  <contained>
     <ActivityDefinition>
       <id value="amlodipinePrescription" />
       <status value="draft" />
@@ -250,7 +228,7 @@
       <productReference>
         <reference value="#amlodipineMedication" />
       </productReference>
-      <dosage>
+      <dosageInstruction><step><component>
         <text value="1 tablet oral 1 time daily" />
         <timing>
           <repeat>
@@ -279,7 +257,7 @@
             <unit value="{tbl}" />
           </doseQuantity>
         </doseAndRate>
-      </dosage>
+      </component></step></dosageInstruction>
       <dynamicValue>
         <path value="medicationRequest.priority" />
         <expression>
@@ -299,21 +277,25 @@
         </coding>
         <text value="amLODIPine 5 MG" />
       </code>
-      <form>
+      <doseForm>
         <coding>
           <system value="http://snomed.info/sct" />
           <code value="385055001" />
           <display value="Tablet (basic dose form)" />
         </coding>
         <text value="Tablet dose form" />
-      </form>
+      </doseForm>
       <ingredient>
         <item>
-          <reference>
-            <reference value="#amlodipineSubstance" />
-          </reference>
+          <concept>
+            <coding>
+              <system value="http://www.nlm.nih.gov/research/umls/rxnorm" />
+              <code value="17767" />
+            </coding>
+            <text value="amLODIPine" />
+          </concept>
         </item>
-        <amount>
+        <strengthRatio>
           <numerator>
             <value value="5" />
             <unit value="mg" />
@@ -322,24 +304,9 @@
             <value value="1" />
             <unit value="{tbl}" />
           </denominator>
-        </amount>
+        </strengthRatio>
       </ingredient>
     </Medication>
-  </contained>
-  <contained>
-    <Substance>
- 		<instance value="false"/>
-     <id value="amlodipineSubstance" />
-      <code>
-        <concept>
-          <coding>
-            <system value="http://www.nlm.nih.gov/research/umls/rxnorm" />
-            <code value="17767" />
-          </coding>
-          <text value="amLODIPine" />
-        </concept>
-      </code>
-    </Substance>
   </contained>
   <contained>
     <ActivityDefinition>
@@ -349,7 +316,7 @@
       <productReference>
         <reference value="#nitroglycerinMedication"/>
       </productReference>
-      <dosage>
+      <dosageInstruction><step><component>
         <text value="nitroglycerin 0.4 mg tablet sub-lingual every 5 minutes as needed for chest pain; maximum 3 tablets"/>
         <timing>
           <repeat>
@@ -387,7 +354,7 @@
             <scope value="administration"/>
           </doseLimit>
         </safety>
-      </dosage>
+      </component></step></dosageInstruction>
       <dynamicValue>
         <path value="medicationRequest.priority"/>
         <expression>
@@ -417,9 +384,13 @@
       </doseForm>
       <ingredient>
         <item>
-        <reference>
-          <reference value="#nitroglycerinSubstance"/>
-        </reference>
+          <concept>
+            <coding>
+              <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
+              <code value="4917"/>
+            </coding>
+            <text value="Nitroglycerin"/>
+          </concept>
         </item>
         <strengthRatio>
           <numerator>
@@ -433,21 +404,6 @@
         </strengthRatio>
       </ingredient>
     </Medication>
-  </contained>
-  <contained>
-    <Substance>
-      <id value="nitroglycerinSubstance"/>
-      <instance value="false"/>
-      <code>
-        <concept>
-          <coding>
-            <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
-            <code value="4917"/>
-          </coding>
-          <text value="Nitroglycerin"/>
-        </concept>
-      </code>
-    </Substance>
   </contained>
   <contained>
     <ValueSet>

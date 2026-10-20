@@ -231,16 +231,13 @@
 			<meaningWhenMissing value="If absent, this resource is treated as though it is not experimental."/>
 			<isSummary value="true"/>
 		</element>
-		<element id="SpecimenDefinition.subject[x]">
-			<path value="SpecimenDefinition.subject[x]"/>
+		<element id="SpecimenDefinition.subjectReference">
+			<path value="SpecimenDefinition.subjectReference"/>
 			<short value="Type of subject for specimen collection"/>
-			<definition value="A code or group definition that describes the intended subject  from which this kind of specimen is to be collected."/>
-			<comment value="Examples: person, animal, device, water …."/>
+			<definition value="Defines the intended subject type(s) from which this kind of specimen is to be collected."/>
+			<comment value="Use the Group.type code: 'person' if the subject is human; 'animal' if the subject is animal; a choice of 'location', 'medication', 'substance', 'biologicallyDerivedProduct', or 'nutritionProduct' if the subject is environmental.&#xA;&#xA;For more detailed descriptions of the kind of subjects, use Group.characteristic.value to indicate included (or, if Group.characteristic.exclude = true, excluded) subjects based on specific Group.characteristic.code.&#xA;&#xA;For example, to indicate child or adult, use descendants of [410598002 | Person categorized by age (person)](https://browser.ihtsdotools.org/?perspective=full&amp;conceptId1=410598002&amp;edition=MAIN&amp;release=&amp;languages=en) in Group.characteristic.valueCodeableConcept, where .code = https://loinc.org/46251-5/, or report age range in .valueRange where .code = https://loinc.org/35659-2/.&#xA;&#xA;For example, to indicate allowable species or breed, use descendants of [387961004 | Kingdom Animalia (organism)](https://browser.ihtsdotools.org/?perspective=full&amp;conceptId1=387961004&amp;edition=MAIN&amp;release=&amp;languages=en) when Group.type is 'animal'."/>
 			<min value="0"/>
 			<max value="1"/>
-			<type>
-				<code value="CodeableConcept"/>
-			</type>
 			<type>
 				<code value="Reference"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
@@ -587,99 +584,30 @@
 				<code value="BackboneElement"/>
 			</type>
 		</element>
-		<element id="SpecimenDefinition.typeTested.container.material">
-			<path value="SpecimenDefinition.typeTested.container.material"/>
-			<short value="The material type used for the container"/>
-			<definition value="The type of material of the container."/>
-			<comment value="Examples: glass, plastic, metal."/>
+		<element id="SpecimenDefinition.typeTested.container.device[x]">
+			<path value="SpecimenDefinition.typeTested.container.device[x]"/>
+			<short value="Container kind as a code, or a DeviceDefinition describing the container"/>
+			<definition value="The type of container used to contain this kind of specimen, expressed either as a code or as a reference to a DeviceDefinition that describes the container (including its material, type, cap, description and capacity)."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
 				<code value="CodeableConcept"/>
 			</type>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="ContainerMaterial"/>
-				</extension>
-				<extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
-					<valueString value="Types of material for specimen containers."/>
-				</extension>
-				<strength value="example"/>
-				<description value="SCT 32039001 |Glass|, 61088005 |Plastic|, 425620007 |Metal|"/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/container-material"/>
-			</binding>
-		</element>
-		<element id="SpecimenDefinition.typeTested.container.type">
-			<path value="SpecimenDefinition.typeTested.container.type"/>
-			<short value="Kind of container associated with the kind of specimen"/>
-			<definition value="The type of container used to contain this kind of specimen."/>
-			<min value="0"/>
-			<max value="1"/>
 			<type>
-				<code value="CodeableConcept"/>
+				<code value="canonical"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
 			</type>
 			<binding>
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="ContainerType"/>
-				</extension>
-				<extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
-					<valueString value="Type of specimen container."/>
+					<valueString value="ContainerDeviceCode"/>
 				</extension>
 				<strength value="example"/>
-				<description value="SCT descendants of 706041008 |Device for body fluid and tissue collection/transfer/processing (physical object)|"/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/specimen-container-type"/>
+				<description value="Codes for specimen container devices."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/containerdevice-code"/>
 			</binding>
-		</element>
-		<element id="SpecimenDefinition.typeTested.container.cap">
-			<path value="SpecimenDefinition.typeTested.container.cap"/>
-			<short value="Color of container cap"/>
-			<definition value="Color of container cap."/>
-			<requirements value="From ISO 6710-2017 Table F.1 Recommended colour codes."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="CodeableConcept"/>
-			</type>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="ContainerCap"/>
-				</extension>
-				<strength value="example"/>
-				<description value="Color of the container cap."/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/container-cap"/>
-			</binding>
-		</element>
-		<element id="SpecimenDefinition.typeTested.container.description">
-			<path value="SpecimenDefinition.typeTested.container.description"/>
-			<short value="The description of the kind of container"/>
-			<definition value="The textual description of the kind of container."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="markdown"/>
-			</type>
-			<example>
-				<label value="General"/>
-				<valueString value="Blue top tube with citrate"/>
-			</example>
 			<mapping>
 				<identity value="v2"/>
 				<map value="OM4-3"/>
-			</mapping>
-		</element>
-		<element id="SpecimenDefinition.typeTested.container.capacity">
-			<path value="SpecimenDefinition.typeTested.container.capacity"/>
-			<short value="The capacity of this kind of container"/>
-			<definition value="The capacity (volume or other measure) of this kind of container."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="Quantity"/>
-				<profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
-			</type>
-			<mapping>
-				<identity value="v2"/>
-				<map value="OM4-4, OM4-5"/>
 			</mapping>
 		</element>
 		<element id="SpecimenDefinition.typeTested.container.minimumVolume[x]">
@@ -714,17 +642,14 @@
 				<map value="OM4-7"/>
 			</mapping>
 		</element>
-		<element id="SpecimenDefinition.typeTested.container.additive.additive[x]">
-			<path value="SpecimenDefinition.typeTested.container.additive.additive[x]"/>
-			<short value="Additive associated with container"/>
-			<definition value="Substance introduced in the kind of container to preserve, maintain or enhance the specimen. Examples: Formalin, Citrate, EDTA."/>
+		<element id="SpecimenDefinition.typeTested.container.additive.type">
+			<path value="SpecimenDefinition.typeTested.container.additive.type"/>
+			<short value="The additive substance"/>
+			<definition value="The type of substance introduced in the kind of container to preserve, maintain or enhance the specimen. Examples: Formalin, Citrate, EDTA."/>
 			<min value="1"/>
 			<max value="1"/>
 			<type>
-				<code value="CodeableConcept"/>
-			</type>
-			<type>
-				<code value="Reference"/>
+				<code value="CodeableReference"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/SubstanceDefinition"/>
 			</type>
 			<binding>
@@ -733,12 +658,23 @@
 				</extension>
 				<strength value="example"/>
 				<description value="Substance added to specimen container."/>
-				<valueSet value="http://terminology.hl7.org/ValueSet/v2-0371"/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/substance-code"/>
 			</binding>
 			<mapping>
 				<identity value="v2"/>
 				<map value="OM4-7"/>
 			</mapping>
+		</element>
+		<element id="SpecimenDefinition.typeTested.container.additive.quantity">
+			<path value="SpecimenDefinition.typeTested.container.additive.quantity"/>
+			<short value="Quantity of additive substance within container"/>
+			<definition value="The quantity of the additive substance in the container; may be volume, dimensions, or other appropriate measurements, depending on the container and additive substance type."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="Quantity"/>
+				<profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
+			</type>
 		</element>
 		<element id="SpecimenDefinition.typeTested.container.preparation">
 			<path value="SpecimenDefinition.typeTested.container.preparation"/>

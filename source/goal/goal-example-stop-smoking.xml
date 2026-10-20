@@ -27,6 +27,7 @@
 		<display value="Peter James Chalmers"/>
 	</subject>
 	<startDate value="2015-04-05" />
+	<!--
 	<outcome>
     <concept>
       <coding>
@@ -37,4 +38,5 @@
   		<text value="Former smoker"/>
     </concept>
 	</outcome>
+	-->
 </Goal>

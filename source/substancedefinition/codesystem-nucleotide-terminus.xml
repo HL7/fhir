@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="nucleotide-terminus"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="brr"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="informative"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <url value="http://hl7.org/fhir/nucleotide-terminus"/>
+  <version value="6.0.0"/>
+  <name value="NucleotideTerminusExample"/>
+  <title value="Nucleotide Terminus"/>
+  <status value="active"/>
+  <experimental value="true"/>
+  <date value="2026-06-19"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="The nucleotide present at a sequence terminus (5′ or 3′)."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/nucleotide-terminus"/>
+  <content value="complete"/>
+  <concept>
+    <code value="A"/>
+    <display value="Adenosine"/>
+    <definition value="Adenosine (A)."/>
+  </concept>
+  <concept>
+    <code value="T"/>
+    <display value="Thymidine"/>
+    <definition value="Thymidine (T)."/>
+  </concept>
+  <concept>
+    <code value="C"/>
+    <display value="Cytidine"/>
+    <definition value="Cytidine (C)."/>
+  </concept>
+  <concept>
+    <code value="G"/>
+    <display value="Guanosine"/>
+    <definition value="Guanosine (G)."/>
+  </concept>
+  <concept>
+    <code value="U"/>
+    <display value="Uridine"/>
+    <definition value="Uridine (U)."/>
+  </concept>
+</CodeSystem>

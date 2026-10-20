@@ -344,7 +344,7 @@
       <path value="ConceptMap.jurisdiction"/>
       <short value="Jurisdiction of the authority that maintains the concept map (if applicable)"/>
       <definition value="A legal or geographic region in which the authority that maintains the resource is operating.  In general, the jurisdiction is also found in the useContext.  The useContext may reference additional jurisdictions because the defining jurisdiction does not necessarily limit the jurisdictions of use."/>
-			<comment value="It may be possible for the concept map to be used in jurisdictions other than those for which it was originally designed or intended.&#xa;&#xa;DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)"/>
+			<comment value="It may be possible for the concept map to be used in jurisdictions other than those for which it was originally designed or intended."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -470,13 +470,9 @@
       </mapping>
     </element>
     <element id="ConceptMap.topic">
-			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-				<valueCode value="deprecated"/>
-      </extension>
       <path value="ConceptMap.topic"/>
       <short value="E.g. Education, Treatment, Assessment, etc"/>
       <definition value="Descriptions related to the content of the ConceptMap. Topics provide a high-level categorization as well as keywords for the ConceptMap that can be useful for filtering and searching."/>
-			<comment value="DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'topic' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#topic and useContext.valueCodeableConcept indicating the topic)"/>
       <requirements value="Repositories must be able to determine how to categorize the ConceptMap so that it can be found by topical and keyword searches."/>
       <min value="0"/>
       <max value="*"/>
@@ -497,7 +493,7 @@
       </extension>
       <path value="ConceptMap.author"/>
       <short value="Who authored the ConceptMap"/>
-      <definition value="An individiual or organization primarily involved in the creation and maintenance of the ConceptMap."/>
+      <definition value="An individual or organization primarily involved in the creation and maintenance of the ConceptMap."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -723,6 +719,22 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/conceptmap-attribute-type"/>
       </binding>
     </element>
+    <element id="ConceptMap.allowedRelationship">
+      <path value="ConceptMap.allowedRelationship"/>
+      <short value="related-to | equivalent | source-is-narrower-than-target | source-is-broader-than-target | not-related-to"/>
+      <definition value="The only values that can be used to populate the ConceptMap.group.element.target.relationship in this ConceptMap."/>
+      <meaningWhenMissing value="Any relationship can be used"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <strength value="required"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/concept-map-relationship"/>
+      </binding>
+    </element>  
     <element id="ConceptMap.sourceScope[x]">
       <path value="ConceptMap.sourceScope[x]"/>
       <short value="The source value set that contains the concepts that are being mapped"/>

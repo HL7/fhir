@@ -201,7 +201,7 @@ the section about <a href="extensibility.html#primitives">Extensions on Primitiv
 
 <tr>
   <td>id<a name="id"></a></td>
-  <td>Any combination of upper- or lower-case ASCII letters ('A'..'Z', and 'a'..'z', numerals ('0'..'9'), '-' and '.', with a length limit of 64 characters.  (This might be an integer, an un-prefixed OID, UUID or any other identifier pattern that meets these constraints.)</td>
+  <td>Any combination of upper- or lower-case ASCII letters ('A'..'Z', and 'a'..'z', numerals ('0'..'9'), '-' and '.', with a length limit of 64 characters.  (This might be an integer, an un-prefixed OID, UUID or any other identifier pattern that meets these constraints.) No whitespace characters are allowed.</td>
   <td>xs:string</td>
   <td>JSON string</td>
 </tr>
@@ -215,7 +215,7 @@ the section about <a href="extensibility.html#primitives">Extensions on Primitiv
 <tr>
   <td>instant<a name="instant"></a></td>
   <td>An instant in time in a format that is a subset of <a href="https://www.iso.org/iso-8601-date-and-time-format.html">[ISO8601]</a>: YYYY-MM-DDThh:mm:ss.sss+zz:zz (e.g., 2015-02-07T13:28:17.239+02:00 or 2017-01-01T00:00:00Z). The time SHALL specified at least to the second and SHALL include a timezone offset.
-    Actual timezone codes can be sent using the [[[http://hl7.org/fhir/StructureDefinition/timezone extension]]], if desired.  Sub-millisecond precision is optionally allowed.
+    Actual timezone codes can be sent using the <a href="[%extensions-location%]StructureDefinition-timezone.html">timezone</a> extension, if desired.  Sub-millisecond precision is optionally allowed.
     Note: This is intended for when precisely observed times are required (typically system logs etc.), and not human-reported times - for those, use date or dateTime (which can be as precise as <code>instant</code>, but is not required to be). <code>instant</code> is a more constrained dateTime</td>
   <td>xs:dateTime</td>
   <td>A JSON string - an xs:dateTime</td>
@@ -399,7 +399,6 @@ Notes:
 </p>
 <ul>
  <li>For all the types, the XML, JSON and Turtle representations of the primitive values are the same except for different escaping in XML and JSON, and some more specific type indications in RDF</li>
- <li>For string content,  parsers and serializers MAY retain, escape or strip unescaped non-supported UNICODE characters. If the characters are retained, a subsequent application-layer process can then determine appropriate handling based on context.</li>
  <li>For decimal values, the XML special values <code>INF</code>, <code>-INF</code> and <code>NaN</code> are not allowed, and JSON is restricted to the <a href="https://www.w3.org/TR/xmlschema-2/">precision limits documented in XML schema for xs:double and xs:decimal</a></li>
  <li>The precision of the decimal value has significance:<a name="precision"></a>
     <ul>
@@ -415,10 +414,6 @@ Notes:
  <li>Issues with the specified regexes:
    <ul>
      <li>The regexes are provided to assist with tooling, but are informative, <b>not normative</b>. There are several issues with the regexes.</li>
-     <li>The string regex has problems with Unicode - specifically, it might or might not allow Unicode whitespace to some degree depending on Unicode support in the regex engine being used.
-        The regexes <code>[\r\n\t\x{0020}-\x{FFFF}]*</code> or <code>[\r\n\t\u0020-\uFFFF]*</code> are better expressions of the constraints on string, but poorly supported (see <a href="https://www.regular-expressions.info/unicode.html">Regex Tutorial</a> for details).
-        The <code>string</code> regex also applies to <code>markdown</code> as well. The regex does not enforce the length limit</li>
-     <li>The Unicode issues also apply to the regex for <code>code</code>.</li>
      <li>The regexes should be qualified with start of string and end of string anchors based on the regex implementation used (e.g., caret '^' and dollar-sign '$' for JavaScript, POSIX, XML and XPath; '\A' and '\Z' for .NET, Java, Python and others; please verify these definitions with the regex implementation used).</li>
      <li>The regexes may allow a broader set of values than are actually valid (e.g., leap years) so additional validation is always needed.</li>
    </ul>
@@ -427,6 +422,7 @@ Notes:
  <li>About the id datatype:
    <ul>
      <li>Ids are case sensitive. UUIDs SHALL be sent using lowercase letters.</li>
+     <li>Ids SHALL NOT contain whitespace characters (including spaces, tabs, carriage returns, line feeds, and non-breaking spaces).</li>
      <li>The ID type includes identifiers consistent with <a href="http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=38610">ISO 18232</a>, but also includes other identifier formats as well, and is not case insensitive like ISO 18232.</li>
      <li>In a typical FHIR URL, like <code>http://example.com/fhir/Patient/<span style="color: maroon">1234</span></code>, the last part "1234" (highlighted in red) is the part that is an id datatype.</li>
      <li>A full UUID is a <code>uri</code>, not an <code>id</code>. UUIDs in URIs SHALL also be represented in lowercase (urn:uuid:59bf0ef4-e89c-4628-9b51-12ae3fdbe22b).</li>
@@ -463,6 +459,30 @@ Notes:
 A simple way to convert plain text to be safe as markdown is to prefix any of the characters *, &amp;, #, [, &lt;, >, and ` with a backslash (\).
 When presenting markdown as plain text, implementers may wish to reverse this transform.
 [%end-note%]
+
+<a name="unicode"></a>
+<h3>Handling Unicode</h3>
+
+<p>
+IETF <a href="https://www.rfc-editor.org/rfc/rfc9839.html">RFC 9839</a> discusses particular sets of Unicode characters that 
+should be avoided on JSON (and XML) mostly because they are not expected or permitted in well-formed unicode. 
+This specification does not prohibit such characters, but implementations SHOULD prohibit their use, and Implementation Guides 
+may prohibit their use.
+</p>
+<p>
+Parsers and serializers MAY retain, escape or strip unescaped non-supported UNICODE characters.
+If the characters are retained, a subsequent application-layer process can then determine appropriate handling based on context.
+</p>
+<p>
+The string regex has problems with Unicode - specifically, it might or might not allow Unicode whitespace to some degree depending
+on Unicode support in the regex engine being used.
+The regexes <code>[\r\n\t\x{0020}-\x{FFFF}]*</code> or <code>[\r\n\t\u0020-\uFFFF]*</code> are better expressions of the constraints 
+on string, but poorly supported (see <a href="https://www.regular-expressions.info/unicode.html">Regex Tutorial</a> for details).
+The <code>string</code> regex also applies to <code>markdown</code> as well. The regex does not enforce the length limit.
+</p>
+<p>The Unicode issues also apply to the regex for <code>code</code>.</p>
+
+
 
 <a name="representations"></a>
 <h3>Representations in XML, JSON, and Turtle</h3>
@@ -692,16 +712,22 @@ is a text representation of the code defined by the <code>system</code> and is u
 the meaning of the code by an application that is not aware of the <code>system</code>.
 </p>
 <p>
-If the 'display' element is populated, the string used in <code>display</code> SHALL be one of the display strings defined for
-that code by the code system. Code systems may define multiple display strings for a single code, by use of:
+If the 'display' element is populated, the string used in <code>display</code> SHALL be 
+one of the display strings defined for that code by one of the in-scope versions of the code system
+or an in-scope code system supplement for that code system. Code systems or supplements 
+may define multiple display strings for a single code, by use of:
 </p>
 <ul>
   <li><code>CodeSystem.concept.display</code></li>
-  <li><code>CodeSystem.concept.designation.value</code> (including in supplements)</li>
-</ul>
-<p>Note that displays defined in value sets (<code>ValueSet.include.concept.display</code> and <code>ValueSet.include.concept.designation.value</code>)
-are not allowed in <code>Coding.display</code>.
-</p>
+  <li><code>CodeSystem.concept.designation.value</code></li>
+</ul> 
+<p>Notes:</p>
+<ul>
+  <li>Code systems and supplements may define multiple display strings for a single code</li>
+  <li>If a Coding.version is specified, that is the only version of the code system in scope. If not, the applicable version(s) may be established by other context, such as meta.profile or validator configuration.</li>
+  <li>Displays defined in value sets (<code>ValueSet.include.concept.display</code> and <code>ValueSet.include.concept.designation.value</code>) are not allowed in <code>Coding.display</code></li>
+</ul>  
+
 <p>
 If one of the available display strings is labeled as preferred, it SHOULD be used (note that <code>CodeSystem.concept.display</code> is preferred
 for the base resource language if it is populated, but other display strings may be preferred in other languages, or for other usages).
@@ -1200,6 +1226,11 @@ A proper ratio has both a numerator and a denominator; however, these are not ma
 to allow an invalid ratio with an extension with further information.
 </p>
 
+<blockquote class="ballot-note" id="bn1">
+  <p><b>Note to Balloters:</b> Ratio.denominator has been changed from a Quantity to a SimpleQuantity, 
+  on the basis that it does not make sense to use a comparator on a denominator</p>
+</blockquote>
+
 <div class="use">
 <p><b>Constraints</b></p>
 [%dt.constraints Ratio%]
@@ -1356,6 +1387,11 @@ errors.
 
 [%dt Identifier 9%]
 
+<p>
+Identifiers are intended to uniquely refer to the entity they appear on or are referencing.  They are not used to
+categorize.  Additional guidance on identifier use can be found on the <a href="resource.html#identifiers">Resource</a>,
+<a href="event.html#identifier">Event pattern</a>, and <a href="request.html#identifier">Request pattern</a> pages.
+</p>
 
 <p>
 The <code>system</code> is an absolute URI that defines a set of identifiers (i.e., how the <code>value</code> is made unique).
@@ -1399,7 +1435,7 @@ Identifiers are expected to be globally unique by nature of the combination of s
 In some cases, the 'value' element is already globally unique independent of Identifier.system.
 Typically, these are absolute URIs of some kind (e.g., an OID, a UUID, or a URI with no trailing local part).
 In such a case, an <code>Identifier.system</code> value <a href="identifier-registry.html">may be established</a> by the assigner
-or community to identify that collection of identifiers
+or community to identify that collection of identifiers.
 </p>
 <p>
 When using globally unique identifiers that are expressible as URIs as a value, a system SHALL be provided.
@@ -1636,7 +1672,7 @@ the specified duration or in relation to some repeating real-world event.
 <p>
 Unless the Timing.repeat specifies a <code>boundsPeriod</code>, the bounds of the repeating cycle are 
 at a time specified in the context where the Timing is used, or the cycle starts immediately. If the repeat 
-is not limited by providing <code>bounds[x]</code> or <cod>count</cod> the bounds of the repeating cycle
+is not limited by providing <code>bounds[x]</code> or <code>count</code> the bounds of the repeating cycle
 are expressed in some criteria elsewhere, either explicitly or implicitly.
 </p>
 <p>
@@ -1663,32 +1699,41 @@ possible, unless the code is BID, TID, QID, AM or PM, which have a ubiquitous me
 This table summarizes some common uses of the Timing Datatype criteria.
 </p>
 <table class="grid">
- <tr><td><b>description</b></td> <td><b>duration</b></td> <td><b>durationUnit</b></td> <td><b>frequency</b></td> <td><b>frequencyMax</b></td> <td><b>period</b></td> <td><b>periodUnit</b></td> <td><b>periodMax</b></td> <td><b>Day of Week</b></td> <td><b>Time Of Day</b></td> <td><b>when</b></td> <td><b>offset</b></td> <td><b>startOffset</b></td>  <td><b>bounds[x]</b></td>  <td><b>count</b></td></tr>
- <tr><td>Every 8 hours</td>      <td></td>                <td></td>                     <td>1</td>                <td></td>                    <td>8</td>             <td>h</td>                  <td></td>               <td></td>                   <td></td>                   <td></td>          <td></td>               <td></td>               <td></td>               <td></td></tr>
- <tr><td>Every 7 days</td>       <td></td>                <td></td>                     <td>1</td>                <td></td>                    <td>7</td>             <td>d</td>                  <td></td>               <td></td>                   <td></td>                   <td></td>          <td></td>               <td></td>               <td></td>               <td></td></tr>
- <tr><td>3 times a day</td>      <td></td>                <td></td>                     <td>3</td>                <td></td>                    <td>1</td>             <td>d</td>                  <td></td>               <td></td>                   <td></td>                   <td></td>          <td></td>               <td></td>               <td></td>               <td></td></tr>
- <tr><td>3-4 times a day</td>    <td></td>                <td></td>                     <td>3</td>                <td>4</td>                   <td>1</td>             <td>d</td>                  <td></td>               <td></td>                   <td></td>                   <td></td>          <td></td>               <td></td>               <td></td>               <td></td></tr>
- <tr><td>Every 4-6 hours</td>    <td></td>                <td></td>                     <td>1</td>                <td></td>                    <td>4</td>             <td>h</td>                  <td>6</td>              <td></td>                   <td></td>                   <td></td>          <td></td>               <td></td>               <td></td>               <td></td></tr>
- <tr><td>Every 21 days for 1 hour</td> <td>1</td>         <td>hr</td>                   <td>1</td>                <td></td>                    <td>21</td>            <td>d</td>                  <td></td>               <td></td>                   <td></td>                   <td></td>          <td></td>               <td></td>               <td></td>               <td></td></tr>
- <tr><td>Every second day</td>    <td></td>         <td></td>                    <td>1</td>                <td></td>                    <td>1</td>            <td>d</td>                  <td></td>               <td></td>                   <td></td>                   <td></td>          <td></td>               <td></td>               <td></td>               <td></td></tr>
- <tr><td>Every second day starting on Day 2</td> <td></td>         <td></td>                   <td>1</td>                <td></td>                    <td>1</td>            <td>d</td>                  <td></td>               <td></td>                   <td></td>                   <td></td>          <td></td>               <td>1 d</td>               <td></td>               <td></td></tr>
- <tr><td>Three times a week for ½ hour</td> <td>0.5</td>  <td>hr</td>                   <td>3</td>                <td></td>                    <td>1</td>             <td>wk</td>                 <td></td>               <td></td>                   <td></td>                   <td></td>          <td></td>               <td></td>               <td></td>               <td></td></tr>
- <tr><td>With breakfast</td>     <td></td>                <td></td>                     <td></td>                 <td></td>                    <td></td>              <td></td>                   <td></td>               <td></td>                   <td></td>                   <td>CM</td>        <td></td>               <td></td>               <td></td>               <td></td></tr>
- <tr><td>For 5 minutes, 10 minutes before meals</td> <td>5</td>     <td>min</td>        <td></td>                 <td></td>                    <td></td>              <td></td>                   <td></td>               <td></td>                   <td></td>                   <td>AC</td>        <td>10</td>             <td></td>               <td></td>               <td></td></tr>
- <tr><td>1 tablet 3 times daily, 30 minutes before meals</td> <td></td>  <td></td>      <td>3</td>                <td></td>                    <td>1</td>             <td>d</td>                  <td></td>               <td></td>                   <td></td>                   <td>AC</td>        <td>30</td>             <td></td>               <td></td>               <td></td></tr>
- <tr><td>BID, 30 mins before meal, for next 10 days</td> <td></td>  <td></td>            <td>2</td>               <td></td>                    <td>1</td>             <td>d</td>                  <td></td>               <td></td>                   <td></td>                   <td>AC</td>        <td>30</td>             <td></td>               <td>Duration = 10 days</td>               <td></td></tr>
- <tr><td>TID, for 14 days</td>   <td></td>                <td></td>                     <td>3</td>                <td></td>                    <td>1</td>             <td>d</td>                  <td></td>               <td></td>                   <td></td>                   <td></td>          <td></td>               <td></td>               <td>Duration = 14 days</td>               <td></td></tr>
- <tr><td>BID, start on 7/1/2015 at 1:00 PM</td> <td></td> <td></td>                     <td>2</td>                <td></td>                    <td>1</td>             <td>d</td>                  <td></td>               <td></td>                   <td></td>                   <td></td>          <td></td>               <td></td>               <td>Period.start = 2015-07-01T13:00:00</td>               <td></td></tr>
- <tr><td>Mon, Wed, Fri Morning</td> <td></td>             <td></td>                     <td>1</td>                <td></td>                    <td>1</td>             <td>d</td>                  <td></td>               <td>mon | wed | fri</td>    <td></td>                   <td>MORN</td>      <td></td>               <td></td>               <td></td>               <td></td></tr>
- <tr><td>Every day at 10am</td>  <td></td>                <td></td>                     <td>1</td>                <td></td>                    <td>1</td>             <td>d</td>                  <td></td>               <td></td>                   <td>10:00</td>              <td></td>          <td></td>               <td></td>               <td></td>               <td></td></tr>
- <tr><td>Take once, at any time</td>  <td></td>           <td></td>                     <td></td>                 <td></td>                    <td></td>              <td></td>                   <td></td>               <td></td>                   <td></td>                   <td></td>          <td></td>               <td></td>               <td></td>               <td>1</td></tr>
- <tr><td>Take every second day, in the morning, until 20 have been taken</td><td></td>  <td></td>  <td>1</td>     <td></td>                    <td>2</td>             <td>d</td>                  <td></td>               <td></td>                   <td></td>                   <td>MORN</td>      <td></td>               <td></td>               <td></td>               <td>20</td></tr>
+ <tr><td><b>description</b></td> <td><b>duration</b></td> <td><b>durationUnit</b></td> <td><b>frequency</b></td> <td><b>frequencyMax</b></td> <td><b>period</b></td> <td><b>periodUnit</b></td> <td><b>periodMax</b></td> <td><b>Day of Week</b></td> <td><b>Time Of Day</b></td> <td><b>when</b></td> <td><b>offset</b></td> <td><b>startOffset</b></td> <td><b>endOffset</b></td> <td><b>bounds[x]</b></td> <td><b>count</b></td></tr>
+ <tr><td>Every 8 hours</td>      <td></td>                <td></td>                     <td>1</td>                <td></td>                    <td>8</td>             <td>h</td>                  <td></td>               <td></td>                   <td></td>                   <td></td>          <td></td>               <td></td>               <td></td>             <td></td>               <td></td></tr>
+ <tr><td>Every 7 days</td>       <td></td>                <td></td>                     <td>1</td>                <td></td>                    <td>7</td>             <td>d</td>                  <td></td>               <td></td>                   <td></td>                   <td></td>          <td></td>               <td></td>               <td></td>             <td></td>               <td></td></tr>
+ <tr><td>3 times a day</td>      <td></td>                <td></td>                     <td>3</td>                <td></td>                    <td>1</td>             <td>d</td>                  <td></td>               <td></td>                   <td></td>                   <td></td>          <td></td>               <td></td>               <td></td>             <td></td>               <td></td></tr>
+ <tr><td>3-4 times a day</td>    <td></td>                <td></td>                     <td>3</td>                <td>4</td>                   <td>1</td>             <td>d</td>                  <td></td>               <td></td>                   <td></td>                   <td></td>          <td></td>               <td></td>               <td></td>             <td></td>               <td></td></tr>
+ <tr><td>Every 4-6 hours</td>    <td></td>                <td></td>                     <td>1</td>                <td></td>                    <td>4</td>             <td>h</td>                  <td>6</td>              <td></td>                   <td></td>                   <td></td>          <td></td>               <td></td>               <td></td>             <td></td>               <td></td></tr>
+ <tr><td>Every 21 days for 1 hour</td> <td>1</td>         <td>hr</td>                   <td>1</td>                <td></td>                    <td>21</td>            <td>d</td>                  <td></td>               <td></td>                   <td></td>                   <td></td>          <td></td>               <td></td>               <td></td>             <td></td>               <td></td></tr>
+ <tr><td>Every second day</td>   <td></td>                <td></td>                     <td>1</td>                <td></td>                    <td>2</td>             <td>d</td>                  <td></td>               <td></td>                   <td></td>                   <td></td>          <td></td>               <td></td>               <td></td>             <td></td>               <td></td></tr>
+ <tr><td>Every second day starting on Day 2</td> <td></td> <td></td>                    <td>2</td>                <td></td>                    <td>4</td>             <td>d</td>                  <td></td>               <td></td>                   <td></td>                   <td></td>          <td></td>               <td>1 d</td>            <td></td>             <td></td>               <td></td></tr>
+ <tr><td>Daily for 21 days in a 28-day cycle (7 days off)</td> <td></td> <td></td>      <td>21</td>               <td></td>                    <td>28</td>            <td>d</td>                  <td></td>               <td></td>                   <td></td>                   <td></td>          <td></td>               <td></td>               <td>7 d</td>          <td></td>               <td></td></tr>
+ <tr><td>Three times a week for ½ hour</td> <td>0.5</td>  <td>hr</td>                   <td>3</td>                <td></td>                    <td>1</td>             <td>wk</td>                 <td></td>               <td></td>                   <td></td>                   <td></td>          <td></td>               <td></td>               <td></td>             <td></td>               <td></td></tr>
+ <tr><td>With breakfast</td>     <td></td>                <td></td>                     <td></td>                 <td></td>                    <td></td>              <td></td>                   <td></td>               <td></td>                   <td></td>                   <td>CM</td>        <td></td>               <td></td>               <td></td>             <td></td>               <td></td></tr>
+ <tr><td>For 5 minutes, 10 minutes before meals</td> <td>5</td> <td>min</td>            <td></td>                 <td></td>                    <td></td>              <td></td>                   <td></td>               <td></td>                   <td></td>                   <td>AC</td>        <td>10</td>             <td></td>               <td></td>             <td></td>               <td></td></tr>
+ <tr><td>1 tablet 3 times daily, 30 minutes before meals</td> <td></td> <td></td>       <td>3</td>                <td></td>                    <td>1</td>             <td>d</td>                  <td></td>               <td></td>                   <td></td>                   <td>AC</td>        <td>30</td>             <td></td>               <td></td>             <td></td>               <td></td></tr>
+ <tr><td>BID, 30 mins before meal, for next 10 days</td> <td></td> <td></td>             <td>2</td>                <td></td>                    <td>1</td>             <td>d</td>                  <td></td>               <td></td>                   <td></td>                   <td>AC</td>        <td>30</td>             <td></td>               <td></td>             <td>Duration = 10 days</td> <td></td></tr>
+ <tr><td>TID, for 14 days</td>   <td></td>                <td></td>                     <td>3</td>                <td></td>                    <td>1</td>             <td>d</td>                  <td></td>               <td></td>                   <td></td>                   <td></td>          <td></td>               <td></td>               <td></td>             <td>Duration = 14 days</td> <td></td></tr>
+ <tr><td>BID, start on 7/1/2015 at 1:00 PM</td> <td></td> <td></td>                      <td>2</td>                <td></td>                    <td>1</td>             <td>d</td>                  <td></td>               <td></td>                   <td></td>                   <td></td>          <td></td>               <td></td>               <td></td>             <td>Period.start = 2015-07-01T13:00:00</td> <td></td></tr>
+ <tr><td>Mon, Wed, Fri Morning</td> <td></td>             <td></td>                     <td>1</td>                <td></td>                    <td>1</td>             <td>d</td>                  <td></td>               <td>mon | wed | fri</td>    <td></td>                   <td>MORN</td>      <td></td>               <td></td>               <td></td>             <td></td>               <td></td></tr>
+ <tr><td>Every day at 10am</td>  <td></td>                <td></td>                     <td>1</td>                <td></td>                    <td>1</td>             <td>d</td>                  <td></td>               <td></td>                   <td>10:00</td>              <td></td>          <td></td>               <td></td>               <td></td>             <td></td>               <td></td></tr>
+ <tr><td>Take once, at any time</td> <td></td>            <td></td>                     <td></td>                 <td></td>                    <td></td>              <td></td>                   <td></td>               <td></td>                   <td></td>                   <td></td>          <td></td>               <td></td>               <td></td>             <td></td>               <td>1</td></tr>
+ <tr><td>Take every second day, in the morning, until 20 have been taken</td> <td></td> <td></td> <td>1</td>      <td></td>                    <td>2</td>             <td>d</td>                  <td></td>               <td></td>                   <td></td>                   <td>MORN</td>      <td></td>               <td></td>               <td></td>             <td></td>               <td>20</td></tr>
 </table>
 <p>
 Note that there are two offsets here: <code>offset</code> which specifies the offset from <code>event</code>, where the event 
 property relates to a regular event, such as before meals. The other kind of offset is <code>startOffset</code> and <code>endOffset</code>
-which relate to the regular events within the repeat window: if they occur with frequency > 1, the start and end offsets impose a 
-gap in the schedule - see <a href="dosage.html#examples">Dosage Examples</a> for usage.
+which relate to the regular events within the repeat window: where used, they require both <code>frequency > 1</code> and <code>period</code>,
+and impose a gap in the schedule - see <a href="dosage.html#examples">Dosage Examples</a> for usage.
+</p>
+<p>
+<b>Periods with start or end offsets</b>: If a <code>Timing.repeat</code> has a <code>startOffset</code> and/or an <code>endOffset</code>, it
+must have a <code>period</code> that indicates the duration the offset is with respect to. In cases without offsets, the frequency indicates
+the number of occurrences that happen across the entire period. If offsets are present, the frequency indicates the number of occurrences
+that happen across the period less the offsets. For example, if period is 28 days with no offsets, a frequency of 21 would equate to
+"3 repetitions every 4 days". However, if an <code>endOffset</code> of 7 days were present, that same frequency would now equate to
+"1 repetition per day" because the effective period would be 28 days - 7 end-offset days = 21 days.
 </p>
 <p>
 This table shows the relationship between the <a href="valueset-timing-abbreviation.html">codes provided as
@@ -1742,6 +1787,11 @@ For example, "within 30 days of hospital discharge" is an interval of time (from
 
 [%dt RelativeTime 14%]
 
+<div class="use">
+<p><b>Constraints</b></p>
+[%dt.constraints RelativeTime%]
+</div>
+
 <p>
 Methods to express the "event" or "context" that is reference point for time relative to that point include any of:
   <ol>
@@ -1794,6 +1844,17 @@ Notes:
 Signature is used in the following places: [%dtusage Signature%], and also there is an
 extension: [[[http://hl7.org/fhir/StructureDefinition/questionnaireresponse-signature]]].
 </p>
+
+<a name="sig-issues"></a>
+<h3>Known Issues:</h3>
+<p>
+There are situations where FHIR requires data to be transformed as part of the exchange process and
+these transformations will potentially cause signature issues unless a custom canonicalization mechanism
+is chosen that takes the changes into account.  These include:
+</p>
+<ul>
+  <li>Expectations for translating relative urls into absolute urls or moving referenced data inline in the <a href="https://build.fhir.org/ig/HL7/bulk-data/">Bulk Data Exchange</a> portion of the spec.</li>
+</ul>
 
 <a name="Annotation"></a>
 <a name="annotation"></a>
@@ -1851,7 +1912,7 @@ Open types are used in the following places: [%dtusage *%]
 </p>
 
 
-<a name="other"></a>
+<a name="type-characteristics"></a>
 <h2>Type Characteristic Summary</h2>
 
 <p>

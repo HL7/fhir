@@ -17,6 +17,7 @@
         <li>Non-substantive Changes
           <ul>
             <li><a href="https://jira.hl7.org/browse/FHIR-55077">FHIR-55077</a>: Potentially re-useable THO-candidate value sets in resource RiskAssessment</li>
+            <li><a href="https://jira.hl7.org/browse/FHIR-53619">FHIR-53619</a>: Added example binding for RiskAssessment code and corrected example instances</li>
           </ul>
         </li>
       </ul>

@@ -1,6 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Specimen xmlns="http://hl7.org/fhir">
     <id value="liver-biopsy"/>
+    <contained>
+        <ServiceRequest>
+            <id value="liver-biopsy-request"/>
+            <status value="active"/>
+            <intent value="order"/>
+            <code>
+                <concept>
+                    <coding>
+                        <system value="http://loinc.org"/>
+                        <code value="11529-5"/>
+                        <display value="Surgical pathology study"/>
+                    </coding>
+                    <text value="Surgical pathology study of liver tissue"/>
+                </concept>
+            </code>
+            <subject>
+                <reference value="Patient/example"/>
+            </subject>
+        </ServiceRequest>
+    </contained>
+    <contained>
+        <Procedure>
+            <id value="liver-biopsy-procedure"/>
+            <status value="completed"/>
+            <code>
+                <coding>
+                    <system value="http://snomed.info/sct"/>
+                    <code value="287489008"/>
+                    <display value="Percutaneous needle biopsy of liver"/>
+                </coding>
+            </code>
+            <subject>
+                <reference value="Patient/example"/>
+            </subject>
+            <occurrenceDateTime value="2024-03-15T09:45:00Z"/>
+            <performer>
+                <actor>
+                    <reference value="Practitioner/gastroenterologist"/>
+                </actor>
+            </performer>
+        </Procedure>
+    </contained>
     <identifier>
         <system value="http://lab.acme.org/specimens/2024"/>
         <value value="LB-2024-001"/>
@@ -20,8 +62,8 @@
     <type>
         <coding>
             <system value="http://snomed.info/sct"/>
-            <code value="119376003"/>
-            <display value="Tissue specimen"/>
+            <code value="128168004"/>
+            <display value="Tissue specimen from liver"/>
         </coding>
     </type>
     <subject>
@@ -30,7 +72,8 @@
     </subject>
     <receivedTime value="2024-03-15T10:30:00Z"/>
     <request>
-        <reference value="ServiceRequest/liver-biopsy-request"/>
+        <reference value="#liver-biopsy-request"/>
+        <display value="Surgical pathology study of liver tissue"/>
     </request>
     <collection>
         <collector>
@@ -46,42 +89,44 @@
         <method>
             <coding>
                 <system value="http://snomed.info/sct"/>
-                <code value="129314006"/>
-                <display value="Biopsy - action"/>
-            </coding>
-        </method>
-        <bodySite>
-            <concept>
-                <coding>
-                    <system value="http://snomed.info/sct"/>
-                    <code value="10200004"/>
-                    <display value="Liver structure"/>
-                </coding>
-            </concept>
-        </bodySite>
-        <procedure>
-            <coding>
-                <system value="http://snomed.info/sct"/>
-                <code value="62438007"/>
+                <code value="287489008"/>
                 <display value="Percutaneous needle biopsy of liver"/>
             </coding>
+        </method>
+        <procedure>
+            <reference value="#liver-biopsy-procedure"/>
         </procedure>
+        <bodyStructure>
+                <concept>
+                    <coding>
+                        <system value="http://snomed.info/sct"/>
+                        <code value="10200004"/>
+                        <display value="Liver structure"/>
+                    </coding>
+                </concept>
+        </bodyStructure>
     </collection>
     <processing>
         <description value="Fixed in 10% neutral buffered formalin"/>
         <additive>
-            <concept>
-                <coding>
-                    <system value="http://terminology.hl7.org/CodeSystem/v2-0371"/>
-                    <code value="F10"/>
-                    <display value="10% Formalin"/>
-                </coding>
-            </concept>
+            <type>
+                <concept>
+                    <coding>
+                        <system value="http://terminology.hl7.org/CodeSystem/v2-0371"/>
+                        <code value="F10"/>
+                        <display value="10% Formalin"/>
+                    </coding>
+                </concept>
+            </type>
         </additive>
         <timeDateTime value="2024-03-15T10:45:00Z"/>
     </processing>
     <container>
-        <deviceCanonical value="http://hl7.org/fhir/Device/specimen-container-formalin"/>
+        <device>
+            <concept>
+                <text value="Formalin specimen container"/>
+            </concept>
+        </device>
         <specimenQuantity>
             <value value="1"/>
             <unit value="specimen"/>
@@ -97,4 +142,3 @@
         <text value="Core biopsy specimen obtained for evaluation of hepatic steatosis and fibrosis. Adequate tissue for histopathological assessment."/>
     </note>
 </Specimen>
-

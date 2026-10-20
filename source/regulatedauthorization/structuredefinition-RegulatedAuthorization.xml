@@ -196,7 +196,7 @@
     </element>
     <element id="RegulatedAuthorization.status">
       <path value="RegulatedAuthorization.status"/>
-      <short value="The status that is authorised e.g. approved. Intermediate states can be tracked with cases and applications"/>
+      <short value="The status that is authorised e.g. active. Intermediate states can be tracked with cases and applications"/>
       <definition value="The status that is authorised e.g. approved. Intermediate states and actions can be tracked with cases and applications."/>
       <min value="0"/>
       <max value="1"/>

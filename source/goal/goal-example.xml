@@ -69,10 +69,12 @@
 	<addresses>
 		<display value="obesity condition"/>
 	</addresses>
+    <!--
 	<outcome>
     <reference>
 	  	<reference value="Observation/example"/>
   		<display value="Body Weight Measured"/>
     </reference>
 	</outcome>
+	-->
 </Goal>

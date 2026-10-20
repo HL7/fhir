@@ -785,7 +785,7 @@
     </element>
     <element id="MedicinalProductDefinition.name.type">
       <path value="MedicinalProductDefinition.name.type"/>
-      <short value="Type of product name, such as rINN, BAN, Proprietary, Non-Proprietary"/>
+      <short value="Type of product name, such as rINN, BAN, INN"/>
       <definition value="Type of product name, such as rINN, BAN, Proprietary, Non-Proprietary."/>
       <min value="0"/>
       <max value="1"/>
@@ -958,7 +958,7 @@
       <path value="MedicinalProductDefinition.name.usage.language"/>
       <short value="Language code for this name"/>
       <definition value="Language code for this name."/>
-      <min value="1"/>
+      <min value="0"/>
       <max value="1"/>
       <type>
         <code value="CodeableConcept"/>
@@ -1098,6 +1098,14 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PlanDefinition"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MedicinalProductManufacturingActivity"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The type of manufacturing or business operation for a medicinal product."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/medicinal-product-manufacturing-activity"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Manufacturing / Business Operation.Operation Type"/>

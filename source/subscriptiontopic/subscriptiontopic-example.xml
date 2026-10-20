@@ -60,10 +60,8 @@
       <include value="Encounter:location"/>
       <relatedQuery>
         <queryType>
-          <coding>
             <system value="http://example.org/fhir/CodeSystem-patient-queries"/>
             <code value="current-patient"/>
-          </coding>
         </queryType>
         <query value="Patient?_include:iterate=Patient:link"/>
       </relatedQuery>

@@ -86,7 +86,7 @@
 		<provider>
 			<reference value="Practitioner/example"/>
 		</provider>
-		<responsible value="true"/>
+		<!-- <responsible value="true"/> -->
 		<role>
 			<coding>
 				<system value="http://example.org/fhir/CodeSystem/claim-careteamrole"/>
@@ -131,11 +131,13 @@
 
 	<diagnosis>
 		<sequence value="1"/>
-		<diagnosisCodeableConcept>
+		<diagnosis>
+		  <concept>
 			<coding>
 				<code value="654456"/>
 			</coding>
-		</diagnosisCodeableConcept>
+		  </concept>
+		</diagnosis>
 		<type>
 			<coding>
 				<system value="http://terminology.hl7.org/CodeSystem/ex-diagnosistype"/>

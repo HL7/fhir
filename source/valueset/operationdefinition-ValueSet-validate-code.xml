@@ -57,7 +57,7 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="Validate that a coded value is in the set of codes allowed by a value set.&#xA;&#xA;If the operation is not called at the instance level, one of the in parameters url, context or valueSet must be provided.  One (and only one) of the in parameters code, coding, or codeableConcept must be provided. If a code is provided, either a system or inferSystem **SHOULD** be provided. The operation returns a result (true / false), an error message, and the recommended display for the code. When validating a code or a coding, then the code, system and version output parameters **SHOULD** be populated when possible. When a validating a CodeableConcept, then the codeableConcept output parameter **SHOULD** be populated when possible."/>
+  <description value="Validate that a coded value is in the set of codes allowed by a value set.&#xA;&#xA;If the operation is not called at the instance level, one of the in parameters url, context or valueSet must be provided.  One (and only one) of the in parameters code, coding, or codeableConcept must be provided. If a code is provided, either a system or inferSystem **SHOULD** be provided. The operation returns a result (true / false), an error message, and the recommended display for the code. When validating a code or a coding, then the code, system and version output parameters **SHOULD** be populated when possible. When a validating a CodeableConcept, then the codeableConcept output parameter **SHOULD** be populated when possible.&#xA;&#xA;Implementers should note that additional requirements are made on terminology servers that wish to be part of the public HL7 terminology ecosystem in the [FHIR Terminology Ecosystem IG](https://hl7.org/fhir/uv/tx-ecosystem/)."/>
   <affectsState value="false"/>
   <code value="validate-code"/>
   <comment value="Note: the correct behavior of validation with regard to language for Coding.display items is currently undefined, and further development and testing may lead to specific requirements or recommendations in subsequent releases"/>
@@ -218,6 +218,14 @@
     <min value="0"/>
     <max value="*"/>
     <documentation value="Edge Case: Specifies a version to use for a system. If a value set specifies a different version, an error is returned instead of the expansion. The format is the same as a canonical URL: [system]|[version] - e.g. http://loinc.org|2.56"/>
+    <type value="canonical"/>
+  </parameter>
+  <parameter>
+    <name value="force-system-version"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="*"/>
+    <documentation value="Edge Case: Specifies a version to use for a system. This parameter overrides any specified version in the value set (and any it depends on). The format is the same as a canonical URL: [system]|[version] - e.g. http://loinc.org|2.56. Note that this has obvious safety issues, in that it may result in a value set expansion giving a different list of codes that is both wrong and unsafe, and implementers should only use this capability reluctantly. It primarily exists to deal with situations where specifications have fallen into decay as time passes. If the value is overridden, the version used SHALL explicitly be represented in the expansion parameters"/>
     <type value="canonical"/>
   </parameter>
   <parameter>

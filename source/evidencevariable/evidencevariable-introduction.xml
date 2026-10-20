@@ -2,13 +2,14 @@
 
 <div>
 <blockquote class="ballot-note" id="bn1">
-<p><b>Note to Balloters:</b> The key changes made since FHIR 6.0.0-ballot4 include:</p>
+<p><b>Note to Balloters:</b> The Key changes made since FHIR 6.0.0-ballot4 include:</p>
 <p>Changed the EvidenceVariable.status cardinality from 1..1 to 0..1.</p>
 </blockquote>
 <blockquote style="background-color: lightblue">
 	<p><b>Release Notes:</b></p>
 	<ul>
 		<li><a href="https://jira.hl7.org/browse/FHIR-56390">FHIR-56390</a></li>
+		<li><a href="https://jira.hl7.org/browse/FHIR-54693">FHIR-54693</a>: Updated reference to Decision Support Service specification to point to CRMI versioning discussion</li>
 	</ul>
 </blockquote>
 <a name="bnc"></a>

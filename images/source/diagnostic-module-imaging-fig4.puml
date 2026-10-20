@@ -1,0 +1,62 @@
+@startuml ImagingSelectionProfiles
+hide empty fields
+hide empty methods
+left to right direction
+
+
+package ImagingSelectionOnePerObservation {
+    protocol ImageRegion3d ##BlueViolet{
+    }
+
+    protocol ImageRegion2d ##BlueViolet{
+    }
+
+    protocol IllustrationOfRoi ##BlueViolet{
+    }
+
+    protocol VolumeSurface ##BlueViolet{
+    }
+
+    protocol VisualExplanation ##BlueViolet{
+    }
+
+    protocol RegionInSpace ##BlueViolet{
+    }
+
+    protocol ReferencedSegmentationFrame ##BlueViolet{
+    }
+
+    protocol ReferencedSegment ##BlueViolet{
+    }
+
+    protocol RealWorldValueMap ##BlueViolet{
+    }
+}
+abstract class ImagingObservation ##Green{
+}
+
+
+
+
+ImagingObservation --> ImageRegion3d : derivedFrom
+ImagingObservation --> ImageRegion2d : derivedFrom
+ImagingObservation --> IllustrationOfRoi : derivedFrom
+ImagingObservation --> VolumeSurface : derivedFrom
+ImagingObservation --> VisualExplanation : derivedFrom
+ImagingObservation --> RegionInSpace : derivedFrom
+ImagingObservation --> ReferencedSegmentationFrame : derivedFrom
+ImagingObservation --> ReferencedSegment : derivedFrom
+ImagingObservation --> RealWorldValueMap : derivedFrom
+
+abstract class ObservationImagingSelection ##BlueViolet{}
+
+ObservationImagingSelection --|> ImagingSelectionOnePerObservation
+
+
+legend right
+R = FHIR Resource
+P = Resource Profile
+A = Abstract Profile
+endlegend
+
+@enduml

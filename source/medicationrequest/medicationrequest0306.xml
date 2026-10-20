@@ -51,7 +51,7 @@
     </reason>
     
     <dosageInstruction>
-        <simple>
+        <step><component>
         <text
             value="6 mg PO daily for remission induction; adjust dosage to white blood cell (WBC) count.  With hold treatment if WBC is less than 15,000/µL; resume when WBC is greater than 50,000/µL"/>
         <timing>
@@ -83,7 +83,7 @@
                 <code value="mg"/>
             </doseQuantity>
         </doseAndRate>
-      </simple>
+      </component></step>
 
     </dosageInstruction>
     

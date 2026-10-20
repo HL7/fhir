@@ -21,6 +21,7 @@
     <type value="composed-of"/>
     <resource value="http://example.org/fhir/Measure/component-b-example"/>
   </relatedArtifact>
+  <!--
   <scoring>
     <coding>
       <code value="proportion"/>
@@ -31,4 +32,5 @@
       <code value="opportunity"/>
     </coding>
   </compositeScoring>
+  -->
 </Measure>

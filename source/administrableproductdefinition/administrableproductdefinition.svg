@@ -5,7 +5,7 @@
    width="1328.8"
    height="355.0"
    sodipodi:docname="administrableproductdefinition.svg"
-   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
+   inkscape:version="1.4.4 (dcaf3e7, 2026-05-05)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -22,12 +22,12 @@
      inkscape:deskcolor="#d1d1d1"
      showgrid="false"
      inkscape:zoom="0.93768811"
-     inkscape:cx="689.99489"
-     inkscape:cy="298.60675"
+     inkscape:cx="689.46166"
+     inkscape:cy="298.07352"
      inkscape:window-width="1390"
      inkscape:window-height="1198"
-     inkscape:window-x="0"
-     inkscape:window-y="44"
+     inkscape:window-x="497"
+     inkscape:window-y="101"
      inkscape:window-maximized="0"
      inkscape:current-layer="n442" />
   <defs
@@ -312,7 +312,7 @@
   </g>
   <g
      id="n578"
-     transform="translate(-2.1329054,9.5980742)">
+     transform="translate(43.72456,13.863885)">
     <rect
        id="AdministrableProductDefinition.routeOfAdministration"
        x="60"
@@ -408,7 +408,7 @@
   </g>
   <g
      id="n621"
-     transform="translate(139.7053,45.857466)">
+     transform="translate(235.68604,46.923919)">
     <rect
        id="AdministrableProductDefinition.routeOfAdministration.targetSpecies"
        x="380"
@@ -449,7 +449,7 @@
   </g>
   <g
      id="n634"
-     transform="translate(-173.83179,-70.385877)">
+     transform="translate(-239.95186,-63.987161)">
     <rect
        id="AdministrableProductDefinition.routeOfAdministration.targetSpecies.withdrawalPeriod"
        x="700"

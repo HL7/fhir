@@ -35,14 +35,16 @@
       <display value="Heart valve disorder"/>
     </coding>
   </code>
-  <bodySite>
-    <coding>
-      <system value="http://snomed.info/sct"/>
-      <code value="40768004"/>
-      <display value="Left thorax"/>
-    </coding>
-    <text value="heart structure"/>
-  </bodySite>
+  <bodyStructure>
+    <concept>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="40768004"/>
+        <display value="Left thorax"/>
+      </coding>
+      <text value="heart structure"/>
+    </concept>
+  </bodyStructure>
   <subject>
     <reference value="Patient/f001"/>
     <display value="P. van de Heuvel"/>

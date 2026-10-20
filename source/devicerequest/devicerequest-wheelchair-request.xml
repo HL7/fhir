@@ -26,6 +26,15 @@
     <reference value="Practitioner/example"/>
     <display value="Dr. Adam Careful"/>
   </requester>
+  <location>
+    <concept>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
+        <code value="PTRES"/>
+      </coding>
+      <text value="Patient's Residence"/>
+    </concept>
+  </location>
   <reason>
     <concept>
       <coding>
@@ -39,15 +48,6 @@
     <reference value="Coverage/primiary-insurance"/>
     <display value="Blue Cross Blue Shield"/>
   </insurance>
-  <location>
-    <concept>
-      <coding>
-        <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
-        <code value="PTRES"/>
-      </coding>
-      <text value="Patient's Residence"/>
-    </concept>
-  </location>
   <supportingInfo>
     <reference value="Observation/cognitive-status-observation"/>
   </supportingInfo>

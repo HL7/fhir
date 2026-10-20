@@ -22,19 +22,15 @@
           </additionalContext>
           <relatedQuery>
             <queryType>
-              <coding>
-                <system value="http://example.org/fhir/CodeSystem-patient-queries"/>
-                <code value="current-patient"/>
-              </coding>
+              <system value="http://example.org/fhir/CodeSystem-patient-queries"/>
+              <code value="current-patient"/>
             </queryType>
             <query value="Patient?_id=ABC&amp;_include:iterate=Patient:link"/>
           </relatedQuery>
           <relatedQuery>
             <queryType>
-              <coding>
-                <system value="http://example.org/fhir/CodeSystem-patient-queries"/>
-                <code value="current-providers"/>
-              </coding>
+              <system value="http://example.org/fhir/CodeSystem-patient-queries"/>
+              <code value="current-providers"/>
             </queryType>
             <query value="Patient/ABC$current-providers"/>
           </relatedQuery>

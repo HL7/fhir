@@ -30,7 +30,7 @@
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="This example demonstrates using the bodystructure resource to identify skin patches or other portions of a person or animal that are a focus of a clinical trial and that are subject to repeated observations and/or procedures over time"/>
+      <valueString value="This example demonstrates using the bodystructure resource to identify skin patches or other portions of a person or animal that are a focus of a clinical trial and that are subject to repeated observations and/or procedures over time. It also illustrates recording multiple morphology codes (basal cell carcinoma and nevus sebaceus) at a single included structure"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
       <valueString value="bodystructure-example-skin-patch"/>
@@ -38,6 +38,18 @@
     <item>
       <reference value="BodyStructure/skin-patch"/>
       <display value="Skin Patch"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="A dermatology example describing facial skin while excluding the skin of the eyelids."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="bodystructure-example-face-excluding-eyelids"/>
+    </extension>
+    <item>
+      <reference value="BodyStructure/face-excluding-eyelids"/>
+      <display value="Facial skin excluding eyelids"/>
     </item>
   </entry>
     <entry>
@@ -51,5 +63,17 @@
       <reference value="BodyStructure/dicom-includedStructure"/>
       <display value="DICOM-derived BodyStructure (Left Wrist)"/>
     </item>
+    </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="This example demonstrates using BodyStructure to describe a breast mass."/>
+    </extension>
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+        <valueString value="bodystructure-example-breast-mass"/>
+      </extension>
+      <item>
+        <reference value="BodyStructure/breast-mass"/>
+        <display value="Breast mass BodyStructure"/>
+      </item>
   </entry>
 </List>

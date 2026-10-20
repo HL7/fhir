@@ -2432,10 +2432,10 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">If this element is missing, then any extension can be used if its context is appropriate</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Extensions that are allowed to replace a primitive value</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Specifies a list of extensions that can appear in place of a primitive value</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Extensions that are allowed to replace the value or content</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Specifies a list of extensions that can appear in place of a value (for primitive types) or non-extension child elements (for complex types and backbone elements).</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">If mustHaveValue is true, then this element should not be present, since no extensions are allowed in place of the value. Note that this element has no impact if the value is present. When valueAlternatives is present, it means that if the element is present, it SHALL have either a value or at least one of the listed extensions. This element is only permitted on elements with primitive types.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">If mustHaveValue is true, then this element should not be present, since no extensions are allowed in place of the value. Note that this element has no impact if the value is present. When valueAlternatives is present, it means that if the element is present, it SHALL have at least one of the listed extensions, a value (if primitive), or a non-extension child element (if a complex type or backbone element). valueAlternatives applies only to the elements it is declared on.  It does not propagate to child elements.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>

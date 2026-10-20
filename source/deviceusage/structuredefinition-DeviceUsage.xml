@@ -336,7 +336,7 @@
     </element>
     <element id="DeviceUsage.usageStatus">
       <path value="DeviceUsage.usageStatus"/>
-      <short value="The status of the device usage, for example always, sometimes, never. This is not the same as the status of the statement"/>
+      <short value="The status of the device usage, for example active, on-hold, stopped. This is not the same as the status of the statement"/>
       <definition value="The status of the device usage, for example always, sometimes, never. This is not the same as the status of the statement."/>
       <min value="0"/>
       <max value="1"/>

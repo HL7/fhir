@@ -1766,6 +1766,12 @@ in the same order as that specified below for transactions, though the order of 
 should not matter given the previous rule.
 </p>
 <p>
+Batches SHOULD not have interdependencies between entries such that they cannot be processed independently,
+irrespective of whether they cause change on the server. Note that prohibiting this was omitted in the past,
+so the rule cannot be stated more strongly, but clients are not able to rely on servers correctly processing
+explicit or implied relationships between e.g. parameters to operations on different entries in the batch.
+</p>
+<p>
 References within a <code>Bundle.entry.resource</code> to another <code>Bundle.entry.resource</code> that is being
 created within the batch are considered to be non-conformant.
 </p>

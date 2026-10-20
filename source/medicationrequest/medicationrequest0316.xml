@@ -20,10 +20,10 @@
                     <display value="Lyophilised powder for conventional release solution for injection"/>
                 </coding>
             </doseForm>
-            <batch>
+            <instance>
                 <lotNumber value="12345"/>
                 <expirationDate value="2019-10-31"/>
-            </batch>
+            </instance>
         </Medication>
     </contained>
     <identifier>
@@ -54,7 +54,7 @@
     </requester>
 
     <dosageInstruction>
-      <simple>
+      <step><component>
         <text value="1.8 mg/kg IV infusion over 20 minutes every 3 weeks for 16 cycles" />
         <timing>
             <repeat>
@@ -110,7 +110,7 @@
           </doseLimit>
         </safety>
 
-      </simple>
+      </component></step>
     </dosageInstruction>
 
 </MedicationRequest>

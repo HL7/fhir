@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="risk-assessment-type-example"/>
+  <meta>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="cds"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="informative"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <url value="http://hl7.org/fhir/risk-assessment-type-example"/>
+  <version value="6.0.0"/>
+  <name value="RiskAssessmentTypeExample"/>
+  <title value="Risk Assessment Type Example"/>
+  <status value="active"/>
+  <experimental value="true"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="Example code system illustrating possible codes for identifying the types of risk assessment; e.g. Renal, Cardiovascular, or Hepatic risk."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/risk-assessment-type-example"/>
+  <content value="complete"/>
+  <concept>
+    <code value="renal-risk"/>
+    <display value="Renal Risk"/>
+    <definition value="Assessment of Renal Risk"/>
+  </concept>
+  <concept>
+    <code value="cardiovascular-risk"/>
+    <display value="Cardiovascular Risk"/>
+    <definition value="Assessment of Cardiovascular Risk"/>
+  </concept>
+  <concept>
+    <code value="hepatic-risk"/>
+    <display value="Hepatic Risk"/>
+    <definition value="Assessment of Hepatic Risk"/>
+  </concept>
+  <concept>
+    <code value="breast-cancer-risk"/>
+    <display value="Breast Cancer Risk"/>
+    <definition value="Assessment of Breast Cancer Risk"/>
+  </concept>
+</CodeSystem>

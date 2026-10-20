@@ -10,17 +10,10 @@
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/deviceassociation-status"/>
   <version value="6.0.0"/>
-  <name value="DeviceAssociationCodes"/>
+  <name value="DeviceAssociationStatusCodes"/>
   <title value="DeviceAssociation Status Codes"/>
   <status value="active"/>
   <experimental value="false"/>
-  <publisher value="FHIR Project team"/>
-  <contact>
-    <telecom>
-      <system value="url"/>
-      <value value="http://hl7.org/fhir"/>
-    </telecom>
-  </contact>
   <description value="DeviceAssociation Status Codes"/>
   <compose>
     <include>

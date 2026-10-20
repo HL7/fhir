@@ -110,7 +110,7 @@
             </mapping>
             <mapping>
                 <identity value="DIM" />
-                <map value="AlertCondition/alert-info-id" />
+                <map value="Alert/Handle" />
             </mapping>
             <mapping>
                 <identity value="BICEPS" />
@@ -185,15 +185,13 @@
             </type>
             <binding>
                 <strength value="example" />
-                <!-- <description value="in-progress | completed | entered-in-error" /> -->
-                <valueSet value="http://hl7.org/fhir/ValueSet/devicealert-category" />
+                <valueSet value="http://terminology.hl7.org/ValueSet/devicealert-category" />
             </binding>
         </element>
         <element id="DeviceAlert.type">
             <path value="DeviceAlert.type" />
-            <short value="physiological | technical" />
-            <!-- <short value="Whether the alert is related to the patient or to the device" /> -->
-            <!--       <definition value="" /> -->
+            <short value="The particular kind of alert" />
+            <definition value="The particular kind of alert, such as whether it is related to the patient condition; to irregular device state; or to workflow or regular device state, such as timers." />
             <min value="0" />
             <max value="1" />
             <isSummary value="false" />
@@ -214,16 +212,13 @@
             </type>
             <binding>
                 <strength value="extensible" />
-                <!-- <description value="physiological | technical" /> -->
-                <valueSet value="http://hl7.org/fhir/ValueSet/devicealert-type" />
+                <valueSet value="http://terminology.hl7.org/ValueSet/devicealert-type" />
             </binding>
         </element>
         <element id="DeviceAlert.priority">
             <path value="DeviceAlert.priority" />
-            <short value="high | medium | low | info" />
-            <!-- <short value="The severity of the potential or actual hazard associated with the
-      condition" /> -->
-            <definition value="The alert priority is usually reported by the source device. A priority of `info` SHOULD indicate that the alert is &#8220;for information only&#8221; and urgent action is not required. The element MAY be omitted if the priority is unknown." />
+            <short value="The urgency by which the condition ought to be addressed" />
+            <definition value="The urgency by which the condition ought to be addressed. The alert priority is usually reported by the source device. The element MAY be omitted if the priority is unknown." />
             <min value="0" />
             <max value="1" />
             <isSummary value="true" />
@@ -244,7 +239,6 @@
             </type>
             <binding>
                 <strength value="extensible" />
-                <!-- <description value="high | medium | low | info" /> -->
                 <valueSet value="http://hl7.org/fhir/ValueSet/devicealert-priority" />
             </binding>
         </element>
@@ -277,7 +271,7 @@
             <binding>
                 <strength value="preferred" />
                 <!--         <description value="" /> -->
-                <valueSet value="http://hl7.org/fhir/ValueSet/devicealert-condition" />
+                <valueSet value="http://terminology.hl7.org/ValueSet/devicealert-condition" />
             </binding>
         </element>
         <element id="DeviceAlert.subject">
@@ -329,32 +323,14 @@
                 <map value="Event.encounter" />
             </mapping>
         </element>
-        <element id="DeviceAlert.presence">
-            <path value="DeviceAlert.presence" />
-            <short value="Whether the alert condition is currently active" />
-            <!--       <definition value="" /> -->
+        <element id="DeviceAlert.occurrence">
+            <path value="DeviceAlert.occurrence" />
+            <short value="When the alert condition occurred/is occurring" />
+            <definition value="This element is used to record the time period when the alert condition did occur or is occurring."/>
+            <comment value ="This element is used to record the time period during which the alert condition is or was active. The absence of `occurrence.end` usually indicates that the alert condition was ongoing at the last update. Coincident `occurrence.start` and `occurrence.end` values allow the expression of instantaneous alert conditions. Implementers should remain aware that partially specified `dateTime` values for `occurrence.start` or `occurrence.end` are ambiguous about what point in time they represent. Corner cases, such representing an alert condition known to be ongoing without knowledge of the start time, may require special handling such as use of [extensions](extensibility.html)—consult relevant implementation guides." />
             <min value="1" />
             <max value="1" />
             <isSummary value="true" />
-            <mapping>
-                <identity value="BICEPS" />
-                <map value="AlertConditionState/Presence" />
-            </mapping>
-            <type>
-                <code value="boolean" />
-            </type>
-        </element>
-        <element id="DeviceAlert.occurrence[x]">
-            <path value="DeviceAlert.occurrence[x]" />
-            <short value="When the alert condition occurred/is occurring" />
-            <definition value="This element is used to record the date or time period when the alert condition did occur or is occurring."/>
-            <comment value ="This element is used to record the time period during which the alert condition is or was active. The status code allows differentiation of whether the timing reflects a historic event or an ongoing event. A date/time value SHOULD be used for instantaneous conditions. Partial date/time values are ambiguous about whether they represent the condition occurring at some point in the partially specified period, or for all of the period, and (absent additional guidance) SHOULD be avoided. Ongoing events SHOULD not include a Period upper bound." />
-            <min value="0" />
-            <max value="1" />
-            <isSummary value="true" />
-            <type>
-                <code value="dateTime" />
-            </type>
             <type>
                 <code value="Period" />
             </type>
@@ -599,11 +575,27 @@
                 <code value="BackboneElement" />
             </type>
         </element>
+        <element id="DeviceAlert.signal.identifier">
+            <path value="DeviceAlert.signal.identifier" />
+            <short value="Identifier for the logical signal instance" />
+            <definition value="Business identifier for the logical alert signal instance. The same identifier can be used across multiple DeviceAlert.signal elements to represent state changes of the same signal over time." />
+            <requirements value="Allows identification of the `signal` as it is known by various participating systems and in a way that remains consistent across servers." />
+            <min value="0" />
+            <max value="*" />
+            <isSummary value="false" />
+            <type>
+                <code value="Identifier" />
+            </type>
+            <mapping>
+                <identity value="BICEPS" />
+                <map value="AlertSignalDescriptor/Handle" />
+            </mapping>
+
+        </element>
         <element id="DeviceAlert.signal.activationState">
             <path value="DeviceAlert.signal.activationState" />
-            <short value="on | off | paused" />
-            <!-- <short value="Whether the signal is configured to announce the alert configuration" /> -->
-            <definition value="Paused indicates that annunciation has temporarily been disabled (&quot;snooze&quot;)." />
+            <short value="Whether the signal is activated" />
+            <definition value="The activation state of the signal, e.g., whether it is activated, deactivated or temporarily deactivated (i.e., paused). An activated signal is not necessarily present; a present signal is always activated." />
             <min value="1" />
             <max value="1" />
             <isSummary value="true" />
@@ -620,15 +612,13 @@
             </type>
             <binding>
                 <strength value="extensible" />
-                <!-- <description value="on | off | paused" /> -->
-                <valueSet value="http://hl7.org/fhir/ValueSet/devicealert-activationState" />
+                <valueSet value="http://terminology.hl7.org/ValueSet/devicealert-activationState" />
             </binding>
         </element>
         <element id="DeviceAlert.signal.presence">
             <path value="DeviceAlert.signal.presence" />
-            <short value="on | latched | off | ack" />
-            <!-- <short value="Whether the signal is currently being annunciated" /> -->
-            <definition value="Indicates whether the signal is currently being annunciated. An on signal is currently being annunciated; a latched signal is currently being being annunciated although the alert condition has ended; an off signal is not currently being annunciated; and an acknowledged signal is not currently being annunciated because the user has acknowledged the signal." />
+            <short value="Indicates whether signal annunciation is occurring, along with the underlying reason" />
+            <definition value="Indicates whether signal annunciation is occurring, along with the underlying reason. An `on` signal is currently being annunciated; a `latched` signal is currently being annunciated although the alert condition has ended; an `off` signal is not currently being annunciated; and an `acknowledged` signal is not currently being annunciated because the user has acknowledged the signal." />
             <min value="0" />
             <max value="1" />
             <isSummary value="false" />
@@ -641,8 +631,7 @@
             </type>
             <binding>
                 <strength value="extensible" />
-                <!-- <description value="on | off | latched | acknowledged" /> -->
-                <valueSet value="http://hl7.org/fhir/ValueSet/devicealert-presence" />
+                <valueSet value="http://terminology.hl7.org/ValueSet/devicealert-presence" />
             </binding>
         </element>
         <element id="DeviceAlert.signal.annunciator">
@@ -667,7 +656,7 @@
             <binding>
                 <strength value="required" />
                 <!-- <description value="local | remote" /> -->
-                <valueSet value="http://hl7.org/fhir/ValueSet/devicealert-annunciation" />
+                <valueSet value="http://terminology.hl7.org/ValueSet/devicealert-annunciation" />
             </binding>
         </element>
         <element id="DeviceAlert.signal.manifestation">
@@ -691,7 +680,7 @@
             <binding>
                 <strength value="extensible" />
                 <!-- <description value="visual | haptic | audible" /> -->
-                <valueSet value="http://hl7.org/fhir/ValueSet/devicealert-manifestation" />
+                <valueSet value="http://terminology.hl7.org/ValueSet/devicealert-manifestation" />
             </binding>
         </element>
         <element id="DeviceAlert.signal.type">
@@ -714,11 +703,10 @@
                 <valueSet value="http://hl7.org/fhir/ValueSet/devicealert-signalType" />
             </binding>
         </element>
-        <element id="DeviceAlert.signal.indication">
-            <path value="DeviceAlert.signal.indication" />
-            <short value="When the signal was being annunciated" />
-            <definition value="The period during which the signal was being annunciated. If there is no indicated period end, the annunciation is on-going." />
-            <comment value="The indication period start when the signal presence is first on (or latched) and ends when the signal becomes off or acknowledged." />
+        <element id="DeviceAlert.signal.period">
+            <path value="DeviceAlert.signal.period" />
+            <short value="The period when the signal was in the indicated state" />
+            <definition value="The period during which the signal was in the indicated state. If no `period.end` is indicated, the signalling state is presumed to be on-going at last update." />
             <min value="0" />
             <max value="1" />
             <isSummary value="false" />
