@@ -20,6 +20,6 @@
   <description value="This is the formal declaration for the _filter parameter, documented at [http://hl7.org/fhir/search_filter.html](http://hl7.org/fhir/search_filter.html)"/>
   <purpose value="Support combination searches when the simple name=value basis of search cannot express what is required"/>
   <code value="_filter"/>
-  <base value="Resource"/>
+  <base value="Patient"/>
   <type value="special"/>
 </SearchParameter>

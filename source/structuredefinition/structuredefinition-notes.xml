@@ -231,7 +231,7 @@ This technique has many uses:
 following these rules:
 </p>
 <ul>
- <li>The canonical URL of the definition is in some other canonical space than <code>http://hl7.org/fhir</code></li>
+ <li>The canonical URL of the definition is in the canonical space <code>http://hl7.org/fhir</code></li>
  <li>The fhirVersion SHALL be <code>6.0.0</code> or a subsequent published version of FHIR</li>
  <li>The kind SHALL be <code>resource</code></li>
  <li>abstract SHALL be <code>false</code></li>
@@ -252,11 +252,11 @@ Here is an example with other properties removed:
 <pre class="json">
 {
   "resourceType" : "StructureDefinition",
-  "url" : "http://hl7.org/fhir/uv/sql-on-fhir/StructureDefinition/ViewDefinition",
+  "url" : "http://hl7.org/fhir/StructureDefinition/ViewDefinition",
   "fhirVersion" : "6.0.0",
   "kind" : "resource",
   "abstract" : false,
-  "type" : "http://hl7.org/fhir/uv/sql-on-fhir/StructureDefinition/ViewDefinition",
+  "type" : "http://hl7.org/fhir/StructureDefinition/ViewDefinition",
   "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/CanonicalResource",
   "derivation" : "specialization",
   "differential" : {
