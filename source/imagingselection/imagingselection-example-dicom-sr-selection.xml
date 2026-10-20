@@ -16,6 +16,7 @@
     <value value="RNKZPSBNZLNADAZV"/>
   </identifier>
 </subject>
+<issued value="2011-01-01T11:01:20+03:00"/>
 <basedOn>
   <type value="ServiceRequest"/>
   <identifier>
@@ -34,7 +35,6 @@
 <basedOn>
   <reference value="ServiceRequest/example"/>
 </basedOn>
-<issued value="2011-01-01T11:01:20+03:00"/>
 <derivedFrom>
   <type value="ImagingStudy"/>
   <identifier>
@@ -51,7 +51,7 @@
   </reference>
 </bodySite>
 <focus>
-  <reference value="ImagingSelection/example-basic-image-selection"/>
+  <reference value="ImagingSelection/example-single-frame-image-selection"/>
 </focus>
 <instance>
   <uid value="1.2.840.113747.20080222.95946058738699434359950275.1.0"/>

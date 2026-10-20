@@ -44,9 +44,9 @@
 	</reason>
 
 		<dosageInstruction>
-			<simple>
+			<step><component>
 			  <text value="Take one tablet daily as directed"/>
-			</simple>
+			</component></step>
 		</dosageInstruction>
 
 </MedicationRequest>

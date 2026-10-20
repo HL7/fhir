@@ -1,6 +1,25 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
+<blockquote class="ballot-note" data-augury-generated="true" id="bn1">
+  <p><b>Note to Balloters:</b> This ballot opens two ImplementationGuide elements that previously had no &#8220;escape valve&#8221; &#8212; <code>global.type</code> is retyped to <code>uri</code> and the <code>ig-3</code> invariant on <code>definition.page.generation</code> is removed &#8212; relaxes <code>global.profile</code> to <code>1..*</code>, and applies several narrative corrections (jurisdiction deprecation note, conformance-declaration guidance, the FHIR Mapping Language relocation, and editorial fixes).</p>
+  <p><b>Compatible substantive</b></p>
+  <ul>
+    <li><code>ImplementationGuide.global.type</code> retyped from <code>code</code> to <code>uri</code> so cross-version and out-of-band resource types can be referenced [<a href="https://jira.hl7.org/browse/FHIR-55169">FHIR-55169</a>]</li>
+    <li>Cardinality of <code>ImplementationGuide.global.profile</code> relaxed to <code>1..*</code> so a global type may reference more than one profile [<a href="https://jira.hl7.org/browse/FHIR-45138">FHIR-45138</a>]</li>
+    <li><code>ImplementationGuide.definition.page.generation</code> gained an escape valve: the <code>ig-3</code> invariant was removed and a documentation-generation fallback added, so an unrecognized generator value no longer fails validation [<a href="https://jira.hl7.org/browse/FHIR-55170">FHIR-55170</a>]</li>
+    <li><code>OperationDefinition.resource</code> widened to a URI to allow operations on logical models (cross-referenced here via the shared cross-version resource-type handling; the authoritative change is on OperationDefinition)  [<a href="https://jira.hl7.org/browse/FHIR-51651">FHIR-51651</a>]</li>
+  </ul>
+  <p><b>Non-substantive</b></p>
+  <ul>
+    <li>The <code>jurisdiction</code> elements are no longer marked deprecated but retain an explanatory note [<a href="https://jira.hl7.org/browse/FHIR-53766">FHIR-53766</a>]</li>
+    <li>Conformance-declaration guidance added to the IG notes, resolving the &#8220;abstract&#8221; flag request as narrative guidance rather than a new element [<a href="https://jira.hl7.org/browse/FHIR-53684">FHIR-53684</a>]</li>
+    <li>References updated to reflect that the FHIR Mapping Language is not advancing to normative and has moved to a separate mapping-language IG (with StructureMap) [<a href="https://jira.hl7.org/browse/FHIR-54473">FHIR-54473</a>]</li>
+  </ul>
+</blockquote>
+</div>
+
+<div>
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
 <p>

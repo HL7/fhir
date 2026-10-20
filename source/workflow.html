@@ -139,7 +139,6 @@ in order to support consistent definitions for schema and UML derived code.
                             <li><a href="communicationrequest.html">CommunicationRequest</a></li>
                             <li><a href="coverageeligibilityrequest.html">CoverageEligibilityRequest</a></li>
                             <li><a href="devicerequest.html">DeviceRequest</a></li>
-                            <li><a href="enrollmentrequest.html">EnrollmentRequest</a></li>
                         </ul>
                     </td>
                     <td>
@@ -173,7 +172,6 @@ in order to support consistent definitions for schema and UML derived code.
                             <li><a href="composition.html">Composition</a></li>
                             <li><a href="condition.html">Condition (aka Problem)</a></li>
                             <li><a href="consent.html">Consent</a></li>
-                            <li><a href="contract.html">Contract</a></li>
                             <li><a href="coverage.html">Coverage</a></li>
                         </ul>
                     </td>
@@ -184,7 +182,6 @@ in order to support consistent definitions for schema and UML derived code.
                             <li><a href="diagnosticreport.html">DiagnosticReport</a></li>
                             <li><a href="documentreference.html">DocumentReference</a></li>
                             <li><a href="encounter.html">Encounter</a></li>
-                            <li><a href="enrollmentresponse.html">EnrollmentResponse</a></li>
                             <li><a href="episodeofcare.html">EpisodeOfCare</a></li>
                             <li><a href="explanationofbenefit.html">ExplanationOfBenefit</a></li>
                         </ul>
@@ -236,7 +233,7 @@ in order to support consistent definitions for schema and UML derived code.
         <p>
             Note that requests, events and definitions don't exist in a 1:1:1 relationship. Some requests and events have obvious pairings. For example, a
             <a href="https://build.fhir.org/ig/HL7/oo-incubator/StructureDefinition-SupplyRequest.html">SupplyRequest</a> will generally always pair with a <a href="https://build.fhir.org/ig/HL7/oo-incubator/StructureDefinition-SupplyDelivery.html">SupplyDelivery</a>. The same goes for
-            <a href="enrollmentrequest.html">EnrollmentRequest</a>/<a href="enrollmentresponse.html">EnrollmentResponse</a>, etc. On the other hand, for other resources there is not a strict pairing. A <a href="servicerequest.html">ServiceRequest</a> might
+            <a href="claim.html">Claim</a> and <a href="claimresponse.html">ClaimResponse</a>, etc. On the other hand, for other resources there is not a strict pairing. A <a href="servicerequest.html">ServiceRequest</a> might
             be responded to by an <a href="encounter.html">Encounter</a>,
             <a href="diagnosticreport.html">DiagnosticReport</a>, <a href="procedure.html">Procedure</a>, <a href="riskassessment.html">RiskAssessment</a>, etc. Similarly, a <a href="procedure.html">Procedure</a> might be triggered by a <a href="servicerequest.html">ServiceRequest</a>.
             The set of common linkages should be asserted in their respective resources. The specific types of responses for a given request will be governed by the Request.code, any workflow definitions/protocols referenced and local convention.
@@ -307,6 +304,18 @@ in order to support consistent definitions for schema and UML derived code.
           <li><a href="workflow-extensions.html">Workflow pattern extensions</a> apply to a variety of workflow patterns</li>
         </ul>
 
+        <a name="actors"></a>
+        <h3>Actors in Workflow</h3>
+
+        <p>FHIR defines a range of resources that can participate in activity resources - as requesters, performers, etc.  There are guidelines about what types of resources can participate in which ways:</p>
+        <ul>   
+        <li><a href="person.html">Person</a> cannot ever be a participant (always use <a href="patient.html">Patient</a>, <a href="practitioner.html">Practitioner</a>, <a href="practitionerrole.html">PractitionerRole</a>, or <a href="relatedperson.html">RelatedPerson</a>)</li>
+        <li><a href="group.html">Group</a> can be a participant but typically cannot take responsibility.  One exception is if the <a href="group.html">Group</a> represents a family or household - families and households are permitted to be performers and requesters.  Groups of practitioners cannot take responsibility - use <a href="careteam.html">CareTeam</a>, <a href="healthcareservice.html">HealthcareService</a> or <a href="organization.html">Organization</a> instead.</li>
+        <li><a href="location.html">Location</a> cannot be a requester or performer (use <a href="careteam.html">CareTeam</a>, <a href="healthcareservice.html">HealthcareService</a>, or <a href="organization.html">Organization</a> instead)</li>
+        <li><a href="endpoint.html">Endpoint</a> cannot be a requester or performer (use <a href="device.html">Device</a>, <a href="healthcareservice.html">HealthcareService</a>, or <a href="organization.html">Organization</a>)</li>
+        <li><a href="careteam.html">CareTeam</a>, <a href="device.html">Device</a>, <a href="devicedefinition.html">DeviceDefinition</a>, <a href="healthcareservice.html">HealthcareService</a>, <a href="patient.html">Patient</a>, <a href="practitioner.html">Practitioner</a>, <a href="practitionerrole.html">PractitionerRole</a>, <a href="relatedperson.html">RelatedPerson</a>, and <a href="organization.html">Organization</a> can all be actors and take responsibility for actions (though there may be business rules about what types of actors are allowed to take on certain roles in certain contexts).</li>
+        <li><a href="biologicallyderivedproduct.html">BiologicallyDerivedProduct</a>, <a href="medication.html">Medication</a>, <a href="nutritionproduct.html">NutritionProduct</a>, <a href="specimen.html">Specimen</a>, and <a href="substance.html">Substance</a> can participate as consumables or focuses but cannot have responsibility.</li>
+        </ul>
 
         <h3>Open Issues</h3>
         [%stu-note issues%]

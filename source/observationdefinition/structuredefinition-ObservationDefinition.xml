@@ -341,7 +341,7 @@
 		<element id="ObservationDefinition.useContext">
 			<path value="ObservationDefinition.useContext"/>
 			<short value="Content intends to support these contexts"/>
-			<definition value="The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate ObservationDefinition instances."/>
+			<definition value="The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, etc.) or may be references to specific programs (insurance plans, studies, etc.) and may be used to assist with indexing and searching for appropriate ObservationDefinition instances."/>
 			<comment value="When multiple usageContexts are specified, there is no expectation for whether all or any of the contexts apply."/>
 			<requirements value="Assist in searching for appropriate content."/>
 			<min value="0"/>
@@ -359,7 +359,7 @@
 			<path value="ObservationDefinition.jurisdiction"/>
 			<short value="Jurisdiction of the authority that maintains the this ObservationDefinition (if applicable)"/>
 			<definition value="A jurisdiction in which the ObservationDefinition is intended to be used."/>
-			<comment value="It may be possible for the ObservationDefinition to be used in jurisdictions other than those for which it was originally designed or intended.&#xa;&#xa;DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)"/>
+			<comment value="It may be possible for the ObservationDefinition to be used in jurisdictions other than those for which it was originally designed or intended."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
@@ -606,8 +606,8 @@
 					<valueString value="ObservationCode"/>
 				</extension>
 				<strength value="example"/>
-				<description value="Codes identifying names of simple observations."/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/observation-codes-observationorboth"/>
+				<description value="LOINC codes identifying types of observations, including panels."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/observation-codes"/>
 			</binding>
 			<mapping>
 				<identity value="w5"/>
@@ -628,7 +628,7 @@
 		</element>
 		<element id="ObservationDefinition.permittedDataType">
 			<path value="ObservationDefinition.permittedDataType"/>
-			<short value="Quantity | CodeableConcept | string | boolean | integer | Range | Ratio | SampledData | time | dateTime | Period"/>
+			<short value="Quantity | CodeableConcept | string | boolean | integer | Range | Ratio | SampledData | time | dateTime | Period | Reference"/>
 			<definition value="The data types allowed for the value element of the instance observations conforming to this ObservationDefinition."/>
 			<min value="0"/>
 			<max value="*"/>
@@ -755,6 +755,17 @@
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
 			</type>
 		</element>
+		<element id="ObservationDefinition.supportingDevice">
+  			<path value="ObservationDefinition.supportingDevice"/>
+  			<short value="Device supporting generation of the measurement"/>
+  			<definition value="A reference to additional devices, kits, or reagents (e.g., TestKit, Calibration Kit, QC materials) to support the generation of the measurement."/>
+  			<min value="0"/>
+  			<max value="*"/>
+  			<type>
+    			<code value="CodeableReference"/>
+    			<targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
+  			</type>
+		</element>
 		<element id="ObservationDefinition.preferredReportName">
 			<path value="ObservationDefinition.preferredReportName"/>
 			<short value="The preferred name to be used when reporting the observation results"/>
@@ -795,7 +806,7 @@
 		<element id="ObservationDefinition.qualifiedValue">
 			<path value="ObservationDefinition.qualifiedValue"/>
 			<short value="Set of qualified values for observation results"/>
-			<definition value="A set of qualified values associated with a context and a set of conditions -  provides a range for quantitative and ordinal observations and a collection of value sets for qualitative observations."/>
+			<definition value="A set of qualified values associated with a context and a set of conditions - provides a range for quantitative and ordinal observations and a collection of value sets for qualitative observations."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
@@ -930,7 +941,7 @@
 		<element id="ObservationDefinition.qualifiedValue.validCodedValueSet">
 			<path value="ObservationDefinition.qualifiedValue.validCodedValueSet"/>
 			<short value="Value set of valid coded values as part of this set of qualified values"/>
-			<definition value="The set of valid coded results for qualitative observations  that match the criteria of this set of qualified values."/>
+			<definition value="The set of valid coded results for qualitative observations that match the criteria of this set of qualified values."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -941,7 +952,7 @@
 		<element id="ObservationDefinition.qualifiedValue.normalCodedValueSet">
 			<path value="ObservationDefinition.qualifiedValue.normalCodedValueSet"/>
 			<short value="Value set of normal coded values as part of this set of qualified values"/>
-			<definition value="The set of normal coded results for qualitative observations  that match the criteria of this set of qualified values."/>
+			<definition value="The set of normal coded results for qualitative observations that match the criteria of this set of qualified values."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -952,7 +963,7 @@
 		<element id="ObservationDefinition.qualifiedValue.abnormalCodedValueSet">
 			<path value="ObservationDefinition.qualifiedValue.abnormalCodedValueSet"/>
 			<short value="Value set of abnormal coded values as part of this set of qualified values"/>
-			<definition value="The set of abnormal coded results for qualitative observations  that match the criteria of this set of qualified values."/>
+			<definition value="The set of abnormal coded results for qualitative observations that match the criteria of this set of qualified values."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -963,7 +974,7 @@
 		<element id="ObservationDefinition.qualifiedValue.criticalCodedValueSet">
 			<path value="ObservationDefinition.qualifiedValue.criticalCodedValueSet"/>
 			<short value="Value set of critical coded values as part of this set of qualified values"/>
-			<definition value="The set of critical coded results for qualitative observations  that match the criteria of this set of qualified values."/>
+			<definition value="The set of critical coded results for qualitative observations that match the criteria of this set of qualified values."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -994,7 +1005,7 @@
 		<element id="ObservationDefinition.hasMember">
 			<path value="ObservationDefinition.hasMember"/>
 			<short value="Definitions of related resources belonging to this kind of observation group"/>
-			<definition value="This ObservationDefinition defines a group  observation (e.g. a battery, a panel of tests, a set of vital sign measurements) that includes the target as a member of the group."/>
+			<definition value="This ObservationDefinition defines a group observation (e.g. a battery, a panel of tests, a set of vital sign measurements) that includes the target as a member of the group."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
@@ -1051,8 +1062,8 @@
 		</element>
 		<element id="ObservationDefinition.component.permittedDataType">
 			<path value="ObservationDefinition.component.permittedDataType"/>
-			<short value="Quantity | CodeableConcept | string | boolean | integer | Range | Ratio | SampledData | time | dateTime | Period"/>
-			<definition value="The data types allowed for the value element of the instance of this component observations."/>
+			<short value="Quantity | CodeableConcept | string | boolean | integer | Range | Ratio | SampledData | time | dateTime | Period | Reference"/>
+			<definition value="The data types allowed for the value element of the instance of these component observations."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
@@ -1099,7 +1110,7 @@
 		<element id="ObservationDefinition.component.qualifiedValue">
 			<path value="ObservationDefinition.component.qualifiedValue"/>
 			<short value="Set of qualified values for observation results"/>
-			<definition value="A set of qualified values associated with a context and a set of conditions -  provides a range for quantitative and ordinal observations and a collection of value sets for qualitative observations."/>
+			<definition value="A set of qualified values associated with a context and a set of conditions - provides a range for quantitative and ordinal observations and a collection of value sets for qualitative observations."/>
 			<min value="0"/>
 			<max value="*"/>
 			<contentReference value="#ObservationDefinition.qualifiedValue"/>

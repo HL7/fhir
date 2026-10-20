@@ -1192,7 +1192,7 @@
     <Cell><Data ss:Type="String"/><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String"/><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Who authored the {{title}}</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">An individiual or organization primarily involved in the creation and maintenance of the {{title}}.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">An individual or organization primarily involved in the creation and maintenance of the {{title}}.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String"/><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String"/><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String"/><NamedCell ss:Name="_FilterDatabase"/></Cell>

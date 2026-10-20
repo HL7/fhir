@@ -174,7 +174,7 @@
     </element>
     <element id="Location.code">
       <path value="Location.code"/>
-      <short value="Codes that identify this location"/>
+      <short value="Codes that represent this location"/>
       <definition value="A coded representation of this Location, where the codes may be found in a geospatial system."/>
       <comment value="`Location.code` may be used when there are existing code sets for geospatial or administrative regions, such as states, districts, municipalities, etc., where the code represents the geospatial identity of the Location. When indicating that a Location is located within some broader geospatial or administrative Location. When representing unique identifiers for intra-facility locations like rooms, beds, etc., Location.identifier is preferable. Further details will be available in the Administration Incubator."/>
       <min value="0"/>
@@ -189,7 +189,7 @@
         </extension>
         <strength value="example"/>
         <description value="Codes for representing locations, such as country codes."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/iso3166-1-2"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/v3-Country2"/>
       </binding>
     </element>
     <element id="Location.name">
@@ -340,8 +340,9 @@
     </element>
     <element id="Location.form">
       <path value="Location.form"/>
-      <short value="Physical form of the location"/>
-      <definition value="Physical form of the location, e.g. building, room, vehicle, road, virtual."/>
+      <short value="Form of the location"/>
+      <definition value="Form of the location, e.g. building, room, vehicle, road, virtual."/>
+      <comment value="Locations with a virtual form can be used to represent virtual locations, for example for telehealth visits, and can contain additional related details in virtualService."/>      
       <requirements value="For purposes of showing relevant locations in queries, we need to categorize locations."/>
       <min value="0"/>
       <max value="1"/>

@@ -27,9 +27,14 @@
     <definition value="The request has been created but is not yet complete or ready for action."/>
   </concept>
   <concept>
-    <code value="active"/>
-    <display value="Active"/>
-    <definition value="The request is in force and ready to be acted upon."/>
+    <code value="activated"/>
+    <display value="Activated"/>
+    <definition value="Indicates that the Request has transitioned to active but that there is no feedback loop that will allow evaluation of whether the authorized action has successfully been completed - i.e. it is unknown whether the Request is still active, on hold, completed, or revoked, but is is known that the resource isn't draft or marked as 'in error'."/>
+    <concept>
+      <code value="active"/>
+      <display value="Active"/>
+      <definition value="The request is in force and ready to be acted upon."/>
+    </concept>
   </concept>
   <concept>
     <code value="on-hold"/>

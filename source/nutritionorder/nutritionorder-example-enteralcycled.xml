@@ -15,10 +15,10 @@
 		<display value="Inpatient"/>
 	</encounter>
 	<dateTime value="2014-09-17"/>
-	<orderer>
+	<requester>
 		<reference value="Practitioner/example"/>
 		<display value="Dr Adam Careful"/>
-	</orderer>
+	</requester>
 	<enteralFormula>
     <type>
       <concept>
@@ -29,16 +29,16 @@
         </coding>
       </concept>
     </type>
-		<baseFormulaType>
+		<type>
 			<concept>
-			<coding>
-				<system value="http://snomed.info/sct"/>
-				<code value="442921000124101"/>
-				<display value="Adult standard formula (product)"/>
-			</coding>
-		</concept>
-		</baseFormulaType>
-		<baseFormulaProductName value="Acme Diabetes Formula"/>
+				<coding>
+					<system value="http://snomed.info/sct"/>
+					<code value="442921000124101"/>
+					<display value="Adult standard formula (product)"/>
+				</coding>
+			</concept>
+		</type>
+		<productName value="Acme Diabetes Formula"/>
 		
 		<caloricDensity>
 			<value value="1.5"/>
@@ -72,12 +72,12 @@
 				<code value="mL/h"/>
 			</rateQuantity>
 		</administration>
-		<maxVolumeToDeliver>
+		<maxVolumeToAdminister>
 			<value value="880"/>
 			<unit value="milliliter/day"/>
 			<system value="http://unitsofmeasure.org"/>
 			<code value="mL/d"/>
-		</maxVolumeToDeliver>
+		</maxVolumeToAdminister>
 		<administrationInstruction value="Hold feedings from 7 pm to 7 am."/>		
 	</enteralFormula>
 </NutritionOrder>

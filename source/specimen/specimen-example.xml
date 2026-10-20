@@ -71,15 +71,15 @@
 			</coding>
 		</method>
 		<!-- bodysite is usually implied by type too its here to demonstrate its usage to indicating the draw site in this case-->
-		<bodySite>
-		     <concept>
-			      <coding>
-				          <system value="http://snomed.info/sct"/>
-				          <code value="49852007"/>
-				          <display value="Structure of median cubital vein (body structure)"/>
-			          </coding>
-			 </concept>
-		</bodySite>
+		<bodyStructure>
+     		     <concept>
+     			      <coding>
+     				          <system value="http://snomed.info/sct"/>
+     				          <code value="49852007"/>
+     				          <display value="Structure of median cubital vein (body structure)"/>
+     			          </coding>
+		     </concept>
+		</bodyStructure>
 	</collection>
 	<!--
       the container identifier is not the same as the specimen identifier
@@ -88,7 +88,11 @@
       (http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/)
     -->
     <container>
-	<deviceCanonical value="http://hl7.org/fhir/Device/device-example-specimen-container-green-gel-vacutainer"/>
+	<device>
+		<reference>
+			<reference value="Device/device-example-specimen-container-green-gel-vacutainer"/>
+		</reference>
+	</device>
 
 	<!-- if there's only one container, then this value is the same
      as .collection.quantity (usually). This is for when there is more

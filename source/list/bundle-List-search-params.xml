@@ -177,6 +177,41 @@
   <entry>
     <resource>
       <SearchParameter>
+        <id value="List-editor"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/List-editor"/>
+        <description value="Source(/Author) or Contributor"/>
+        <code value="editor"/>
+        <type value="reference"/>
+        <expression value="List.contributor | List.source"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="List-contributor"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="List.contributor"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/List-contributor"/>
+        <description value="Who and/or what contributed the list contents"/>
+        <code value="contributor"/>
+        <type value="reference"/>
+        <expression value="List.contributor"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
         <id value="List-status"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="normative"/>

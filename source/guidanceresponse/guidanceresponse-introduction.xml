@@ -3,6 +3,28 @@
 <div>
 <a name="bnc"></a>
 <h2>Scope and Usage</h2>
+    <blockquote class="ballot-note" id="bn1">
+    <p><b>Note to Balloters:</b> Changes made since the previous ballot</p>
+    <ul>
+        <li>Substantive:
+            <ul>
+                <li><a href="https://jira.hl7.org/browse/FHIR-55225">FHIR-55225</a> - Removed reference to EnrollmentRequest from GuidanceResponse.result</li>
+                <li><a href="https://jira.hl7.org/browse/FHIR-55563">FHIR-55563</a> - Removed resource Contract from GuidanceResponse.result</li>
+                <li><a href="https://jira.hl7.org/browse/FHIR-57450">FHIR-57450</a> - Expanded evaluationMessage to multiple cardinality</li>
+                <li><a href="https://jira.hl7.org/browse/FHIR-53715">FHIR-53715</a> - Added search parameters for module and date</li>
+                <li><a href="https://jira.hl7.org/browse/FHIR-53714">FHIR-53714</a> - Added the ability to capture input parameters in a GuidanceResponse.</li>
+                <li><a href="https://jira.hl7.org/browse/FHIR-53712">FHIR-53712</a> - Added GuidanceResponse.indicator, bound extensible to CDS Hooks indicators.</li>
+                <li><a href="https://jira.hl7.org/browse/FHIR-53710">FHIR-53710</a> - Added GuidanceResponse.topic and related search parameter.</li>
+            </ul>
+        </li>
+        <li>Non-substantive:
+            <ul>
+                <li><a href="https://jira.hl7.org/browse/FHIR-53709">FHIR-53709</a> - Clarified GuidanceResponse.status applies to the response, not the processing or acceptance of that response.</li>
+                <li><a href="https://jira.hl7.org/browse/FHIR-55067">FHIR-55067</a> - Updated GuidanceModuleCode system and value set to clearly indicate they are examples.</li>
+            </ul>
+        </li>
+    </ul>
+    </blockquote>
 <p>The GuidanceResponse resource is used to represent the result of invoking a decision support service. It provides a container for the status of the response, any warnings or messages returned by the service, as well as any output data from the service and any suggested actions to be performed.</p>
 
 <p>Use cases for the GuidanceResponse resource include:</p>

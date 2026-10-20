@@ -36,7 +36,7 @@
       </concept>
     </include>
     <include>
-      <system value="http://hl7.org/fhir/CodeSystem/nutritionintake-status-reason"/>
+      <system value="http://terminology.hl7.org/CodeSystem/nutritionintake-status-reason"/>
     </include>
   </compose>
 </ValueSet>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<Evidence xmlns="http://hl7.org/fhir">.
+<Evidence xmlns="http://hl7.org/fhir">
     <id value="example-quoted-source"/>
 <!--    <extension url="http://hl7.org/fhir/StructureDefinition/relates-to-with-quotation">
         <extension url="type">

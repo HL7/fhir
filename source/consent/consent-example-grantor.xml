@@ -28,6 +28,9 @@
     <reference value="Practitioner/f007" />
     <display value="Simone Heps"/>
   </grantee>
+  <manager>
+    <reference value="Organization/f203"/>
+  </manager>
   <controller>
     <reference value="Organization/f203"/>
   </controller>

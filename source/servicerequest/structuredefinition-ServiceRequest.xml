@@ -442,7 +442,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="TQ1.9, RF1-2"/>
+        <map value="TQ1-9, OBR-5, RF1-2"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -483,7 +483,7 @@
       <path value="ServiceRequest.code"/>
       <short value="What is being requested/ordered"/>
       <definition value="A code or reference that identifies a particular service (i.e., procedure, diagnostic investigation, or panel of investigations) that has been requested."/>
-      <comment value="Many laboratory and radiology procedure codes embed the specimen/organ system in the test order name, for example,  serum or serum/plasma glucose, or a chest x-ray. The specimen might not be recorded separately from the test code. The PlanDefinition may be used when you want to group multiple activities together (e.g., order set that are part of a plan)."/>
+      <comment value="For laboratory tests and radiology, codes should be drawn from LOINC or, when using SNOMED CT, from the Observable Entity hierarchy (363787002 | Observable entity (observable entity) |). Many laboratory and radiology procedure codes embed the specimen/organ system in the test order name, for example, serum or serum/plasma glucose, or a chest x-ray. The specimen might not be recorded separately from the test code. The PlanDefinition may be used when you want to group multiple activities together (e.g., order sets that are part of a plan)."/>
       <alias value="service requested"/>
       <min value="0"/>
       <max value="1"/>
@@ -578,13 +578,14 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="v2"/>
-        <map value="NTE"/>
+        <map value="NTE; associated OBX where OBX-11=O (parameter code: OBX-3; parameter value: OBX-5)"/>
       </mapping>
     </element>
     <element id="ServiceRequest.orderDetail.parameterFocus[x]">
       <path value="ServiceRequest.orderDetail.parameterFocus[x]"/>
-      <short value="The context of the order details by reference"/>
-      <definition value="Indicates the context of the order details by reference."/>
+      <short value="The device, substance, medication, or other item the order details apply to"/>
+      <definition value="Indicates the context of the order details by reference or code when the resource instance is not available."/>
+      <comment value="parameterFocusReference is the most common choice type for identifying a specific item or a related request. parameterFocusCanonical is used when a definitional resource (such as DeviceDefinition or PlanDefinition) identifies the type of item. parameterFocusCodeableConcept may be used when the item is identified by a coded value such as a device type or medication code; its specificity is implementation dependent."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -605,6 +606,14 @@
         <code value="canonical"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ParameterFocusCode"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="Coded representation of the item the order detail parameters apply to, such as a device type, medication, or substance."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/servicerequest-parameter-focus"/>
+      </binding>
       <mapping>
         <identity value="workflow"/>
         <map value="Request.product"/>
@@ -674,7 +683,7 @@
       <path value="ServiceRequest.quantity[x]"/>
       <short value="Service amount"/>
       <definition value="An amount of service being requested."/>
-      <requirements value="When ordering a service the number of service items may need to be specified separately from the the service item."/>
+      <requirements value="When ordering a service the number of service items may need to be specified separately from the service item."/>
       <comment value="The amount of service being requested can be a quantity (e.g., $1,500 for home modification request), a ratio (e.g., 20 for a request of home visits to occur each month), or a range (e.g., 8-10 for physiotherapy sessions)."/>
       <min value="0"/>
       <max value="1"/>
@@ -690,7 +699,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="v2"/>
-        <map value="NTE"/>
+        <map value="ORC-7/OBR-27 (older versions) or TQ1-2"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -702,8 +711,8 @@
         <valueString value="[#10296][#11119]#13196]."/>
       </extension>
       <path value="ServiceRequest.subject"/>
-      <short value="Individual or Entity the service is ordered for"/>
-      <definition value="On whom or what the service is to be performed. This is usually a human patient, but can also be requested on animals, groups of humans or animals, devices such as dialysis machines, or even locations (typically for environmental scans)."/>
+      <short value="Individual or Entity of record for whom the service is ordered"/>
+      <definition value="On whose or what record the service to be performed is recorded. This is usually a human patient, but can also be requested on animals, groups of humans or animals, devices such as dialysis machines, or even locations (typically for environmental scans)."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -746,6 +755,8 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
       </type>
       <isSummary value="true"/>
+      <isModifier value="true"/>
+      <isModifierReason value="This element is labeled as a modifier because it changes who is the target of the request. See the use cases in the definition."/>
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.subject"/>
@@ -821,7 +832,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="TQ1/TQ2, OBR-7/OBR-8"/>
+        <map value="TQ1/TQ2; occurrenceTiming: TQ1-13/TQ1-14; occurrenceDateTime: OBR-6"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -942,7 +953,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="ORC-12, PRT"/>
+        <map value="ORC-12/OBR-16, PRT"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -1084,6 +1095,10 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DetectedIssue"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RiskAssessment"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationAdministration"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/AllergyIntolerance"/>
       </type>
       <isSummary value="true"/>
       <binding>

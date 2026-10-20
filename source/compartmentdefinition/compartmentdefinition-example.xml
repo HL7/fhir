@@ -41,12 +41,10 @@
     <code value="Communication"/>
     <param value="sender"/>
     <param value="recipient"/>
-    <documentation value="The device used as the message sender and recipient"/>
   </resource>
   <resource>
     <code value="CommunicationRequest"/>
     <param value="sender"/>
     <param value="recipient"/>
-    <documentation value="The device used as the message sender and recipient"/>
   </resource>
 </CompartmentDefinition>

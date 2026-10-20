@@ -311,7 +311,7 @@
 		<element id="Evidence.author">
 			<path value="Evidence.author"/>
 			<short value="Who authored the content"/>
-			<definition value="An individiual, organization, or device primarily involved in the creation and maintenance of the content."/>
+			<definition value="An individual, organization, or device primarily involved in the creation and maintenance of the content."/>
 			<comment value="Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (see [Clinical Reasoning Module](clinicalreasoning-module.html))."/>
 			<min value="0"/>
 			<max value="*"/>
@@ -370,7 +370,7 @@
 		<element id="Evidence.editor">
 			<path value="Evidence.editor"/>
 			<short value="Who edited the content"/>
-			<definition value="An individiual, organization, or device primarily responsible for internal coherence of the content."/>
+			<definition value="An individual, organization, or device primarily responsible for internal coherence of the content."/>
 			<comment value="Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (see [Clinical Reasoning Module](clinicalreasoning-module.html))."/>
 			<min value="0"/>
 			<max value="*"/>
@@ -381,7 +381,7 @@
 		<element id="Evidence.reviewer">
 			<path value="Evidence.reviewer"/>
 			<short value="Who reviewed the content"/>
-			<definition value="An individiual, organization, or device primarily responsible for review of some aspect of the content."/>
+			<definition value="An individual, organization, or device primarily responsible for review of some aspect of the content."/>
 			<comment value="Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (see [Clinical Reasoning Module](clinicalreasoning-module.html)).&#xa;&#xa;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
 			<min value="0"/>
 			<max value="*"/>
@@ -392,7 +392,7 @@
 		<element id="Evidence.endorser">
 			<path value="Evidence.endorser"/>
 			<short value="Who endorsed the content"/>
-			<definition value="An individiual, organization, or device responsible for officially endorsing the content for use in some setting."/>
+			<definition value="An individual, organization, or device responsible for officially endorsing the content for use in some setting."/>
 			<comment value="Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (see [Clinical Reasoning Module](clinicalreasoning-module.html)).&#xa;&#xa;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
 			<min value="0"/>
 			<max value="*"/>
@@ -812,7 +812,7 @@
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
 					<valueString value="StatisticType"/>
 				</extension>
-				<strength value="example"/>
+				<strength value="extensible"/>
 				<valueSet value="http://terminology.hl7.org/ValueSet/statistic-type"/>
 			</binding>
 		</element>
@@ -973,7 +973,7 @@
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
 					<valueString value="AttributeEstimateType"/>
 				</extension>
-				<strength value="example"/>
+				<strength value="extensible"/>
 				<valueSet value="http://terminology.hl7.org/ValueSet/attribute-estimate-type"/>
 			</binding>
 		</element>
@@ -1104,7 +1104,7 @@
 		</element>
 		<element id="Evidence.statistic.modelCharacteristic.variable.handling">
 			<path value="Evidence.statistic.modelCharacteristic.variable.handling"/>
-			<short value="boolean | continuous | dichotomous | ordinal | polychotomous | time-to-event | not-specified"/>
+			<short value="Method of handling in statistical analysis (e.g. boolean, continuous, dichotomous, ordinal, polychotomous or time-to-event variable)"/>
 			<definition value="How the variable is classified for use in adjusted analysis."/>
 			<comment value="See the Evidence Based Medicine on FHIR Implementation Guide (https://hl7.org/fhir/uv/ebm) for Extensible and Preferred value sets for evidence-related terminologies."/>
 			<min value="0"/>
@@ -1114,10 +1114,10 @@
 			</type>
 			<binding>
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="EvidenceVariableHandlingExample"/>
+					<valueString value="EvidenceVariableHandling"/>
 				</extension>
-				<strength value="example"/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/variable-handling-example"/>
+				<strength value="extensible"/>
+				<valueSet value="http://terminology.hl7.org/ValueSet/evidence-variable-handling"/>
 			</binding>
 		</element>
 		<element id="Evidence.statistic.modelCharacteristic.variable.valueCategory">

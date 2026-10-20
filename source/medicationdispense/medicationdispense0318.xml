@@ -53,7 +53,7 @@
     </daysSupply>
     <whenPrepared value="2015-03-16T17:13:00+05:00"/>
     <dosageInstruction>
-        <simple>
+        <step><component>
             <text value="75mcg daily daily" />
             <timing>
                 <repeat>
@@ -84,7 +84,7 @@
                     <code value="ug"/>
                 </doseQuantity>
             </doseAndRate>
-        </simple>
+        </component></step>
 
     </dosageInstruction>
     <substitution>

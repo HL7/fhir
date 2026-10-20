@@ -17,7 +17,7 @@
 
   <target>
     <identifier>
-	  <system value="http://ninsurers.org/payorid"/>
+	  <system value="http://ninsurers.org/payerid"/>
 	  <value value="WI12345"/>
 	</identifier>
   </target>

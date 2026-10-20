@@ -50,5 +50,12 @@
         <value value="LP7753-9"/>
       </filter>
     </include>
+    <exclude>
+      <system value="http://loinc.org"/>
+      <concept>
+        <code value="8479-8"/>
+        <display value="Systolic blood pressure by palpation"/>
+      </concept>
+    </exclude>
   </compose>
 </ValueSet>

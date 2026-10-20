@@ -63,6 +63,10 @@
         <code value="mitigated"/>
         <display value="Mitigated"/>
       </concept>
+      <concept>
+        <code value="processing-error"/>
+        <display value="Processing error"/>
+      </concept>
     </include>
   </compose>
 </ValueSet>

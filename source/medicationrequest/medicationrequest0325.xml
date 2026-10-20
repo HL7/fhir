@@ -31,7 +31,7 @@
     </requester>
    
     <dosageInstruction>
-        <simple>
+        <step><component>
         <text value="Apply to affected areas four times daily"/>
         <timing>
             <repeat>
@@ -56,7 +56,7 @@
                 <code value="OINT"/>
             </doseQuantity>
         </doseAndRate>
-        </simple>
+        </component></step>
     </dosageInstruction>
     
     <dispenseRequest>

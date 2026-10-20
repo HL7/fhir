@@ -7,12 +7,10 @@
   </target>
   <recorded value="2024-06-01T13:00:00Z"/>
   <authorization>
-    <concept>
-      <coding>
-        <system value="http://terminology.hl7.org/CodeSystem/v3-ActReason"/>
-        <code value="PATSFTY"/>
-      </coding>
-    </concept>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ActReason"/>
+      <code value="PATSFTY"/>
+    </coding>
   </authorization>
   <why value="Corrected immunization record to reflect accurate vaccine information."/>
   <activity>

@@ -28,13 +28,17 @@
         <text value='Water'/>
       </concept>
     </item>
-    <amount>
+    <amountRatio>
       <numerator>
         <value value='83.61'/>
         <comparator value='ad'/>
         <unit value='g'/>
       </numerator>
-    </amount>
+      <denominator>
+        <value value='1'/>
+        <unit value='apple'/>
+      </denominator>
+    </amountRatio>
   </nutrient>
   <nutrient>
     <item>
@@ -47,13 +51,17 @@
         <text value='Energy (Atwater General Factors)'/>
       </concept>
     </item>
-    <amount>
+    <amountRatio>
       <numerator>
         <value value='64.6609'/>
         <comparator value='ad'/>
         <unit value='kcal'/>
       </numerator>
-    </amount>
+      <denominator>
+        <value value='1'/>
+        <unit value='apple'/>
+      </denominator>
+    </amountRatio>
   </nutrient>
   <nutrient>
     <item>
@@ -66,13 +74,17 @@
         <text value='Energy (Atwater Specific Factors)'/>
       </concept>
     </item>
-    <amount>
+    <amountRatio>
       <numerator>
         <value value='58.20306'/>
         <comparator value='ad'/>
         <unit value='kcal'/>
       </numerator>
-    </amount>
+      <denominator>
+        <value value='1'/>
+        <unit value='apple'/>
+      </denominator>
+    </amountRatio>
   </nutrient>
   <nutrient>
     <item>
@@ -85,13 +97,17 @@
         <text value='Nitrogen'/>
       </concept>
     </item>
-    <amount>
+    <amountRatio>
       <numerator>
         <value value='0.02375'/>
         <comparator value='ad'/>
         <unit value='g'/>
       </numerator>
-    </amount>
+      <denominator>
+        <value value='1'/>
+        <unit value='apple'/>
+      </denominator>
+    </amountRatio>
   </nutrient>
   <nutrient>
     <item>
@@ -104,13 +120,17 @@
         <text value='Protein'/>
       </concept>
     </item>
-    <amount>
+    <amountRatio>
       <numerator>
         <value value='0.1484375'/>
         <comparator value='ad'/>
         <unit value='g'/>
       </numerator>
-    </amount>
+      <denominator>
+        <value value='1'/>
+        <unit value='apple'/>
+      </denominator>
+    </amountRatio>
   </nutrient>
   <nutrient>
     <item>
@@ -123,13 +143,17 @@
         <text value='Total lipid (fat)'/>
       </concept>
     </item>
-    <amount>
+    <amountRatio>
       <numerator>
         <value value='0.1625'/>
         <comparator value='ad'/>
         <unit value='g'/>
       </numerator>
-    </amount>
+      <denominator>
+        <value value='1'/>
+        <unit value='apple'/>
+      </denominator>
+    </amountRatio>
   </nutrient>
   <nutrient>
     <item>
@@ -142,13 +166,17 @@
         <text value='Ash'/>
       </concept>
     </item>
-    <amount>
+    <amountRatio>
       <numerator>
         <value value='0.4279'/>
         <comparator value='ad'/>
         <unit value='g'/>
       </numerator>
-    </amount>
+      <denominator>
+        <value value='1'/>
+        <unit value='apple'/>
+      </denominator>
+    </amountRatio>
   </nutrient>
   <nutrient>
     <item>
@@ -161,13 +189,17 @@
         <text value='Carbohydrate, by difference'/>
       </concept>
     </item>
-    <amount>
+    <amountRatio>
       <numerator>
         <value value='15.6511625'/>
         <comparator value='ad'/>
         <unit value='g'/>
       </numerator>
-    </amount>
+      <denominator>
+        <value value='1'/>
+        <unit value='apple'/>
+      </denominator>
+    </amountRatio>
   </nutrient>
   <nutrient>
     <item>
@@ -180,13 +212,17 @@
         <text value='Carbohydrate, by summation'/>
       </concept>
     </item>
-    <amount>
+    <amountRatio>
       <numerator>
         <value value='15.405'/>
         <comparator value='ad'/>
         <unit value='g'/>
       </numerator>
-    </amount>
+      <denominator>
+        <value value='1'/>
+        <unit value='apple'/>
+      </denominator>
+    </amountRatio>
   </nutrient>
   <nutrient>
     <item>
@@ -199,13 +235,17 @@
         <text value='Fiber, total dietary'/>
       </concept>
     </item>
-    <amount>
+    <amountRatio>
       <numerator>
         <value value='2.075'/>
         <comparator value='ad'/>
         <unit value='g'/>
       </numerator>
-    </amount>
+      <denominator>
+        <value value='1'/>
+        <unit value='apple'/>
+      </denominator>
+    </amountRatio>
   </nutrient>
   <nutrient>
     <item>
@@ -218,13 +258,17 @@
         <text value='Sugars, Total'/>
       </concept>
     </item>
-    <amount>
+    <amountRatio>
       <numerator>
         <value value='13.332'/>
         <comparator value='ad'/>
         <unit value='g'/>
       </numerator>
-    </amount>
+      <denominator>
+        <value value='1'/>
+        <unit value='apple'/>
+      </denominator>
+    </amountRatio>
   </nutrient>
   <nutrient>
     <item>
@@ -237,13 +281,17 @@
         <text value='Sugars, total including NLEA'/>
       </concept>
     </item>
-    <amount>
+    <amountRatio>
       <numerator>
         <value value='13.33'/>
         <comparator value='ad'/>
         <unit value='g'/>
       </numerator>
-    </amount>
+      <denominator>
+        <value value='1'/>
+        <unit value='apple'/>
+      </denominator>
+    </amountRatio>
   </nutrient>
   <nutrient>
     <item>
@@ -256,13 +304,17 @@
         <text value='Sucrose'/>
       </concept>
     </item>
-    <amount>
+    <amountRatio>
       <numerator>
         <value value='1.704'/>
         <comparator value='ad'/>
         <unit value='g'/>
       </numerator>
-    </amount>
+      <denominator>
+        <value value='1'/>
+        <unit value='apple'/>
+      </denominator>
+    </amountRatio>
   </nutrient>
   <nutrient>
     <item>
@@ -275,13 +327,17 @@
         <text value='Glucose'/>
       </concept>
     </item>
-    <amount>
+    <amountRatio>
       <numerator>
         <value value='3.038'/>
         <comparator value='ad'/>
         <unit value='g'/>
       </numerator>
-    </amount>
+      <denominator>
+        <value value='1'/>
+        <unit value='apple'/>
+      </denominator>
+    </amountRatio>
   </nutrient>
   <nutrient>
     <item>
@@ -294,13 +350,17 @@
         <text value='Fructose'/>
       </concept>
     </item>
-    <amount>
+    <amountRatio>
       <numerator>
         <value value='8.59'/>
         <comparator value='ad'/>
         <unit value='g'/>
       </numerator>
-    </amount>
+      <denominator>
+        <value value='1'/>
+        <unit value='apple'/>
+      </denominator>
+    </amountRatio>
   </nutrient>
   <nutrient>
     <item>
@@ -313,13 +373,17 @@
         <text value='Lactose'/>
       </concept>
     </item>
-    <amount>
+    <amountRatio>
       <numerator>
         <value value='0'/>
         <comparator value='ad'/>
         <unit value='g'/>
       </numerator>
-    </amount>
+      <denominator>
+        <value value='1'/>
+        <unit value='apple'/>
+      </denominator>
+    </amountRatio>
   </nutrient>
   <nutrient>
     <item>
@@ -332,13 +396,17 @@
         <text value='Maltose'/>
       </concept>
     </item>
-    <amount>
+    <amountRatio>
       <numerator>
         <value value='0'/>
         <comparator value='ad'/>
         <unit value='g'/>
       </numerator>
-    </amount>
+      <denominator>
+        <value value='1'/>
+        <unit value='apple'/>
+      </denominator>
+    </amountRatio>
   </nutrient>
   <nutrient>
     <item>
@@ -351,13 +419,17 @@
         <text value='Calcium, Ca'/>
       </concept>
     </item>
-    <amount>
+    <amountRatio>
       <numerator>
         <value value='5.975'/>
         <comparator value='ad'/>
         <unit value='mg'/>
       </numerator>
-    </amount>
+      <denominator>
+        <value value='1'/>
+        <unit value='apple'/>
+      </denominator>
+    </amountRatio>
   </nutrient>
   <nutrient>
     <item>
@@ -370,13 +442,17 @@
         <text value='Iron, Fe'/>
       </concept>
     </item>
-    <amount>
+    <amountRatio>
       <numerator>
         <value value='0.015'/>
         <comparator value='ad'/>
         <unit value='mg'/>
       </numerator>
-    </amount>
+      <denominator>
+        <value value='1'/>
+        <unit value='apple'/>
+      </denominator>
+    </amountRatio>
   </nutrient>
   <nutrient>
     <item>
@@ -389,13 +465,17 @@
         <text value='Magnesium, Mg'/>
       </concept>
     </item>
-    <amount>
+    <amountRatio>
       <numerator>
         <value value='4.67'/>
         <comparator value='ad'/>
         <unit value='mg'/>
       </numerator>
-    </amount>
+      <denominator>
+        <value value='1'/>
+        <unit value='apple'/>
+      </denominator>
+    </amountRatio>
   </nutrient>
   <nutrient>
     <item>
@@ -408,13 +488,17 @@
         <text value='Phosphorus, P'/>
       </concept>
     </item>
-    <amount>
+    <amountRatio>
       <numerator>
         <value value='9.78'/>
         <comparator value='ad'/>
         <unit value='mg'/>
       </numerator>
-    </amount>
+      <denominator>
+        <value value='1'/>
+        <unit value='apple'/>
+      </denominator>
+    </amountRatio>
   </nutrient>
   <nutrient>
     <item>
@@ -427,13 +511,17 @@
         <text value='Potassium, K'/>
       </concept>
     </item>
-    <amount>
+    <amountRatio>
       <numerator>
         <value value='103.8'/>
         <comparator value='ad'/>
         <unit value='mg'/>
       </numerator>
-    </amount>
+      <denominator>
+        <value value='1'/>
+        <unit value='apple'/>
+      </denominator>
+    </amountRatio>
   </nutrient>
   <nutrient>
     <item>
@@ -446,13 +534,17 @@
         <text value='Sodium, Na'/>
       </concept>
     </item>
-    <amount>
+    <amountRatio>
       <numerator>
         <value value='1.013'/>
         <comparator value='ad'/>
         <unit value='mg'/>
       </numerator>
-    </amount>
+      <denominator>
+        <value value='1'/>
+        <unit value='apple'/>
+      </denominator>
+    </amountRatio>
   </nutrient>
   <nutrient>
     <item>
@@ -465,13 +557,17 @@
         <text value='Zinc, Zn'/>
       </concept>
     </item>
-    <amount>
+    <amountRatio>
       <numerator>
         <value value='0.01676'/>
         <comparator value='ad'/>
         <unit value='mg'/>
       </numerator>
-    </amount>
+      <denominator>
+        <value value='1'/>
+        <unit value='apple'/>
+      </denominator>
+    </amountRatio>
   </nutrient>
   <nutrient>
     <item>
@@ -484,13 +580,17 @@
         <text value='Copper, Cu'/>
       </concept>
     </item>
-    <amount>
+    <amountRatio>
       <numerator>
         <value value='0.03279'/>
         <comparator value='ad'/>
         <unit value='mg'/>
       </numerator>
-    </amount>
+      <denominator>
+        <value value='1'/>
+        <unit value='apple'/>
+      </denominator>
+    </amountRatio>
   </nutrient>
   <nutrient>
     <item>
@@ -503,13 +603,17 @@
         <text value='Manganese, Mn'/>
       </concept>
     </item>
-    <amount>
+    <amountRatio>
       <numerator>
         <value value='0.03263'/>
         <comparator value='ad'/>
         <unit value='mg'/>
       </numerator>
-    </amount>
+      <denominator>
+        <value value='1'/>
+        <unit value='apple'/>
+      </denominator>
+    </amountRatio>
   </nutrient>
   <nutrient>
     <item>
@@ -522,13 +626,17 @@
         <text value='Thiamin'/>
       </concept>
     </item>
-    <amount>
+    <amountRatio>
       <numerator>
         <value value='0.00625'/>
         <comparator value='ad'/>
         <unit value='mg'/>
       </numerator>
-    </amount>
+      <denominator>
+        <value value='1'/>
+        <unit value='apple'/>
+      </denominator>
+    </amountRatio>
   </nutrient>
   <nutrient>
     <item>
@@ -541,13 +649,17 @@
         <text value='Riboflavin'/>
       </concept>
     </item>
-    <amount>
+    <amountRatio>
       <numerator>
         <value value='0.0675'/>
         <comparator value='ad'/>
         <unit value='mg'/>
       </numerator>
-    </amount>
+      <denominator>
+        <value value='1'/>
+        <unit value='apple'/>
+      </denominator>
+    </amountRatio>
   </nutrient>
   <nutrient>
     <item>
@@ -560,13 +672,17 @@
         <text value='Niacin'/>
       </concept>
     </item>
-    <amount>
+    <amountRatio>
       <numerator>
         <value value='0.09063'/>
         <comparator value='ad'/>
         <unit value='mg'/>
       </numerator>
-    </amount>
+      <denominator>
+        <value value='1'/>
+        <unit value='apple'/>
+      </denominator>
+    </amountRatio>
   </nutrient>
   <nutrient>
     <item>
@@ -579,12 +695,16 @@
         <text value='Vitamin B-6'/>
       </concept>
     </item>
-    <amount>
+    <amountRatio>
       <numerator>
         <value value='0.03544'/>
         <comparator value='ad'/>
         <unit value='mg'/>
       </numerator>
-    </amount>
+      <denominator>
+        <value value='1'/>
+        <unit value='apple'/>
+      </denominator>
+    </amountRatio>
   </nutrient>
 </NutritionProduct>

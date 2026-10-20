@@ -36,7 +36,7 @@ in order to retain attestation validity.  These rules might vary based on the ty
 documents, clinical documents, etc.).</p>
 <p>
 Documents built in this fashion may be exchanged between systems and
-persisted in document storage and management systems, including systems such as <a href="https://wiki.ihe.net/index.php/Cross-Enterprise_Document_Sharing">IHE XDS</a>.
+persisted in document storage and management systems, including systems such as <a href="https://profiles.ihe.net/ITI/MHD/index.html">IHE MHD</a>.
 </p>
 <p>
 Applications that declare support for FHIR documents with <a href="capabilitystatement-definitions.html#CapabilityStatement.document">CapabilityStatement.document</a> are asserting conformance to the rules defined on this page.
@@ -53,10 +53,13 @@ consider the <a href="http://hl7.org/fhir/uv/bulkdata/">Bulk Data</a> specificat
 to such data sets.
 </p>
 <p>
-Note that FHIR defines both this document format (a document bundle containing a Composition resource and potentially other resources) and a <a href="documentreference.html">DocumentReference resource</a>.
-FHIR documents are used for documents that are authored and assembled in FHIR, while the DocumentReference resource is for
-general references to documents (which may include FHIR documents as well as PDFs, CDAs, etc.).
+Note that FHIR defines several structures in this space:
 </p>
+<ul class="alternate" type="square">
+	<li>this document format (a document bundle containing a Composition resource and potentially other resources) which is for documents authored and assembled in FHIR and where the computable 'content' of the document is found in individual discrete resources.</li>
+	<li>a <a href="documentreference.html">DocumentReference resource</a> which is used is for general references to documents (which may include FHIR documents as well as PDFs, CDAs, etc.).</li>
+  <li>a <a href="diagnosticreport.html">DiagnosticReport resource</a>, which is used strictly to compile a collection of diagnostic information and focuses on the discrete data in the report, but may contain or reference a separate rendered version of the report.</li>
+</ul>
 <ul>
  <li><a href="document-example-dischargesummary.html">Example discharge summary</a>: <a href="document-example-dischargesummary.xml.html">XML</a> or <a href="document-example-dischargesummary.json.html">JSON</a></li>
 </ul>
@@ -104,14 +107,15 @@ for more information).
 The document bundle SHALL include only:
 </p>
 <ol>
- <li>The composition set: the single Composition resource, and the resources it links to</li>
+ <li>The composition set: the root Composition resource, and the resources it links to</li>
  <li>
   The supporting information: Any resources that are part of the graph of resources that reference or are referenced 
   from the composition set, either directly or indirectly (e.g., recursively in a chain).  Such references SHALL use 
-  <a href="references.html#Reference">Reference.reference</a>, <a href="references.html#canonical">canonical</a> 
-    or a <a href="datatypes.html#uri">URI</a>
+  <a href="references.html#Reference">Reference.reference</a>, <a href="references.html#canonical">canonical</a>, 
+    a <a href="datatypes.html#uri">URI</a>, or a <a href="datatypes.html#Signature">Signature</a>. 
     See <a href="bundle.html#graphs">Graph-connected Bundles</a> for further details.</li>
  <li>Supporting Collateral: A Binary resource containing a stylesheet (as described below)</li>
+ <li>Any Provenance resources that have a target of the Bundle itself."</li>
 </ol>
 <p>
 There are two key identifiers in the document:
@@ -128,7 +132,7 @@ The document has several dates in it:
  <li>The document date (mandatory) found in <i>Bundle.timestamp</i>. It identifies when the document bundle was assembled from the underlying resources</li>
  <li>The Composition date (mandatory) found in <i>Composition.date</i>. It is when the author wrote the document logically</li>
  <li>The Attestation dates (optional). These are found in <i>Composition.attester.time</i> and is when the document was witnessed by the attesters. This would usually be at the same time as the composition date or afterwards</li>
- <li>The Composition last modified time (optional). This is found in <i>Composition.meta.lastUpdated</i> for the composition and is the last date of change of the composition. This must be &gt;= the composition date</li>
+ <li>The Composition last modified time (optional). This is found in <i>Composition.meta.lastUpdated</i> for the composition and is the last date of change of the composition, and is specific to the authoring system</li>
 </ul>
 <p>
 If there is a need to have a digital signature on a Document Bundle, this may be accomplished using the
@@ -136,8 +140,24 @@ rules laid out in the <a href="signatures.html">digital signatures</a> page.
 </p>
 <p>
 Note that the document may be represented in either XML or JSON and interconverted between these 
-or have its character encoding changed, all the while remaining the same document.  Any additional documents 
-derived from the same Composition SHALL have a different Bundle.identifier.
+or have its character encoding changed, all the while remaining the same document.
+</p>
+
+<a name="other-docs"></a>
+<h3>Documents referencing other documents</h3>
+
+<p>
+In some cases a document may reference another document and include that as part of the
+packaged/attested content.  There are three options:
+</p>
+<ul>
+  <li>Refer to the Composition that defines the target document (and potentially include it in the Bundle),</li>
+  <li>Refer to a DocumentReference that itself points to the target document Bundle, or</li>
+  <li>Embed the target document Bundle in the current document</li>
+</ul>
+<p>
+The last option is not preferred.  The choice of the first two options is driven by whether there is a need to refer to the entire package, or merely the definitional
+concept of the target document (as well as which resource is available to reference/include).
 </p>
 
 <a name="presentation"></a>
@@ -193,10 +213,10 @@ apply to the collated narrative. This is done by asserting stylesheet links on t
 &lt;/Bundle&gt;
 </pre>
 <p>
-The <code>url</code> can be an absolute reference to a CSS stylesheet or
-a relative reference to a Binary resource that carries a
-CSS stylesheet. Stylesheet references can only refer to
-a CSS stylesheet - other forms of stylesheet are not acceptable.
+The <code>url</code>  can be an absolute reference to a CSS stylesheet or a reference following the
+<a href="bundle.html#references">Bundle resolution rules</a> to a Binary resource that carries a CSS
+stylesheet. Stylesheet references can only refer to a CSS stylesheet - other forms of stylesheet are
+not acceptable.
 </p>
 <p>
 Relative (internal) references SHOULD be used for stylesheets, because the viewer may be unable to resolve
@@ -268,7 +288,6 @@ document processor has the obligation to assure that the following rules are fol
 <ul>
  <li>When storing/transmitting a document, any method may be used as long as the bundled document can be
    (re-)assembled with sufficient integrity to validate a digital signature</li>
- <li>When presenting the narrative of the document, the rules described above SHALL be followed</li>
  <li>Resources or data from the document may be extracted for additional uses, but such data is no longer considered to be attested by the document author</li>
  <li>Wherever the data from the document is displayed to a user, there SHOULD always be a way for the user to access a presentation of the original document</li>
 

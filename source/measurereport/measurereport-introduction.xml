@@ -12,25 +12,17 @@
                 <li>Compatible, Substantive Changes
                     <ul>
                         <li><a href="https://jira.hl7.org/browse/FHIR-55083">FHIR-55083</a>: Relaxed .type to 0..1 and added 'other' to .type allowable concepts.</li>
-                    </ul>
-                    <ul>
                         <li><a href="https://jira.hl7.org/browse/FHIR-55405">FHIR-55405</a>: Add search parameter for MeasureReport.category</li>
-                    </ul>
-                    <ul>
                         <li><a href="https://jira.hl7.org/browse/FHIR-55979">FHIR-55979</a>: MeasureReport should include .compositeScoring element on .group</li>
+                        <li><a href="https://jira.hl7.org/browse/FHIR-56802">FHIR-56802</a>: Added Period and string as possible choices for stratum.value and stratum.component.value elements.</li>
+                        <li><a href="https://jira.hl7.org/browse/FHIR-53716">FHIR-53716</a>: Changed security category to patient</li>
                     </ul>
                 </li>
                 <li>Non-substantive Changes
                     <ul>
                         <li><a href="https://jira.hl7.org/browse/FHIR-55081">FHIR-55081</a>: Potentially re-useable THO-candidate value sets in resource MeasureReport</li>
-                    </ul>
-                    <ul>
                         <li><a href="https://jira.hl7.org/browse/FHIR-55082">FHIR-55082</a>: MeasureReport.status has no escape valve</li>
-                    </ul>
-                    <ul>
                         <li><a href="https://jira.hl7.org/browse/FHIR-55366">FHIR-55366</a>: Removed isModifier from .scoring, .dataUpdateType, and .improvementNotation</li>
-                    </ul>
-                    <ul>
                         <li><a href="https://jira.hl7.org/browse/FHIR-55926">FHIR-55926</a>: clarify exclusive use of 'subject' and 'subjectGroup' in $evaluate</li>
                     </ul>
                 </li>

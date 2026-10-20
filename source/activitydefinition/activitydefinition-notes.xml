@@ -1,14 +1,45 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <!-- insert xhtml content here -->
+<div>
+    <blockquote class="ballot-note" id="bn1">
+        <p><b>Note to Balloters:</b> Key changes made since FHIR 6.0.0-ballot4:</p>
+        <ul>
+            <li>Non-compatible Changes
+                <ul>
+                    <li><a href="https://jira.hl7.org/browse/FHIR-54473">FHIR-54473</a>: FHIR Mapping Language not ready for normative (moved to mapping-language IG with StructureMap) - removed canonical reference restriction</li>
+                </ul>
+            </li>
+            <li>Compatible, Substantive Changes
+                <ul>
+                    <li>None</li>
+                </ul>
+            </li>
+            <li>Non-substantive Changes
+                <ul>
+                    <li>None</li>
+                </ul>
+            </li>
+        </ul>
+        <p></p>
+    </blockquote>
+    <blockquote style="background-color: lightblue">
+        
+        <p><b>All Changes (including Technical Corrections not listed above):</b></p>
+        <ul>
+            <li>None</li>
+        </ul>
+    </blockquote>
+</div>
 
+<a name="apply"> </a>
 <h3>Applying an ActivityDefinition</h3>
 
 <p>An ActivityDefinition resource provides a description, or template, of an action to performed. These actions can be purely text-based descriptions of the action to be performed, only interpretable by a human user, or they can be structured definitions with enough information to construct a resource to represent the request or activity directly. This process of converting the ActivityDefinition into a specific resource in a particular context is performed with the <code>$apply</code> operation.</p>
 
 <p>In the simplest case, the process maps the elements specified in the ActivityDefinition to the corresponding elements on a resource of the appropriate type, using the <code>kind</code> element of the definition to determine the type of resource to be created.</p>
 
-<p>More dynamic scenarios can be achieved in one of two ways, either by providing <code>dynamicValue</code> expressions, or by specifying a <a href="structuremap.html">StructureMap</a> that transforms the definition into the appropriate request resource.</p>
+<p>More dynamic scenarios can be achieved in one of two ways, either by providing <code>dynamicValue</code> expressions, or by specifying a <a href="https://build.fhir.org/ig/HL7/mapping-language-ig/StructureDefinition-StructureMap.html">StructureMap</a> that transforms the definition into the appropriate request resource.</p>
 
 <p>Note that systems will likely vary widely in the degree of support they provide for the <code>$apply</code> operation. In particular, the fact that a system supports applying definitions of one category, does not imply that it supports applying definitions for all categories. For example, a service focused on medication order sets may have sophisticated support for MedicationRequest activities, but no support at all for the ServiceRequest activities.</p>
 

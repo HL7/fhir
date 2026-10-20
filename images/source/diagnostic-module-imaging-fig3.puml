@@ -1,55 +1,45 @@
-@startuml ImagingSelectionProfiles
+@startuml DiagnosticModuleAbstracted
+!pragma layout smetana
+hide empty fields
+hide empty methods
+top to bottom direction
 
-left to right direction
+protocol DerivedImagingMeasurement ##Green {}
+protocol ImagingMeasurementGroup ##Green {}
+protocol ImagingQualitativeEvaluation ##Green {}
+protocol ImagingMeasurement ##Green{}
+abstract class ImagingObservation ##Green {}
+record Observation ##Green{}
 
-
-package ImagingSelectionOnePerObservation {
-    class ImageRegion3d ##BlueViolet{
-    }
-
-    class ImageRegion2d ##BlueViolet{
-    }
-
-    class IllustrationOfRoi ##BlueViolet{
-    }
-
-    class VolumeSurface ##BlueViolet{
-    }
-
-    class VisualExplanation ##BlueViolet{
-    }
-
-    class RegionInSpace ##BlueViolet{
-    }
-
-    class ReferencedSegmentationFrame ##BlueViolet{
-    }
-
-    class ReferencedSegment ##BlueViolet{
-    }
-
-    class RealWorldValueMap ##BlueViolet{
-    }
-}
-abstract class ImagingObservation ##Green{
-}
+DerivedImagingMeasurement --> ImagingMeasurementGroup : derivedFrom
+ImagingMeasurementGroup --> ImagingQualitativeEvaluation : hasMember
+ImagingMeasurementGroup --> ImagingMeasurement : hasMember
 
 
+ImagingObservation --> ObservationImagingSelection : derivedFrom
+
+ImagingObservation --|> ImagingQualitativeEvaluation
+ImagingObservation --|> ImagingMeasurement
+ImagingObservation --|> ImagingMeasurementGroup
+
+Observation --|> ImagingObservation
+Observation --|> DerivedImagingMeasurement
+
+abstract class ObservationImagingSelection ##BlueViolet {}
+record ImagingSelection ##BlueViolet{}
+
+ImagingSelection --|> ObservationImagingSelection
 
 
-ImagingObservation --> ImageRegion3d : derivedFrom
-ImagingObservation --> ImageRegion2d : derivedFrom
-ImagingObservation --> IllustrationOfRoi : derivedFrom
-ImagingObservation --> VolumeSurface : derivedFrom
-ImagingObservation --> VisualExplanation : derivedFrom
-ImagingObservation --> RegionInSpace : derivedFrom
-ImagingObservation --> ReferencedSegmentationFrame : derivedFrom
-ImagingObservation --> ReferencedSegment : derivedFrom
-ImagingObservation --> RealWorldValueMap : derivedFrom
+protocol FindingSite ##Orange{}
+record BodyStructure ##Orange{}
+ObservationImagingSelection --> FindingSite
+BodyStructure --|> FindingSite
 
-abstract class ObservationImaginigSelection ##BlueViolet{}
-
-ObservationImaginigSelection --|> ImagingSelectionOnePerObservation
-
+legend right
+R = FHIR Resource
+P = Resource Profile
+A = Abstract Profile
+endlegend
 
 @enduml

@@ -54,9 +54,14 @@
     <definition value="The existence of the observation is registered, but there is no result yet available."/>
   </concept>
   <concept>
-    <code value="specimen-in-process"/>
-    <display value="Specimen-in-Process"/>
-    <definition value="The specimen being processed in the laboratory but no results are available yet."/>
+    <code value="in-process"/>
+    <display value="In Process"/>
+    <definition value="The process to produce the observation result has been initiated, but the result is not yet available."/>
+    <concept>
+      <code value="specimen-in-process"/>
+      <display value="Specimen-in-Process"/>
+      <definition value="The specimen being processed in the laboratory but no results are available yet."/>
+    </concept>
   </concept>
   <concept>
     <code value="preliminary"/>

@@ -15,6 +15,9 @@
     <divergentElement patternPath="FiveWs.what[x]" resourcePath="BodyStructure.includedStructure.qualifier">
         <upperCardinality _pattern="1" _resource="*" reason="Unknown"/>
     </divergentElement>
+    <divergentElement patternPath="FiveWs.what[x]" resourcePath="BodyStructure.includedStructure.morphology">
+        <upperCardinality _pattern="1" _resource="*" reason="Unknown"/>
+    </divergentElement>
     <divergentElement patternPath="FiveWs.what[x]" resourcePath="BodyStructure.image">
         <upperCardinality _pattern="1" _resource="*" reason="Unknown"/>
     </divergentElement>

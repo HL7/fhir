@@ -211,8 +211,8 @@
         <valueString value="This is not a modifier element as the status of the slot being busy is not a change in the interpretation of the slot."/>
       </extension>
       <path value="Slot.status"/>
-      <short value="busy | free | busy-unavailable | busy-tentative | entered-in-error"/>
-      <definition value="busy | free | busy-unavailable | busy-tentative | entered-in-error."/>
+      <short value="busy | free | busy-unavailable | busy-tentative | entered-in-error | unknown"/>
+      <definition value="busy | free | busy-unavailable | busy-tentative | entered-in-error | unknown."/>
       <min value="1"/>
       <max value="1"/>
       <type>

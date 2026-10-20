@@ -24,8 +24,33 @@ in order to support consistent definitions for schema and UML derived code.
         </tr>
     </table>
 
+    <blockquote class="ballot-note" id="bn1">
+        <p><b>Note to Balloters for Ballot5</b>: Changes revise the Diagnostics module's imaging guidance, page metadata, and DiagnosticReport/Observation grouping guidance. Please review the imaging additions and the DiagnosticReport/Observation grouping guidance.</p>
+        <p>The organizer/grouping discussion remains an important review focus. Balloters are asked to review whether the two grouping patterns, related search guidance, and use of organizer Observations are clear and implementable across laboratory and non-laboratory domains.</p>
+        <p><b>Non-substantive</b></p>
+        <ul>
+            <li>The Diagnostics module now includes Imaging Integration content mapping DICOM information entities to FHIR resources, with figure captions moved out of images for readability. <a href="https://jira.hl7.org/browse/FHIR-57613">FHIR-57613</a>, <a href="https://jira.hl7.org/browse/FHIR-54756">FHIR-54756</a></li>
+            <li>The Index section no longer lists imaging resources twice, and the table was rebalanced for display. <a href="https://jira.hl7.org/browse/FHIR-57656">FHIR-57656</a></li>
+            <li>The imaging-resource Roadmap entry was adjusted to reflect updated maturity information for imaging resources. <a href="https://jira.hl7.org/browse/FHIR-57376">FHIR-57376</a></li>
+            <li>The module ownership/acknowledgements content now recognizes Clinical Genomics and Imaging Integration as co-responsible work groups and adds acknowledgements. <a href="https://jira.hl7.org/browse/FHIR-54964">FHIR-54964</a></li>
+			<li>Guidance has been added to clarify intent behind DiagnosticReport and Observation organizer/grouping <a href="https://jira.hl7.org/browse/FHIR-54887">FHIR-54887</a></li>
+        </ul>
+    </blockquote>
+
+    <blockquote class="stu-note" style="background-color: lightblue">
+        <p><b>Changes since 6.0.0-ballot5:</b></p>
+        <ul>
+            <li><a href="https://jira.hl7.org/browse/FHIR-12913">FHIR-12913</a> - Added patient-characteristics planning guidance and a link to the balloted AIPC logical model in the Developmental Roadmap.</li>
+            <li><a href="https://jira.hl7.org/browse/FHIR-58362">FHIR-58362</a> - Minor correction to imaging figures 1, 3, and 4 and added legend to figures 3 and 4.</li>
+      </ul>
+    </blockquote>
+
     <a name="root"></a>
     <h2>Diagnostics Module</h2>
+
+    <blockquote class="stu-note">
+        <p><b>Note to Implementers:</b> This module page describes the context and usage of Diagnostics-related resources. HL7 seeks specific feedback on the usefulness of this module page and the implementability of the referenced resources.</p>
+    </blockquote>
 
     <a name="intro"></a>
     <h3>Introduction</h3>
@@ -52,15 +77,13 @@ in order to support consistent definitions for schema and UML derived code.
                     <li><a href="imagingselection.html">ImagingSelection</a></li>
                     <li><a href="imagingstudy.html">ImagingStudy</a></li>
                     <li><a href="https://build.fhir.org/ig/HL7/cg-incubator/StructureDefinition-MolecularDefinition.html">MolecularDefinition</a></li>
-                    <li><a href="https://build.fhir.org/ig/HL7/cg-incubator/StructureDefinition-GenomicStudy.html">GenomicStudy</a></li>
                 </ul>
             </td>
             <td style="width:33%">
                 <ul>
-                    <li><a href="imagingselection.html">ImagingSelection</a></li>
-                    <li><a href="imagingstudy.html">ImagingStudy</a></li>
                     <li><a href="specimen.html">Specimen</a></li>
                     <li><a href="bodystructure.html">BodyStructure</a></li>
+                    <li><a href="https://build.fhir.org/ig/HL7/cg-incubator/StructureDefinition-GenomicStudy.html">GenomicStudy</a></li>
                 </ul>
             </td>
         </tr>
@@ -105,21 +128,43 @@ in order to support consistent definitions for schema and UML derived code.
         <figure>Table 1: Indicates the FHIR Resources that are involved in Diagnostics.</figure>
 
         [%impl-note%]
-        MolecularSequence resource has been replaced by the <a href="https://build.fhir.org/ig/HL7/cg-incubator/StructureDefinition-MolecularDefinition.html">Molecular Definition</a> resource.
+        MolecularSequence resource has been replaced by the <a href="https://build.fhir.org/ig/HL7/cg-incubator/StructureDefinition-MolecularDefinition.html">MolecularDefinition</a> resource.
         [%end-note%]
     </div>
 
     <a name="org-dr-obs"></a>
     <h3>Organizing Related DiagnosticReport and Observation Resources</h3>
+    <blockquote class="ballot-note">
+        <p><b>Note to Balloters:</b> The following guidance on DiagnosticReport and Observation grouping patterns has been revised for R6. Balloters are asked to review whether the two patterns, related search guidance, and use of organizer Observations are clear and implementable across all domains. In particular, feedback is requested from laboratory implementers on whether terms such as "panel" and the laboratory result handling guidance are clear and do not hinder current or planned implementations, and from non-laboratory implementers on whether the guidance is too laboratory-centric or needs broader wording. Specific examples and additional content would be welcomed. Balloters are also asked to review this text for consistency with the corresponding DiagnosticReport and Observation resource guidance.</p>
+    </blockquote>
     <p>
-        Many observations need to be grouped together in some fashion to document the relationships necessary for interpretation of the observations. The methods to do so primarily are through DiagnosticReport using
-        DiagnosticReport.result
-        and Observation using Observation.component, Observation.hasMember, and Observation.derivedFrom. Note that
-        Composition may also be used to organize the content of a diagnostic report (in DiagnosticReport.composition), but that is only for purpose of
-        readability,
-        not to record the relationships necessary for interpretation.
+        Many observations need to establish relationships to other observations for proper interpretation. Grouping is a key type of relationship. The primary methods for grouping are DiagnosticReport using
+        <code>DiagnosticReport.result</code>
+        and Observation using <code>Observation.hasMember</code> and <code>Observation.component</code>.
     </p>
-    <p>Note: When an observation is not performed and if this needs to be communicated as part of a reporting, the Observation would be used to document that it was not performed and why.  The DiagnosticReport would include such observation when that documentation was necessary. For more information see <a href="https://build.fhir.org/observation.html#cancelled">Observation</a>.</p>
+    <p>
+        <b>There are two major patterns to consider, depending on how the DiagnosticReport resource is used. (Note to reader: when we use "diagnostic report", we are referring to the business notion that the fulfiller assembles, which may consist of one or more "DiagnosticReport" resource instances.)</b>
+    </p>
+    <p>
+        <b>Pattern #1:</b> The entire diagnostic report (as created by the fulfiller of the order(s)) is represented by a bundle containing <b>one</b> DiagnosticReport resource for the patient for a particular point in time. Some concepts, such as panels, are always represented as Observations, where <code>Observation.code</code> equals the panel code, and <code>Observation.organizer</code> is <code>true</code>.
+    </p>
+    <p>
+        In the case of laboratory reports, the <code>DiagnosticReport.code</code> names the report type (e.g. "Pathology Report"). The <code>DiagnosticReport.result</code> element references at least one Observation that can act as an organizer (grouper) for tests commonly performed together, often referred to as a "panel" or "battery". In this organizer, <code>Observation.code</code> names the panel (e.g. "CBC"), <code>Observation.value[x]</code> is not present, and <code>Observation.hasMember</code> lists all the Observation resources that are grouped by it. To clearly indicate this as an organizer, <code>Observation.organizer</code> is set to <code>true</code>. This supports multiple top-level panels or batteries under an instance of a DiagnosticReport.
+    </p>
+    <p>
+        For this pattern, depending on the type of report (e.g. if the report represents only one panel), you may need to search in two places: <code>DiagnosticReport.code</code> and <code>Observation.code</code>. If you always use a grouper observation, then searching can be focused on <code>Observation.code</code>.
+    </p>
+    <p>
+        <b>Pattern #2:</b> The entire diagnostic report (as created by the fulfiller of the order(s)) is represented by a bundle containing <b>one or more</b> DiagnosticReport resource instance(s). The DiagnosticReport resource represents a group of tests (e.g. a panel) usually performed together. 
+    </p>
+    <p>
+        In the case of laboratory reports, the <code>DiagnosticReport.code</code> names the panel (e.g. "CBC"). The <code>DiagnosticReport.code</code> element acts as the organizer (grouper) for tests commonly performed together, often referred to as a "panel" or "battery". The <code>DiagnosticReport.result</code> lists all Observation resources grouped by this DiagnosticReport. These may be a mixture of Observations that present values (e.g. 10 g/L), or organizer (grouper) Observations that further sub-organize lower-level Observation resources, as seen in complex multi-level reports. Each <code>DiagnosticReport.result</code> element repetition references an individual Observation within a panel. This pattern does not support multiple top-level panels or batteries under an instance of a DiagnosticReport. For this pattern, the search parameter will be <code>DiagnosticReport.code</code> for the panel (e.g. "CBC").
+    </p>
+    <p><b>General Notes</b></p>
+	<p>
+        Note that Composition may also be used to organize the content of a diagnostic report (in <code>DiagnosticReport.composition</code>), but that is only for the purpose of readability, not to record the relationships necessary for interpretation.
+    </p>
+    <p>Note: When an observation is not performed and this needs to be communicated as part of reporting, the Observation would be used to document that it was not performed and why. The DiagnosticReport would include such an observation when that documentation was necessary. For more information, see <a href="https://build.fhir.org/observation.html#cancelled">Observation</a>.</p>
     <h4>Laboratory Results</h4>
     <p>
         Relationships between observations are important to understand for the following use cases in particular:
@@ -132,8 +177,8 @@ in order to support consistent definitions for schema and UML derived code.
         <li>Results associated with an add-on order to the original order</li>
     </ul>
     <p>
-        The following describes the recommended approaches on how to use ServiceRequest, Observation, and
-        DiagnosticReport to consistently relate the necessary relationships.
+        The following describes the recommended approaches for using ServiceRequest, Observation, and
+        DiagnosticReport to consistently represent the necessary relationships.
     </p>
     <h5>Microbiology</h5>
     <p>
@@ -160,18 +205,16 @@ in order to support consistent definitions for schema and UML derived code.
         performance.
     </p>
     <p>
-        The initial observation of a the sample anaerobic culture would be recorded as an Observation and linked to
-        using DiagnosticReport.result. The Observation would describe presence of none, one or more growths or patterns.
-        Other
-        results for, e.g., a stain may be reported as well and linked to DiagnosticReport.result.
+        The initial observation of a sample anaerobic culture would be recorded as an Observation and linked to
+        using DiagnosticReport.result. The Observation would describe the presence of zero, one, or more growths or patterns.
+        Other results, e.g. for a stain, may be reported as well and linked to DiagnosticReport.result.
     </p>
     <p>
         As the growth is identified, an Observation to report the actual organism is created. The actual identification
         may take time and could change. The change history on the Observation will track any changes in organism names.
         Thus the Observation.value may start as unknown and then be updated to reflect the actual identified name. The Observation
         of the initial anaerobic culture references each identified organism using Observation.hasMember, while the
-        Observation
-        of each organism references the initial ServiceRequest that authorized the tests using Observation.basedOn.
+        Observation of each organism references the initial ServiceRequest that authorized the tests using Observation.basedOn.
     </p>
     <p>
         Specific observations on each individual organism, e.g., growth and quantity/rate, are recorded as separate
@@ -181,8 +224,7 @@ in order to support consistent definitions for schema and UML derived code.
     <p>
         When susceptibility tests are starting to be performed, an Observation instance is created for the
         Susceptibility Panel, enabling all susceptibility tests to be organized under that Susceptibility Panel. The
-        Susceptibility Panel
-        Observation is also linked to through the Obervation.hasMember of the identified organism Observation.
+        Susceptibility Panel Observation is also linked to through the Observation.hasMember of the identified organism Observation.
     </p>
     <p>
         If a new authorization is required:
@@ -202,25 +244,20 @@ in order to support consistent definitions for schema and UML derived code.
     <p>
         Note that as an Observation is updated, the Observation.id remains the same, but if for some reason a
         replacement needs to be recorded, the Observation.id changes while the Observation.identifier can remain the
-        same. For
-        observations documenting the progression of identifying the organism, use of a change history is recommended,
-        thus keeping
-        the Observation.id the same.
+        same. For observations documenting the progression of identifying the organism, use of a change history is recommended,
+        thus keeping the Observation.id the same.
     </p>
-    <h5>Policy Driven Additional Testing</h5>
+    <h5>Policy-Driven Additional Testing</h5>
     <p>
         Additional testing may be performed based on actual test results, e.g., abnormal results, based on established
         policies, thus not requiring a new order to be placed. The original order must have associated policies to
-        permit the
-        immediate order of subsequent tests based on specific results. That means that from an ordering provider
-        perspective there
-        is no need to submit a new order (ServiceRequest) for such subsequent testing. However, the laboratory may
-        utilize
-        ServiceRequests for any of these tests where it needs to interact with a reference laboratory for such
+        permit the immediate order of subsequent tests based on specific results. That means that from an ordering provider
+        perspective there is no need to submit a new order (ServiceRequest) for such subsequent testing. However, the laboratory may
+        utilize ServiceRequests for any of these tests where it needs to interact with a reference laboratory for such
         subsequent testing.
     </p>
     <p>
-        The different types of policy driven additional testing can be:
+        The different types of policy-driven additional testing can be:
     </p>
     <ul>
         <li>Reflex – performance of one or more other tests depending on the results of the initial test. This may
@@ -238,8 +275,7 @@ in order to support consistent definitions for schema and UML derived code.
     <p>
         The Observation.triggeredBy on the additional observation(s) will be valued to the appropriate type (reflex,
         repeat, or re-run) and reference the Observation that it is additional to. The Observation.basedOn contains the
-        link to the
-        original ServiceRequest that authorized the performance of the additional tests, and may also point to another
+        link to the original ServiceRequest that authorized the performance of the additional tests, and may also point to another
         ServiceRequest that was necessary to communicate authorization to a reference lab.
     </p>
     <p>
@@ -247,28 +283,23 @@ in order to support consistent definitions for schema and UML derived code.
         DiagnosticReport. The additional DiagnosticReport must then also be linked to the original ServiceRequest using
         DiagnosticReport.basedOn. Note though that the additional observations are then only referenced in the
         additional DiagnosticReport, not the original DiagnosticReport. The additional DiagnosticReport still may
-        include the
-        original observations that triggered the additional tests.
+        include the original observations that triggered the additional tests.
     </p>
     <h5>Follow-Up Orders/Results</h5>
     <p>
         Follow-up orders are individual requests outside established policy, not authorized through the original order,
         based on the results of a prior test to perform further test(s). There may be reasons that this only requires a
         change/correction to the original ServiceRequest (until any change/correction is not permitted as the processing
-        has progressed
-        too far), or require a new ServiceRequest. This may depend on whether the additional test can be charged or not.
-        It
-        furthermore depends on whether the original ordering system permits that ServiceRequest to be changed. The
-        intent may also
-        be that the original result is amended/appended rather than that a separate, new result is reported. This yields
-        the
-        need for either an update to the original ServiceRequest or a new ServiceRequest.
+        has progressed too far), or require a new ServiceRequest. This may depend on whether the additional test can be charged.
+        It furthermore depends on whether the original ordering system permits that ServiceRequest to be changed. The
+        intent may also be that the original result is amended/appended rather than that a separate, new result is reported. This yields
+        the need for either an update to the original ServiceRequest or a new ServiceRequest.
     </p>
     <ul>
         <li>Demographic or AOE response change/correction - no re-performance of the test, only new interpretation.</li>
         <li>Repeat Determination/Re-evaluation - that may be questioning the original result and needing a re-evaluation
             that may result in re-run. Include prior specimen number.</li>
-        <li>Confirmation/Validation – May be re-run or validation. A re-run out of policy.</li>
+        <li>Confirmation/Validation – may be re-run or validation. A re-run out of policy.</li>
     </ul>
     <p>
         This can be mostly handled using the existing ServiceRequest capabilities. We leave it up to future initiatives
@@ -287,9 +318,8 @@ in order to support consistent definitions for schema and UML derived code.
     </p>
     <p>
         Conversely, an ordering provider may indicate explicitly to use a new, separate specimen rather than using any
-        available or about to be drawn specimen where policy otherwise may push for the optimization of specimen draws reducing
-        sticking the
-        patient twice. That is not considered an add-on order. But still can be indicated.
+        available or about to be drawn specimen where policy otherwise may push for the optimization of specimen draws to avoid
+        a second draw. This is not considered an add-on order, but it can still be indicated.
     </p>
     <p>
         Either way, the DiagnosticReport would include test results as per normal without any specific relationships
@@ -297,11 +327,25 @@ in order to support consistent definitions for schema and UML derived code.
     </p>
 
     <h4>Imaging</h4>
+    <h5>Representation of DICOM Information Entities using FHIR resources</h5>
+    <p>The DICOM® information model describes a set of Information Entities (IEs), each corresponding to a "Real-World Object" (e.g. Patient, Visit, etc.). See <a href="https://dicom.nema.org/medical/dicom/current/output/chtml/part03/chapter_3.html">DICOM PS3.3 Section 3.8</a>. While there is not always a one-to-one correspondence, many of these IEs can be described using FHIR resources.</p>
+    <p>The specific mapping may vary depending on use cases, but the following provides general guidance on how the most common DICOM IEs are typically mapped to FHIR resources:</p>
+
+    <div>
+        <figure>
+            <img src="diagnostic-module-imaging-fig1.png" alt="Mapping DICOM IEs to FHIR Resources" width="634" />
+            <figcaption>Figure 1: Mapping DICOM IEs to FHIR Resources.</figcaption>
+            <ol>
+                <li>DICOM Information Entities without a corresponding FHIR resource are not shown in this diagram, e.g., Frame of Reference.</li>
+                <li>The DICOM information model includes a separate IE for all instance types, e.g., image, presentation state, radiotherapy object, etc. For simplicity, these are represented as a single "Instance" IE in this diagram.</li>
+            </ol>
+        </figure>
+    </div>
 
     <h5>Representation of DICOM SR measurements using FHIR resources</h5>
-    <p>DICOM® Structured Report (DICOM® SR) is a standard for recording clinical imaging observations made regarding a diagnostic or interventional imaging procedure. Imaging Observations are made by humans, such as a sonographer making measurements on recently acquired ultrasound image, a Radiologist recording observations on suspected lesions, or by a machine, such as an automated AI Algorithm providing qualitative and quantitative observations.</p>
+    <p>DICOM® Structured Report (DICOM® SR) is a standard for recording clinical imaging observations made regarding a diagnostic or interventional imaging procedure. Imaging Observations are made by humans, such as a sonographer making measurements on a recently acquired ultrasound image, a Radiologist recording observations on suspected lesions, or by a machine, such as an automated AI Algorithm providing qualitative and quantitative observations.</p>
 
-    <p>The standards for recording clinical observations, DICOM® SR and HL7 FHIR Observation resource are bridged by the DICOM SR IG by the transformation of the DICOM SR attributes to the HL7 FHIR Observation Resource.</p>
+    <p>The standards for recording clinical observations, DICOM® SR and the HL7 FHIR Observation resource, are bridged by the DICOM SR IG by the transformation of the DICOM SR attributes to the HL7 FHIR Observation Resource.</p>
 
     <b>Example use cases:</b>
     <ul>
@@ -311,26 +355,26 @@ in order to support consistent definitions for schema and UML derived code.
 
     <p>
         <div>
-            <img src="diagnostic-module-imaging-fig1.png" alt="Extracting imaging results for use in reporting" width="1000" />
-            <figure>Figure 1: Extracting imaging results for use in reporting.</figure>
+            <img src="diagnostic-module-imaging-fig2.png" alt="Extracting imaging results for use in reporting" width="1000" />
+            <figure>Figure 2: Extracting imaging results for use in reporting.</figure>
         </div>
     </p>
 
-    <p>DICOM SR mapping to FHIR is limited to the Observation resource and a small set of related resources. The resultant mapping is provided, as a minimum, a composition or bundle of Observations. Depending on the use case, the observations may be part of or contained in a Diagnostic Report. Use case-specific requirements to construct a diagnostic report(e.g., Mammography) may require the transformation described in the DICOM SR IG. However, the detailed elaboration of those use cases are not in scope in that IG or here in the Diagnostics module.</p>
+    <p>DICOM SR mapping to FHIR is limited to the Observation resource and a small set of related resources. The resultant mapping is provided, as a minimum, a composition or bundle of Observations. Depending on the use case, the observations may be part of or contained in a Diagnostic Report. Use case-specific requirements to construct a diagnostic report (e.g., Mammography) may require the transformation described in the DICOM SR IG. However, the detailed elaboration of those use cases is not in scope in that IG or here in the Diagnostics module.</p>
 
     <p>
         <div>
-            <img src="diagnostic-module-imaging-fig2.png" alt="DICOM SR measurements and finding site represented with FHIR resource profiles" width="750" />
-            <figure>Figure 2: DICOM SR measurements and finding site represented with FHIR resource profiles.</figure>
+            <img src="diagnostic-module-imaging-fig3.png" alt="DICOM SR measurements and finding site represented with FHIR resource profiles" width="750" />
+            <figure>Figure 3: DICOM SR measurements and finding site represented with FHIR resource profiles.</figure>
         </div>
     </p>
 
-    <p>The mapping of the core DICOM SR measurement groups, measurements and qualitative analysis content items are covered by the Observation resource profiles, representing various measurements related DICOM SR templates. The Observation resource profiles depend on number of ImagingSelection resource profiles, as shown in Figure 3. FindingSite profiles the BodyStructure resource representing a finding site content item from the DICOM SR templates.</p>
+    <p>The mapping of the core DICOM SR measurement groups, measurements and qualitative analysis content items is covered by the Observation resource profiles, representing various measurement-related DICOM SR templates. The Observation resource profiles depend on a number of ImagingSelection resource profiles, as shown in Figure 3. FindingSite profiles the BodyStructure resource representing a finding site content item from the DICOM SR templates.</p>
 
     <p>
         <div>
-            <img src="diagnostic-module-imaging-fig3.png" alt="ObservationImagingSelection profiles" width="500" />
-            <figure>Figure 3: ObservationImagingSelection profiles.</figure>
+            <img src="diagnostic-module-imaging-fig4.png" alt="ObservationImagingSelection profiles" width="500" />
+            <figure>Figure 4: ObservationImagingSelection profiles.</figure>
         </div>
     </p>
 
@@ -341,7 +385,7 @@ in order to support consistent definitions for schema and UML derived code.
     </p>
     <p><em>NOTE: </em>Other diagnostic resources can be used for associating related <a href="specimen-example-serum.html">specimen</a> or <a href="bodystructure-example-tumor.html">body site</a>.</p>
     <ul>
-        <li>Planning a diagnostic test such as in this <a href="careplan-example-f203-sepsis.html">Careplan-example</a>
+        <li>Planning a diagnostic test such as in this <a href="careplan-example-f203-sepsis.html">CarePlan example</a>
         </li>
         <li>Recommending diagnostics such as is done by Clinical Decision Support tools. See the <a
                 href="clinicalreasoning-module.html">Clinical Reasoning module</a> for more information.</li>
@@ -388,12 +432,13 @@ in order to support consistent definitions for schema and UML derived code.
         <li>The <em>Observation</em> resource has been tested and used in production tooling and is Normative.  Any further development will follow the rules for Normative resources. Future work will focus on developing core profiles and clarifying use cases and boundaries and providing more domain specific examples.</li>
         <li>The <em>DocumentReference</em> resource has been tested and used in production tooling and has reached maturity level FMM=4.</li>
         <li>The <em>DiagnosticReport</em> resource has been tested and used in production tooling and has reached maturity level FMM=3. Future work will focus on further refinements to the resource, as well as developing core profiles and clarifying use cases and boundaries and providing more domain specific examples.</li>
-        <li>The <em>Specimen</em> resource is expected to undergo further development as a focus of ongoing work group efforts. We expect to see more widespread use of this resource which will help to increase its maturity(currently at FMM=2).</li>
-        <li>The <em>ImagingStudy</em> resource has been tested and used in production tooling and has reached maturity level FMM=4.</li>
-        <li>The <em>ImagingSelection</em> resource is relatively immature at FMM=1 (added in R5). We are looking for implementer feedback to advance its maturity.</li>
+        <li>The <em>Specimen</em> resource is expected to undergo further development as a focus of ongoing work group efforts. We expect to see more widespread use of this resource, which will help to increase its maturity (currently at FMM=2).</li>
+        <li>The <em>ImagingStudy</em> resource has been tested, used in production tooling and is Normative. Any further development will follow the rules for Normative resources. Future work will focus on developing core profiles and clarifying use cases and boundaries and providing more domain specific examples.</li>
+        <li>The <em>ImagingSelection</em> resource has been tested, used in implementation guides, is supported by tooling and is Normative. Any further development will follow the rules for Normative resources. Future work will focus on developing core profiles and clarifying use cases and boundaries and providing more domain specific examples.</li>
         <li>The <em>MolecularDefinition</em> resource is replacing MolecularSequence. It includes definitional content for a molecular entity, such as a nucleotide or protein sequence. This resource is an <a href="resource.html#additional">Additional Resource</a>.</li>
         <li>The <em>GenomicStudy</em> resource was introduced in R5. It represents a set of analyses performed to analyze and generate genomic data and is at FMM=1. Further use of this resource in production tooling is needed for it to reach a more stable FMM level.</li>
         <li>The <em>BodyStructure</em> resource is relatively immature at FMM=1. Changes have been made to support greater precision of body location identification based on feedback that has been received, and we expect to receive additional implementation feedback which will help increase the resource maturity level.</li>
+        <li>Patient characteristics have been identified and included in <a href="https://jira.hl7.org/browse/PSS-2205">PSS-2205</a> and are part of the Anatomical Inventory and Patient Characteristics (AIPC) project. The AIPC logical model was balloted in the May 2025 cycle. Once published, a FHIR implementation guide will be initiated. The balloted version is available as the <a href="https://www.hl7.org/documentcenter/public/ballots/2025MAY/downloads/HL7_LM_AIPC_E1_I1_2025MAY.pdf">AIPC Logical Model</a>.</li>
     </ul>
 
     <a name="acknowledgements"></a>

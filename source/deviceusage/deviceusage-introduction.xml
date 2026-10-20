@@ -1,5 +1,12 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
+<blockquote class="ballot-note" data-augury-generated="true" id="bn1">
+  <p><b>Note to Balloters:</b></p>
+  <ul>
+    <li>Guidance in the DeviceUsage StructureDefinition on referencing a <code>BodyStructure</code> when only a code is needed was revised; this applies to <code>DeviceUsage.bodySite</code> (a <code>CodeableReference(BodyStructure)</code>), clarifying when to supply a plain code versus a BodyStructure reference. Applied alongside the related BodyStructure cardinality work; the processor detected no structural delta on a DeviceUsage element, so <code>DeviceUsage.bodySite</code> keeps its 0..1 cardinality and type. [<a href="https://jira.hl7.org/browse/FHIR-54843">FHIR-54843</a>]</li>
+  </ul>
+</blockquote>
+
 <div>
 <a name="scope"></a>
 <h2>Scope and Usage</h2>

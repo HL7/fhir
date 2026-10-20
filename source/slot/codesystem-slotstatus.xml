@@ -72,4 +72,9 @@
     <display value="Entered in error"/>
     <definition value="This instance should not have been part of this patient's medical record."/>
   </concept>
+  <concept>
+    <code value="unknown"/>
+    <display value="Unknown"/>
+    <definition value="The free/busy status of the slot is unknown."/>
+  </concept>
 </CodeSystem>

@@ -386,7 +386,7 @@
 			<path value="CodeSystem.jurisdiction"/>
 			<short value="Jurisdiction of the authority that maintains the code system (if applicable)"/>
 			<definition value="A legal or geographic region in which the authority that maintains the resource is operating.  In general, the jurisdiction is also found in the useContext.  The useContext may reference additional jurisdictions because the defining jurisdiction does not necessarily limit the jurisdictions of use."/>
-			<comment value="It may be possible for the code system to be used in jurisdictions other than those for which it was originally designed or intended.&#xa;&#xa;DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)"/>
+			<comment value="It may be possible for the code system to be used in jurisdictions other than those for which it was originally designed or intended."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
@@ -512,16 +512,12 @@
 			</mapping>
 		</element>
 		<element id="CodeSystem.topic">
-			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-				<valueCode value="deprecated"/>
-			</extension>
 			<extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
 				<valueString value="Although topic could be modeled as a type of useContext, it was specifically modeled as an element because it is central to indexing support."/>
 			</extension>
 			<path value="CodeSystem.topic"/>
 			<short value="E.g. Education, Treatment, Assessment, etc"/>
 			<definition value="Descriptions related to the content of the CodeSystem. Topics provide a high-level categorization as well as keywords for the CodeSystem that can be useful for filtering and searching."/>
-			<comment value="DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'topic' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#topic and useContext.valueCodeableConcept indicating the topic)"/>
 			<requirements value="Repositories must be able to determine how to categorize the CodeSystem so that it can be found by topical and keyword searches."/>
 			<min value="0"/>
 			<max value="*"/>
@@ -542,7 +538,7 @@
 			</extension>
 			<path value="CodeSystem.author"/>
 			<short value="Who authored the CodeSystem"/>
-			<definition value="An individiual or organization primarily involved in the creation and maintenance of the CodeSystem."/>
+			<definition value="An individual or organization primarily involved in the creation and maintenance of the CodeSystem."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
@@ -760,7 +756,7 @@
 		</element>
 		<element id="CodeSystem.filter.operator">
 			<path value="CodeSystem.filter.operator"/>
-			<short value="= | is-a | descendent-of | is-not-a | regex | in | not-in | generalizes | child-of | descendent-leaf | exists"/>
+			<short value="= | is-a | descendent-of | is-not-a | regex | in | not-in | generalizes | child-of | descendent-leaf | exists | property-value-of"/>
 			<definition value="A list of operators that can be used with the filter."/>
 			<min value="1"/>
 			<max value="*"/>
@@ -779,8 +775,8 @@
 		</element>
 		<element id="CodeSystem.filter.value">
 			<path value="CodeSystem.filter.value"/>
-			<short value="What to use for the value"/>
-			<definition value="A description of what the value for the filter should be."/>
+			<short value="Code from the system, or regex criteria, or boolean value for exists"/>
+			<definition value="CodeSystem.filter.value is represented as a string, and the string value must be as described in [Using Filter Values](valueset.html#filter-values)."/>
 			<min value="1"/>
 			<max value="1"/>
 			<type>
@@ -823,7 +819,7 @@
 		<element id="CodeSystem.property.uri">
 			<path value="CodeSystem.property.uri"/>
 			<short value="Formal identifier for the property"/>
-			<definition value="Reference to the formal meaning of the property. One possible source of meaning is the [Concept Properties](codesystem-concept-properties.html) code system."/>
+			<definition value="Reference to the formal meaning of the property. The URIs used here SHOULD be drawn from the [Concept Properties](codesystem-concept-properties.html) code system, where the URI string consists of \[code system URL]#\[code]."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -845,7 +841,8 @@
 		<element id="CodeSystem.property.type">
 			<path value="CodeSystem.property.type"/>
 			<short value="code | Coding | string | integer | boolean | dateTime | decimal"/>
-			<definition value="The type of the property value. Properties of type &quot;code&quot; contain a code defined by the code system (e.g. a reference to another defined concept)."/>
+			<definition value="The type of the property value. Properties of type &quot;code&quot; contain a code defined by the code system or another code system."/>
+			<comment value="If type is code, and a defined set of codes is to be used, these codes can be specified by using the extension http://hl7.org/fhir/StructureDefinition/codesystem-property-valueset"/>
 			<min value="1"/>
 			<max value="1"/>
 			<type>
@@ -1040,7 +1037,8 @@
 			</extension>
 			<path value="CodeSystem.concept.property.code"/>
 			<short value="Reference to CodeSystem.property.code or a FHIR defined concept-property"/>
-			<definition value="A code that is a reference to CodeSystem.property.code or is a code from [http://hl7.org/fhir/concept-properties](codesystem.html#defined-props) in the case that there is no corresponding code defined in `CodeSystem.property.code`."/>
+			<definition value="Identifies a property that is either defined in this CodeSystem (`CodeSystem.property.code`) or is a code from [http://hl7.org/fhir/concept-properties](codesystem.html#defined-props)."/>
+			<comment value="Note that when the `CodeSystem.property.code` is defined in the CodeSystem itself, there is no mechanism to create a ValueSet, so there is no terminology binding."/>
 			<min value="1"/>
 			<max value="1"/>
 			<type>

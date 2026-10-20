@@ -90,12 +90,12 @@
     <resource>
       <SearchParameter>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="{{name}}.topic"/>
+          <valueString value="{{name}}.useContext.value"/>
         </extension>
         <description value="Topics associated with the {{title}}"/>
         <code value="topic"/>
         <type value="token"/>
-        <expression value="{{name}}.topic"/>
+        <expression value="{{name}}.useContext.where(code.system = 'http://terminology.hl7.org/CodeSystem/usage-context-type' and code.code = 'topic').value"/>
       </SearchParameter>
     </resource>
   </entry>

@@ -230,14 +230,16 @@
                                 </coding>
                                 <text value="Burnt Ear"/>
                             </code>
-                            <bodySite>
-                                <coding>
-                                    <system value="http://snomed.info/sct"/>
-                                    <code value="49521004"/>
-                                    <display value="Left external ear structure"/>
-                                </coding>
-                                <text value="Left Ear"/>
-                            </bodySite>
+                            <bodyStructure>
+                                <concept>
+                                    <coding>
+                                        <system value="http://snomed.info/sct"/>
+                                        <code value="49521004"/>
+                                        <display value="Left external ear structure"/>
+                                    </coding>
+                                    <text value="Left Ear"/>
+                                </concept>
+                            </bodyStructure>
                             <subject>
                                 <reference value="Patient/example"/>
                             </subject>

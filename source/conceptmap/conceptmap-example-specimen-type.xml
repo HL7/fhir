@@ -32,21 +32,18 @@
     <code value="type-mod"/>
     <uri value="TypeModifier"/>
     <type value="code"/>
-    <system value="http://snomed.info/sct"/>
   </additionalAttribute>
   <additionalAttribute>
     <code value="coll-method"/>
     <uri value="http://snomed.info/id/246380002"/>
     <description value="Method of collection"/>
     <type value="code"/>
-    <system value="http://snomed.info/sct"/>
   </additionalAttribute>
   <additionalAttribute>
     <code value="spec-src"/>
     <uri value="http://snomed.info/id/3006873018"/>
     <description value="Specimen source"/>
     <type value="code"/>
-    <system value="http://snomed.info/sct"/>
   </additionalAttribute>
   <sourceScopeCanonical value="http://terminology.hl7.org/ValueSet/v2-0487"/>
   <targetScopeCanonical value="http://snomed.info/sct?fhir_vs"/>

@@ -122,7 +122,7 @@
     </note>
     
     <dosageInstruction>
-        <simple>
+        <step><component>
             <text value="one to two tablets every 4-6 hours as needed for rib pain" />
             <additionalInstruction>
                 <coding>
@@ -184,7 +184,7 @@
                     </high>
                 </doseRange>
             </doseAndRate>
-        </simple>
+        </component></step>
     </dosageInstruction>
     
     <dispenseRequest>

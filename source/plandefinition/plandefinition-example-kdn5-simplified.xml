@@ -90,7 +90,7 @@
         </coding>
         <text value="gemcitabine"/>
       </productCodeableConcept>
-      <dosage>
+      <dosageInstruction><step><component>
         <text value="1250 mg/m² IV over 30 minutes"/>
         <timing>
           <repeat>
@@ -114,7 +114,7 @@
             <unit value="mg/m²"/>
           </doseQuantity>
         </doseAndRate>
-      </dosage>
+      </component></step></dosageInstruction>
     </ActivityDefinition>
   </contained>
   <contained>
@@ -129,7 +129,7 @@
         </coding>
         <text value="CARBOplatin"/>
       </productCodeableConcept>
-      <dosage>
+      <dosageInstruction><step><component>
         <text value="AUC 5 IV over 30 minutes"/>
         <timing>
           <repeat>
@@ -154,7 +154,7 @@
             </extension>
           </doseQuantity>
         </doseAndRate>
-      </dosage>
+      </component></step></dosageInstruction>
     </ActivityDefinition>
   </contained>
   <identifier>

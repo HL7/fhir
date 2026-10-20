@@ -5,7 +5,7 @@
    width="1318.285049"
    height="432.981993"
    sodipodi:docname="questionnaire.svg"
-   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
+   inkscape:version="1.4.4 (dcaf3e7, 2026-05-05)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -22,12 +22,12 @@
      inkscape:deskcolor="#d1d1d1"
      showgrid="false"
      inkscape:zoom="0.94516737"
-     inkscape:cx="659.14252"
+     inkscape:cx="658.61351"
      inkscape:cy="217.42181"
-     inkscape:window-width="1390"
-     inkscape:window-height="1205"
+     inkscape:window-width="2258"
+     inkscape:window-height="1238"
      inkscape:window-x="0"
-     inkscape:window-y="52"
+     inkscape:window-y="30"
      inkscape:window-maximized="0"
      inkscape:current-layer="n971" />
   <defs
@@ -397,7 +397,7 @@
   </g>
   <g
      id="n1155"
-     transform="translate(-2.1160273,-21.160273)">
+     transform="translate(-28.566369,-13.754177)">
     <rect
        id="Questionnaire.item"
        x="383.64539"
@@ -635,7 +635,7 @@
   </g>
   <g
      id="n1304"
-     transform="translate(34.914451,30.682396)">
+     transform="translate(19.044246,28.566369)">
     <rect
        id="Questionnaire.item.enableWhen"
        x="349.22034"
@@ -745,7 +745,7 @@
   </g>
   <g
      id="n1369"
-     transform="translate(78.293011,8.4641096)">
+     transform="translate(3.1740403,23.276301)">
     <rect
        id="Questionnaire.item.answerOption"
        x="726.586"
@@ -817,7 +817,7 @@
   </g>
   <g
      id="n1404"
-     transform="translate(78.293012,43.378561)">
+     transform="translate(34.914451,11.638151)">
     <rect
        id="Questionnaire.item.initial"
        x="723.48505"

@@ -1266,7 +1266,7 @@
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">dateTime|Period|Duration</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">boolean|integer|string|Quantity|Range|Ratio|RatioRange</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1274,8 +1274,8 @@
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">The value of the filter, as a Period, DateTime, or Duration value</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">The value of the filter.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">The value of the filter, as a boolean, integer, string, Quantity, Range, Ratio, or RatioRange value</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">The value of the filter. The filter will return only those data items that satisfy the specified comparator relative to this value.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s81"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3551,6 +3551,15 @@
     <Cell ss:StyleID="s84"><Data ss:Type="String">path.exists() xor searchParam.exists()</Data></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">(exists(f:path) and not(exists(f:searchParam))) or (not(exists(f:path)) and exists(f:searchParam))</Data></Cell>
    </Row>
+    <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="s104"><Data ss:Type="Number">3</Data><NamedCell ss:Name="Invariantids"/></Cell>
+        <Cell ss:StyleID="s84"><Data ss:Type="String">value - filter or searchParam</Data></Cell>
+        <Cell ss:StyleID="s89"><Data ss:Type="String">error</Data></Cell>
+        <Cell ss:StyleID="s87"><Data ss:Type="String">DataRequirement.valueFilter</Data></Cell>
+        <Cell ss:StyleID="s84"><Data ss:Type="String">Either a path or a searchParam must be provided, but not both </Data></Cell>
+        <Cell ss:StyleID="s84"><Data ss:Type="String">path.exists() xor searchParam.exists()</Data></Cell>
+        <Cell ss:StyleID="s103"><Data ss:Type="String">(exists(f:path) and not(exists(f:searchParam))) or (not(exists(f:path)) and exists(f:searchParam))</Data></Cell>
+     </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s104"><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s89"/>

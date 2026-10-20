@@ -21,10 +21,10 @@
     <value value="urn:oid:2.16.840.1.113883.4.642.4.1920"/>
   </identifier>
   <version value="6.0.0"/>
-  <name value="IngredientRole"/>
-  <title value="Ingredient Role"/>
-  <status value="draft"/>
-  <experimental value="false"/>
+  <name value="MedicinalProductManufacturingActivityExample"/>
+  <title value="Medicinal Product Manufacturing Activity"/>
+  <status value="active"/>
+  <experimental value="true"/>
   <date value="2021-01-05T10:01:24+11:00"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>

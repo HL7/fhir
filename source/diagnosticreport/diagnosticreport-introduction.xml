@@ -1,34 +1,47 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
+<blockquote class="ballot-note" id="bn1">
+  <p><b>Note to Balloters for Ballot5</b>: Changes are summarized below for DiagnosticReport.</p>
+  <p>Reviewers should pay particular attention to the DiagnosticReport and Observation organizer/grouping guidance, including consistency with the Diagnostics Module guidance.</p>
+  <p>This resource is referenced from the <a href="diagnostics-module.html">Diagnostics Module</a>; reviewers should also consider related module-page ballot content when reviewing this resource.</p>
+  <p><b>Non-compatible</b></p>
+  <ul>
+    <li>Summary set reworked: <code>DiagnosticReport.media</code> removed from the summary, and <code>DiagnosticReport.conclusion</code> and <code>DiagnosticReport.conclusionCode</code> added to the summary <a href="https://jira.hl7.org/browse/FHIR-55448">FHIR-55448</a></li>
+  </ul>
+  <p><b>Compatible substantive</b></p>
+  <ul>
+    <li>Added a status-reason capability for DiagnosticReport, backed by a new <code>diagnostic-report-status-reason</code> CodeSystem and ValueSet <a href="https://jira.hl7.org/browse/FHIR-56192">FHIR-56192</a></li>
+    <li>Removed a conflicting requirement from the <code>DiagnosticReport.subject</code> definition <a href="https://jira.hl7.org/browse/FHIR-54552">FHIR-54552</a></li>
+    <li>Removed narrative guidance that encouraged potentially unsafe duplication of clinically significant content into the narrative <a href="https://jira.hl7.org/browse/FHIR-54548">FHIR-54548</a></li>
+  </ul>
+  <p><b>Non-substantive</b></p>
+  <ul>
+    <li>Relaxed <code>DiagnosticReport.effective[x]</code> guidance from SHALL to a best-practice recommendation and reconciled element cardinality with the descriptive text <a href="https://jira.hl7.org/browse/FHIR-54546">FHIR-54546</a></li>
+    <li>Removed <code>GenomicStudy</code> from the allowed reference targets of <code>DiagnosticReport.study</code> so the types match the element description <a href="https://jira.hl7.org/browse/FHIR-54164">FHIR-54164</a></li>
+    <li>Clarified that placer/filler (PLAX/FILL) values are not identifiers of the report; adjusted <code>DiagnosticReport.identifier</code> mapping and notes <a href="https://jira.hl7.org/browse/FHIR-54545">FHIR-54545</a></li>
+    <li>Clarified resource scope that DiagnosticReport is used mostly for clinical results <a href="https://jira.hl7.org/browse/FHIR-54543">FHIR-54543</a></li>
+    <li>Corrected the misspelled element name <code>DiagnosticReport.recomendation</code> to <code>recommendation</code> <a href="https://jira.hl7.org/browse/FHIR-54163">FHIR-54163</a></li>
+    <li>Added <code>DiagnosticReport.conclusionCode</code> to the element summary (see also <a href="https://jira.hl7.org/browse/FHIR-55448">FHIR-55448</a>) <a href="https://jira.hl7.org/browse/FHIR-54554">FHIR-54554</a></li>
+	<li>Guidance has been added to clarify intent behind DiagnosticReport and Observation organizer/grouping <a href="https://jira.hl7.org/browse/FHIR-54887">FHIR-54887</a></li>
+  </ul>
+</blockquote>
+<blockquote class="stu-note" style="background-color: lightblue">
+  <p><b>Changes since 6.0.0-ballot5:</b></p>
+  <ul>
+    <li><a href="https://jira.hl7.org/browse/FHIR-54542">FHIR-54542</a> - Removed outdated limitations on cumulative result presentation and detailed structured sequencing reports</li>
+    <li><a href="https://jira.hl7.org/browse/FHIR-57520">FHIR-57520</a> - Changed invariant <code>dgr-1</code> from an error to a warning to reflect best-practice guidance</li>
+    <li><a href="https://jira.hl7.org/browse/FHIR-58053">FHIR-58053</a> - Clarified that a diagnostic report may describe a preliminary, partial, or final investigation</li>
+    <li><a href="https://jira.hl7.org/browse/FHIR-58360">FHIR-58360</a> - Clarified that <code>Procedure.outcome</code> records procedure effects, while findings from diagnostic evaluations belong in observations and reports</li>
+    <li><a href="https://jira.hl7.org/browse/FHIR-59299">FHIR-59299</a> - Added <code>Device</code> as a permitted interpreter of DiagnosticReport results.</li>
+    <li><a href="https://jira.hl7.org/browse/FHIR-58537">FHIR-58537</a> - Allowed <code>DiagnosticReport.media.link</code> to reference an <code>ImagingSelection</code> for key images as well as a <code>DocumentReference</code>.</li>
+  </ul>
+</blockquote>
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
-<blockquote class="ballot-note" id="bn1">
-<p><b>Note to Balloters:</b> To ensure this resource is ready for Normative status, we are seeking ballot comment on the substantive content. The key changes made since R5 include:</p>
-<p>Addition of the following elements:</p>
-<ul>
- <li>DiagnosticReport.relatesTo</li>
- <li>DiagnosticReport.procedure</li>
- <li>DiagnosticReport.recommendation</li>
- <li>DiagnosticReport.communication</li>
- <li>DiagnosticReport.comparison</li>
-</ul>
-<p>Changes to the following elements:</p>
-<ul>
- <li>DiagnosticReport.conclusionCode datatype</li>
-</ul>
-</blockquote>
-<blockquote style="background-color: lightblue">
-    <p><b>Release Notes (pending alternative process review with FMG):</b></p>
-    <ul>
-        <li><a href="https://jira.hl7.org/browse/FHIR-54554">FHIR-54554</a></li>
-        <li><a href="https://jira.hl7.org/browse/FHIR-55448">FHIR-55448</a></li>
-        <li><a href="https://jira.hl7.org/browse/FHIR-54163">FHIR-54163</a></li>
-    </ul>
-</blockquote>
 <p>
-A diagnostic report is the set of information that is typically provided by a diagnostic service
-when investigations are complete. The information includes a mix of atomic results, text reports, images,
+A diagnostic report is the set of information that is typically provided by a diagnostic service about an investigation,
+which may be preliminary, partial, or final. The information includes a mix of atomic results, text reports, images,
 and codes. The mix varies depending on the nature of the diagnostic procedure, and sometimes on the nature
 of the outcomes for a particular investigation.  In FHIR, the report can be conveyed in a variety of ways including a <a href="documents.html">Document</a>, <a href="http.html">RESTful API</a>, or <a href="messaging.html">Messaging </a> framework.  Included within each of these, would be the DiagnosticReport resource itself.
 </p>
@@ -44,10 +57,6 @@ The DiagnosticReport resource is suitable for the following kinds of diagnostic 
  <li>Other diagnostics such as Cardiology, Gastroenterology, etc.</li>
  <li>Product quality tests such as pH, Assay, Microbial limits, etc. on product and substance</li>
 </ul>
-<p>
-The DiagnosticReport resource is not intended to support cumulative result presentation (tabular presentation of past and present results in the resource).
-The DiagnosticReport resource does not yet provide full support for detailed structured reports of sequencing; this is planned for a future release.
-</p>
 </div>
 
 <div>
@@ -88,7 +97,10 @@ The results are assembled in "groups" which are nested structures of Observation
 <a name="bnr"></a>
 <h2>Boundaries and Relationships</h2>
 <p>
-Note that many diagnostic processes are procedures that generate observations and diagnostic reports. In many cases, such an observation does not require an explicit representation of the procedure used to create the observation, but where there are details of interest about how the diagnostic procedure was performed, the <a href="procedure.html">Procedure</a> resource is used to describe the activity.
+Many diagnostic processes are procedures that generate observations and diagnostic reports. In many cases, such an observation does not require an explicit representation of the procedure used to create the observation, but where there are details of interest about how the diagnostic procedure was performed, the <a href="procedure.html">Procedure</a> resource is used to describe the activity.
+</p>
+<p>
+The <a href="procedure-definitions.html#Procedure.outcome"><code>Procedure.outcome</code></a> element is for recording procedure effects (success, stent placed, reaction to contrast, etc.), not findings of evaluation procedures (lab results, radiology observations).
 </p>
 
 <p>

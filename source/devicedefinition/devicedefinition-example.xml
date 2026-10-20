@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <DeviceDefinition xmlns="http://hl7.org/fhir">
 	<id value="example"/>
+	<url value="http://hl7.org/fhir/DeviceDefinition/example"/>
 	<identifier>
 		<value value="0"/>
 	</identifier>
+	<version value="1.0.0"/>
 	<status value="active"/>
 	<experimental value="true"/>
+	<publisher value="HL7 International"/>
+	<partNumber value="Part456"/>
+	<manufacturer>
+		<reference value="Organization/example"/>
+	</manufacturer>
+	<modelNumber value="Model123"/>
 	<deviceName>
 		<name value="Example Device Name"/>
 		<type>
@@ -15,9 +23,25 @@
 			</coding>
 		</type>
 	</deviceName>
-	<version>
-		<value value="1.0.0"/>
-	</version>
+	<conformsTo>
+		<category>
+			<coding>
+				<system value="http://hl7.org/fhir/device-specification-category"/>
+				<code value="exchange"/>
+			</coding>
+		</category>
+		<specification>
+			<coding>
+				<system value="urn:iso:std:iso:11073:10101"/>
+				<code value="528388"/>
+				<display value="MDC_DEV_SPEC_PROFILE_PULS_OXIM"/>
+			</coding>
+		</specification>
+		<version value="3.0"/>
+	</conformsTo>
+	<hasPart>
+		<definitionCanonical value="http://hl7.org/fhir/DeviceDefinition/example-prodspec"/>
+	</hasPart>
 	<deviceVersion>
 		<type>
 			<coding>
@@ -27,30 +51,4 @@
 		</type>
 		<value value="v1.2.3"/>
 	</deviceVersion>
-	<url value="http://hl7.org/fhir/DeviceDefinition/example"/>
-	<hasPart>
-		<definitionCanonical value="http://hl7.org/fhir/DeviceDefinition/example-prodspec"/>
-	</hasPart>
-	<manufacturer>
-		<reference value="Organization/example"/>
-	</manufacturer>
-	<modelNumber value="Model123"/>
-	<partNumber value="Part456"/>
-	<publisher value="HL7 International"/>
-	<conformsTo>
-		<specification>
-			<coding>
-				<system value="urn:iso:std:iso:11073:10101"/>
-				<code value="528388"/>
-				<display value="MDC_DEV_SPEC_PROFILE_PULS_OXIM"/>
-			</coding>
-		</specification>
-		<version value="3.0"/>
-		<category>
-			<coding>
-				<system value="http://hl7.org/fhir/device-specification-category"/>
-				<code value="exchange"/>
-			</coding>
-		</category>
-	</conformsTo>
 </DeviceDefinition>

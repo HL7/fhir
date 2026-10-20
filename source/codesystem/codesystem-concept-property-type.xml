@@ -47,7 +47,7 @@
   <concept>
     <code value="code"/>
     <display value="code (internal reference)"/>
-    <definition value="The property value is a code that identifies a concept defined in the code system."/>
+    <definition value="The property value is a code that identifies a concept defined in the code system or in another code system."/>
   </concept>
   <concept>
     <code value="Coding"/>

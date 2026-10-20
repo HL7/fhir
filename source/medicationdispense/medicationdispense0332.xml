@@ -79,7 +79,7 @@
         <code value="d"/>
     </daysSupply>
     <dosageInstruction>
-        <simple>
+        <step><component>
             <text value="1000mL infused at 50ml/hour for 4 hours - hang at 2200 hours" />
             <timing>
                 <event value="2020-01-15T22:00:00+11:00"/>
@@ -129,7 +129,7 @@
                     </denominator>
                 </rateRatio>
             </doseAndRate>
-        </simple>
+        </component></step>
 
     </dosageInstruction>
 </MedicationDispense>

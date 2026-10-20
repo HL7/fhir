@@ -653,4 +653,9 @@ Spelling note: &quot;descendant&quot; is a more correct spelling, but the spelli
     <display value="Exists"/>
     <definition value="The specified property of the code has at least one value (if the specified value is true; if the specified value is false, then matches when the specified property of the code has no values)."/>
   </concept>
+  <concept>
+    <code value="property-value-of"/>
+    <display value="Property Value Of"/>
+    <definition value="Includes the concepts that are used as property values from the set of concepts in the provided filter.value element value (comma-separated list or value set).  If the provided filter.value element value is a value set, any concepts not in the filter defining code system are ignored."/>
+  </concept>
 </CodeSystem>

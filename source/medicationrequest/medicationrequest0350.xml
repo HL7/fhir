@@ -45,9 +45,11 @@
   </reason>
 
   <!-- Reason #2: Alternative therapy (because of that allergy) -->
-  <reasonCode>
-    <text value="Alternative therapy due to penicillin allergy"/>
-  </reasonCode>
+  <reason>
+    <concept>
+        <text value="Alternative therapy due to penicillin allergy"/>
+    </concept>
+  </reason>
 
   <!-- Reason #3: Actual indication (infection prevention / prophylaxis) -->
   <reason>
@@ -55,7 +57,7 @@
       <coding>
         <system value="http://snomed.info/sct"/>
         <code value="724053002"/>
-        <text value="Antibiotic therapy for prevention of recurrent infection (procedure)"/>
+        <display value="Antibiotic therapy for prevention of recurrent infection (procedure)"/>
     </coding>
     </concept>
   </reason>
