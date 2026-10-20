@@ -849,7 +849,7 @@
     <Cell ss:StyleID="s76"><Data ss:Type="String">Committee Notes</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Not published</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="48">
-    <Cell ss:StyleID="s77"><Data ss:Type="String">DosageDetails</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">DosageInstruction</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -875,7 +875,7 @@
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="80">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">DosageDetails.renderedInstruction</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">DosageInstruction.renderedInstruction</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -901,7 +901,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="48">
-    <Cell ss:StyleID="s95"><Data ss:Type="String">DosageDetails.repeatCycle</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s95"><Data ss:Type="String">DosageInstruction.repeatCycle</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -927,7 +927,7 @@
     <Cell ss:StyleID="s94"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="32">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">!DosageDetails.simple</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">!DosageInstruction.simple</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -954,7 +954,7 @@
     <Cell ss:StyleID="s94"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="48">
-    <Cell ss:StyleID="s95"><Data ss:Type="String">DosageDetails.step</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s95"><Data ss:Type="String">DosageInstruction.step</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -980,7 +980,7 @@
     <Cell ss:StyleID="s94"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="48">
-    <Cell ss:StyleID="s95"><Data ss:Type="String">DosageDetails.step.start</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s95"><Data ss:Type="String">DosageInstruction.step.start</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1006,7 +1006,7 @@
     <Cell ss:StyleID="s94"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="48">
-    <Cell ss:StyleID="s95"><Data ss:Type="String">DosageDetails.step.end</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s95"><Data ss:Type="String">DosageInstruction.step.end</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1032,7 +1032,7 @@
     <Cell ss:StyleID="s94"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="48">
-    <Cell ss:StyleID="s95"><Data ss:Type="String">DosageDetails.step.count</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s95"><Data ss:Type="String">DosageInstruction.step.count</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1058,7 +1058,7 @@
     <Cell ss:StyleID="s94"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="32">
-    <Cell ss:StyleID="s95"><Data ss:Type="String">DosageDetails.step.component</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s95"><Data ss:Type="String">DosageInstruction.step.component</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">1..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1085,7 +1085,7 @@
     <Cell ss:StyleID="s94"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="49">
-    <Cell ss:StyleID="s96"><Data ss:Type="String">DosageDetails.step.safety</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">DosageInstruction.step.safety</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1110,7 +1110,7 @@
     <Cell ss:StyleID="s94"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="65">
-    <Cell ss:StyleID="s96"><Data ss:Type="String">DosageDetails.safety</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">DosageInstruction.safety</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3705,8 +3705,8 @@
     <Cell ss:StyleID="s111"><Data ss:Type="Number">2</Data><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">no-safety-on-simple</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">error</Data></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">DosageDetails</Data></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">If only one step is present, DosageDetails.step.safety shall not be populated</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">DosageInstruction</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">If only one step is present, DosageInstruction.step.safety shall not be populated</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">step.count() = 1 implies step.safety.empty()</Data></Cell>
     <Cell ss:StyleID="s112"/>
    </Row>

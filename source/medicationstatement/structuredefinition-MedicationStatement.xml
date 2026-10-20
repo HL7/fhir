@@ -503,7 +503,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="DosageDetails"/>
+        <code value="DosageInstruction"/>
       </type>
     </element>
     <element id="MedicationStatement.adherence">
