@@ -2,16 +2,16 @@
 <Provenance xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/provenance.xsd">
 	<id value="example-import"/>
 	<target>
-		<reference value="Condition/example"/>
+		<reference value="Condition/example/_history/1"/>
 	</target>
 	<target>
-		<reference value="Condition/example2"/>
+		<reference value="Condition/example2/_history/1"/>
 	</target>
 	<target>
-		<reference value="Encounter/example"/>
+		<reference value="Encounter/example/_history/1"/>
 	</target>
 	<target>
-		<reference value="Immunization/example"/>
+		<reference value="Immunization/example/_history/1"/>
 	</target>
 	<recorded value="2015-06-27T08:39:24+10:00"/>
     <policy value="urn:ihe:pcc:qedm:2017:document-provenance-policy"/>

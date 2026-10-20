@@ -289,9 +289,14 @@ document processor has the obligation to assure that the following rules are fol
  <li>When storing/transmitting a document, any method may be used as long as the bundled document can be
    (re-)assembled with sufficient integrity to validate a digital signature</li>
  <li>Resources or data from the document may be extracted for additional uses, but such data is no longer considered to be attested by the document author</li>
+ <li>When a processor stores a copy of the <code>Composition</code> resource from an imported document, references from that copy to imported resources SHOULD identify the corresponding resource versions stored by the processor, using version-specific references where supported. Subsequent updates to extracted resources SHOULD NOT silently retarget that copy of the <code>Composition</code> to later versions. This guidance does not imply modifying the preserved source document</li>
+ <li>A processor SHOULD record each document import activity in a <a href="provenance.html">Provenance</a> resource. The <code>Provenance.target</code> SHOULD identify the resource versions created or updated by the import, using version-specific references where possible. The <code>Provenance.entity</code> SHOULD identify the source document Bundle or a <a href="documentreference.html">DocumentReference</a> to it with role <code>source</code>. The importing agent and activity SHOULD be recorded when known. This Provenance records the import activity; it does not transfer the document author's attestation to the imported resources</li>
  <li>Wherever the data from the document is displayed to a user, there SHOULD always be a way for the user to access a presentation of the original document</li>
 
 </ul>
+<p>
+For further discussion of immutable documents and extracted resources, see the <a href="https://hl7.org/fhir/uv/fhir-clinical-document/en/immutableParseable.html">FHIR Clinical Documents Implementation Guide</a>.
+</p>
 <p>
 In addition to these obligations, document receivers SHOULD carefully track the source of
 documents for new documents that supersede existing documents, particularly when the documents
@@ -332,6 +337,10 @@ of posting to them:
 </table>
 
 <p>
+When a server processes a document Bundle as a transaction and stores a copy of its <code>Composition</code> resource and imported resources, the processor obligations above apply: references from that copy to imported resources SHOULD identify the corresponding resource versions stored by the processor, using version-specific references where supported, and the import SHOULD be recorded in <a href="provenance.html">Provenance</a>. These references and the Provenance record do not ensure that the original document Bundle can be reassembled or its signature validated; document processors remain responsible for preserving the source document with sufficient integrity.
+</p>
+
+<p>
 Note: While these end-points are defined for use with document-related resources and document bundles,
 it is not necessary to use them. Documents may be transferred between systems using any method desired.
 In addition, servers and/or specifications may define additional <a href="operations.html">operations</a>
@@ -350,7 +359,6 @@ For details, see <a href="composition-operations.html">Generate Document Operati
 
 </body>
 </html>
-
 
 
 
