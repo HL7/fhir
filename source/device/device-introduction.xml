@@ -32,7 +32,6 @@
 
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
-<p>When an autonomous system or machine is an actor or participant, the Device resource should be used to represent that system. This includes artificial intelligence or machine learning (AI/ML) systems, as well as other automated systems. The use of devices in actor or participant roles is evolving; implementers should seek guidance from their local jurisdiction on the use of Device in these roles.</p>
 <blockquote class="stu-note">
 <p><b>Note to Implementers:</b> For an overview of this resource and others in the Device domain, also see the <a href="device-module.html">module page</a>.</p>
 </blockquote>
