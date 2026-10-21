@@ -76,4 +76,40 @@
         <display value="Breast mass BodyStructure"/>
       </item>
   </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="The first of two liver neoplasms that later merge into a single lesion."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="bodystructure-example-liver-neoplasm1"/>
+    </extension>
+    <item>
+      <reference value="BodyStructure/liver-neoplasm1"/>
+      <display value="First liver neoplasm"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="The second of two liver neoplasms that later merge into a single lesion."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="bodystructure-example-liver-neoplasm2"/>
+    </extension>
+    <item>
+      <reference value="BodyStructure/liver-neoplasm2"/>
+      <display value="Second liver neoplasm"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="A merged liver neoplasm with references to both predecessor lesions."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="bodystructure-example-liver-neoplasm3"/>
+    </extension>
+    <item>
+      <reference value="BodyStructure/liver-neoplasm3"/>
+      <display value="Merged liver neoplasm"/>
+    </item>
+  </entry>
 </List>

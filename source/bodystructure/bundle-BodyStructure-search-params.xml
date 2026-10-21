@@ -81,6 +81,45 @@
   <entry>
     <resource>
       <SearchParameter>
+        <id value="BodyStructure-predecessor"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="BodyStructure.predecessor.reference"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/BodyStructure-predecessor"/>
+        <description value="A predecessor body structure"/>
+        <code value="predecessor"/>
+        <type value="reference"/>
+        <expression value="BodyStructure.predecessor.reference"/>
+        <processingMode value="normal"/>
+        <target value="BodyStructure"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="BodyStructure-predecessor-code"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="BodyStructure.predecessor.concept"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/BodyStructure-predecessor-code"/>
+        <description value="A code identifying a predecessor body structure"/>
+        <code value="predecessor-code"/>
+        <type value="token"/>
+        <expression value="BodyStructure.predecessor.concept"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
         <id value="BodyStructure-patient"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="normative"/>
