@@ -30,6 +30,7 @@
     <li><a href="https://jira.hl7.org/browse/FHIR-57353">FHIR-57353</a>, <a href="https://jira.hl7.org/browse/FHIR-58612">FHIR-58612</a> - Added overall <code>BodyStructure.morphology</code> for a single morphology spanning included structures, clarified the per-structure morphology description, and revised the excluded-structure definition.</li>
     <li><a href="https://jira.hl7.org/browse/FHIR-58261">FHIR-58261</a> - Restored left and right to the included-structure qualifier value set, clarified how qualifier differs from laterality, and updated an example to show both.</li>
     <li><a href="https://jira.hl7.org/browse/FHIR-57384">FHIR-57384</a> - Added <code>BodyStructure.predecessor</code> for longitudinal relationships between structures, reference and code search parameters, and examples of two liver neoplasms merging into one.</li>
+    <li><a href="https://jira.hl7.org/browse/FHIR-59662">FHIR-59662</a> - Added examples of cardiac myxoma spanning two structures, right lung consolidation with an excluded lobe, and aortic dissection with overall and per-structure morphologies.</li>
   </ul>
 </blockquote>
 <a name="scope"></a>

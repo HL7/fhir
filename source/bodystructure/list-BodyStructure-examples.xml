@@ -112,4 +112,40 @@
       <display value="Merged liver neoplasm"/>
     </item>
   </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="A single myxoma spanning the left atrial cavity and the inflow tract of the left ventricle, with morphology recorded on the overall BodyStructure."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="bodystructure-example-cardiac-myxoma"/>
+    </extension>
+    <item>
+      <reference value="BodyStructure/cardiac-myxoma"/>
+      <display value="Cardiac myxoma spanning two structures"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Consolidation of the right lung with the right lower lobe excluded."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="bodystructure-example-right-lung-consolidation"/>
+    </extension>
+    <item>
+      <reference value="BodyStructure/right-lung-consolidation"/>
+      <display value="Right lung consolidation excluding the lower lobe"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Aortic dissection spanning the ascending aorta and aortic arch, with true-lumen morphology at each included structure."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="bodystructure-example-aortic-dissection"/>
+    </extension>
+    <item>
+      <reference value="BodyStructure/aortic-dissection"/>
+      <display value="Aortic dissection"/>
+    </item>
+  </entry>
 </List>
