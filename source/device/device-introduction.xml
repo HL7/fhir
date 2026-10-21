@@ -19,8 +19,20 @@
 	<li>Moved various code systems and value sets to THO to align with coding guidance from FMG <a href="https://jira.hl7.org/browse/FHIR-55255">FHIR-55255</a></li>
   </ul>
 </blockquote>
+<blockquote class="stu-note" style="background-color: lightblue">
+<p><b>Changes since 6.0.0-ballot5:</b></p>
+<ul>
+  <li><a href="https://jira.hl7.org/browse/FHIR-58672">FHIR-58672</a> - Added guidance on representing autonomous systems as actors or participants and seeking local jurisdictional guidance.</li>
+  <li><a href="https://jira.hl7.org/browse/FHIR-58199">FHIR-58199</a> - Linked the <code>device-conformsTo-source</code> extension in the conformance guidance.</li>
+  <li><a href="https://jira.hl7.org/browse/FHIR-57687">FHIR-57687</a> - Clarified substances added to a container.</li>
+  <li><a href="https://jira.hl7.org/browse/FHIR-57688">FHIR-57688</a> - Added <code>additive-reference</code> and <code>additive-code</code> search parameters.</li>
+  <li><a href="https://jira.hl7.org/browse/FHIR-54963">FHIR-54963</a> - Corrected Five Ws mappings for biological source events, serial numbers, names, and nested elements.</li>
+</ul>
+</blockquote>
+
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
+<p>When an autonomous system or machine is an actor or participant, the Device resource should be used to represent that system. This includes artificial intelligence or machine learning (AI/ML) systems, as well as other automated systems. The use of devices in actor or participant roles is evolving; implementers should seek guidance from their local jurisdiction on the use of Device in these roles.</p>
 <blockquote class="stu-note">
 <p><b>Note to Implementers:</b> For an overview of this resource and others in the Device domain, also see the <a href="device-module.html">module page</a>.</p>
 </blockquote>
@@ -40,6 +52,7 @@ In a Procedure, reporting the use of a pump for which we have no instance data -
 When a device gets replaced by another device of the same type. In this case, a procedure indicates that one instance of the device is removed/explanted/discarded, and another instance is used. These are physical instances for which instance data might exist and be known, or not.
 </li>
 </ol>
+<p>When an autonomous system or machine is an actor or participant, the Device resource should be used to represent that system. This includes artificial intelligence or machine learning (AI/ML) systems, as well as other automated systems. The use of devices in actor or participant roles is evolving; implementers should seek guidance from their local jurisdiction on the use of Device in these roles.</p>
 </div>
 
 

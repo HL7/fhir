@@ -424,6 +424,19 @@
         <map value="author.role"/>
       </mapping>
     </element>
+    <element id="VisionPrescription.characteristics">
+      <path value="VisionPrescription.characteristics"/>
+      <short value="Vision characteristic"/>
+      <definition value="A visual or ocular characteristic of the patient that is relevant to the vision prescription, fitting, or selection of corrective lenses."/>
+      <comment value="These observations provide clinical context for the prescription and may be used to support interpretation, lens selection, fitting, manufacturing, or dispensing. They supplement the prescription but are not prescription parameters themselves."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
+      </type>
+      <isSummary value="false"/>
+    </element>
     <element id="VisionPrescription.lensSpecification">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
         <valueCode value="right"/>

@@ -1298,8 +1298,9 @@
     </element>
     <element id="DeviceDefinition.material.substance">
       <path value="DeviceDefinition.material.substance"/>
-      <short value="A relevant substance that the device contains, may contain, or is made of"/>
-      <definition value="A substance that the device contains, may contain, or is made of - for example latex - to be used to determine patient compatibility. This is not intended to represent the composition of the device, only the clinically relevant materials."/>
+      <short value="A relevant substance that the device is made of"/>
+      <definition value="A substance that the device is made of or manufactured from - for example latex - to be used to determine patient compatibility. This is not intended to represent the composition of the device, only the clinically relevant materials."/>
+      <comment value="For substances placed within a device see .additive"/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -1336,9 +1337,8 @@
     </element>
     <element id="DeviceDefinition.additive">
       <path value="DeviceDefinition.additive"/>
-      <short value="Material added to a container device"/>
-      <definition value="Material added to a container device (typically used in specimen collection or initial processing).  The material may be added by the device manufacturer or by a different party subsequent to manufacturing."/>
-      <comment value="A Procedure can be used to document details of the addition of a substance to the device."/>
+      <short value="Substance added to a container device"/>
+      <definition value="Substance added to a container device (typically used in specimen collection or initial processing). The material may be added by the device manufacturer or by a different party subsequent to manufacturing."/>
       <min value="0"/>
       <max value="*"/>
       <type>

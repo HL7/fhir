@@ -17,6 +17,7 @@
 		<ul>
 		  <li><a href="https://jira.hl7.org/browse/FHIR-54661">FHIR-54661</a> - Added a category element for classifying vision prescriptions.</li>
 		  <li><a href="https://jira.hl7.org/browse/FHIR-59321">FHIR-59321</a> - Added <code>Device</code> as a permitted <code>VisionPrescription.prescriber</code> reference target.</li>
+		  <li><a href="https://jira.hl7.org/browse/FHIR-56361">FHIR-56361</a> - Added <code>characteristics</code> to reference observations supporting interpretation, lens selection, fitting, manufacturing, or dispensing.</li>
 		</ul>
 		</blockquote>
 
