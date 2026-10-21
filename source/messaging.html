@@ -417,7 +417,7 @@ the transport technology (e.g. before an HTTP timeout), there are two possibilit
     <code>allowedResponse</code> that indicates the response is in progress, pended, or a similar business concept.
     In that case, such a response can be included as the response body of the initial 200 OK.</li>
   <li>In other cases, there will not be an appropriate message-level response available. In that situation,
-    the response to the initial <code>$submit-message</code> will simply be an HTTP 200 with no body.</li>
+    the response to the initial HTTP request carrying the message will simply be an HTTP 200 with no body.</li>
 </ul>
 <p>
 In either case, the eventual full response (if one is needed) is handled by transmitting a new message,
