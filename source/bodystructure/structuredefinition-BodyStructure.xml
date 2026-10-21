@@ -499,6 +499,26 @@
       <max value="*"/>
       <contentReference value="#BodyStructure.includedStructure"/>
     </element>
+    <element id="BodyStructure.predecessor">
+      <path value="BodyStructure.predecessor"/>
+      <short value="Predecessor body structure"/>
+      <definition value="BodyStructure that is a predecessor to this bodyStructure (e.g. the two lesions that merged into this single lesion, or the lesion from which this lesion split off)."/>
+      <comment value="The predecessor relationship is directional. It references a BodyStructure that existed previously to and contributed to the formation of the current BodyStructure. For example, when two lesions merge, the resulting lesion references both original lesions as predecessors. When a lesion splits, each resulting lesion references the original lesion as its predecessor."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/BodyStructure"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="BodySite"/>
+        </extension>
+        <strength value="example"/>
+        <description value="SNOMED CT Body Structures"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/body-site"/>
+      </binding>
+    </element>
     <element id="BodyStructure.description">
       <path value="BodyStructure.description"/>
       <short value="Text description"/>

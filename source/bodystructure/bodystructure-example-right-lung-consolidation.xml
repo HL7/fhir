@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BodyStructure xmlns="http://hl7.org/fhir">
+  <id value="right-lung-consolidation"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>Consolidation involves the right lung with the right lower lobe excluded. The overall morphology describes the consolidation; the included structure identifies the lung and its laterality.</p>
+    </div>
+  </text>
+  <morphology>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="9656002"/>
+      <display value="Consolidation"/>
+    </coding>
+  </morphology>
+  <includedStructure>
+    <structure>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="39607008"/>
+        <display value="Lung structure"/>
+      </coding>
+    </structure>
+    <laterality>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="24028007"/>
+        <display value="Right"/>
+      </coding>
+    </laterality>
+  </includedStructure>
+  <excludedStructure>
+    <structure>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="266005"/>
+        <display value="Structure of lower lobe of right lung"/>
+      </coding>
+    </structure>
+  </excludedStructure>
+  <description value="Consolidation of the right lung, excluding the right lower lobe"/>
+  <patient>
+    <reference value="Patient/example"/>
+  </patient>
+</BodyStructure>
