@@ -3,8 +3,8 @@
     <divergentElement patternPath="FiveWs.status" resourcePath="Device.availabilityStatus">
         <modifier _pattern="true" _resource="false" reason="Unknown"/>
     </divergentElement>
-    <divergentElement patternPath="FiveWs.status" resourcePath="Device.name.display">
-        <modifier _pattern="true" _resource="false" reason="Unknown"/>
+    <divergentElement patternPath="FiveWs.what[x]" resourcePath="Device.name">
+        <upperCardinality _pattern="1" _resource="*" reason="Unknown"/>
     </divergentElement>
     <divergentElement patternPath="FiveWs.what[x]" resourcePath="Device.additive">
         <upperCardinality _pattern="1" _resource="*" reason="Unknown"/>
@@ -16,7 +16,6 @@
     <unmappedElement patternPath="FiveWs.version" reason="Unknown"/>
     <unmappedElement patternPath="FiveWs.witness" reason="Unknown"/>
     <unmappedElement patternPath="FiveWs.class" reason="Unknown"/>
-    <unmappedElement patternPath="FiveWs.context" reason="Unknown"/>
     <unmappedElement patternPath="FiveWs.init" reason="Unknown"/>
     <unmappedElement patternPath="FiveWs.why" reason="Unknown"/>
     <unmappedElement patternPath="FiveWs.source" reason="There are no elements that meet the purpose or intent of source"/>
