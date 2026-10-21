@@ -27,7 +27,7 @@
     <li><a href="https://jira.hl7.org/browse/FHIR-58415">FHIR-58415</a> - Corrected the <code>BodyStructure.includedStructure.morphology</code> definition to describe the included structure without referencing the removed <code>BodyStructure.location</code> element</li>
     <li><a href="https://jira.hl7.org/browse/FHIR-57931">FHIR-57931</a> - Clarified that a body landmark description locates the corresponding structure</li>
     <li><a href="https://jira.hl7.org/browse/FHIR-57930">FHIR-57930</a> - Corrected a grammatical typo in the clock-face position definition</li>
-    <li><a href="https://jira.hl7.org/browse/FHIR-57353">FHIR-57353</a> - Added overall <code>BodyStructure.morphology</code> for a single morphology spanning included structures, clarified the per-structure morphology description, and revised the excluded-structure definition.</li>
+    <li><a href="https://jira.hl7.org/browse/FHIR-57353">FHIR-57353</a>, <a href="https://jira.hl7.org/browse/FHIR-58612">FHIR-58612</a> - Added overall <code>BodyStructure.morphology</code> for a single morphology spanning included structures, clarified the per-structure morphology description, and revised the excluded-structure definition.</li>
     <li><a href="https://jira.hl7.org/browse/FHIR-58261">FHIR-58261</a> - Restored left and right to the included-structure qualifier value set, clarified how qualifier differs from laterality, and updated an example to show both.</li>
   </ul>
 </blockquote>
