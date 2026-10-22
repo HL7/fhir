@@ -3,7 +3,7 @@
     <divergentElement patternPath="Definition.url" resourcePath="MessageDefinition.url">
         <shortUnmatched reason="Unknown">
             <_pattern value="Canonical identifier for this message definition, represented as an absolute URI (globally unique)"/>
-            <resource value="The cannonical URL for a given MessageDefinition"/>
+            <resource value="The cannonical URL for a given MessageDefinition&#10;+ Warning: URL SHOULD not contain | or # - these characters make processing canonical references problematic"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="An absolute URI that is used to identify this message definition when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this message definition is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the message definition is stored on different servers."/>
