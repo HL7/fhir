@@ -184,4 +184,16 @@
       <display value="IV via catheter port"/>
     </item>
   </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Supplementary oxygen administered via the nasal cannula requested in medicationrequest0352 (Device whose definition is the requested DeviceDefinition)"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationadministration0315"/>
+    </extension>
+    <item>
+      <reference value="MedicationAdministration/medadmin0315"/>
+      <display value="Oxygen via nasal cannula"/>
+    </item>
+  </entry>
 </List>
