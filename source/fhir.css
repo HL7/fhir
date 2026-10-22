@@ -414,6 +414,10 @@ span.xmlattrvalue {
   color: DarkGreen;
 }
 
+span.turtlecomment  {
+  color: Grey;
+}
+
 
 pre a {
 	color: darkgreen;
