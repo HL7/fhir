@@ -111,7 +111,7 @@
 				<key value="nsd-3"/>
 				<severity value="error"/>
 				<human value="Can't have more than one authoritative identifier for a type/period combination (only one authoritative identifier allowed at any given point of time)"/>
-				<expression value="uniqueId.where(authoritative = true).select(type.toString() &amp; period.start.toString() &amp; period.end.toString()).isDistinct()"/>
+				<expression value="uniqueId.where(authoritative and value = 'base').select(defineVariable('uId').select(%context..where($this != %uId and authoritative and type = %uId.type).where((period.start.empty() or %uId.period.end.empty() or period.start &lt;= %uId.period.end) and (%uId.period.start.empty() or period.end.empty() or %uId.period.start &lt;= period.end)).select(trace('error', %uId.value &amp; ' overlaps ' &amp; value)))).empty()"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/NamingSystem"/>
 			</constraint>
 			<constraint>
