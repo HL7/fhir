@@ -2,10 +2,14 @@
 
 <div>
   <blockquote class="ballot-note" data-augury-generated="true" id="bn5">
-    <p><b>Note to Balloters:</b></p>
-    <p>
-    This artifact has not been changed since the previous Normative ballot, <a href="https://hl7.org/fhir/6.0.0-ballot4">FHIR R6 Ballot (1st Full Ballot) / 6.0.0-ballot4</a>.
-    </p>
+    <p><b>Note to Balloters: Key changes made since <a href="https://hl7.org/fhir/6.0.0-ballot4">FHIR R6 Ballot (1st Full Ballot) / 6.0.0-ballot4</a></b></p>
+    <p>Updated the ArtifactAssessment resource to follow the MetadataResource (and CanonicalResource) patterns; add all the elements from each pattern, with the exception of relatedArtifact, since the resource already has a relatesTo element.</p>
+  </blockquote>
+  <blockquote style="background-color: lightblue">
+    <p><b>Release Notes:</b></p>
+    <ul>
+      <li><a href="https://jira.hl7.org/browse/FHIR-58460">FHIR-58460</a></li>
+    </ul>
   </blockquote>
 </div>
 
@@ -20,6 +24,8 @@
 <p>The ArtifactAssessment Resource represents one or more assessments of another record or resource. The resource captures metadata about the assessment, as well as the data for the results of the assessment which might include comments, classifications, ratings, questions, and responses.</p>
 
 <p>The ArtifactAssessment Resource provides a structure to communicate judgments or qualitative data about a record (a resource or other set of data with a known identity or URL by which it can be accessed), including comments, corrections, classifications, and ratings. The ArtifactAssessment Resource is used when the content attribution and management rights differ from the record being commented upon, or the commenter desires to separate the comments from the target record. The scope is intended to cover assessments (added information) regarding clinical records about individual human subjects, assessments (added information) regarding healthcare provision for individual persons (such as care plans), and assessments (added information) regarding records related to community knowledge such as scientific evidence and group-oriented guidance.</p>
+
+<p>The ArtifactAssessment Resource is optionally canonical in that it can be used more as an observation of an artifact, where it would not be expected to have a canonical, versus the source of a published justification or assessment (where it would have a canonical).</p>
 </div>
 
 <div>

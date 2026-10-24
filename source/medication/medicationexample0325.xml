@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Medication xmlns="http://hl7.org/fhir">
+  <id value="med0325"/>
+  <!-- A Medication representing a physical item (one pack on a pharmacy shelf) of the same product as medicationexample0324.
+       identifier is the business identifier of this record (a stock-system number); instance.identifier is the serial number
+       of the item; the batch is in instance.lotNumber, not in an identifier. -->
+  <identifier>
+    <system value="http://example.org/pharmacy-stock"/>
+    <value value="STK-2026-004711"/>
+  </identifier>
+  <code>
+    <coding>
+      <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
+      <code value="308191"/>
+      <display value="amoxicillin 500 MG Oral Capsule"/>
+    </coding>
+  </code>
+  <status value="active"/>
+  <instance>
+    <identifier>
+      <system value="http://example.org/serial-number"/>
+      <value value="SN-48211907"/>
+    </identifier>
+    <lotNumber value="AX2604B"/>
+    <expirationDate value="2028-03-31"/>
+  </instance>
+</Medication>

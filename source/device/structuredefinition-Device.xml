@@ -498,7 +498,7 @@
       </type>
       <mapping>
         <identity value="w5"/>
-        <map value="FiveWs.what[x]"/>
+        <map value="FiveWs.context"/>
       </mapping>
       <mapping>
         <identity value="udi"/>
@@ -657,7 +657,7 @@
       </type>
       <mapping>
         <identity value="w5"/>
-        <map value="FiveWs.what[x]"/>
+        <map value="FiveWs.identifier"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -693,6 +693,10 @@
         <code value="BackboneElement"/>
       </type>
       <condition value="dev-1"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
       <mapping>
         <identity value="interface"/>
         <map value="Participant.name"/>
@@ -733,10 +737,6 @@
         <valueSet value="http://terminology.hl7.org/ValueSet/device-nametype"/>
       </binding>
       <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.what[x]"/>
-      </mapping>
-      <mapping>
         <identity value="rim"/>
         <map value=".playedRole[typeCode=MANU].code"/>
       </mapping>
@@ -755,10 +755,6 @@
       </type>
       <condition value="dev-1"/>
       <isSummary value="true"/>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.status"/>
-      </mapping>
       <mapping>
         <identity value="rim"/>
         <map value="statusCode"/>
@@ -948,10 +944,6 @@
         <code value="Identifier"/>
       </type>
       <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.what[x]"/>
-      </mapping>
-      <mapping>
         <identity value="DIM"/>
         <map value="VMS::Production-Specification[spec-type=xx-revision]::component-id (with xx replaced by hw, sw or fw)"/>
       </mapping>
@@ -969,10 +961,6 @@
       <type>
         <code value="dateTime"/>
       </type>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.what[x]"/>
-      </mapping>
     </element>
     <element id="Device.deviceVersion.value">
       <path value="Device.deviceVersion.value"/>
@@ -1326,8 +1314,8 @@
     </element> -->
     <element id="Device.additive">
       <path value="Device.additive"/>
-      <short value="Material added to a container device"/>
-      <definition value="Material added to a container device (typically used in specimen collection or initial processing).  The material may be added by the device manufacturer or by a different party subsequent to manufacturing."/>
+      <short value="Substance added to a container device"/>
+      <definition value="Substance added to a container device (typically used in specimen collection or initial processing). The material may be added by the device manufacturer or by a different party subsequent to manufacturing."/>
       <comment value="A Procedure can be used to document details of the addition of a substance to the device."/>
       <min value="0"/>
       <max value="*"/>
@@ -1363,10 +1351,6 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/substance-code"/>
       </binding>
       <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.what[x]"/>
-      </mapping>
-      <mapping>
         <identity value="rim"/>
         <map value=".code"/>
       </mapping>
@@ -1381,10 +1365,6 @@
         <code value="Quantity"/>
         <profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
       </type>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.what[x]"/>
-      </mapping>
       <mapping>
         <identity value="rim"/>
         <map value=".playedRole[classCode=CONT].quantity"/>

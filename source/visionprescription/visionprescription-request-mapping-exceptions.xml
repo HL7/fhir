@@ -149,14 +149,14 @@
     </divergentElement>
     <divergentElement patternPath="Request.requester" resourcePath="VisionPrescription.prescriber">
         <lowerCardinality _pattern="0" _resource="1" reason="Unknown"/>
-        <missingTypes _pattern="Reference(Organization, Patient, RelatedPerson, Device)" reason="Unknown"/>
+        <missingTypes _pattern="Reference(Organization, Patient, RelatedPerson)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Who/what is requesting service"/>
-            <resource value="Who authorized the vision prescription"/>
+            <resource value="Who or what authorized the vision prescription"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="Who initiated the {{request}} and has responsibility for its activation."/>
-            <resource value="The healthcare professional responsible for authorizing the prescription."/>
+            <resource value="The practitioner, practitioner role, or device responsible for authorizing the prescription."/>
         </definitionUnmatched>
     </divergentElement>
     <unmappedElement patternPath="Request.insurance" reason="Unknown"/>

@@ -27,7 +27,31 @@
   <description value="MedicationRequest Intent Codes"/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/CodeSystem/medicationrequest-intent"/>
+      <system value="http://hl7.org/fhir/request-intent"/>
+      <concept>
+        <code value="proposal"/>
+      </concept>
+      <concept>
+        <code value="plan"/>
+      </concept>
+      <concept>
+        <code value="order"/>
+      </concept>
+      <concept>
+        <code value="original-order"/>
+      </concept>
+      <concept>
+        <code value="reflex-order"/>
+      </concept>
+      <concept>
+        <code value="filler-order"/>
+      </concept>
+      <concept>
+        <code value="instance-order"/>
+      </concept>
+      <concept>
+        <code value="option"/>
+      </concept>
     </include>
   </compose>
 </ValueSet>

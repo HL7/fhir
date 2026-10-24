@@ -442,7 +442,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="TQ1.9, RF1-2"/>
+        <map value="TQ1-9, OBR-5, RF1-2"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -578,7 +578,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="v2"/>
-        <map value="NTE"/>
+        <map value="NTE; associated OBX where OBX-11=O (parameter code: OBX-3; parameter value: OBX-5)"/>
       </mapping>
     </element>
     <element id="ServiceRequest.orderDetail.parameterFocus[x]">
@@ -699,7 +699,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="v2"/>
-        <map value="NTE"/>
+        <map value="ORC-7/OBR-27 (older versions) or TQ1-2"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -832,7 +832,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="TQ1/TQ2, OBR-7/OBR-8"/>
+        <map value="TQ1/TQ2; occurrenceTiming: TQ1-13/TQ1-14; occurrenceDateTime: OBR-6"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -953,7 +953,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="ORC-12, PRT"/>
+        <map value="ORC-12/OBR-16, PRT"/>
       </mapping>
       <mapping>
         <identity value="rim"/>

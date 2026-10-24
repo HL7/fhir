@@ -423,11 +423,17 @@ For further details on DICOM WADO-URI capabilities including additional renderin
   <a name="dicom-uids"></a>
   <h3>DICOM UIDs as Identifiers</h3>
   <p>
-    In some cases, the <code>ImagingSelection.identifier</code> will be a DICOM UID, such as an Observation UID (see <a href="https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.17.3.4.html#table_C.17-6">DICOM PS3.3 Table C.17-6</a>).
+    In some cases, the <code>ImagingSelection.identifier</code> will be a DICOM UID, such as:
+    <ul>
+      <li>A SOP Instance UID, when the Imaging Selection references a specific DICOM SOP Instance</li>
+      <li>A Series Instance UID, when the Imaging Selection references an entire DICOM Series</li>
+      <li>An Observation UID (see <a href="https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.17.3.4.html#table_C.17-6">DICOM PS3.3 Table C.17-6</a>), when the Imaging Selection references a content item in a DICOM Structured Report or other structured document</li>
+    </ul>
   </p>
   <p>
     When using a DICOM UID as the identifier, use the Identifier system of <code>"urn:dicom:uid"</code>, and prefix the UID value with <code>"urn:oid:"</code>.
   </p>
+
   <a name="status"></a>
   <h3>ImagingSelection.status</h3>
   <p>

@@ -17,6 +17,15 @@
 	<li>Added example bindings to <code>Device.deviceVersion.type</code> and elements within the <code>Device.guideline</code> backbone <a href="https://jira.hl7.org/browse/FHIR-54866">FHIR-54866</a>, <a href="https://jira.hl7.org/browse/FHIR-56063">FHIR-56063</a>, <a href="https://jira.hl7.org/browse/FHIR-54863">FHIR-54863</a> and <a href="https://jira.hl7.org/browse/FHIR-54864">FHIR-54864</a>.</li>
   </ul>
 </blockquote>
+<blockquote class="stu-note" style="background-color: lightblue">
+<p><b>Changes since 6.0.0-ballot5:</b></p>
+<ul>
+  <li><a href="https://jira.hl7.org/browse/FHIR-57686">FHIR-57686</a> - Removed instance-level Procedure guidance from the <code>additive</code> definition.</li>
+  <li><a href="https://jira.hl7.org/browse/FHIR-57687">FHIR-57687</a> - Clarified substances added to a container and distinguished these from the materials the device is made of.</li>
+  <li><a href="https://jira.hl7.org/browse/FHIR-57688">FHIR-57688</a> - Added <code>additive-reference</code> and <code>additive-code</code> search parameters.</li>
+</ul>
+</blockquote>
+
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
 <blockquote class="stu-note">

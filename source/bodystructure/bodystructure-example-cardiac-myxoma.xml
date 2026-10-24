@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BodyStructure xmlns="http://hl7.org/fhir">
+  <id value="cardiac-myxoma"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>A single myxoma spans the cavity of the left cardiac atrium and the inflow tract of the left ventricle. The morphology is recorded once on the overall BodyStructure; both anatomical locations are included structures.</p>
+    </div>
+  </text>
+  <morphology>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="39143003"/>
+      <display value="Myxoma"/>
+    </coding>
+  </morphology>
+  <includedStructure>
+    <structure>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="1259959001"/>
+        <display value="Structure of cavity of left cardiac atrium"/>
+      </coding>
+    </structure>
+  </includedStructure>
+  <includedStructure>
+    <structure>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="70238003"/>
+        <display value="Structure of inflow tract of left ventricle"/>
+      </coding>
+    </structure>
+  </includedStructure>
+  <description value="A single myxoma spanning the left atrial cavity and the inflow tract of the left ventricle"/>
+  <patient>
+    <reference value="Patient/example"/>
+  </patient>
+</BodyStructure>

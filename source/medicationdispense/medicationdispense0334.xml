@@ -3,13 +3,13 @@
 <MedicationDispense xmlns="http://hl7.org/fhir">
   <id value="meddisp0334"/>
   <status value="declined"/>
-  <notPerformedReason>
+  <statusReason>
     <concept>
       <coding>
         <code value="outofstock"/>
       </coding>
     </concept>
-  </notPerformedReason>
+  </statusReason>
   <medication>
     <concept>
       <coding>

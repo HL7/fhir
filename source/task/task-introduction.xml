@@ -12,6 +12,13 @@
 		  <li>Marked various bindings as example and experimental to note that implementers should expect to provide their own coding schemes <a href="https://jira.hl7.org/browse/FHIR-55279">FHIR-55279</a></li>
         </ul>
         </blockquote>
+    <blockquote class="stu-note" style="background-color: lightblue">
+      <p><b>Changes since 6.0.0-ballot5:</b></p>
+      <ul>
+        <li><a href="https://jira.hl7.org/browse/FHIR-59512">FHIR-59512</a> - Clarified that <code>Task.statusReason</code> explains the current state in the context of status, business status, input, and output.</li>
+        <li><a href="https://jira.hl7.org/browse/FHIR-59322">FHIR-59322</a> - Added <code>Device</code> as a permitted <code>Task.owner</code> and broadened its short description.</li>
+      </ul>
+    </blockquote>
     <a name="scope"></a>
     <h2>Scope and Usage</h2>
 

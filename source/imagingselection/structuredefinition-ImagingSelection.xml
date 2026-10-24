@@ -46,7 +46,7 @@
       <value value="http://www.hl7.org/Special/committees/imagemgt/index.cfm"/>
     </telecom>
   </contact>
-  <description value="A selection of DICOM SOP instances within a single DICOM Study and Series. This might include additional specifics such as a set of frames or an image region, allowing linkage to an Observation Resource."/>
+  <description value="A selection of DICOM SOP instances within a single DICOM Study and DICOM Series. This might include additional specifics such as a set of frames or an image region, allowing linkage to an Observation Resource."/>
   <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="workflow"/>
@@ -176,7 +176,7 @@
       <path value="ImagingSelection.identifier"/>
       <short value="Business identifier for imaging selection"/>
       <definition value="Business identifiers assigned to this imaging selection by the performer and/or other systems.  These identifiers remain constant as the resource is updated and propagates from server to server."/>
-      <comment value="Note: This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices MAY occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number."/>
+      <comment value="Note: This is a business identifier, not a resource identifier (see [general discussion](resource.html#identifiers) and [event-specific discussion](event.html#identifier)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number."/>
       <requirements value="Allows identification of the imaging selection as it is known by various participating systems and in a way that remains consistent across servers."/>
       <min value="0"/>
       <max value="*"/>
@@ -726,9 +726,10 @@
     </element>
     <element id="ImagingSelection.instance.referencedContentItemIdentifier">
       <path value="ImagingSelection.instance.referencedContentItemIdentifier"/>
-      <short value="Selected content items"/>
-      <definition value="A list of Referenced Content Item Identifier values selected from a DICOM SR or other structured document SOP Instance (See [DICOM PS3.3 C.17.3.2.5](https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.17.3.2.5.html))."/>
+      <short value="Selected content item"/>
+      <definition value="A sequence of positive integers that identify a single Referenced Content Item selected from a DICOM SR or other structured document SOP Instance (See [DICOM PS3.3 C.17.3.2.5](https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.17.3.2.5.html))."/>
       <requirements value="Only allowed if the value of `instance.sopClass` corresponds to a DICOM SR or other structured document SOP Class."/>
+      <comment value="The Content Item Identifier is only reliable if the order of sequence items in the referenced DICOM SOP Instance is consistent. Some applications may re-order sequence items, invalidating this reference."/>
       <min value="0"/>
       <max value="*"/>
       <type>

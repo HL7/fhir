@@ -15,7 +15,7 @@
         <url value="http://hl7.org/fhir/build/SearchParameter/SearchParameter-base"/>
         <description value="The resource type(s) this search parameter applies to"/>
         <code value="base"/>
-        <type value="token"/>
+        <type value="uri"/>
         <expression value="SearchParameter.base"/>
         <processingMode value="normal"/>
       </SearchParameter>
@@ -348,7 +348,7 @@
         <url value="http://hl7.org/fhir/build/SearchParameter/SearchParameter-target"/>
         <description value="Types of resource (if a resource reference)"/>
         <code value="target"/>
-        <type value="token"/>
+        <type value="uri"/>
         <expression value="SearchParameter.target"/>
         <processingMode value="normal"/>
       </SearchParameter>

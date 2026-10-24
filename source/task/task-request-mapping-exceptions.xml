@@ -77,11 +77,11 @@
         <summary _pattern="false" _resource="true" reason="Unknown"/>
         <definitionUnmatched reason="Unknown">
             <_pattern value="Captures the reason for the current state of the task. Note that any change to the state requires the removal of any existing statusReasons, and, if appropriate, populating new statusReasons."/>
-            <resource value="An explanation as to why this task is held, failed, was refused, etc."/>
+            <resource value="An explanation of the current status of the Task (depending on a combination of Task.status, Task.businessStatus, Task.input, and Task.output)."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
             <_pattern value="This is generally only used for &quot;exception&quot; statuses such as &quot;suspended&quot; or &quot;cancelled&quot;.  The reason why the task was created at all is captured in reasonCode, not here. ."/>
-            <resource value="This applies to the current status.  Look at the history of the task to see reasons for past statuses."/>
+            <resource value="This applies to the current state, which is dependent on a combination of Task.status, Task.businessStatus, Task.input, and Task.output (when there are values for the optional fields)."/>
         </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Request.intent" resourcePath="Task.intent">
@@ -243,11 +243,11 @@
         </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Request.performer" resourcePath="Task.owner">
-        <missingTypes _pattern="Reference(HealthcareService, Device)" reason="Unknown"/>
+        <missingTypes _pattern="Reference(HealthcareService)" reason="Unknown"/>
         <extraTypes _resource="Reference(Group)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Specific desired (non)performer"/>
-            <resource value="Responsible individual"/>
+            <resource value="Responsible party"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="Indicates who or what is being asked to perform (or not perform) the {{request}}."/>
