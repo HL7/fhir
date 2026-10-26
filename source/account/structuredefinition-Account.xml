@@ -154,7 +154,7 @@
     </element>
     <element id="Account.type">
       <path value="Account.type"/>
-      <short value="E.g. patient, expense, depreciation"/>
+      <short value="E.g. patient billing account, accounts receivable, cash"/>
       <definition value="Categorizes the account for reporting and searching purposes."/>
       <min value="0"/>
       <max value="1"/>
@@ -531,7 +531,7 @@
     </element>
     <element id="Account.diagnosis.type">
       <path value="Account.diagnosis.type"/>
-      <short value="Type that this diagnosis has relevant to the account (e.g. admission, billing, discharge …)"/>
+      <short value="Type that this diagnosis has relevant to the account (e.g. working, final …)"/>
       <definition value="Type that this diagnosis has relevant to the account (e.g. admission, billing, discharge …)."/>
       <min value="0"/>
       <max value="*"/>

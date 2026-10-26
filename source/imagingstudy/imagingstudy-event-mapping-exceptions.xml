@@ -38,7 +38,7 @@
     </divergentElement>
     <divergentElement patternPath="Event.status" resourcePath="ImagingStudy.status">
         <shortUnmatched reason="Imaging study status codes are specialized">
-            <_pattern value="preparation | in-progress | not-done | suspended | aborted | completed | entered-in-error | unknown"/>
+            <_pattern value="preparation | in-progress | not-done | on-hold | stopped | completed | entered-in-error | unknown"/>
             <resource value="registered | available | cancelled | entered-in-error | unknown | inactive"/>
         </shortUnmatched>
         <commentsUnmatched reason="State transition diagram does not apply to imaging study statuses">

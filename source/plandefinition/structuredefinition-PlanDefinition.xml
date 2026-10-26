@@ -924,7 +924,7 @@
 		</element>
 		<element id="PlanDefinition.goal.category">
 			<path value="PlanDefinition.goal.category"/>
-			<short value="E.g. Treatment, dietary, behavioral"/>
+			<short value="E.g. dietary, behavioral, nursing"/>
 			<definition value="Indicates a category the goal falls within."/>
 			<min value="0"/>
 			<max value="1"/>

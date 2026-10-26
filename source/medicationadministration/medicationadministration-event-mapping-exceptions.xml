@@ -51,7 +51,7 @@
     </divergentElement>
     <divergentElement patternPath="Event.status" resourcePath="MedicationAdministration.status">
         <shortUnmatched reason="Unknown">
-            <_pattern value="preparation | in-progress | not-done | suspended | aborted | completed | entered-in-error | unknown"/>
+            <_pattern value="preparation | in-progress | not-done | on-hold | stopped | completed | entered-in-error | unknown"/>
             <resource value="in-progress | not-done | on-hold | completed | entered-in-error | stopped | unknown"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">

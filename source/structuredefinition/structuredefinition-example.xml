@@ -146,7 +146,7 @@
     </element>
     <element id="DiagnosticReport.status">
       <path value="DiagnosticReport.status"/>
-      <short value="registered|interim|final|amended|cancelled|withdrawn"/>
+      <short value="registered | preliminary | final | amended | cancelled | entered-in-error"/>
       <definition value="The status of the diagnostic report as a whole."/>
       <comment value="This is labeled as &#34;Is Modifier&#34; because applications need to take appropriate action if a report is withdrawn."/>
       <min value="1"/>
@@ -162,7 +162,7 @@
       <isModifier value="false"/>
       <binding>
         <strength value="required"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/observation-status"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/diagnostic-report-status"/>
       </binding>
     </element>
     <element id="DiagnosticReport.issued">

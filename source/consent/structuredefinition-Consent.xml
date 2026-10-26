@@ -260,7 +260,7 @@
     <element id="Consent.grantor">
       <path value="Consent.grantor"/>
       <short value="Who is granting rights according to the policy and rules"/>
-      <definition value="The entity responsible for granting the rights listed in a Consent Directive."/>
+      <definition value="The agent responsible for granting the rights listed in a Consent Directive."/>
       <alias value="grantor"/>
       <min value="0"/>
       <max value="*"/>
@@ -280,7 +280,7 @@
     <element id="Consent.grantee">
       <path value="Consent.grantee"/>
       <short value="Who is agreeing to the policy and rules"/>
-      <definition value="The entity responsible for complying with the Consent Directive, including any obligations or limitations on authorizations and enforcement of prohibitions."/>
+      <definition value="The agent responsible for complying with the Consent Directive, including any obligations or limitations on authorizations and enforcement of prohibitions."/>
       <comment value="In a fully computable consent, both grantee and grantor  will be listed as actors within the consent. The Grantee and Grantor elements are for ease of search only."/>
       <alias value="grantee"/>
       <min value="0"/>
@@ -443,8 +443,8 @@
         <valueCode value="right"/>
       </extension>
       <path value="Consent.verification"/>
-      <short value="Consent verified by patient (or another authorized person)"/>
-      <definition value="Whether the consent instructions/rules (e.g. artificial respiration: yes or no) have been verified with the patient, his/her family, or another authorized person."/>
+      <short value="Consent verified by patient or another authorized agent"/>
+      <definition value="Whether the consent instructions/rules (e.g. artificial respiration: yes or no) have been verified with the patient, his/her family, or another authorized agent."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -455,7 +455,7 @@
     <element id="Consent.verification.verified">
       <path value="Consent.verification.verified"/>
       <short value="Has been verified"/>
-      <definition value="Has the instruction been verified."/>
+      <definition value="Have the consent provisions been verified as correct and authentic."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -484,8 +484,8 @@
     </element>
     <element id="Consent.verification.verifiedBy">
       <path value="Consent.verification.verifiedBy"/>
-      <short value="Person conducting verification"/>
-      <definition value="The person who conducted the verification/validation of the Grantor decision."/>
+      <short value="Person or agent conducting verification"/>
+      <definition value="The person or agent who conducted the verification/validation of the Grantor decision as listed in .verifiedWith. This agent will have interviewed or in some other way captured the verification information."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -493,12 +493,13 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
       </type>
     </element>
     <element id="Consent.verification.verifiedWith">
       <path value="Consent.verification.verifiedWith"/>
       <short value="Person who verified"/>
-      <definition value="Who verified the instruction (Patient, Relative or other Authorized Person)."/>
+      <definition value="Who verified the patient's provisions as correct and authentic. This may be a Patient, Relative, or other Authorized agent."/>
       <min value="0"/>
       <max value="1"/>
       <type>

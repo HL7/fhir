@@ -1,13 +1,5 @@
 <mappingExceptions pattern="Event" resource="ImagingSelection" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
     <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
-    <divergentElement patternPath="Event.identifier" resourcePath="ImagingSelection.identifier">
-        <commentsUnmatched reason="Unknown">
-            <!--Old pattern: Note: This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number.-->
-            <!--Old reason: Uses different capitalization of MAY.-->
-            <_pattern value="Note: This is a business identifier, not a resource identifier (see [general discussion](resource.html#identifiers) and [event-specific discussion](event.html#identifier)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number."/>
-            <resource value="Note: This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices MAY occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number."/>
-        </commentsUnmatched>
-    </divergentElement>
     <divergentElement patternPath="Event.basedOn" resourcePath="ImagingSelection.basedOn">
         <missingTypes _pattern="Reference(Request)" reason="Reference type not relevant to resource"/>
         <extraTypes _resource="Reference(CarePlan,ServiceRequest,Appointment,Task)" reason="Additional reference types are relevant to resource"/>
@@ -22,7 +14,7 @@
     </divergentElement>
     <divergentElement patternPath="Event.status" resourcePath="ImagingSelection.status">
         <shortUnmatched reason="Imaging selection status codes are specialized">
-            <_pattern value="preparation | in-progress | not-done | suspended | aborted | completed | entered-in-error | unknown"/>
+            <_pattern value="preparation | in-progress | not-done | on-hold | stopped | completed | entered-in-error | unknown"/>
             <resource value="available | entered-in-error | inactive | unknown"/>
         </shortUnmatched>
         <commentsUnmatched reason="State diagram does not apply to imaging selection">
@@ -83,7 +75,7 @@
         </definitionUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.performer.actor" resourcePath="ImagingSelection.performer.actor">
-        <missingTypes _pattern="Reference(HealthCareService)" reason="Unknown"/>
+        <missingTypes _pattern="Reference(HealthCareService)" reason="This spelling of the resource is incorrect"/>
         <extraTypes _resource="Reference(HealthcareService)" reason="HealthcareService is a possible performer for an imaging selection"/>
         <shortUnmatched reason="Better english">
             <_pattern value="Who performed imaging selection"/>

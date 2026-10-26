@@ -134,6 +134,30 @@
   <entry>
     <resource>
       <SearchParameter>
+        <id value="Observation-code-value-reference"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Observation-code-value-reference"/>
+        <description value="Code and Location reference value parameter pair"/>
+        <code value="code-value-reference"/>
+        <type value="composite"/>
+        <expression value="Observation"/>
+        <processingMode value="normal"/>
+        <component>
+          <definition value="code"/>
+          <expression value="code"/>
+        </component>
+        <component>
+          <definition value="value-reference"/>
+          <expression value="value.ofType(Reference)"/>
+        </component>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
         <id value="Observation-code-value-string"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="normative"/>
@@ -282,6 +306,26 @@
   <entry>
     <resource>
       <SearchParameter>
+        <id value="Observation-combo-value-reference"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Observation.valueReference,Observation.component.valueReference"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Observation-combo-value-reference"/>
+        <description value="The Location referenced by the observation value or a component value"/>
+        <code value="combo-value-reference"/>
+        <type value="reference"/>
+        <expression value="Observation.value.ofType(Reference) | Observation.component.value.ofType(Reference)"/>
+        <processingMode value="normal"/>
+        <target value="Location"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
         <id value="Observation-component-code"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="normative"/>
@@ -349,6 +393,30 @@
   <entry>
     <resource>
       <SearchParameter>
+        <id value="Observation-component-code-value-reference"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Observation-component-code-value-reference"/>
+        <description value="Component code and Location reference value parameter pair"/>
+        <code value="component-code-value-reference"/>
+        <type value="composite"/>
+        <expression value="Observation.component"/>
+        <processingMode value="normal"/>
+        <component>
+          <definition value="component-code"/>
+          <expression value="code"/>
+        </component>
+        <component>
+          <definition value="component-value-reference"/>
+          <expression value="value.ofType(Reference)"/>
+        </component>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
         <id value="Observation-component-data-absent-reason"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="normative"/>
@@ -400,6 +468,26 @@
         <type value="quantity"/>
         <expression value="Observation.component.value.ofType(Quantity)"/>
         <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Observation-component-value-reference"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Observation.component.valueReference"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Observation-component-value-reference"/>
+        <description value="The Location referenced by a component value"/>
+        <code value="component-value-reference"/>
+        <type value="reference"/>
+        <expression value="Observation.component.value.ofType(Reference)"/>
+        <processingMode value="normal"/>
+        <target value="Location"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -597,6 +685,25 @@
   <entry>
     <resource>
       <SearchParameter>
+        <id value="Observation-organizer"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Observation.organizer"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Observation-organizer"/>
+        <description value="Whether the observation organizes a set of sub-observations"/>
+        <code value="organizer"/>
+        <type value="token"/>
+        <expression value="Observation.organizer"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
         <id value="Observation-part-of"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="normative"/>
@@ -769,6 +876,26 @@
   <entry>
     <resource>
       <SearchParameter>
+        <id value="Observation-value-reference"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Observation.valueReference"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Observation-value-reference"/>
+        <description value="The Location referenced by the observation value"/>
+        <code value="value-reference"/>
+        <type value="reference"/>
+        <expression value="Observation.value.ofType(Reference)"/>
+        <processingMode value="normal"/>
+        <target value="Location"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
         <id value="Observation-value-string"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="normative"/>
@@ -873,7 +1000,7 @@
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Observation-body-structure-reference"/>
         <description value="Observed body structure (reference)"/>
-        <code value="reference"/>
+        <code value="body-structure-reference"/>
         <type value="reference"/>
         <expression value="Observation.bodyStructure.reference"/>
         <processingMode value="normal"/>

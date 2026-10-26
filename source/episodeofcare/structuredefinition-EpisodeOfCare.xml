@@ -183,7 +183,7 @@
     </element>
     <element id="EpisodeOfCare.type">
       <path value="EpisodeOfCare.type"/>
-      <short value="Type/class  - e.g. specialist referral, disease management"/>
+      <short value="Type/class  - e.g. post acute care, home and community care"/>
       <definition value="A classification of the type of episode of care; e.g. specialist referral, disease management, type of funded care."/>
       <comment value="The type can be very important in processing as this could be used in determining if the EpisodeOfCare is relevant to specific government reporting, or other types of classifications."/>
       <min value="0"/>
@@ -319,7 +319,7 @@
     </element>
     <element id="EpisodeOfCare.diagnosis.use">
       <path value="EpisodeOfCare.diagnosis.use"/>
-      <short value="Role that this diagnosis has within the episode of care (e.g. admission, billing, discharge …)"/>
+      <short value="Role that this diagnosis has within the episode of care (e.g. working, final …)"/>
       <definition value="Role that this diagnosis has within the episode of care (e.g. admission, billing, discharge …)."/>
       <min value="0"/>
       <max value="*"/>

@@ -24,6 +24,7 @@
 		<blockquote class="stu-note" style="background-color: lightblue">
 			<p><b>Changes since 6.0.0-ballot5:</b></p>
 			<ul>
+				<li><a href="https://jira.hl7.org/browse/FHIR-58061">FHIR-58061</a> - Renamed the <code>ServiceRequest.bodyStructure.reference</code> search parameter code to <code>body-structure-reference</code></li>
 				<li><a href="https://jira.hl7.org/browse/FHIR-58295">FHIR-58295</a> - Added the triggering ServiceRequest reference to the Free T4 reflex-order example</li>
 				<li><a href="https://jira.hl7.org/browse/FHIR-58294">FHIR-58294</a> - Added a LOINC code to the glucose test ServiceRequest example</li>
 				<li><a href="https://jira.hl7.org/browse/FHIR-58293">FHIR-58293</a> - Added the standard LOINC panel code to the lipid panel ServiceRequest example</li>
@@ -31,6 +32,8 @@
 				<li><a href="https://jira.hl7.org/browse/FHIR-58530">FHIR-58530</a> - Added FamilyMemberHistory, MedicationAdministration, MedicationRequest, and AllergyIntolerance as reference targets on ServiceRequest.reason</li>
 				<li><a href="https://jira.hl7.org/browse/FHIR-58291">FHIR-58291</a> - Clarified that ServiceRequest.subject identifies the individual or entity of record for the service</li>
 				<li><a href="https://jira.hl7.org/browse/FHIR-58290">FHIR-58290</a> - Added LOINC and SNOMED CT Observable Entity guidance for laboratory and radiology request codes</li>
+				<li><a href="https://jira.hl7.org/browse/FHIR-58292">FHIR-58292</a> - Corrected and expanded HL7 v2 mappings for priority, order detail, quantity, occurrence, and requester.</li>
+				<li><a href="https://jira.hl7.org/browse/FHIR-58286">FHIR-58286</a> - Clarified that the procedure workflow described in Scope and Usage is an example.</li>
 			</ul>
 		</blockquote>
 		<a name="scope"></a>
@@ -60,7 +63,7 @@
 			The <code>ServiceRequest.intent</code> element identifies if the resource represents an order, proposal, or plan to perform the indicated service for, or on, a patient. The service to be performed might result in a <a href="procedure.html">Procedure</a>; and could be summarized in a <a href="diagnosticreport.html">DiagnosticReport</a> detailing the performance and outcomes, perhaps through referencing select instances of <a href="observation.html">Observation</a>, <a href="imagingstudy.html">ImagingStudy</a>, <a href="specimen.html">Specimen</a> or other resources. The various generated resources are typically linked back to this ServiceRequest through their <code>basedOn</code> elements. The ServiceRequest resource may be used to share information to support a referral or transfer-of-care request from one practitioner or organization to another for a consultation, second opinion, or short- or longer-term management of health issues or problems.
 		</p>
 		<p>
-			The general work flow that this resource facilitates is that a clinical system creates a service request. The service request is then accessed by or exchanged, perhaps via intermediaries, with a system that represents an organization (e.g., diagnostic or imaging service, surgical team, physical therapy department) that can perform the procedure. The organization receiving the service request will, after it accepts the request, update the request as the work is performed, and then finally issue a report that references the requests that it fulfilled.
+			The general work flow, using the example of requesting a procedure, that this resource facilitates is that a clinical system creates a service request. The service request is then accessed by or exchanged, perhaps via intermediaries, with a system that represents an organization (e.g., diagnostic or imaging service, surgical team, physical therapy department) that can perform the procedure. The organization receiving the service request will, after it accepts the request, update the request as the work is performed, and then finally issue a report that references the requests that it fulfilled.
 		</p>
 		<p>
 			Each ServiceRequest can only contain a single code; if a workflow requires requesting multiple codes, this is done using multiple ServiceRequests. These instances can be linked in different ways, depending on the needs of the workflow. For guidance, refer to the <a href="request.html">Request pattern</a>.

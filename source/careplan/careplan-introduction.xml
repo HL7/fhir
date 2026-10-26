@@ -10,6 +10,26 @@
     <li>Incidental spelling/abbreviation corrections applied through a cross-page technical-correction batch whose primary targets are CommunicationRequest and CareTeam [<a href="https://jira.hl7.org/browse/FHIR-55321">FHIR-55321</a>, <a href="https://jira.hl7.org/browse/FHIR-55319">FHIR-55319</a>]</li>
   </ul>
 </blockquote>
+<blockquote class="stu-note" style="background-color: lightblue">
+<p><b>Note to Balloters:</b> Key changes made since FHIR 6.0.0-ballot5:</p>
+<ul>
+  <li>Non-Compatible Changes
+    <ul>
+		<li>None</li>
+    </ul>
+  </li>
+  <li>Compatible, Substantive Changes
+    <ul>
+		<li><a href="https://jira.hl7.org/browse/FHIR-58047">FHIR-58047</a>: CarePlan.addresses - add Observation</li>
+    </ul>
+  </li>
+  <li>Non-Substantive Changes
+    <ul>
+		<li>None</li>
+    </ul>
+  </li>
+</ul>
+</blockquote>
 </div>
 
 <div>

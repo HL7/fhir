@@ -53,7 +53,7 @@
     </divergentElement>
     <divergentElement patternPath="Event.status" resourcePath="Task.status">
         <shortUnmatched reason="Unknown">
-            <_pattern value="preparation | in-progress | not-done | suspended | aborted | completed | entered-in-error | unknown"/>
+            <_pattern value="preparation | in-progress | not-done | on-hold | stopped | completed | entered-in-error | unknown"/>
             <resource value="draft | requested | received | accepted | +"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
@@ -72,11 +72,11 @@
         <summary _pattern="false" _resource="true" reason="Unknown"/>
         <definitionUnmatched reason="Unknown">
             <_pattern value="Captures the reason for the current state of the task."/>
-            <resource value="An explanation as to why this task is held, failed, was refused, etc."/>
+            <resource value="An explanation of the current status of the Task (depending on a combination of Task.status, Task.businessStatus, Task.input, and Task.output)."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
             <_pattern value="This is generally only used for &quot;exception&quot; statuses such as &quot;not-done&quot;, &quot;suspended&quot; or &quot;cancelled&quot;.  The reason for performing the event at all is captured in reasonCode, not here.&#10;."/>
-            <resource value="This applies to the current status.  Look at the history of the task to see reasons for past statuses."/>
+            <resource value="This applies to the current state, which is dependent on a combination of Task.status, Task.businessStatus, Task.input, and Task.output (when there are values for the optional fields)."/>
         </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.code" resourcePath="Task.code">
@@ -188,11 +188,11 @@
     </divergentElement>
     <divergentElement patternPath="Event.performer.actor" resourcePath="Task.owner">
         <lowerCardinality _pattern="1" _resource="0" reason="Unknown"/>
-        <missingTypes _pattern="Reference(Device, HealthCareService)" reason="Unknown"/>
+        <missingTypes _pattern="Reference(HealthCareService)" reason="Unknown"/>
         <extraTypes _resource="Reference(Group)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Who performed task"/>
-            <resource value="Responsible individual"/>
+            <resource value="Responsible party"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="Indicates who or what performed the task."/>
