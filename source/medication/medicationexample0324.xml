@@ -19,6 +19,13 @@
       <display value="amoxicillin 500 MG Oral Capsule"/>
     </coding>
   </code>
+  <classification>
+    <coding>
+      <system value="http://www.whocc.no/atc"/>
+      <code value="J01CA04"/>
+      <display value="amoxicillin"/>
+    </coding>
+  </classification>
   <status value="active"/>
   <doseForm>
     <coding>
