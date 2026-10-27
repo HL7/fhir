@@ -251,6 +251,26 @@
         <map value=".code"/>
       </mapping>
     </element>
+    <element id="Medication.classification">
+      <path value="Medication.classification"/>
+      <short value="Classification of the medication"/>
+      <definition value="A classification of the medication, such as a therapeutic, pharmacological, anatomical or administrative/legal classification."/>
+      <comment value="Classification does not replace `Medication.code`, which identifies the medication. The classification system is identified by the code system of each coding. A medication can have classifications from several systems."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MedicationClassification"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A classification of the medication, such as a therapeutic, pharmacological, anatomical or administrative/legal classification."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/medicinal-product-classification"/>
+      </binding>
+    </element>
     <element id="Medication.status">
       <path value="Medication.status"/>
       <short value="draft | active | retired | unknown"/>
