@@ -18,7 +18,6 @@
     <reference value="Patient/example"/>
   </patient>
   <wasNotGiven value="true"/>
-  <isRecordOfRequest value="false"/>
   <explanation>	
 	<reasonNotGiven>
       <coding>
