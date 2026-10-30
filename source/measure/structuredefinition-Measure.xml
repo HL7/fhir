@@ -109,6 +109,13 @@
         <expression value="repeat(item).linkId.isDistinct()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Measure"/>
       </constraint>
+      <constraint>
+        <key value="mea-10"/>
+        <severity value="warning"/>
+        <human value="LinkId should be usable as an identifier for the module by machine processing applications such as code generation"/>
+        <expression value="linkId.exists() implies LinkId.matches('^[A-Z]([A-Za-z0-9_]){1,254}$')"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Measure"/>
+      </constraint>
       <mapping>
         <identity value="workflow"/>
         <map value="Definition"/>
@@ -1067,6 +1074,7 @@
         <code value="string"/>
       </type>
       <condition value="mea-9"/>
+      <condition value="mea-10"/>
       <constraint>
         <key value="mea-2"/>
         <severity value="warning">
@@ -1078,6 +1086,7 @@
         <expression value="$this.length() &lt;= 255"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Measure"/>
       </constraint>
+      <isSummary value="true"/>
       <mapping>
         <identity value="rim"/>
         <map value=".id"/>
@@ -1461,6 +1470,7 @@
         <code value="string"/>
       </type>
       <condition value="mea-9"/>
+      <condition value="mea-10"/>
       <constraint>
         <key value="mea-3"/>
         <severity value="warning">
@@ -1472,6 +1482,7 @@
         <expression value="$this.length() &lt;= 255"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Measure"/>
       </constraint>
+      <isSummary value="true"/>
       <mapping>
         <identity value="rim"/>
         <map value=".id"/>
@@ -1621,6 +1632,7 @@
         <code value="string"/>
       </type>
       <condition value="mea-9"/>
+      <condition value="mea-10"/>
       <constraint>
         <key value="mea-4"/>
         <severity value="warning">
@@ -1632,6 +1644,7 @@
         <expression value="$this.length() &lt;= 255"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Measure"/>
       </constraint>
+      <isSummary value="true"/>
       <mapping>
         <identity value="rim"/>
         <map value=".id"/>
@@ -1748,6 +1761,7 @@
         <code value="string"/>
       </type>
       <condition value="mea-9"/>
+      <condition value="mea-10"/>
       <constraint>
         <key value="mea-5"/>
         <severity value="warning">
@@ -1759,6 +1773,7 @@
         <expression value="$this.length() &lt;= 255"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Measure"/>
       </constraint>
+      <isSummary value="true"/>
       <mapping>
         <identity value="rim"/>
         <map value=".id"/>
@@ -1884,6 +1899,7 @@
         <code value="string"/>
       </type>
       <condition value="mea-9"/>
+      <condition value="mea-10"/>
       <constraint>
         <key value="mea-6"/>
         <severity value="warning">
@@ -1895,6 +1911,7 @@
         <expression value="$this.length() &lt;= 255"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Measure"/>
       </constraint>
+      <isSummary value="true"/>
       <mapping>
         <identity value="rim"/>
         <map value=".id"/>
@@ -1968,6 +1985,7 @@
       <type>
         <code value="Expression"/>
       </type>
+      <isSummary value="true"/>
       <mapping>
         <identity value="rim"/>
         <map value="N/A (to add?)"/>
