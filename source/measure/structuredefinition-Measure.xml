@@ -102,6 +102,20 @@
         <expression value="group.stratifier.all((code | description | criteria).exists() xor component.exists())"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Measure"/>
       </constraint>
+      <constraint>
+        <key value="mea-9"/>
+        <severity value="error"/>
+        <human value="The link ids for groups must be unique within the measure"/>
+        <expression value="repeat(item).linkId.isDistinct()"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Measure"/>
+      </constraint>
+      <constraint>
+        <key value="mea-10"/>
+        <severity value="warning"/>
+        <human value="LinkId should be usable as an identifier for the module by machine processing applications such as code generation"/>
+        <expression value="linkId.exists() implies LinkId.matches('^[A-Z]([A-Za-z0-9_]){1,254}$')"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Measure"/>
+      </constraint>
       <mapping>
         <identity value="workflow"/>
         <map value="Definition"/>
@@ -1054,11 +1068,13 @@
       <definition value="An identifier that is unique within the Measure allowing linkage to the equivalent item in a MeasureReport resource."/>
       <comment value="This ''can'' be a meaningful identifier (e.g. a LOINC code) but is not intended to have any meaning.  GUIDs or sequential numbers are appropriate here.&#xA;&#xA;LinkIds can have whitespaces and slashes by design. Tooling should not rely on linkIds being valid XHTML element IDs, and should not directly embed them as such"/>
       <requirements value="[MeasureReport](measurereport.html#) does not require omitted groups to be included."/>
-      <min value="0"/>
+      <min value="1"/>
       <max value="1"/>
       <type>
         <code value="string"/>
       </type>
+      <condition value="mea-9"/>
+      <condition value="mea-10"/>
       <constraint>
         <key value="mea-2"/>
         <severity value="warning">
@@ -1070,6 +1086,7 @@
         <expression value="$this.length() &lt;= 255"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Measure"/>
       </constraint>
+      <isSummary value="true"/>
       <mapping>
         <identity value="rim"/>
         <map value=".id"/>
@@ -1447,11 +1464,13 @@
       <definition value="An identifier that is unique within the Measure allowing linkage to the equivalent population in a MeasureReport resource."/>
       <comment value="This ''can'' be a meaningful identifier (e.g. a LOINC code) but is not intended to have any meaning.  GUIDs or sequential numbers are appropriate here.&#xA;&#xA;LinkIds can have whitespaces and slashes by design. Tooling should not rely on linkIds being valid XHTML element IDs, and should not directly embed them as such"/>
       <requirements value="[MeasureReport](measurereport.html#) does not require omitted populations to be included."/>
-      <min value="0"/>
+      <min value="1"/>
       <max value="1"/>
       <type>
         <code value="string"/>
       </type>
+      <condition value="mea-9"/>
+      <condition value="mea-10"/>
       <constraint>
         <key value="mea-3"/>
         <severity value="warning">
@@ -1463,6 +1482,7 @@
         <expression value="$this.length() &lt;= 255"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Measure"/>
       </constraint>
+      <isSummary value="true"/>
       <mapping>
         <identity value="rim"/>
         <map value=".id"/>
@@ -1606,11 +1626,13 @@
       <definition value="An identifier that is unique within the Measure allowing linkage to the equivalent item in a MeasureReport resource."/>
       <comment value="This ''can'' be a meaningful identifier (e.g. a LOINC code) but is not intended to have any meaning.  GUIDs or sequential numbers are appropriate here.&#xA;&#xA;LinkIds can have whitespaces and slashes by design. Tooling should not rely on linkIds being valid XHTML element IDs, and should not directly embed them as such"/>
       <requirements value="[MeasureReport](measurereport.html#) does not require omitted stratifiers to be included."/>
-      <min value="0"/>
+      <min value="1"/>
       <max value="1"/>
       <type>
         <code value="string"/>
       </type>
+      <condition value="mea-9"/>
+      <condition value="mea-10"/>
       <constraint>
         <key value="mea-4"/>
         <severity value="warning">
@@ -1622,6 +1644,7 @@
         <expression value="$this.length() &lt;= 255"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Measure"/>
       </constraint>
+      <isSummary value="true"/>
       <mapping>
         <identity value="rim"/>
         <map value=".id"/>
@@ -1732,11 +1755,13 @@
       <definition value="An identifier that is unique within the Measure allowing linkage to the equivalent item in a MeasureReport resource."/>
       <comment value="This ''can'' be a meaningful identifier (e.g. a LOINC code) but is not intended to have any meaning.  GUIDs or sequential numbers are appropriate here.&#xA;&#xA;LinkIds can have whitespaces and slashes by design. Tooling should not rely on linkIds being valid XHTML element IDs, and should not directly embed them as such"/>
       <requirements value="[MeasureReport](measurereport.html#) does not require omitted stratifier components to be included."/>
-      <min value="0"/>
+      <min value="1"/>
       <max value="1"/>
       <type>
         <code value="string"/>
       </type>
+      <condition value="mea-9"/>
+      <condition value="mea-10"/>
       <constraint>
         <key value="mea-5"/>
         <severity value="warning">
@@ -1748,6 +1773,7 @@
         <expression value="$this.length() &lt;= 255"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Measure"/>
       </constraint>
+      <isSummary value="true"/>
       <mapping>
         <identity value="rim"/>
         <map value=".id"/>
@@ -1867,11 +1893,13 @@
       <definition value="An identifier that is unique within the Measure allowing linkage to the equivalent item in a MeasureReport resource."/>
       <comment value="This ''can'' be a meaningful identifier (e.g. a LOINC code) but is not intended to have any meaning.  GUIDs or sequential numbers are appropriate here.&#xA;&#xA;LinkIds can have whitespaces and slashes by design. Tooling should not rely on linkIds being valid XHTML element IDs, and should not directly embed them as such"/>
       <requirements value="[MeasureReport](measurereport.html#) does not require omitted supplementalData to be included."/>
-      <min value="0"/>
+      <min value="1"/>
       <max value="1"/>
       <type>
         <code value="string"/>
       </type>
+      <condition value="mea-9"/>
+      <condition value="mea-10"/>
       <constraint>
         <key value="mea-6"/>
         <severity value="warning">
@@ -1883,6 +1911,7 @@
         <expression value="$this.length() &lt;= 255"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Measure"/>
       </constraint>
+      <isSummary value="true"/>
       <mapping>
         <identity value="rim"/>
         <map value=".id"/>
@@ -1956,6 +1985,7 @@
       <type>
         <code value="Expression"/>
       </type>
+      <isSummary value="true"/>
       <mapping>
         <identity value="rim"/>
         <map value="N/A (to add?)"/>

@@ -54,7 +54,7 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="The collect-data operation is used to collect the data-of-interest for the given measure. Note that the use of the [X-Provenance header data](provenance.html#header) with data that establishes provenance being submitted/collected **SHOULD** be supported.  This provides the capability for associating the provider with the data submitted through the $collect-data transaction. If the X-Provenance header is used it should be consistent with the `reporter` element in the DEQM Data Exchange MeasureReport Profile."/>
+  <description value="The collect-data operation is used to collect the data-of-interest for the given measure. Note that the use of the [X-Provenance header data](provenance.html#header) with data that establishes provenance being submitted/collected **SHOULD** be supported.  This provides the capability for associating the provider with the data submitted through the $collect-data transaction. If the X-Provenance header is used it should be consistent with the `provider` element in the DEQM Data Exchange MeasureReport Profile."/>
   <affectsState value="false"/>
   <code value="collect-data"/>
   <comment value="The effect of invoking this operation is to gather the data required to perform an evaluation of the measure. If the lastReceivedOn parameter is supplied, only data that is new or has been changed since the lastReceivedOn date is included in the response. Note that the resulting MeasureReport is a transient resource"/>
@@ -104,11 +104,11 @@
     <type value="Group"/>
   </parameter>
   <parameter>
-    <name value="reporter"/>
+    <name value="provider"/>
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="The provider for which the data-of-interest will be collected. This may be a reference to a Practitioner, PractitionerRole, or Organization. If specified, systems MAY use this information to determine subjects for which the data-of-interest will be calculated, but how subjects are determined is implementation-specific. This parameter is reflected in the reporter element of the resulting MeasureReport(s). This parameter cannot be used with the reporterResource parameter."/>
+    <documentation value="The provider for which the data-of-interest will be collected. This may be a reference to a Practitioner, PractitionerRole, or Organization. If specified, systems MAY use this information to determine subjects for which the data-of-interest will be calculated, but how subjects are determined is implementation-specific. This parameter is reflected in the reporter element of the resulting MeasureReport(s). This parameter cannot be used with the providerResource parameter."/>
     <type value="string"/>
     <searchType value="reference"/>
   </parameter>
@@ -125,11 +125,11 @@
       url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
       <valueUri value="Organization"/>
     </extension>
-    <name value="reporterResource"/>
+    <name value="providerResource"/>
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="The provider for which the report will be run, provided as a Practitioner, PractitionerRole, or Organization resource. This is intended to support the use case in which the organization information is not on the server performing the evaluation, for example an [ad-hoc group of practitioners](clinicalreasoning-quality-reporting.html#ad-hoc-organizations) that are part of a provider group. This parameter is reflected in the reporter element of the resulting MeasureReport(s). This parameter cannot be used with the reporter parameter."/>
+    <documentation value="The provider for which the report will be run, provided as a Practitioner, PractitionerRole, or Organization resource. This is intended to support the use case in which the organization information is not on the server performing the evaluation, for example an [ad-hoc group of practitioners](https://hl7.org/fhir/uv/deqm/en/guidance.html#ad-hoc-organizations-for-deqm-operations) that are part of a provider group. This parameter is reflected in the reporter element of the resulting MeasureReport(s). This parameter cannot be used with the provider parameter."/>
     <type value="DomainResource"/>
     <searchType value="reference"/>
   </parameter>

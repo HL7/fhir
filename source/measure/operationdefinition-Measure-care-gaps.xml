@@ -137,15 +137,6 @@
     <type value="Group"/>
   </parameter>
   <parameter>
-    <name value="practitioner"/>
-    <use value="in"/>
-    <min value="0"/>
-    <max value="1"/>
-    <documentation value="Reference to a [Practitioner](practitioner.html) for which the gaps in care report will be created. For a practitioner focused gaps in care report, this is a required In Parameter. The Server needs to make sure that practitioner is authorized to get the gaps in care report for and know what measures the practitioner are eligible or qualified."/>
-    <type value="string"/>
-    <searchType value="reference"/>
-  </parameter>
-  <parameter>
     <name value="location"/>
     <use value="in"/>
     <min value="0"/>
@@ -155,11 +146,11 @@
     <searchType value="reference"/>
   </parameter>
   <parameter>
-    <name value="reporter"/>
+    <name value="provider"/>
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="The provider for which the report will be run. This may be a reference to a Practitioner, PractitionerRole, or Organization. If specified, systems MAY use this information to determine subjects for which the measure will be calculated, but how subjects are determined is implementation-specific. This parameter is reflected in the reporter element of the resulting MeasureReport(s). This parameter cannot be used with the reporterResource parameter."/>
+    <documentation value="The provider for which the report will be run. This may be a reference to a Practitioner, PractitionerRole, or Organization. If specified, systems MAY use this information to determine subjects for which the measure will be calculated, but how subjects are determined is implementation-specific. This parameter is reflected in the reporter element of the resulting MeasureReport(s). This parameter cannot be used with the providerResource parameter."/>
     <type value="string"/>
     <searchType value="reference"/>
   </parameter>
@@ -176,11 +167,11 @@
       url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
       <valueUri value="Organization"/>
     </extension>
-    <name value="reporterResource"/>
+    <name value="providerResource"/>
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="The provider for which the report will be run, provided as a Practitioner, PractitionerRole, or Organization resource. This is intended to support the use case in which the organization information is not on the server performing the evaluation, for example an [ad-hoc group of practitioners](clinicalreasoning-quality-reporting.html#ad-hoc-organizations) that are part of a provider group. This parameter is reflected in the reporter element of the resulting MeasureReport(s). This parameter cannot be used with the reporter parameter."/>
+    <documentation value="The provider for which the report will be run, provided as a Practitioner, PractitionerRole, or Organization resource. This is intended to support the use case in which the organization information is not on the server performing the evaluation, for example an [ad-hoc group of practitioners](https://hl7.org/fhir/uv/deqm/en/guidance.html#ad-hoc-organizations-for-deqm-operations) that are part of a provider group. This parameter is reflected in the reporter element of the resulting MeasureReport(s). This parameter cannot be used with the provider parameter."/>
     <type value="DomainResource"/>
     <searchType value="reference"/>
   </parameter>
@@ -197,7 +188,7 @@
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="The isDocument parameter controls whether a Gaps in Care Composition is returned in the Bundle (i.e. if the Bundle is of type 'Document'). When 'true,' the returned Bundles contain the Gaps in Care Composition. This parameter defaults to 'true.'"/>
+    <documentation value="The isDocument parameter controls whether a Gaps in Care Composition is returned in the Bundle (i.e. if the Bundle is of type `document`). When 'true' the returned Bundles contain the Gaps in Care Composition. This parameter defaults to 'true'."/>
     <type value="boolean"/>
   </parameter>
   <parameter>
@@ -225,7 +216,7 @@
     <use value="out"/>
     <min value="0"/>
     <max value="*"/>
-    <documentation value="The $care-gaps operation returns zero or more document Bundles, one for each input subject. Consistent with FHIR Documents generally, each Bundle SHALL have a Composition as the first entry in the document Bundle, and that Composition SHALL be limited to a single subject. See the [guidance on Bundle structure](https://build.fhir.org/clinicalreasoning-quality-reporting.html#bundles-organized-by-subject) for discussion about the Bundle content and organization.\n\nNote that even though there is a single parameter named return of type Bundle, it is a multi-cardinality parameter, and so will still be returned using a Parameters resource, as described in the general operations framework [response](operations.html#response)."/>
+    <documentation value="The $care-gaps operation returns zero or more Bundles, one for each input subject. If `isDocument` is true, each bundle **SHALL** have a `type` of `document` and **SHALL** contain a Composition to define a document consisting of one or more MeasureReports as well as related gaps-in-care resources (GuidanceResponse and DetectedIssue). If `isDocument` is false, each bundle **SHALL** have a type of `collection`, **SHALL** contain at least the MeasureReport(s) and **SHOULD** contain the resources used to calculate the measure report. In addition, the collection bundle **MAY** contain the gaps-in-care-specific resources describing the gaps.\n\nNote that even though there is a single parameter named return of type Bundle, it is a multi-cardinality parameter, and so will still be returned using a Parameters resource, as described in the general operations framework [response](operations.html#response)."/>
     <type value="Bundle"/>
   </parameter>
 </OperationDefinition>

@@ -126,11 +126,11 @@
     </binding>
   </parameter>
   <parameter>
-    <name value="reporter"/>
+    <name value="provider"/>
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="The provider for which the report will be run. This may be a reference to a Practitioner, PractitionerRole, or Organization. If specified, systems MAY use this information to determine subjects for which the measure will be calculated, but how subjects are determined is implementation-specific. This parameter is reflected in the reporter element of the resulting MeasureReport(s). This parameter cannot be used with the reporterResource parameter."/>
+    <documentation value="The provider for which the report will be run. This may be a reference to a Practitioner, PractitionerRole, or Organization. If specified, systems MAY use this information to determine subjects for which the measure will be calculated, but how subjects are determined is implementation-specific. This parameter is reflected in the reporter element of the resulting MeasureReport(s). This parameter cannot be used with the providerResource parameter."/>
     <type value="string"/>
     <searchType value="reference"/>
   </parameter>
@@ -147,11 +147,11 @@
       url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
       <valueUri value="Organization"/>
     </extension>
-    <name value="reporterResource"/>
+    <name value="providerResource"/>
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="The provider for which the report will be run, provided as a Practitioner, PractitionerRole, or Organization resource. This is intended to support the use case in which the organization information is not on the server performing the evaluation, for example an [ad-hoc group of practitioners](clinicalreasoning-quality-reporting.html#ad-hoc-organizations) that are part of a provider group. This parameter is reflected in the reporter element of the resulting MeasureReport(s). This parameter cannot be used with the reporter parameter."/>
+    <documentation value="The provider for which the report will be run, provided as a Practitioner, PractitionerRole, or Organization resource. This is intended to support the use case in which the organization information is not on the server performing the evaluation, for example an [ad-hoc group of practitioners](https://hl7.org/fhir/uv/deqm/en/guidance.html#ad-hoc-organizations-for-deqm-operations) that are part of a provider group. This parameter is reflected in the reporter element of the resulting MeasureReport(s). This parameter cannot be used with the provider parameter."/>
     <type value="DomainResource"/>
     <searchType value="reference"/>
   </parameter>
