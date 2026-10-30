@@ -819,8 +819,7 @@
 		<element id="CodeSystem.property.uri">
 			<path value="CodeSystem.property.uri"/>
 			<short value="Formal identifier for the property"/>
-			<definition value="Reference to the formal meaning of the property. One possible source of meaning is the [Concept Properties](codesystem-concept-properties.html) code system."/>
-			<comment value="The URIs used here SHOULD be drawn from the [Concept Properties](codesystem-concept-properties.html) code system, where the URI string consists of \[code system URL]#\[code]"/>
+			<definition value="Reference to the formal meaning of the property. The URIs used here SHOULD be drawn from the [Concept Properties](codesystem-concept-properties.html) code system, where the URI string consists of \[code system URL]#\[code]."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
