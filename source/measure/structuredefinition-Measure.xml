@@ -105,15 +105,15 @@
       <constraint>
         <key value="mea-9"/>
         <severity value="error"/>
-        <human value="The link ids for groups must be unique within the measure"/>
-        <expression value="repeat(item).linkId.isDistinct()"/>
+        <human value="All linkIds must be unique within the Measure"/>
+        <expression value="group.linkId.combine(group.population.linkId).combine(group.stratifier.linkId).combine(group.stratifier.component.linkId).combine(supplementalData.linkId).isDistinct()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Measure"/>
       </constraint>
       <constraint>
         <key value="mea-10"/>
         <severity value="warning"/>
-        <human value="LinkId should be usable as an identifier for the module by machine processing applications such as code generation"/>
-        <expression value="linkId.exists() implies LinkId.matches('^[A-Z]([A-Za-z0-9_]){1,254}$')"/>
+        <human value="LinkIds should begin with an uppercase ASCII letter, contain only ASCII letters, digits, or underscores, and be 2 to 255 characters long"/>
+        <expression value="group.linkId.combine(group.population.linkId).combine(group.stratifier.linkId).combine(group.stratifier.component.linkId).combine(supplementalData.linkId).all($this.matches('^[A-Z][A-Za-z0-9_]{1,254}$'))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Measure"/>
       </constraint>
       <mapping>
