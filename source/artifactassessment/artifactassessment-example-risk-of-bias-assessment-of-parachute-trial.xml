@@ -30,12 +30,12 @@
 		</assigner>
 	</identifier>
 	<title value="Risk of Bias Assessment of PARACHUTE trial"/>
+	<copyright value="https://creativecommons.org/licenses/by-nc-sa/4.0/"/>
 	<artifactReference>
 	  <!-- <reference value="Citation/306957"/> -->
 		<type value="Citation"/>
 		<display value="30545967 Parachute use to prevent death and major trauma when jumping from aircraft: randomized controlled trial."/>
 	</artifactReference>
-	<copyright value="https://creativecommons.org/licenses/by-nc-sa/4.0/"/>
 	<content>
 		<type>
 			<coding>

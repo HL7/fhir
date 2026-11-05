@@ -153,8 +153,8 @@
        fill="black"
        class="diagram-class-detail"><a
    id="n656"
-   xlink:href="medicationdispense-definitions.html#MedicationDispense.notPerformedReason"><title
-   id="title82166">Indicates the reason why a dispense was not performed</title>notPerformedReason</a> : <a
+   xlink:href="medicationdispense-definitions.html#MedicationDispense.statusReason"><title
+   id="title82166">Captures the reason for the current status of the dispense, for example why it was not performed, put on hold, or resumed</title>statusReason</a> : <a
    id="n657"
    xlink:href="references.html#CodeableReference">CodeableReference</a> [0..1] « <a
    id="n658"

@@ -1046,7 +1046,7 @@
     </element>
     <element id="ImagingStudy.series.instance.numberOfFrames">
       <path value="ImagingStudy.series.instance.numberOfFrames"/>
-      <short value="The number of this instance in the series"/>
+      <short value="The number of frames in the instance"/>
       <definition value="The number frames in a multiframe image."/>
       <alias value="NumberOfFrames"/>
       <min value="0"/>

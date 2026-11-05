@@ -829,8 +829,8 @@
     </element>
     <element id="DeviceRequest.asNeeded">
       <path value="DeviceRequest.asNeeded"/>
-      <short value="PRN status of request"/>
-      <definition value="This status is to indicate whether the request is a PRN or may be given as needed."/>
+      <short value="Whether the device is to be used as needed"/>
+      <definition value="This status is to indicate whether the request is for a device to be used as needed (a.k.a. PRN or *pro re nata*)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -842,10 +842,17 @@
       <short value="Device usage reason"/>
       <definition value="The reason for using the device."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DeviceRequestAsNeededReason"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/medication-as-needed-reason"/>
+      </binding>
     </element>
     <element id="DeviceRequest.insurance">
       <path value="DeviceRequest.insurance"/>

@@ -25,7 +25,7 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="MedicationDispense Status Reason Codes"/>
+  <description value="MedicationDispense Status Reason Codes: reasons for the current status of a dispense, for example why it was not performed, put on hold, or resumed."/>
   <compose>
     <include>
       <system value="http://hl7.org/fhir/CodeSystem/medicationdispense-status-reason"/>

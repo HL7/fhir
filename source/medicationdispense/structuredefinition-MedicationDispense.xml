@@ -90,9 +90,9 @@
       <max value="*"/>
       <constraint>
         <key value="mdd-1"/>
-        <severity value="error"/>
+        <severity value="warning"/>
         <human value="whenHandedOver cannot be before whenPrepared"/>
-        <expression value="(whenHandedOver.hasValue() and whenPrepared.hasValue()) implies whenHandedOver >= whenPrepared"/>
+        <expression value="(whenHandedOver.hasValue() and whenPrepared.hasValue()) implies whenHandedOver.highBoundary() >= whenPrepared.lowBoundary()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/MedicationDispense"/>
       </constraint>
       <mapping>
@@ -154,7 +154,7 @@
       <path value="MedicationDispense.partOf"/>
       <short value="Event that dispense is part of"/>
       <definition value="The procedure or medication administration that triggered the dispense."/>
-      <comment value="While both a procedure and a medication administration may have triggered the dispense, but it is not expected that multiple procedures and/or multiple medication administrations would be triggers."/>
+      <comment value="While both a procedure and a medication administration may have triggered the dispense, but it is not expected that multiple procedures and/or multiple medication administrations would be triggers. A dispense can be part of a medication administration when there is no separate, formal dispense, for example when the medication is taken from ward stock or an emergency cart in order to administer it. The MedicationDispense then records the supply, for example for logistics and inventory, without adding that information to the MedicationAdministration, and references the administration in `partOf`. This does not create a circular reference: a given MedicationDispense and MedicationAdministration are not each recorded as part of the other."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -218,10 +218,10 @@
         <map value="CombinedMedicationDispense.SupplyEvent.statusCode"/>
       </mapping>
     </element>
-    <element id="MedicationDispense.notPerformedReason">
-      <path value="MedicationDispense.notPerformedReason"/>
-      <short value="Why a dispense was not performed"/>
-      <definition value="Indicates the reason why a dispense was not performed."/>
+    <element id="MedicationDispense.statusReason">
+      <path value="MedicationDispense.statusReason"/>
+      <short value="Reason for current status"/>
+      <definition value="Captures the reason for the current status of the dispense, for example why it was not performed, put on hold, or resumed."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -235,6 +235,10 @@
         <strength value="example"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/medicationdispense-status-reason"/>
       </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.statusReason"/>
+      </mapping>
     </element>
     <element id="MedicationDispense.statusChanged">
       <path value="MedicationDispense.statusChanged"/>
@@ -740,7 +744,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="DosageDetails"/>
+        <code value="DosageInstruction"/>
       </type>
       <mapping>
         <identity value="rim"/>

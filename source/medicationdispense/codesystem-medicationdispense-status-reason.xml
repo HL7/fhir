@@ -18,7 +18,7 @@
   <title value="Medication Dispense Status Reason Codes"/>
   <status value="active"/>
   <experimental value="false"/>
-  <description value="Medication Dispense Status Reason Codes"/>
+  <description value="Medication Dispense Status Reason Codes: reasons for the current status of a dispense, for example why it was not performed, put on hold, or resumed."/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/medicationdispense-status-reason"/>
   <content value="complete"/>
@@ -126,5 +126,20 @@
     <code value="offmarket"/>
     <display value="Drug not available - off market"/>
     <definition value="Drug no longer marketed Cannot supply."/>
+  </concept>
+  <concept>
+    <code value="on-hold"/>
+    <display value="Put on hold"/>
+    <definition value="The dispense has been put on hold, for a reason not covered by another code."/>
+  </concept>
+  <concept>
+    <code value="awaiting-authorization"/>
+    <display value="Awaiting authorization or payment"/>
+    <definition value="The dispense is on hold until authorization or payment (for example, by the patient's insurer) is received."/>
+  </concept>
+  <concept>
+    <code value="issue-resolved"/>
+    <display value="Issue resolved"/>
+    <definition value="The dispense has been resumed because the reason it was put on hold no longer applies."/>
   </concept>
 </CodeSystem>

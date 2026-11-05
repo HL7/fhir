@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BodyStructure xmlns="http://hl7.org/fhir">
+  <id value="liver-neoplasm1"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>First liver neoplasm, tracked as Neoplasm1. This lesion and the <a href="bodystructure-example-liver-neoplasm2.html">second liver neoplasm</a> later merge into a <a href="bodystructure-example-liver-neoplasm3.html">single lesion</a>.</p>
+    </div>
+  </text>
+  <identifier>
+    <type>
+      <coding>
+        <system value="http://dicom.nema.org/resources/ontology/DCM"/>
+        <code value="112039"/>
+        <display value="Tracking Identifier"/>
+      </coding>
+    </type>
+    <value value="Neoplasm1"/>
+  </identifier>
+  <identifier>
+    <type>
+      <coding>
+        <system value="http://dicom.nema.org/resources/ontology/DCM"/>
+        <code value="112040"/>
+        <display value="Tracking Unique Identifier"/>
+      </coding>
+    </type>
+    <system value="urn:dicom:uid"/>
+    <value value="1.3.12.2.1107.5.20.9999.1001"/>
+  </identifier>
+  <includedStructure>
+    <structure>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="10200004"/>
+        <display value="Liver structure"/>
+      </coding>
+    </structure>
+    <morphology>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="108369006"/>
+        <display value="Neoplasm"/>
+      </coding>
+    </morphology>
+  </includedStructure>
+  <description value="Neoplasm in the liver (first)"/>
+  <patient>
+    <reference value="Patient/example"/>
+  </patient>
+</BodyStructure>

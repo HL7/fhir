@@ -92,4 +92,9 @@
     <display value="Period"/>
     <definition value="A time range defined by start and end date/time."/>
   </concept>
+  <concept>
+    <code value="Reference"/>
+    <display value="Reference"/>
+    <definition value="A reference to another resource."/>
+  </concept>
 </CodeSystem>

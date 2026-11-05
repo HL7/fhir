@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Medication xmlns="http://hl7.org/fhir">
+  <id value="med0324"/>
+  <!-- A Medication representing a kind of medication (a catalogue entry), used as a canonical resource:
+       url and version identify it across systems; identifier is the business identifier of the record
+       (a catalogue number). It has no instance. Compare medicationexample0325, a physical item of the same product. -->
+  <url value="http://example.org/fhir/Medication/amoxicillin-500mg-capsule"/>
+  <identifier>
+    <system value="http://example.org/medication-catalogue"/>
+    <value value="CAT-AMX-500-CAP"/>
+  </identifier>
+  <version value="1.0.0"/>
+  <name value="Amoxicillin500mgCapsule"/>
+  <title value="Amoxicillin 500 mg capsule"/>
+  <code>
+    <coding>
+      <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
+      <code value="308191"/>
+      <display value="amoxicillin 500 MG Oral Capsule"/>
+    </coding>
+  </code>
+  <status value="active"/>
+  <doseForm>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="385049006"/>
+      <display value="Capsule"/>
+    </coding>
+  </doseForm>
+</Medication>

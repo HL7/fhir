@@ -380,4 +380,42 @@
     </resource>
   </entry>
 
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DeviceDefinition-additive-reference"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DeviceDefinition.additive.type.reference"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceDefinition-additive-reference"/>
+        <description value="The additive substance (resource reference)"/>
+        <code value="additive-reference"/>
+        <type value="reference"/>
+        <expression value="DeviceDefinition.additive.type.reference"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DeviceDefinition-additive-code"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DeviceDefinition.additive.type.concept"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceDefinition-additive-code"/>
+        <description value="The additive substance (coded)"/>
+        <code value="additive-code"/>
+        <type value="token"/>
+        <expression value="DeviceDefinition.additive.type.concept"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
 </Bundle>

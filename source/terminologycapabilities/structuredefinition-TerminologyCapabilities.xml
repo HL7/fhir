@@ -692,7 +692,7 @@
     <element id="TerminologyCapabilities.codeSystem.version.value">
       <path value="TerminologyCapabilities.codeSystem.version.value"/>
       <short value="Code system business version"/>
-      <definition value="For version-less code systems, there should be a single version with no identifier."/>
+      <definition value="Code system business version. For version-less code systems, there should be a single version with no identifier."/>
       <min value="0"/>
       <max value="1"/>
       <type>

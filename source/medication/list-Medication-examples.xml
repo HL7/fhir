@@ -292,4 +292,28 @@
       <display value="Compound"/>
     </item>
   </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Medication representing a kind of medication (canonical, with url and version) – identifier is the catalogue number of the record; no instance"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationexample0324"/>
+    </extension>
+    <item>
+      <reference value="Medication/med0324"/>
+      <display value="Kind"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Medication representing a physical item of the same product – identifier is the stock-system number of the record; instance.identifier is the serial number and instance.lotNumber the batch"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationexample0325"/>
+    </extension>
+    <item>
+      <reference value="Medication/med0325"/>
+      <display value="Instance"/>
+    </item>
+  </entry>
 </List>

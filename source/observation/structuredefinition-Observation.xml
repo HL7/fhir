@@ -683,6 +683,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -748,6 +749,10 @@
       </type>
       <type>
         <code value="Attachment"/>
+      </type>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
       </type>
       <condition value="obs-7"/>
       <condition value="obs-6"/>
@@ -1465,6 +1470,10 @@
       </type>
       <type>
         <code value="Attachment"/>
+      </type>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
       </type>
       <condition value="obs-10"/>
       <isSummary value="true"/>

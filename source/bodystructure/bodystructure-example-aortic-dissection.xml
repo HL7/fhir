@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BodyStructure xmlns="http://hl7.org/fhir">
+  <id value="aortic-dissection"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>Aortic dissection involves the ascending aorta and aortic arch. The overall morphology describes the dissection. Each included structure identifies its true lumen.</p>
+    </div>
+  </text>
+  <morphology>
+    <coding>
+      <system value="http://radlex.org"/>
+      <code value="RID3320"/>
+      <display value="aortic dissection"/>
+    </coding>
+  </morphology>
+  <includedStructure>
+    <structure>
+      <coding>
+        <system value="http://radlex.org"/>
+        <code value="RID580"/>
+        <display value="ascending aorta"/>
+      </coding>
+    </structure>
+    <morphology>
+      <coding>
+        <system value="http://radlex.org"/>
+        <code value="RID5970"/>
+        <display value="true lumen"/>
+      </coding>
+    </morphology>
+  </includedStructure>
+  <includedStructure>
+    <structure>
+      <coding>
+        <system value="http://radlex.org"/>
+        <code value="RID581"/>
+        <display value="aortic arch"/>
+      </coding>
+    </structure>
+    <morphology>
+      <coding>
+        <system value="http://radlex.org"/>
+        <code value="RID5970"/>
+        <display value="true lumen"/>
+      </coding>
+    </morphology>
+  </includedStructure>
+  <description value="Aortic dissection involving the ascending aorta and aortic arch, with true lumen identified in both structures"/>
+  <patient>
+    <reference value="Patient/example"/>
+  </patient>
+</BodyStructure>

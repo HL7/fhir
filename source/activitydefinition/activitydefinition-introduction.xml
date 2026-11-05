@@ -26,6 +26,13 @@
             </ul>
             <p></p>
         </blockquote>
+
+        <blockquote class="stu-note" style="background-color: lightblue">
+            <p><b>Changes since 6.0.0-ballot5:</b></p>
+            <ul>
+                <li><a href="https://jira.hl7.org/browse/FHIR-54340">FHIR-54340</a> (Pharmacy) - The type of <code>dosageInstruction</code> is now <a href="dosage.html#DosageInstruction">DosageInstruction</a>, the data type previously named DosageDetails. The content of the type is unchanged.</li>
+            </ul>
+        </blockquote>
         <blockquote style="background-color: lightblue">
             
             <p><b>All Changes (including Technical Corrections not listed above):</b></p>

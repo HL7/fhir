@@ -31,6 +31,8 @@ in order to support consistent definitions for schema and UML derived code.
         <li><a href="https://jira.hl7.org/browse/FHIR-58270">FHIR-58270</a> - Clarified Observation status guidance for suspected device-related quality concerns.</li>
         <li><a href="https://jira.hl7.org/browse/FHIR-58237">FHIR-58237</a> - Added DeviceAssociation context to the Device instance workflow.</li>
         <li><a href="https://jira.hl7.org/browse/FHIR-58235">FHIR-58235</a> - Clarified the distinction between Device and DeviceDefinition.</li>
+      <li><a href="https://jira.hl7.org/browse/FHIR-58234">FHIR-58234</a> - Refocused the introduction on device business workflows and linked named resources in the introduction.</li>
+      <li><a href="https://jira.hl7.org/browse/FHIR-58125">FHIR-58125</a> - Updated the acknowledgement to name the Devices Work Group and removed the superseded second sentence.</li>
     </ul>
 	</blockquote>
 
@@ -43,13 +45,15 @@ in order to support consistent definitions for schema and UML derived code.
     
     <a name="intro"></a>
     <h3>Introduction</h3>
-    <p>This module is concerned with "devices" and how to use the various device-related FHIR resources to address common use cases. Within FHIR a "device" can represent a wide range of equipment including such diverse things as MRIs, beds, tongue depressors, bandages, stents and implants, blood pressure monitors, weight scales, infusion pumps, clinical decision support software, continuous glucose monitors, and bedside monitors. Because of the range of possible devices and the range of uses, systems may choose to implement a subset of device-related resources.</p>
+    <p>This module provides guidance for representing medical and personal health devices, their characteristics, operational status, patient associations, utilization, and measurements. It also supports clinical workflows including device traceability, inventory management, patient-device association, device recalls, remote monitoring, and quality investigations.</p>
 
-    <p>Device-related resources include:</p>
+    <p>Within FHIR a <a href="device.html">Device</a> can represent a diverse range of things such as MRIs, beds, tongue depressors, bandages, stents and implants, blood pressure monitors, weight scales, infusion pumps, clinical decision support software, continuous glucose monitors, and bedside monitors. Because of the range of possible devices and the range of uses, systems may choose to implement a subset of device-related resources.</p>
+
+    <p><a href="device.html">Device</a>-related resources include:</p>
     <ul>
-        <li>Resources providing the <b>definition and documenting the capabilities</b> of the device include: Device, DeviceDefinition, DeviceMetric.</li>
-        <li>Resources documenting the <b>supply or clinical workflow</b> (e.g., order, fulfillment, and use) of devices include: DeviceAssociation, DeviceRequest, DeviceDispense, DeviceUsage</li>
-        <li>Resources related to the <b>actual clinical use and/or behavior</b> of the device include: Observation, DeviceAlert, Procedure.</li>
+        <li>Resources providing the <b>definition and documenting the capabilities</b> of the device include: <a href="device.html">Device</a>, <a href="devicedefinition.html">DeviceDefinition</a>, <a href="devicemetric.html">DeviceMetric</a>.</li>
+        <li>Resources documenting the <b>supply or clinical workflow</b> (e.g., order, fulfillment, and use) of devices include: <a href="deviceassociation.html">DeviceAssociation</a>, <a href="devicerequest.html">DeviceRequest</a>, <a href="https://build.fhir.org/ig/HL7/oo-incubator/StructureDefinition-DeviceDispense.html">DeviceDispense</a>, <a href="https://build.fhir.org/ig/HL7/oo-incubator/StructureDefinition-DeviceUsage.html">DeviceUsage</a></li>
+        <li>Resources related to the <b>actual clinical use and/or behavior</b> of the device include: <a href="observation.html">Observation</a>, <a href="devicealert.html">DeviceAlert</a>, <a href="procedure.html">Procedure</a>.</li>
     </ul>
 
     <a name="index"></a>
@@ -560,8 +564,7 @@ in order to support consistent definitions for schema and UML derived code.
     <a name="acknowledgements"></a>
     <h3>Acknowledgements</h3>
 
-    <p>The resources and guidance provided in this module are the combined work of a joint project between the HL7 Orders and Observations and Health Care Devices Work Groups.</p>
-    <p>This module reflects collaboration between the Health Care Devices Work Group, which provides device-specific domain expertise, and the Orders and Observations Work Group, which sponsors and manages the FHIR specification content for the module.</p>
+    <p>The resources and guidance provided in this module are the combined work of a joint project between the HL7 Orders and Observations and Devices Work Groups.</p>
     
     [%file newfooter%]
 </body>
