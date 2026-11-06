@@ -218,7 +218,7 @@
   <library value="#EXM55"/>
 
   <group id="group-1">
-    <linkId value="primary"/>
+    <linkId value="Primary"/>
     <type>
       <coding>
         <system value="http://terminology.hl7.org/CodeSystem/measure-type"/>
@@ -241,7 +241,7 @@
       </coding>
     </improvementNotation>
     <population>
-      <linkId value="primary-exm55-initial-population"/>
+      <linkId value="Primary_exm55_initial_population"/>
       <code>
         <coding>
           <system value="http://terminology.hl7.org/CodeSystem/measure-population"/>
@@ -255,7 +255,7 @@
       </criteria>
     </population>
     <population>
-      <linkId value="primary-exm55-measure-population"/>
+      <linkId value="Primary_exm55_measure_population"/>
       <code>
         <coding>
           <system value="http://terminology.hl7.org/CodeSystem/measure-population"/>
@@ -269,7 +269,7 @@
       </criteria>
     </population>
     <population>
-      <linkId value="primary-exm55-measure-population-exclusion"/>
+      <linkId value="Primary_exm55_measure_population_exclusion"/>
       <code>
         <coding>
           <system value="http://terminology.hl7.org/CodeSystem/measure-population"/>
@@ -283,7 +283,7 @@
       </criteria>
     </population>
     <population>
-      <linkId value="primary-exm55-measure-population-identifier"/>
+      <linkId value="Primary_exm55_measure_population_identifier"/>
       <code>
         <coding>
           <system value="http://terminology.hl7.org/CodeSystem/measure-population"/>
@@ -305,7 +305,7 @@
       </aggregateMethod>
     </population>
     <stratifier>
-      <linkId value="primary-exm55-stratification-1"/>
+      <linkId value="Primary_exm55_stratification_1"/>
       <code>
         <coding>
           <system value="http://example.org/stratification"/>
@@ -319,7 +319,7 @@
       </criteria>
     </stratifier>
     <stratifier>
-      <linkId value="primary-exm55-stratification-2"/>
+      <linkId value="Primary_exm55_stratification_2"/>
       <code>
         <coding>
           <system value="http://example.org/stratification"/>
@@ -333,7 +333,7 @@
       </criteria>
     </stratifier>
     <stratifier>
-      <linkId value="primary-exm55-stratification-3"/>
+      <linkId value="Primary_exm55_stratification_3"/>
       <code>
         <coding>
           <system value="http://example.org/stratification"/>
