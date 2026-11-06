@@ -160,4 +160,52 @@
       <display value="consent-example-CDA"/>
     </item>
   </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Withhold authorization for treatment and emergency treatment"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="consent-example-No-Emergency"/>
+    </extension>
+    <item>
+      <reference value="Consent/consent-example-No-Emergency"/>
+      <display value="Consent-No-Emergency"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Allow one organization to share data with another organization"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="consent-example-OrgToOrg"/>
+    </extension>
+    <item>
+      <reference value="Consent/consent-example-OrgToOrg"/>
+      <display value="Consent-OrgToOrg"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of a conditional release restriction"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="consent-example-provider"/>
+    </extension>
+    <item>
+      <reference value="Consent/restrict"/>
+      <display value="Consent-Provider-Restriction"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of a consent to share CDA documents from a specific author to a specific recipient"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="consent-example-release-cda"/>
+    </extension>
+    <item>
+      <reference value="Consent/consent-example-release-cda"/>
+      <display value="Consent-Release-CDA"/>
+    </item>
+  </entry>
 </List>
