@@ -203,7 +203,7 @@
       <path value="Consent.subject"/>
       <short value="Who the consent applies to"/>
       <definition value="The patient, healthcare practitioner, research subject, or a group of persons to whom this consent applies."/>
-      <min value="0"/>
+      <min value="1"/>
       <max value="1"/>
       <type>
         <code value="Reference"/>
