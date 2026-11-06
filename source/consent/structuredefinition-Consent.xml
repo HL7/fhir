@@ -803,14 +803,14 @@
       <min value="1"/>
       <max value="1"/>
       <type>
-        <code value="code"/>
+        <code value="coding"/>
       </type>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ConsentDataMeaning"/>
         </extension>
-        <strength value="required"/>
+        <strength value="extensible"/>
         <description value="How a resource reference is interpreted when testing consent restrictions."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/consent-data-meaning"/>
       </binding>
