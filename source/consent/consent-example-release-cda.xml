@@ -28,10 +28,10 @@
 		<!-- one of the stock examples -->
 	</subject>
 	<date value="2016-05-26"/>
-	<performer>
+	<grantor>
 		<reference value="Patient/72"/>
 		<!-- author is patient themselves, and they sign -->
-	</performer>
+	</grantor>
 	<!-- this consent relates to sharing data with a specific recipient -->
 	<controller>
 		<reference value="Organization/f001"/>
@@ -45,6 +45,7 @@
 	</regulatoryBasis>
 	<!-- here's an opt-in: share CDA documents of type Discharge Summary 
     + Summarization of Episode Note from a specific author -->
+    <decision value="permit"/>
 	<provision>
 		<period>
 			<start value="2015-10-10"/>
@@ -75,10 +76,10 @@
 				</reference>
 			</actor>
 			<!-- CDA documents -->
-			<class>
+			<documentType>
 				<system value="urn:ietf:bcp:13"/>
 				<code value="application/hl7-cda+xml"/>
-			</class>
+			</documentType>
 			<!-- code rules -->
 			<code>
 				<coding>

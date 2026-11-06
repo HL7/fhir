@@ -186,18 +186,6 @@
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="Example of a conditional release restriction"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="consent-example-provider"/>
-    </extension>
-    <item>
-      <reference value="Consent/restrict"/>
-      <display value="Consent-Provider-Restriction"/>
-    </item>
-  </entry>
-  <entry>
-    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="Example of a consent to share CDA documents from a specific author to a specific recipient"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
