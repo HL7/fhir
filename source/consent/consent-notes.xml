@@ -13,7 +13,7 @@ use case in which data access takes place.
 The <code>policyBasis</code> element provides a computable version of the base policy that lays out the general rules within 
 which the patient can make more granular choices. 
 The <code>provision</code> structure (including nested provisions) enable recording such fine-grained choices in the form of 
-computable rules that make further constraints and exceptions to the general rules set by the <code>policyBasis</code>.
+computable rules that make further constraints to the general rules set by the <code>policyBasis</code>.
 For an example, the <code>policyBasis</code> can state general permission to access data for treatment purposes while a patient 
 may constrain that by making an exception to the general rules and denying access to sensitive data (e.g., substance use treatment)
  through a <code>Consent.provision</code> that stipulates access should be denied if security labels indicate sensitive data.
@@ -67,24 +67,26 @@ Changes to consent status are commonly managed either by leveraging FHIR version
   computable way. This is the FHIR Consent's native mechanism for expressing and encoding policy rules 
   within the resource; an alternative to using an external policy language.</p>
 
-<p>The default decision of the consent is stated by the <code>decision</code> element: 
-  <code>permit</code> or <code>deny</code>. Note that if the <code>provision</code> element is present, 
+<p>The <code>Consent.decision</code> and <code>Consent.provision</code> elements specify the subject specific rules.
+The <code>Consent.decision</code> element specifies the starting decision, 
+  <code>permit</code> or <code>deny</code>, to be applied as alternating decisions in levels of the <code>provision</code> hierarchy.
+  Note that if the <code>provision</code> element is present, 
   the <code>decision</code> element must be provided; a valid consent resource may only 
   miss the <code>decision</code> element if no computable policy is provided through the provision structure. 
 </p>
 <p> 
-  The provision structure states further constraints or exceptions to the base decision stated by 
+  The provision structure states further constraints  to the base decision stated by 
   the <code>decision</code> element. 
-  Each provision may have its own sub-provisions that, in turn, state constraints and exceptions to the rules stated 
+  Each provision may have its own sub-provisions that, in turn, state constraints to the rules stated 
   in the parent provision. The following figure depicts this structure:
 </p>
 <img src="consent-provisions.png" alt="consent provisions"  width="55%"/> 
 
 <p>
 For example, if the base <code>decision</code> for a consent is <code>permit</code>, 
-the first level of provisions express exceptions to this decision, therefore,
+the first level of provisions express constraints to this decision, therefore,
 the decision when matching these provisions will be a <code>deny</code>. The immediate child provisions to any of 
-these provisions would express exceptions to the parent's <code>deny</code> decision, therefore, their effect, 
+these provisions would express constraints to the parent's <code>deny</code> decision, therefore, their effect, 
 when matched, will be <code>permit</code>, and so on. 
 </p>
 
@@ -95,8 +97,8 @@ when matched, will be <code>permit</code>, and so on.
   <ul>
     <li> 
     Provisions at the same level of depth are interpreted as disjunctive (i.e., <em>OR</em>-ed). 
-    This means that matching <em>any</em> of the sibling provisions at one level constitutes an exception 
-    to, or a constraint on the rule stated in the parent provision.
+    This means that matching <em>any</em> of the sibling provisions at one level constitutes a constraint 
+    on, or an exception to, the rule stated in the parent provision.
   </li>
 
   <li> 
@@ -137,16 +139,16 @@ in the interpretation of the provision:
   <p>The following figure visualizes this in the course of an example.</p>
   <img src="consent-provisions-example.png" alt="consent provisions example" width="55%"/>
 
-<p>The base decision is a <code>deny</code> to which the first exception, 
-  expressed in the first provision, states that during the time period 
+<p>The base decision is a <code>deny</code> to which the first provision, 
+  states that during the time period 
   from 01/01/2020 to 31/12/2022 all access by <em>Org A</em> is permitted. 
 In order to match this provision, and therefore for this <em>permit</em> decision to be 
 applicable, the requestor identifier must match <em>Org A</em> AND the current date must 
 be within the range 01/01/2020-31/12/2022.</p>
 
-  <p>The subsequent child provisions state exceptions to or constraints on this base rule. 
+  <p>The subsequent child provisions state constraints on this base rule. 
 Matching <em>any</em> of these provisions results in a <em>deny</em> since these 
-are exceptions to a <em>permit</em> parent provision.</p>
+are constraints to a <em>permit</em> parent provision.</p>
 
   <ul>
     <li> 
@@ -282,6 +284,6 @@ necessary consent content derived from a Consent Directive for use in workflow m
     <li>Locally inspect Consent.provision for base policy acceptance/denial with <code>Consent.policyBasis</code></li>
     <li>If <code>Consent.policyBasis</code> not understandable, refer to Privacy Office</li>
     <li>Locally inspect <code>Consent.provision</code> for contexts (e.g., <code>provision.purpose</code>, <code>provision.actor</code>, etc.) as above</li>
-    <li>Inspect nested provisions for exceptions and constraints.</li>
+    <li>Inspect nested provisions for constraints.</li>
   </ol>
 </div>
