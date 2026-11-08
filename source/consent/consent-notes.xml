@@ -67,17 +67,17 @@ Changes to consent status are commonly managed either by leveraging FHIR version
   computable way. This is the FHIR Consent's native mechanism for expressing and encoding policy rules 
   within the resource; an alternative to using an external policy language.</p>
 
-<p>The <code>Consent.decision</code> and <code>Consent.provision</code> elements specify the subject specific rules.
-The <code>Consent.decision</code> element specifies the starting decision, 
-  <code>permit</code> or <code>deny</code>, to be applied as alternating decisions in levels of the <code>provision</code> hierarchy.
-  Note that if the <code>provision</code> element is present, 
-  the <code>decision</code> element must be provided; a valid consent resource may only 
+<p>The <code>Consent.decision</code> and <code>Consent.provision</code> elements SHALL specify the subject specific rules.
+The <code>Consent.decision</code> element SHALL specify the starting decision, 
+  <code>permit</code> or <code>deny</code>, and SHALL be applied as alternating decisions in levels of the <code>provision</code> hierarchy.
+  If the <code>provision</code> element is present, 
+  the <code>decision</code> element SHALL be provided; a valid consent resource would only 
   miss the <code>decision</code> element if no computable policy is provided through the provision structure. 
 </p>
 <p> 
   The provision structure states further constraints  to the base decision stated by 
   the <code>decision</code> element. 
-  Each provision may have its own sub-provisions that, in turn, state constraints to the rules stated 
+  Each provision MAY have its own sub-provisions that, in turn, state constraints to the rules stated 
   in the parent provision. The following figure depicts this structure:
 </p>
 <img src="consent-provisions.png" alt="consent provisions"  width="55%"/> 
@@ -96,28 +96,28 @@ when matched, will be <code>permit</code>, and so on.
 
   <ul>
     <li> 
-    Provisions at the same level of depth are interpreted as disjunctive (i.e., <em>OR</em>-ed). 
+    Provisions at the same level of depth SHALL be interpreted as disjunctive (i.e., <em>OR</em>-ed). 
     This means that matching <em>any</em> of the sibling provisions at one level constitutes a constraint 
     on, or an exception to, the rule stated in the parent provision.
   </li>
 
   <li> 
-    Within a provision, the conditions implied by different attributes are interpreted 
+    Within a provision, the conditions of different attributes SHALL be interpreted 
     conjunctively (i.e., <em>AND</em>-ed). 
-    This means that in order to match the provision, all the attributes must match.
+    This means that in order to match the provision, all the attributes SHALL match.
     </li>
 
   <li> 
-    Within an attribute, if the attribute is multi-valued, the values are interpreted 
+    Within an attribute, if the attribute is multi-valued, the values SHALL be interpreted 
     as disjunctive (i.e., <em>OR</em>-ed). This means that matching <em>any</em> of the values 
     listed for the attribute is sufficient for the attribute to match. 
-    For single-valued attributes, matching is simply based on matching the value of the attribute.
+    For single-valued attributes, matching SHALL be based on matching the value of the attribute.
     </li>
   </ul>
 
   <p>If the value of an attribute is a code from a hierarchical code structure 
 (e.g., a <a href="https://terminology.hl7.org/ValueSet-v3-Confidentiality.html"> Confidentiality code</a>),
-the subsumption relationship between the codes in the hierarchy must be considered 
+the subsumption relationship between the codes in the hierarchy SHALL be considered 
 in the interpretation of the provision:
 </p>
 
@@ -172,7 +172,7 @@ are constraints to a <em>permit</em> parent provision.</p>
 
   <p>
     Although rare, a request context may match more than one provision within this nested structure. 
-    In such cases, the order of the provisions determines their precedence: if multiple provisions apply, 
+    In such cases, the order of the provisions SHALL determine their precedence: if multiple provisions apply, 
     the provision that appears first in the structure (both vertically and horizontally) takes precedence 
     and overrides any lower-ranking provisions.
   </p>
