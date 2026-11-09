@@ -155,8 +155,9 @@ make rules about what signatures are required, and how they are to be shared and
         <h2>Background and Context</h2>
         <p>
 The computable rules in the Consent resource are structured as a base <code>permit</code> or <code>deny</code> decision (<code>Consent.decision</code>),
-followed by a hierarchical provision structure. 
-The child provisions at each level of this hierarchy narrow down the parent rule by articulating further exceptions or constraints. 
+followed by a hierarchical provision structure with alternating decisions. 
+The first level of provisions directly applies the base .decision and sets the initial constraints.
+The child provisions at each level of this hierarchy narrow down the parent rule by articulating further constraints and alternates the decision of its parent.
 This is further discussed in the <a href="consent.html#provision">Provisions section</a> below.
         </p>
 

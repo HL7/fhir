@@ -203,7 +203,7 @@
       <path value="Consent.subject"/>
       <short value="Who the consent applies to"/>
       <definition value="The patient, healthcare practitioner, research subject, or a group of persons to whom this consent applies."/>
-      <min value="0"/>
+      <min value="1"/>
       <max value="1"/>
       <type>
         <code value="Reference"/>
@@ -211,6 +211,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ResearchSubject"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -311,6 +312,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
       </type>
       <mapping>
         <identity value="w5"/>
@@ -330,6 +332,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
       </type>
     </element>
     <element id="Consent.sourceAttachment">
@@ -530,8 +533,6 @@
         <code value="code"/>
       </type>
       <condition value="consent-1"/>
-      <isModifier value="true"/>
-      <isModifierReason value="Sets context for the values in .provision"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -563,8 +564,8 @@
         <valueCode value="down"/>
       </extension>
       <path value="Consent.provision"/>
-      <short value="Constraints to the base Consent.policyBasis/Consent.policyText"/>
-      <definition value="Constraints and exceptions to the base policy that can add or remove some access permissions under specific conditions."/>
+      <short value="Constraints to the base policy or previous provision with alternating decisions"/>
+      <definition value="Constraints to the base policy or previous provision that can add or remove some access permissions under specific conditions. The root provision follows the .decision, and the decision alternates with each nested provision. For example a .decision to permit, will permit all root level .provisions, where as the next depth of nested .provisions will be deny, and so on."/>
       <comment value="The patient specific provisions can be encoded using the Permission Resource. When this is done the `Consent.provision` shall not be populated, and the `http://hl7.org/fhir/StructureDefinition/permission-from-consent` extension will be used to indicate the Permission instance that holds the patient specific rules (aka provisions)."/>
       <min value="0"/>
       <max value="*"/>
@@ -803,14 +804,14 @@
       <min value="1"/>
       <max value="1"/>
       <type>
-        <code value="code"/>
+        <code value="Coding"/>
       </type>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ConsentDataMeaning"/>
         </extension>
-        <strength value="required"/>
+        <strength value="extensible"/>
         <description value="How a resource reference is interpreted when testing consent restrictions."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/consent-data-meaning"/>
       </binding>
@@ -830,7 +831,7 @@
     <element id="Consent.provision.provision">
       <path value="Consent.provision.provision"/>
       <short value="Nested provisions to further constraint the parent provision"/>
-      <definition value="Nested provisions adding further constraints on, or exceptions to the parent provision."/>
+      <definition value="Nested provisions use alternating decisions and adding further constraints on, or exceptions to, the parent provision."/>
       <min value="0"/>
       <max value="*"/>
       <contentReference value="#Consent.provision"/>
