@@ -112,8 +112,8 @@
       <constraint>
         <key value="mea-10"/>
         <severity value="warning"/>
-        <human value="LinkIds should begin with an uppercase ASCII letter, contain only ASCII letters, digits, or underscores, and be 2 to 255 characters long"/>
-        <expression value="group.linkId.combine(group.population.linkId).combine(group.stratifier.linkId).combine(group.stratifier.component.linkId).combine(supplementalData.linkId).all($this.matches('^[A-Z][A-Za-z0-9_]{1,254}$'))"/>
+        <human value="LinkIds should not be used as meaningful identifiers."/>
+        <expression value="group.linkId.combine(group.population.linkId).combine(group.stratifier.linkId).combine(group.stratifier.component.linkId).combine(supplementalData.linkId).all($this.matches('^[A-Za-z][A-za-z0-9_-]*$'))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Measure"/>
       </constraint>
       <mapping>
