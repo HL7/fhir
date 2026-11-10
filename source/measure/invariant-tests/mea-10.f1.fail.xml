@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Measure xmlns="http://hl7.org/fhir">
+  <id value="example"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">[Put rendering here]</div>
+  </text>
+  <name value="Example"/>
+  <status value="draft"/>
+  <group>
+    <linkId value="group_1"/>
+    <population>
+      <linkId value="1Population"/>
+      <criteria>
+        <language value="text/fhirpath"/>
+        <expression value="true"/>
+      </criteria>
+    </population>
+    <stratifier>
+      <linkId value="_Stratifier"/>
+      <component>
+        <linkId value="Component-1"/>
+        <criteria>
+          <language value="text/fhirpath"/>
+          <expression value="true"/>
+        </criteria>
+      </component>
+    </stratifier>
+  </group>
+  <supplementalData>
+    <linkId value="A"/>
+    <criteria>
+      <language value="text/fhirpath"/>
+      <expression value="true"/>
+    </criteria>
+  </supplementalData>
+</Measure>
