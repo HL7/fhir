@@ -29,9 +29,11 @@
   </scoring>-->
   <!-- Option 1: Mashup -->
   <group>
+    <linkId value="Group_1"/>
     <code><coding><system value="http://ihe.net/qrph/adx/"/><code value="QRPH_ADX_ART1_N"/></coding></code>
     <description value="Number of adults and children newly enrolled on antiretroviral therapy (ART) in the reporting period"/>
     <population>
+      <linkId value="Population_1"/>
       <code><text value="cohort"/></code>
       <criteria>
 	    <language value="text/plain"/>
@@ -39,6 +41,7 @@
       </criteria>
     </population>
     <stratifier>
+      <linkId value="Stratifier_1"/>
       <code><coding><system value="http://ihe.net/qrph/adx/"/><code value="AGE_GROUP:SEX"/></coding></code>
       <criteria>
         <language value="text/plain"/>
@@ -47,9 +50,11 @@
     </stratifier>
   </group>
   <group>
+    <linkId value="Group_2"/>
     <code><coding><system value="http://ihe.net/qrph/adx/"/><code value="QRPH_ADX_ART1_N_PREG_BF"/></coding></code>
     <description value="Number of adults and children newly enrolled on ART in the reporting period_pregnant and breastfeeding"/>
     <population>
+      <linkId value="Population_2"/>
       <code><text value="cohort"/></code>
       <criteria>
         <language value="text/plain"/>
@@ -57,6 +62,7 @@
       </criteria>
     </population>
     <stratifier>
+      <linkId value="Stratifier_2"/>
       <code><coding><system value="http://ihe.net/qrph/adx/"/><code value="PREG_BF"/></coding></code>
       <criteria>
         <language value="text/plain"/>
@@ -66,9 +72,11 @@
   </group>
   <!-- Option 2: Represent Using Stratifier Components -->
   <group>
+    <linkId value="Group_3"/>
     <code><coding><system value="http://ihe.net/qrph/adx/"/><code value="QRPH_ADX_ART5_N"/></coding></code>
     <description value="Number of adults and children who are still on treatment at 12 months after initiating ART"/>
     <population>
+      <linkId value="Population_3"/>
       <code><text value="cohort"/></code>
       <criteria>
         <language value="text/plain"/>
@@ -76,7 +84,9 @@
       </criteria>
     </population>
     <stratifier>
+      <linkId value="Stratifier_3"/>
       <component>
+        <linkId value="Component_1"/>
         <code><coding><system value="http://ihe.net/qrph/adx/"/><code value="AGE_GROUP"/></coding></code>
         <criteria>
           <language value="text/plain"/>
@@ -84,6 +94,7 @@
         </criteria>
       </component>
       <component>
+        <linkId value="Component_2"/>
         <code><coding><system value="http://ihe.net/qrph/adx/"/><code value="SEX"/></coding></code>
         <criteria>
           <language value="text/plain"/>
@@ -93,9 +104,11 @@
     </stratifier>
   </group>
   <group>
+    <linkId value="Group_4"/>
     <code><coding><system value="http://ihe.net/qrph/adx/"/><code value="QRPH_ADX_ART5_N_PREG_BF"/></coding></code>
     <description value="Number of adults and children who are still on treatment at 12 months after initiating ART-pregnant and breastfeeding"/>
     <population>
+      <linkId value="Population_4"/>
       <code><text value="cohort"/></code>
       <criteria>
         <language value="text/plain"/>
@@ -103,6 +116,7 @@
       </criteria>
     </population>
     <stratifier>
+      <linkId value="Stratifier_4"/>
       <code><coding><system value="http://ihe.net/qrph/adx/"/><code value="PREG_BF"/></coding></code>
       <criteria>
         <language value="text/plain"/>
@@ -111,9 +125,11 @@
     </stratifier>
   </group>
   <group>
+    <linkId value="Group_5"/>
     <code><coding><system value="http://ihe.net/qrph/adx/"/><code value="QRPH_ADX_ART5_D"/></coding></code>
     <description value="Number of adults and children who initiated ART in the 12 months prior to the beginning of the reporting period"/>
     <population>
+      <linkId value="Population_5"/>
       <code><text value="cohort"/></code>
       <criteria>
         <language value="text/plain"/>
@@ -121,7 +137,9 @@
       </criteria>
     </population>
     <stratifier>
+      <linkId value="Stratifier_5"/>
       <component>
+        <linkId value="Component_3"/>
         <code><coding><system value="http://ihe.net/qrph/adx/"/><code value="AGE_GROUP"/></coding></code>
         <criteria>
           <language value="text/plain"/>
@@ -130,6 +148,7 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/measure-stratifier-age-range-example"/>
       </component>
       <component>
+        <linkId value="Component_4"/>
         <code><coding><system value="http://ihe.net/qrph/adx/"/><code value="SEX"/></coding></code>
         <criteria>
           <language value="text/plain"/>
@@ -139,9 +158,11 @@
     </stratifier>
   </group>
   <group>
+    <linkId value="Group_6"/>
     <code><coding><system value="http://ihe.net/qrph/adx/"/><code value="QRPH_ADX_MTCT1_D"/></coding></code>
     <description value="Number of pregnant women who attended ANC or had a facility-based delivery in the reporting period"/>
     <population>
+      <linkId value="Population_6"/>
       <code><text value="cohort"/></code>
       <criteria>
         <language value="text/plain"/>
@@ -149,6 +170,7 @@
       </criteria>
     </population>
     <stratifier>
+      <linkId value="Stratifier_6"/>
       <code><coding><system value="http://ihe.net/qrph/adx/"/><code value="PMTCT_HIV_STATUS"/></coding></code>
       <criteria>
         <language value="text/plain"/>
@@ -157,9 +179,11 @@
     </stratifier>
   </group>
   <group>
+    <linkId value="Group_7"/>
     <code><coding><system value="http://ihe.net/qrph/adx/"/><code value="QRPH_ADX_MTCT2_D"/></coding></code>
     <description value="Number of HIV positive pregnant women who attended ANC or had a facility-based delivery within the reporting period"/>
     <population>
+      <linkId value="Population_7"/>
       <code><text value="cohort"/></code>
       <criteria>
         <language value="text/plain"/>
@@ -168,9 +192,11 @@
     </population>
   </group>
   <group>
+    <linkId value="Group_8"/>
     <code><coding><system value="http://ihe.net/qrph/adx/"/><code value="QRPH_ADX_MTCT2_N"/></coding></code>
     <description value="Number of HIV-positive pregnant women who received ART to reduce the risk of mother-to-child-transmission during pregnancy"/>
     <population>
+      <linkId value="Population_8"/>
       <code><text value="cohort"/></code>
       <criteria>
         <language value="text/plain"/>
@@ -178,6 +204,7 @@
       </criteria>
     </population>
     <stratifier>
+      <linkId value="Stratifier_7"/>
       <code><coding><system value="http://ihe.net/qrph/adx/"/><code value="PMTCT_ART_STATUS"/></coding></code>
       <criteria>
         <language value="text/plain"/>
@@ -186,9 +213,11 @@
     </stratifier>
   </group>
   <group>
+    <linkId value="Group_9"/>
     <code><coding><system value="http://ihe.net/qrph/adx/"/><code value="QRPH_ADX_VLS3_N"/></coding></code>
     <description value="Number of people living with HIV and on ART who have a suppressed viral load results (&lt;1000 copies/mL)"/>
     <population>
+      <linkId value="Population_9"/>
       <code><text value="cohort"/></code>
       <criteria>
         <language value="text/plain"/>
@@ -196,6 +225,7 @@
       </criteria>
     </population>
     <stratifier>
+      <linkId value="Stratifier_8"/>
       <code><coding><system value="http://ihe.net/qrph/adx/"/><code value="AGE_GROUP:SEX"/></coding></code>
       <criteria>
         <language value="text/plain"/>
@@ -204,9 +234,11 @@
     </stratifier>
   </group>
   <group>
+    <linkId value="Group_10"/>
     <code><coding><system value="http://ihe.net/qrph/adx/"/><code value="QRPH_ADX_HTS2_N"/></coding></code>
     <description value="Number of individuals who received HIV Testing Services (HTS) and received their test results"/>
     <population>
+      <linkId value="Population_10"/>
       <code><text value="cohort"/></code>
       <criteria>
         <language value="text/plain"/>
@@ -214,6 +246,7 @@
       </criteria>
     </population>
     <stratifier>
+      <linkId value="Stratifier_9"/>
       <code><coding><system value="http://ihe.net/qrph/adx/"/><code value="AGE_GROUP:SEX:HIV_TEST_RESULTS"/></coding></code>
       <criteria>
         <language value="text/plain"/>
@@ -222,9 +255,11 @@
     </stratifier>
   </group>
   <group>
+    <linkId value="Group_11"/>
     <code><coding><system value="http://ihe.net/qrph/adx/"/><code value="QRPH_ADX_MTCT1_N"/></coding></code>
     <description value="Number of pregnant women with known HIV status at first antenatal care visit"/>
     <population>
+      <linkId value="Population_11"/>
       <code><text value="cohort"/></code>
       <criteria>
         <language value="text/plain"/>
@@ -232,6 +267,7 @@
       </criteria>
     </population>
     <stratifier>
+      <linkId value="Stratifier_10"/>
       <code><coding><system value="http://ihe.net/qrph/adx/"/><code value="PMTCT_HIV_STATUS"/></coding></code>
       <criteria>
         <language value="text/plain"/>
@@ -240,9 +276,11 @@
     </stratifier>
   </group>
   <group>
+    <linkId value="Group_12"/>
     <code><coding><system value="http://ihe.net/qrph/adx/"/><code value="QRPH_ADX_VLS3_D"/></coding></code>
     <description value="Number of people on ART who had a VL measurement in the past 12 months"/>
     <population>
+      <linkId value="Population_12"/>
       <code><text value="cohort"/></code>
       <criteria>
         <language value="text/plain"/>
@@ -250,6 +288,7 @@
       </criteria>
     </population>
     <stratifier>
+      <linkId value="Stratifier_11"/>
       <code><coding><system value="http://ihe.net/qrph/adx/"/><code value="AGE_GROUP:SEX"/></coding></code>
       <criteria>
         <language value="text/plain"/>
