@@ -110,12 +110,12 @@
         <key value="ist-4"/>
         <severity value="error"/>
         <human value="If numberOfInstances and series.instance are both present, the numberOfInstances value SHALL match the total number of series.instance elements"/>
-        <expression value="numberOfInstances.exists() and series.exists() implies numberOfInstances = series.instance.count()"/>
+        <expression value="numberOfInstances.exists() and series.instance.exists() implies numberOfInstances = series.instance.count()"/>
       </constraint>
       <constraint>
         <key value="ist-5"/>
         <severity value="error"/>
-        <human value="If numberOfInstances and series.numberOfInstances are both present, the numberOfInstances value SHALL be the sum of the series.numberOfInstance values."/>
+        <human value="If numberOfInstances and series.numberOfInstances are both present, the numberOfInstances value SHALL be the sum of the series.numberOfInstances values."/>
         <expression value="numberOfInstances.exists() and series.numberOfInstances.exists() implies numberOfInstances = series.numberOfInstances.aggregate($total + $this.toInteger(), 0)"/>
       </constraint>
       <constraint>
@@ -157,7 +157,7 @@
       <path value="ImagingStudy.identifier"/>
       <short value="Business identifier for imaging study"/>
       <definition value="Business identifiers assigned to this imaging study by the performer and/or other systems.  These identifiers remain constant as the resource is updated and propagates from server to server. Typically this will include the DICOM Study Instance UID."/>
-      <comment value="Note: This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices MAY occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  See discussion under [Imaging Study Implementation Notes](imagingstudy.html#dicom-uids) for encoding of DICOM Study Instance UID."/>
+      <comment value="Note: This is a business identifier, not a resource identifier (see [general discussion](resource.html#identifiers) and [event-specific discussion](event.html#identifier)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  See discussion under [Imaging Study Implementation Notes](imagingstudy.html#dicom-uids) for encoding of DICOM Study Instance UID."/>
       <requirements value="Allows identification of the imaging study as it is known by various participating systems and in a way that remains consistent across servers. ImagingStudy.identifier SHALL include exactly one Study Instance UID value if one or more series element values are present (see [DICOM PS3.3 C.7.2](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.7.2.html).)"/>
       <alias value="StudyInstanceUID"/>
       <min value="0"/>

@@ -124,4 +124,16 @@
       <display value="General"/>
     </item>
   </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="DocumentReference Image Selection"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="imagingselection-example-documentreference-selection"/>
+    </extension>
+    <item>
+      <reference value="ImagingSelection/example-documentreference-selection"/>
+      <display value="General"/>
+    </item>
+  </entry>
 </List>

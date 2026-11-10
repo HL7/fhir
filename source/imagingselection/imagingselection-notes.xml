@@ -6,31 +6,63 @@
   <h3>Imaging Selection Subsets</h3>
   <p>Some DICOM SOP Instances contain sub-resources, such as frames, segments, etc.</p>
   <p>An Imaging Selection resource can specify the subset of these that are included in the selection using the following elements.</p>
+  <p>Typically, the source data for an imaging selection will be one of:
+  <ul>
+    <li>DICOM image instances</li>
+    <li>DICOM instances that reference other DICOM instances -- DICOM Structured Reports, Key Object Selections, etc.</li>
+  </ul>
+    The DICOM elements associated with each type of subset may depend on the type of source data.</p>
   <ul>
     <li><code>instance.frameNumber</code> - Frames selected from a multiframe SOP Instance
       <ul>
-        <li>Corresponds to the value of DICOM Referenced Frame Number (0008,1160) </li>
         <li>Each value specifies a frame included in the selection</li>
-        <li>Note: Frame number is implicit, and the first frame is denoted as frame 1</li>
+        <li>Corresponds to:
+          <ul>
+            <li>One or more frame numbers
+            <ul>
+              <li>Note: Frame number is implicit, and the first frame is denoted as frame 1
+              <ul>
+                <li>See <a href="https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.7.6.6.html#sect_C.7.6.6.1.1">DICOM PS3.3 C.7.6.1.1</a></li>
+              </ul></li>
+            </ul>
+            </li>
+            <li>The value of DICOM Referenced Frame Number (0008,1160)</li>
+          </ul>
+        </li>
       </ul>
     </li>
     <li><code>instance.referencedContentItemIdentifier</code> - Referenced Content Item Identifiers selected from a DICOM SR or other structured document SOP Instance
       <ul>
-        <li>Corresponds to the value of DICOM Referenced Content Item Identifier (0040,DB73)</li>
         <li>Each value specifies the node in the DICOM SR tree that is selected at each level</li>
         <li>See <a href="https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.17.3.2.5.html">DICOM PS3.3 C.17.3.2.5</a></li>
+        <li>Corresponds to:
+          <ul>
+            <li>The path to the node in the SR tree</li>
+            <li>The value of DICOM Referenced Content Item Identifier (0040,DB73)</li>
+          </ul>
+        </li>
       </ul>
     </li>
     <li><code>instance.segmentNumber</code> - Segments selected from a segmentation SOP Instance
       <ul>
-        <li>Corresponds to the value of DICOM Referenced Segment Number (0062,000B)</li>
         <li>Each value specifies a segment included in the selection</li>
+        <li>Corresponds to:
+          <ul>
+            <li>One or more values of DICOM Segment Number (0062,0004)</li>
+            <li>The value of DICOM Referenced Segment Number (0062,000B)</li>
+          </ul>
+        </li>
       </ul>
     </li>
     <li><code>instance.regionOfInterest</code> - Regions of interest selected from a radiotherapy structure set SOP Instance
       <ul>
-        <li>Corresponds to the value of DICOM Referenced ROI Number (0002,000E)</li>
         <li>Each value specifies a region of interest included in the selection</li>
+        <li>Corresponds to:
+          <ul>
+            <li>One or more values of DICOM ROI Number (3006,0022)</li>
+            <li>The value of DICOM Referenced ROI Number (3006,0084)</li>
+          </ul>
+        </li>
       </ul>
     </li>
     <li><code>instance.waveFormChannel</code> - Channels selected from a waveform SOP Instance
@@ -290,7 +322,8 @@ The URL to retrieve image data is from this base URL. See below for the details 
 An <code>Endpoint.connectionType</code> of code <code>dicom-wado-rs</code>, system <code>http://terminology.hl7.org/CodeSystem/endpoint-connection-type</code>, 
 identifies a DICOM WADO-RS service (see <a href="endpoint-example-wadors.html">example of DICOM WADO-RS endpoint)</a>.
 </p>
-<p>
+  <p>Note: in the current DICOM standard this is referred to as the Retrieve Transaction of the Studies Service rather than "WADO-RS".</p>
+  <p>
 The DICOM WADO-RS (Web Access to DICOM Objects, RESTful mode) service uses a RESTful approach to instance retrieval.
 This service allows for retrieval of native DICOM SOP instances, or instances “rendered” into other formats, including
 JPEG and MPEG. The preferred media type of a response is specified by the request Accept header; or, by the <code>accept</code>
@@ -352,7 +385,9 @@ see <a href="https://dicom.nema.org/medical/dicom/current/output/chtml/part18/se
 <p>
 An <code>Endpoint.connectionType</code> of code <code>dicom-wado-uri</code>, system <code>http://terminology.hl7.org/CodeSystem/endpoint-connection-type</code>, identifies a DICOM WADO-URI service (see <a href="endpoint-example-wado-uri.html">example of DICOM WADO-URI endpoint</a>).
 </p>
-<p>
+  <p>Note: in the current DICOM standard this is referred to as the URI Service rather than "WADO-URI".</p>
+
+  <p>
 The DICOM WADO-URI (Web Access to DICOM Objects, URI mode) service uses HTTP query parameter syntax. This service allows
 for retrieval of native DICOM instances, or instances “rendered” into other formats, including JPEG and MPEG. The preferred media
 type of a response is specified by the request Accept header; or, by the contentType query parameter.

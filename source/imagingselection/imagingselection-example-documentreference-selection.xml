@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ImagingSelection xmlns="http://hl7.org/fhir">
+  <id value="example-documentreference-selection"/>
+  <status value="available"/>
+  <code>
+    <text value="Diagram image selection"/>
+  </code>
+  <subject>
+    <reference value="Patient/xcda"/>
+  </subject>
+  <basedOn>
+    <type value="ServiceRequest"/>
+    <identifier>
+      <type>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
+          <code value="ACSN"/>
+        </coding>
+      </type>
+      <value value="W12342398"/>
+      <assigner>
+        <reference value="Organization/dicom-organization"/>
+      </assigner>
+    </identifier>
+  </basedOn>
+  <basedOn>
+    <reference value="ServiceRequest/example"/>
+  </basedOn>
+  <derivedFrom>
+    <reference value="DocumentReference/example-diagram"/>
+  </derivedFrom>
+</ImagingSelection>
