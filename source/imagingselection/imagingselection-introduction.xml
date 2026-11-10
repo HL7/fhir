@@ -28,8 +28,12 @@
     <blockquote class="stu-note" style="background-color: lightblue">
       <p><b>Changes since 6.0.0-ballot5:</b></p>
       <ul>
-        <li><a href="https://jira.hl7.org/browse/FHIR-58540">FHIR-58540</a> - Update ImagingSelection boundaries and relationships to include Diagnostic Report. See related DiagnosticReport change: <a href="https://jira.hl7.org/browse/FHIR-58537">FHIR-58537</a>.</li>
-        <li><a href="https://jira.hl7.org/browse/FHIR-57940">FHIR-57940</a> and <a href="https://jira.hl7.org/browse/FHIR-57949">FHIR-57949</a> -  Clarify the use of Content Item Identifier references in ImagingSelection.</li>
+        <li><a href="https://jira.hl7.org/browse/FHIR-58540">FHIR-58540</a> - Update boundaries and relationships to include Diagnostic Report. See related DiagnosticReport change: <a href="https://jira.hl7.org/browse/FHIR-58537">FHIR-58537</a>.</li>
+        <li><a href="https://jira.hl7.org/browse/FHIR-57940">FHIR-57940</a> and <a href="https://jira.hl7.org/browse/FHIR-57949">FHIR-57949</a> -  Clarify the use of Content Item Identifier references.</li>
+        <li><a href="https://jira.hl7.org/browse/FHIR-57945">FHIR-57945</a> / <a href="https://jira.hl7.org/browse/FHIR-57950">FHIR-57950</a> - Update invariants to properly support DocumentReference as a payload and includes an example of its use.</li>
+        <li><a href="https://jira.hl7.org/browse/FHIR-57943">FHIR-57943</a> - Clarify the relationship between <code>ImagingSelection.studyUid</code> and <code>ImagingSelection.derivedFrom</code> when an ImagingStudy is referenced.</li>
+        <li><a href="https://jira.hl7.org/browse/FHIR-57944">FHIR-57944</a> - Identified that some subset elements can have more than one DICOM source.</li>
+        <li><a href="https://jira.hl7.org/browse/FHIR-57946">FHIR-57946</a> - Update endpoint text to include current DICOM service names.</li>
       </ul>
     </blockquote>
   </div>
