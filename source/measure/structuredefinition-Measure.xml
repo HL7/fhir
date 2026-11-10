@@ -112,7 +112,7 @@
       <constraint>
         <key value="mea-10"/>
         <severity value="warning"/>
-        <human value="LinkId must start with a letter and must contain only letters, digits, _, -"/>
+        <human value="linkId must start with a letter and must contain only letters, digits, _, -"/>
         <expression value="group.linkId.combine(group.population.linkId).combine(group.stratifier.linkId).combine(group.stratifier.component.linkId).combine(supplementalData.linkId).all($this.matches('^[A-Za-z][A-Za-z0-9_-]*$'))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Measure"/>
       </constraint>
