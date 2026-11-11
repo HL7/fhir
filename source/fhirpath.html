@@ -21,6 +21,7 @@
     <ul>
       <li><a href="https://jira.hl7.org/browse/FHIR-54174">FHIR-54174</a>: FHIR should refer to the latest version of the fhirpath specification</li>
       <li><a href="https://jira.hl7.org/browse/FHIR-53947">FHIR-53947</a>: FHIRpath Intro section(s) general improvements</li>
+      <li><a href="https://jira.hl7.org/browse/FHIR-54601">FHIR-54601</a>: Handling of difference in range of FHIR.decimal and System.Decimal</li>
     </ul>
   </li>
   <li>Non-substantive Changes
@@ -183,6 +184,20 @@ to FHIRPath types when they are used in expressions according to the following m
 <td>System.Quantity (see below)</td>
 </tr>
 </table>
+
+<p>
+  Note that not all FHIR types have the same level of precision/range as their fhirpath equivalent types.
+</p>
+<ul>
+  <li>The range of decimal in FHIR is 1e18 and in FHIRPath is 1e28,</li>
+  <li>
+    FHIRPath datetimes can contain partial times, whereas fhir datetimes can be partial dates,
+    or include a complete date and time (including timezone).
+  </li>
+</ul>
+<p>
+  Some use cases may need to craft expressions carefully to handle these differences.
+</p>
 
 <p>Since FHIR primitives may contain extensions, the following expressions are <em>not</em> mutually exclusive:</p>
 
