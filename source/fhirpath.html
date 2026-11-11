@@ -10,29 +10,21 @@
 
 
 <blockquote class="ballot-note" id="bn1">
-<p><b>Note to Balloters:</b> Key changes made since FHIR 6.0.0-ballot4:</p>
+<p><b>Note to Balloters:</b> Key changes made since FHIR 6.0.0-ballot5:</p>
 <ul>
   <li>Non-compatible Changes
     <ul>
-      <li><a href="https://jira.hl7.org/browse/FHIR-54745">FHIR-54745</a>: FHIRpath - <a href="https://build.fhir.org/ig/HL7/api-incubator-ig/fhirpath.html#type-factory">Type Factory moved to incubator</a></li>
-      <li><a href="https://jira.hl7.org/browse/FHIR-54742">FHIR-54742</a>: FHIRpath - <a href="https://build.fhir.org/ig/HL7/api-incubator-ig/fhirpath.html#general-service-api">General Service API</a> moved to incubator</li>
-      <li><a href="https://jira.hl7.org/browse/FHIR-54746">FHIR-54746</a>: FHIRpath - <a href="https://build.fhir.org/ig/HL7/api-incubator-ig/fhirpath.html#terminology-service-api">Terminology Service API</a> moved to incubator</li>
+      <li>(none)</li>
     </ul>
   </li>
   <li>Compatible, Substantive Changes
     <ul>
-      <li><a href="https://jira.hl7.org/browse/FHIR-56303">FHIR-56303</a>: Allow htmlChecks() to be invoked on strings in addition to xhtml</li>
-      <li><a href="https://jira.hl7.org/browse/FHIR-55637">FHIR-55637</a>: FHIRPath FHIR.date maps to System.Date not System.DateTime</li>
+      <li><a href="https://jira.hl7.org/browse/FHIR-54174">FHIR-54174</a>: FHIR should refer to the latest version of the fhirpath specification</li>
     </ul>
   </li>
   <li>Non-substantive Changes
     <ul>
-      <li><a href="https://jira.hl7.org/browse/FHIR-55495">FHIR-55495</a>: fhirpath pages refers to System.string instead of System.string</li>
-      <li><a href="https://jira.hl7.org/browse/FHIR-53958">FHIR-53958</a>: Additional Functions section cleanup - remove comparable (now in fhirpath stu3) and re-organize headings</li>
-      <li><a href="https://jira.hl7.org/browse/FHIR-55417">FHIR-55417</a>: missing ".where" in fhirpath example</li>
-      <li><a href="https://jira.hl7.org/browse/FHIR-53949">FHIR-53949</a>: fhirpath page refers to functions as operations</li>
-      <li><a href="https://jira.hl7.org/browse/FHIR-54084">FHIR-54084</a>: FHIRpath resolve() should include an example on its use on uri's</li>
-      <li><a href="https://jira.hl7.org/browse/FHIR-36040">FHIR-36040</a>: Include link to ActivityDefinition $apply usage of FHIRPath expressions</li>
+      <li>(none)</li>
     </ul>
   </li>
 </ul>
@@ -43,8 +35,8 @@
 <table class="colsn"><tr><td id="wg">Responsible Owner: <a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
 
 <p>
-The FHIR Specification uses <a href="http://hl7.org/fhirpath/r2">FHIRPath (release 2)</a> for path-based navigation and extraction.
-FHIRPath is a separate specification published at <a href="http://hl7.org/fhirpath/r2">http://hl7.org/fhirpath</a> in order to support wider re-use across multiple specifications.
+The FHIR Specification uses <a href="https://hl7.org/fhirpath/STU3">FHIRPath (release 3)</a> for path-based navigation and extraction.
+FHIRPath is a separate specification published at <a href="https://hl7.org/fhirpath/STU3">http://hl7.org/fhirpath</a> in order to support wider re-use across multiple specifications.
 </p>
 <p>
 FHIRPath is used in several places in the FHIR and related specifications:
@@ -232,7 +224,7 @@ The Mapping from FHIR Quantity to FHIRPath System.Quantity can only be applied i
 - i.e., a system of <code>http://unitsofmeasure.org</code>, and a code is present.
 </p>
 <p>
-As part of the mapping, time-valued UCUM units are mapped to the <a href="http://hl7.org/fhirpath/R2/index.html#time-valued-quantities">calendar duration units</a> defined in FHIRPath, according to the following map:
+As part of the mapping, time-valued UCUM units are mapped to the <a href="http://hl7.org/fhirpath/STU3/index.html#time-valued-quantities">calendar duration units</a> defined in FHIRPath, according to the following map:
 </p>
 <table class="grid">
 <tr><td>a</td><td>year</td></tr>
@@ -251,7 +243,7 @@ Note that there's a subtle difference between the UCUM definitions
 for <code>a</code> and <code>mo</code>, which are definition durations 
 of <code>365.25</code> and <code>30</code> days respectively, while 
 <code>year</code> and <code>month</code> are calendar based durations,
-and their length of time varies. See <a href="http://hl7.org/fhirpath/N1/#time-valued-quantities">Time-valued Quantities</a>
+and their length of time varies. See <a href="http://hl7.org/fhirpath/STU3/#time-valued-quantities">Time-valued Quantities</a>
 for further discussion. Implementers should be aware of these subtle differences,
 but in general, this approach matches what users expect most closely.
 </p>
@@ -495,7 +487,7 @@ The return value is empty on any other kind of element or if invoked on a collec
 <h4>toString() : string</h4>
 <p>If the input collection contains a single item, this function will return a single String if the type 
   is a FHIR primitive, and it has a value (e.g. if <code>hasValue() = true</code>), and the primitive type 
-  has a System type for which <a href="https://hl7.org/fhirpath/N1/#tostring-string">toString() is defined</a>.
+  has a System type for which <a href="https://hl7.org/fhirpath/STU3/#tostring--string">toString() is defined</a>.
   Otherwise the result is an empty collection.
 </p>
 
