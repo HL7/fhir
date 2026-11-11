@@ -26,6 +26,7 @@
   <li>Non-substantive Changes
     <ul>
       <li><a href="https://jira.hl7.org/browse/FHIR-54601">FHIR-54601</a>: Handling of difference in range of FHIR.decimal and System.Decimal</li>
+      <li><a href="https://jira.hl7.org/browse/FHIR-53811">FHIR-53811</a>: Clarify hasValue() and getValue()</li>
     </ul>
   </li>
 </ul>
@@ -321,10 +322,11 @@ Patient.extension('http://hl7.org/fhir/StructureDefinition/patient-mothersMaiden
 <hr/>
 <a name="fn-hasValue"> </a>
 <h4>hasValue() : Boolean</h4>
-<p>If the input collection contains a single value which is a FHIR primitive, then will
-  return true if the single value is a primitive value (e.g., as opposed to not having a
-  value and just having extensions) and false if not. If the input collection is not a
-  single FHIR primitive, the return value is empty.
+<p>
+  If the input collection contains a single value which is a FHIR primitive, this function
+  will return true if that primitive has a value (as opposed to not having a value and just
+  having extensions) and false if not. If the input collection isn't a single FHIR primitive,
+  the result is an empty collection.
 </p>
 
 <blockquote>
@@ -340,8 +342,8 @@ Patient.active.hasValue()
 <hr/>
 <a name="fn-getValue"> </a>
 <h4>getValue() : System.[type]</h4>
-<p>Return the underlying system value for the FHIR primitive if the input collection contains a single value which is a FHIR primitive, 
-  and it has a primitive value (see discussion for hasValue()). Otherwise, the return value is empty.</p>
+<p>Return the underlying value from the FHIR primitive as a system primitive if the input collection contains a single value which is a FHIR primitive, 
+  and it has a primitive value (see discussion for hasValue()). Otherwise, the result is an empty collection.</p>
 
 <pre class="fhirpath">
 Patient.birthDate.getValue() // returns just the primitive, does not include extensions (such as the birthTime extension)
