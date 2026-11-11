@@ -416,9 +416,9 @@ pre.rdf             {
 pre.fhirpath             {
 	border: 1px solid #dcdcdc;
  	font-size: 11px;
-  background: #ffeafb ; 
-	padding: 5px;
-	width: 780px;
+  /* background: #ffeafb ; */ 
+	padding: 1em;
+	/* width: 780px; */
 }
 
 pre.graphql             {

@@ -20,6 +20,7 @@
   <li>Compatible, Substantive Changes
     <ul>
       <li><a href="https://jira.hl7.org/browse/FHIR-54174">FHIR-54174</a>: FHIR should refer to the latest version of the fhirpath specification</li>
+      <li><a href="https://jira.hl7.org/browse/FHIR-53947">FHIR-53947</a>: FHIRpath Intro section(s) general improvements</li>
     </ul>
   </li>
   <li>Non-substantive Changes
@@ -42,12 +43,12 @@ FHIRPath is a separate specification published at <a href="https://hl7.org/fhirp
 FHIRPath is used in several places in the FHIR and related specifications:
 </p>
 <ul>
-<li><a href="elementdefinition-definitions.html#ElementDefinition.constraint.expression">invariants in ElementDefinition</a> - used to apply co-occurrence and other rules to the contents (e.g., value.empty() or code!=component.code)</li>
-<li><a href="elementdefinition-definitions.html#ElementDefinition.slicing.discriminator.path">slicing discriminator</a> - used to indicate what element(s) define uniqueness (e.g., Observation.category)</li>
-<li><a href="searchparameter-definitions.html#SearchParameter.expression">search parameter paths</a> - used to define what contents the parameter refers to (e.g., Observation.dataAbsentReason)</li>
-<li><a href="operationoutcome-definitions.html#OperationOutcome.issue.expression">error message locations in OperationOutcome</a></li>
-<li><a href="fhirpatch.html">FHIRPath-based Patch</a></li>
-<li><a href="[%ig testing%]/StructureDefinitions-TestScript-definitions.html#TestScript.setup.action.assert.expression">Invariants in the TestScript resource</a></li>
+<li><a href="elementdefinition-definitions.html#ElementDefinition.constraint.expression">Invariants in ElementDefinition</a> - used to apply co-occurrence and other rules to the contents (e.g., <code>value.empty() or code!=component.code</code>)</li>
+<li><a href="elementdefinition-definitions.html#ElementDefinition.slicing.discriminator.path">Slicing discriminator</a> - used to indicate what element(s) define uniqueness (e.g., <code>Observation.category</code>)</li>
+<li><a href="searchparameter-definitions.html#SearchParameter.expression">Search parameter paths</a> - used to define what contents the parameter refers to (e.g., <code>telecom.where(system='phone')</code>)</li>
+<li><a href="operationoutcome-definitions.html#OperationOutcome.issue.expression">Error message locations in OperationOutcome</a> - used to identify/reference elements via a simple subset of fhirpath limited to element names and indexers (e.g. <code>Questionnaire.item[1].item[0].item[5].text</code>)</li>
+<li><a href="fhirpatch.html">FHIRPath-based Patch</a> - used to select the elements to be modified in a FHIR resource (e.g. <code>Patient.identifier.where(use='official').period</code>)</li>
+<li><a href="[%ig testing%]/StructureDefinitions-TestScript-definitions.html#TestScript.setup.action.assert.expression">Assertions in the TestScript resource</a></li>
 </ul>
 <p>
 FHIRPath is used and extended in many other contexts beyond those listed above. For additional examples and information about other usage patterns and extensions, refer to the <a href="https://confluence.hl7.org/spaces/FHIRI/pages/391650086/FHIRPath+Usage+and+Extensions">FHIRPath Usage and Extensions page</a> on HL7's confluence.
@@ -56,7 +57,7 @@ FHIRPath is used and extended in many other contexts beyond those listed above. 
 [%dragons-start%]
 <h4>FHIR Inter-version issues</h4>
 <p>
-FHIR inter-version compatibility rules allow for non-repeating elements to be made repeating in future FHIR versions.
+<a href="versions.html#change">FHIR inter-version compatibility rules</a> allow for non-repeating elements to be made repeating in future FHIR versions.
 For this reason, FHIRPath expressions SHOULD be written presuming all elements will repeat, even if the current version
 of the model has a maximum cardinality of '1'.
 </p>
@@ -79,10 +80,12 @@ of primitives).
 </p>
 <p>More specifically:</p>
 <ul>
- <li>A FHIRPath may optionally start with a full resource name</li>
+ <li>A FHIRPath may optionally start with a full resource name (the type of the object)</li>
  <li>Elements of datatypes and resources are used as the name of the nodes which can be navigated over, except for choice elements (ending with '[x]'), see below.</li>
- <li>The <code>contained</code> element node does not have the name of the Resource as its first and only child (instead it directly contains the contained resource&#8217;s children)</li>
- <li>There is no difference between an attribute and an element</li>
+ <li>The json 'resourceType' property is not present in the object model - that is the type of the object (can restrict to specific types using <code>ofType(Patient)</code>)</li>
+ <li>Elements of FHIR type <code>Resource</code> do not have the name of the resource as their first and only child, instead they directly contain the resource's children (as found in <code>DomainResource.contained</code>, <code>Parameters.parameter.resource</code>, <code>Bundle.entry.resource</code>, <code>Bundle.issues</code>, <code>Bundle.entry.response.outcome</code>)</li>
+ <li>There is no difference between an attribute and an element in XML (<code>url</code> and <code>id</code> are just considered elements in the object model)</li>
+ <li>Primitive FHIR types do not have a <code>value</code> element, but they do have <code>id</code> and <code>extension</code> elements</li>
  <li>Repeating elements turn into multiple nodes with the same name</li>
 </ul>
 
@@ -102,13 +105,13 @@ as a specific type using the <code>ofType</code> function:</p>
 <p>
 FHIRPath statements can start with a full resource name:
 </p>
-<pre>
+<pre class="fhirpath">
 Patient.name.given
 </pre>
 <p>
 The name can also include super types such as DomainResource:
 </p>
-<pre>
+<pre class="fhirpath">
 DomainResource.contained.where(id = 23).exists()
 </pre>
 <p>
@@ -121,7 +124,7 @@ These statements apply to any resource that specializes <a href="domainresource.
 The namespace for the types defined in FHIR (primitive datatypes, datatypes, resources) is
 <code>FHIR</code>. So, for example:
 </p>
-<pre>
+<pre class="fhirpath">
 Patient.is(FHIR.Patient)
 </pre>
 <p>
@@ -255,7 +258,7 @@ but in general, this approach matches what users expect most closely.
 <p>FHIR defines two specific variables that are always in scope when FHIRPath is used
 in any of the contexts above:
 </p>
-<pre>
+<pre class="fhirpath">
 %resource     // the resource that contains the original node that is in %context
 %rootResource // the container resource for the resource identified by %resource
 %profile      // the canonical URL of a profile that contains the invariant's fhirpath expression (only defined in profile invariants)
