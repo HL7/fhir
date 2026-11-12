@@ -152,20 +152,10 @@
         <code value="string"/>
       </type>
     </element>
-    <element id="ResearchStudy.name">
-      <path value="ResearchStudy.name"/>
-      <short value="Name for this study (computer friendly)"/>
-      <definition value="Name for this study (computer friendly)."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
     <element id="ResearchStudy.title">
       <path value="ResearchStudy.title"/>
-      <short value="Human readable name of the study"/>
-      <definition value="The human readable name of the research study."/>
+      <short value="Primary title for the study"/>
+      <definition value="Primary title for the study, used in listing for search results."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -181,69 +171,49 @@
         <map value="No BRIDG mapping (although there is  StudyProtocolDocumentVersionPublicTitle this is arguably a different semantic: title of a document vs title of a research study)"/>
       </mapping>
     </element>
-    <element id="ResearchStudy.label">
-      <path value="ResearchStudy.label"/>
-      <short value="Additional names for the study"/>
-      <definition value="Additional names for the study."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-    </element>
-    <element id="ResearchStudy.label.type">
-      <path value="ResearchStudy.label.type"/>
-      <short value="primary | official | scientific | plain-language | subtitle | short-title | acronym | earlier-title | language | autotranslated | human-use | machine-use | duplicate-uid"/>
-      <definition value="Kind of name."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="TitleType"/>
-        </extension>
-        <strength value="preferred"/>
-        <description value="desc."/>
-        <valueSet value="http://terminology.hl7.org/ValueSet/title-type"/>
-      </binding>
-    </element>
-    <element id="ResearchStudy.label.value">
-      <path value="ResearchStudy.label.value"/>
-      <short value="The name"/>
-      <definition value="The name."/>
+    <element id="ResearchStudy.officialTitle">
+      <path value="ResearchStudy.officialTitle"/>
+      <short value="Official or scientific title for the study"/>
+      <definition value="Official or scientific title for the study, used when the scientific title does not match the primary title or when the primary title is declared to be an official or scientific title."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="string"/>
       </type>
+      <isSummary value="true"/>
     </element>
-    <element id="ResearchStudy.label.language">
-      <path value="ResearchStudy.label.language"/>
-      <short value="Used to express the specific language"/>
-      <definition value="Used to express the specific language of the title."/>
+    <element id="ResearchStudy.layTitle">
+      <path value="ResearchStudy.layTitle"/>
+      <short value="Title for the study expressed in plain language"/>
+      <definition value="Title for the study expressed in plain language."/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="code"/>
+        <code value="string"/>
       </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="Language"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
-          <valueBoolean value="true"/>
-        </extension>
-        <strength value="required"/>
-        <description value="IETF language tag for a human language"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/all-languages"/>
-        <additional>
-				  <key value="b-rs-1"/>
-          <purpose value="starter"/>
-          <valueSet value="http://hl7.org/fhir/ValueSet/languages"/>
-        </additional>
-      </binding>
+      <isSummary value="true"/>
+    </element>
+    <element id="ResearchStudy.shortTitle">
+      <path value="ResearchStudy.shortTitle"/>
+      <short value="Shorter title for the study"/>
+      <definition value="Shorter title for the study."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="ResearchStudy.acronym">
+      <path value="ResearchStudy.acronym"/>
+      <short value="Study acronym or abbreviation"/>
+      <definition value="Study acronym or abbreviation."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
     </element>
     <element id="ResearchStudy.protocol">
       <path value="ResearchStudy.protocol"/>

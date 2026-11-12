@@ -349,18 +349,8 @@
 			<display value="Alebund Pharmaceuticals"/>
 		</assigner>
 	</identifier>
-	<name value="NCT05503693_FHIR_Transform"/>
 	<title value="A Safety, Tolerability, and Pharmacokinetics Study of AP303 in Healthy Subjects"/>
-	<label>
-		<type>
-			<coding>
-				<system value="http://hl7.org/fhir/title-type"/>
-				<code value="official"/>
-				<display value="Official title"/>
-			</coding>
-		</type>
-		<value value="A Single-center Randomized Double-blind Placebo-controlled Study to Investigate the Safety Tolerability and PK of SAD and MAD of AP303 Following Oral Administration and the Effect of Food on the PK of AP303 in Healthy Subjects"/>
-	</label>
+	<officialTitle value="A Single-center Randomized Double-blind Placebo-controlled Study to Investigate the Safety Tolerability and PK of SAD and MAD of AP303 Following Oral Administration and the Effect of Food on the PK of AP303 in Healthy Subjects" />
 	<relatesTo>
       <type>
         <coding>
