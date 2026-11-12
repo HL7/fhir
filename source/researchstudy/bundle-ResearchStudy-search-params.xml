@@ -268,22 +268,21 @@
       </SearchParameter>
     </resource>
   </entry>
-
   <entry>
     <resource>
       <SearchParameter>
-        <id value="ResearchStudy-name"/>
+        <id value="ResearchStudy-official-title"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="ResearchStudy.name"/>
+          <valueString value="ResearchStudy.officialTitle"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/ResearchStudy-name"/>
-        <description value="Name for this study"/>
-        <code value="name"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ResearchStudy-official-title"/>
+        <description value="Official or scientific title for the study"/>
+        <code value="official-title"/>
         <type value="string"/>
-        <expression value="ResearchStudy.name"/>
+        <expression value="ResearchStudy.officialTitle"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
