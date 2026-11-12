@@ -21,6 +21,7 @@
     <ul>
       <li><a href="https://jira.hl7.org/browse/FHIR-54174">FHIR-54174</a>: FHIR should refer to the latest version of the fhirpath specification</li>
       <li><a href="https://jira.hl7.org/browse/FHIR-53947">FHIR-53947</a>: FHIRpath Intro section(s) general improvements</li>
+      <li><a href="https://jira.hl7.org/browse/FHIR-53959">FHIR-53959</a>: Additional Functions cleanup</li>
     </ul>
   </li>
   <li>Non-substantive Changes
@@ -352,12 +353,21 @@ Patient.birthDate.getValue() // returns just the primitive, does not include ext
   <hr/>
 <a name="fn-resolve"> </a>
 <h4>resolve() : collection</h4>
-<p>For each item in the collection, if it is a string that is a <a href="datatypes.html#uri">uri</a>
+<p>
+  For each item in the collection, if it is a string that is a <a href="datatypes.html#uri">uri</a>
    (or <a href="datatypes.html#canonical">canonical</a> or <a href="datatypes.html#url">url</a>), locate the 
    target of the reference, and add it to the resulting collection. If the item does not resolve to a resource, 
-   the item is ignored and nothing is added to the output collection.</p>
-<p>The items in the collection may also represent a Reference, in which case the <code>Reference.reference</code> is resolved. 
-  If the input is empty, the return value will be an empty collection.</p>
+  the item is ignored and nothing is added to the output collection.
+</p>
+<p>
+  The items in the collection may also represent a Reference, in which case the <code>Reference.reference</code> is resolved. 
+  If the input is empty, the return value will be an empty collection.
+</p>
+<p>
+  Resources can be resolved from contained resources, bundles, or other locations as supported by the engine (such as a FHIR server).<br/>
+  Where the reference is via a canonical uri, the engine should resolve it to the appropriate resource, potentially considering the version if specified (e.g. http://hl7.org/fhir/StructureDefinition/Patient|4.0.1).<br/>
+  Where the reference is via a Reference, and the value is a versioned reference, the engine should resolve it to the appropriate version of the resource if available (e.g. Patient/pat1/_history/23).
+</p>
 
 <pre class="fhirpath">
 Patient.managingOrganization.resolve().name
@@ -504,14 +514,18 @@ The return value is empty on any other kind of element or if invoked on a collec
 
 <a name="fn-toString"> </a>
 <h4>toString() : string</h4>
-<p>If the input collection contains a single item, this function will return a single String if the type 
-  is a FHIR primitive, and it has a value (e.g. if <code>hasValue() = true</code>), and the primitive type 
-  has a System type for which <a href="https://hl7.org/fhirpath/STU3/#tostring--string">toString() is defined</a>.
-  Otherwise the result is an empty collection.
+<p>
+  The native fhirpath <a href="https://hl7.org/fhirpath/STU3/#tostring--string"><code>toString()</code></a> function works with FHIR datatypes by implicitly converting FHIR primitive elements to their corresponding FHIRPath system types before invoking the standard `toString()` operation.
+  Any other types, or FHIR primitives that do not have an actual value (such as those with only extensions or an element id) will result in an empty collection.<br/>
+</p>
+<p>
+  I.e. this will only return a value where the input collection is a single value, <code>hasValue()</code> returns true, and the FHIR primitive has a corresponding FHIRPath system type.<br/>
+  For example, if a FHIR decimal element contained no value and only has a data absent reason extension, then the result would be an empty collection.
 </p>
 
 <pre class="fhirpath">
-Patient.birthDate.toString()
+Patient.birthDate.toString()  // return the string representation of the birthDate if it has an actual value, otherwise an empty collection
+Patient.contact.toString()    // returns an empty string as the contact element is not a FHIR primitive datatype
 </pre>
 
 <hr/>
@@ -520,7 +534,7 @@ Patient.birthDate.toString()
 <p>Returns a collection that contains all items in the input collection that are of the given <code>type</code> or a subclass thereof.
   This is as defined as in the base FHIRPath specification, but implementers should be aware that in FHIR, 
   only concrete core types are allowed as an argument. All primitives are considered to be independent 
-  types (so <code>markdown</code> is <strong>not</strong> a subclass of <code>string</code>). Profiled types are 
+  types (so <code>canonical</code> is <strong>not</strong> a subclass of <code>string</code>, but <code>markdown</code> is, as indicated on the <a href="datatypes.html">datatypes page</a>). Profiled types are 
   not allowed, so to select <code>SimpleQuantity</code> one would pass <code>Quantity</code> as an argument.</p>
 
 <pre class="fhirpath">
