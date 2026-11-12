@@ -23,6 +23,7 @@
       <li><a href="https://jira.hl7.org/browse/FHIR-53947">FHIR-53947</a>: FHIRpath Intro section(s) general improvements</li>
       <li><a href="https://jira.hl7.org/browse/FHIR-53959">FHIR-53959</a>: Additional Functions cleanup</li>
       <li><a href="https://jira.hl7.org/browse/FHIR-53948">FHIR-53948</a>: Clarification in Using FHIR Types in Expressions</li>
+      <li><a href="https://jira.hl7.org/browse/FHIR-53950">FHIR-53950</a>: Use of FHIR Quantity - clarification on units systems and internal representation</li>
     </ul>
   </li>
   <li>Non-substantive Changes
@@ -246,20 +247,13 @@ Patient.name.given.ofType(System.String)
 <h4>Use of FHIR Quantity</h4>
 
 <p>
-The Mapping from FHIR Quantity to FHIRPath System.Quantity can only be applied if the FHIR Quantity has a UCUM code
-- i.e., a system of <code>http://unitsofmeasure.org</code>, and a code is present.
+The Mapping from FHIR.Quantity to FHIRPath System.Quantity can only be applied if the FHIR Quantity has a valid code present
+and also has either the UCUM system (<code>http://unitsofmeasure.org</code>), 
+or the FHIRPath calendar system (<code>http://hl7.org/fhirpath/CodeSystem/calendar-units</code>).
 </p>
 <p>
-As part of the mapping, time-valued UCUM units are mapped to the <a href="http://hl7.org/fhirpath/STU3/index.html#time-valued-quantities">calendar duration units</a> defined in FHIRPath, according to the following map:
+When performing date arithmetic or other places where conversion is mandated by context, time-valued UCUM units are mapped to the approximate or equivalent relationships shown in the <a href="http://hl7.org/fhirpath/STU3/index.html#time-valued-quantities">calendar duration units table</a> in the base FHIRPath specification
 </p>
-<table class="grid">
-<tr><td>a</td><td>year</td></tr>
-<tr><td>mo</td><td>month</td></tr>
-<tr><td>d</td><td>day</td></tr>
-<tr><td>h</td><td>hour</td></tr>
-<tr><td>min</td><td>minute</td></tr>
-<tr><td>s</td><td>second</td></tr>
-</table>
 
 [%dragons-start%]
 <p>
@@ -274,6 +268,18 @@ for further discussion. Implementers should be aware of these subtle differences
 but in general, this approach matches what users expect most closely.
 </p>
 [%dragons-end%]
+
+<p>
+If an expression attempts to perform math requiring unit conversion on a Quantity with a code and system
+combination not supported by the engine (i.e. not one of the two systems above or any other codes the 
+engine has been customized to support), the operation will return an empty collection.
+</p>
+<p>
+For more details on using functions and operations with quantities, refer to the following sections:
+<a href="http://hl7.org/fhirpath/STU3/#datetime-arithmetic">DateTime Arithmetic</a>,
+<a href="http://hl7.org/fhirpath/STU3/#toquantityunit--string--quantity">toQuantity()</a>, and
+<a href="http://hl7.org/fhirpath/STU3/#quantity-equality">Quantity Equality</a>
+</p>
 
 <a name="variables"></a>
 <h3>FHIR Specific Variables</h3>
