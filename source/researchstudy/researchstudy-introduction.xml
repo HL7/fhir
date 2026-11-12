@@ -6,6 +6,13 @@
 <p>Adding "8.18.5 comparisonGroup usage"</p>
 <p>Changed the text summary parameters for ResearchStudy.comparisonGroup</p>
 <p>Changed the comment on ResearchStudy.objective.outcomeMeasure.intervention and ResearchStudy.objective.outcomeMeasure.comparator</p>
+<p>Change ResearchStudy.status isModifierReason text to say: "This is labeled as 'Is Modifier' because applications should not use a retired or draft resource without due consideration"</p>
+<p>ResearchStudy.description definition removed "e.g., study abstract" and ResearchStudy.descriptionSummary definition added "e.g., study abstract"</p>
+<p>ResearchStudy.descriptionSummary added comment: "Some systems use the brief description to be a plain language description for a general audience."</p>
+<p>Removed ResearchStudy.name and Removed ResearchStudy.label elements</p>
+<p>Modified ResearchStudy.title definition to be Primary title for the study, used in listing for search results</p>
+<p>Added new elements: ResearchStudy.officialTitle 0..1 string, ResearchStudy.layTitle 0..1 string, ResearchStudy.shortTitle 0..1 string, ResearchStudy.acronym 0..1 string</p>
+<p>Removed the ResearchStudy.name search parameter and added one for officialTitle instead</p>
 <p><b>Note to Balloters:</b> The key changes made since FHIR 6.0.0-ballot4 include:</p>
 <p>Changed the ResearchStudy.studyDesign ValueSet binding to be HL7 Terminology.</p>
 <p>Changed the ResearchStudy.associatedParty.role ValueSet binding to be HL7 Terminology and &quot;preferred&quot; binding.</p>
@@ -28,6 +35,9 @@
 		<li><a href="https://jira.hl7.org/browse/FHIR-58562">FHIR-58562</a></li>
 		<li><a href="https://jira.hl7.org/browse/FHIR-58645">FHIR-58645</a></li>
 		<li><a href="https://jira.hl7.org/browse/FHIR-58707">FHIR-58707</a></li>
+		<li><a href="https://jira.hl7.org/browse/FHIR-58345">FHIR-58345</a></li>
+		<li><a href="https://jira.hl7.org/browse/FHIR-58551">FHIR-58551</a></li>
+		<li><a href="https://jira.hl7.org/browse/FHIR-58533">FHIR-58533</a></li>
 	</ul>
 </blockquote>
 <a name="scope"></a>
