@@ -119,12 +119,11 @@ questions that must be asked and answered and rules that guide which questions a
 </li>
 </ul>
 <p>
-The Composition resource organizes clinical and administrative content into sections, each of which contains a narrative, 
-and references other resources for supporting data. The narrative content of the various sections in a Composition is 
-supported by the resources referenced in the section entries.  The complete set of content to make up a document includes 
-the Composition resource together with various resources pointed to or indirectly
-connected to the Composition. See the <a href="documents.html">FHIR Documents</a> documentation for guidance on how a Composition 
-is used when creating a document bundle.
+The Composition resource organizes clinical and administrative content into sections, each of which contains one or more of the
+following: a narrative, entries referencing other resources, or subsections. The narrative content of the various sections in a
+Composition is supported by the resources referenced in the section entries.  The complete set of content to make up a document
+includes the Composition resource together with various resources pointed to or indirectly connected to the Composition.
+See the <a href="documents.html">FHIR Documents</a> documentation for guidance on how a Composition is used when creating a document bundle.
 </p>
 </div>
 
