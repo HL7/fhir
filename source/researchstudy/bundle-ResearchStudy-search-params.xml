@@ -260,7 +260,7 @@
           <valueString value="ResearchStudy.title"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/ResearchStudy-title"/>
-        <description value="The human readable name of the research study"/>
+        <description value="Primary title for the study, used in listing for search results"/>
         <code value="title"/>
         <type value="string"/>
         <expression value="ResearchStudy.title"/>
