@@ -22,6 +22,7 @@
       <li><a href="https://jira.hl7.org/browse/FHIR-54174">FHIR-54174</a>: FHIR should refer to the latest version of the fhirpath specification</li>
       <li><a href="https://jira.hl7.org/browse/FHIR-53947">FHIR-53947</a>: FHIRpath Intro section(s) general improvements</li>
       <li><a href="https://jira.hl7.org/browse/FHIR-53959">FHIR-53959</a>: Additional Functions cleanup</li>
+      <li><a href="https://jira.hl7.org/browse/FHIR-53948">FHIR-53948</a>: Clarification in Using FHIR Types in Expressions</li>
     </ul>
   </li>
   <li>Non-substantive Changes
@@ -135,12 +136,17 @@ The first element - the type name - is not namespaced, but the parameter to the 
 <p>
 Understanding the primitive types is critical: <code>FHIR.string</code> is a different type to <code>System.String</code>.
 The <code>FHIR.string</code> type specializes <code>FHIR.Element</code>, and has the properties <code>id</code>, <code>extension</code>, and also
-the implicit <code>value</code> property that is actually of type <code>System.String</code>.
+an internal value of type <code>System.String</code> which is the fhirpath primitive value.
+This primitive value can be explicitly accessed using the <a href="#fn-getValue">getValue()</a> function defined below
+(e.g., <code>Patient.birthDate.getValue()</code>).
+However just referring to a FHIR primitive property will implicitly use the internal value (fhirpath primitive type) 
+if a function or operator is defined as requiring a specific fhirpath primitive type.
 </p>
 
 <p>
 The evaluation engine will automatically convert the value of FHIR types representing primitives
-to FHIRPath types when they are used in expressions according to the following mapping:
+to FHIRPath types when the function or operator requires a system primitive type.
+This implicit conversion will use the following mapping:
 </p>
 
 <table class="grid">
