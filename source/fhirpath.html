@@ -29,6 +29,7 @@
     <ul>
       <li><a href="https://jira.hl7.org/browse/FHIR-54601">FHIR-54601</a>: Handling of difference in range of FHIR.decimal and System.Decimal</li>
       <li><a href="https://jira.hl7.org/browse/FHIR-53811">FHIR-53811</a>: Clarify hasValue() and getValue()</li>
+      <li><a href="https://jira.hl7.org/browse/FHIR-40271">FHIR-40271</a>: FHIR is() example use non-singleton examples</li>
     </ul>
   </li>
 </ul>
@@ -128,10 +129,10 @@ The namespace for the types defined in FHIR (primitive datatypes, datatypes, res
 <code>FHIR</code>. So, for example:
 </p>
 <pre class="fhirpath">
-Patient.is(FHIR.Patient)
+Bundle.entry.resource.ofType(FHIR.Patient)
 </pre>
 <p>
-The first element - the type name - is not namespaced, but the parameter to the <code>is()</code> function is.
+The first element - the type name (Bundle) - is not namespaced, but the parameter to the <code>ofType()</code> function is.
 </p>
 <p>
 Understanding the primitive types is critical: <code>FHIR.string</code> is a different type to <code>System.String</code>.
