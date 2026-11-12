@@ -561,7 +561,8 @@
     <element id="ResearchStudy.descriptionSummary">
       <path value="ResearchStudy.descriptionSummary"/>
       <short value="Brief text explaining the study"/>
-      <definition value="A brief text for explaining the study."/>
+      <definition value="A brief text for explaining the study. E.g., study abstract."/>
+      <comment value="Some systems use the brief description to be a plain language description for a general audience."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -571,7 +572,7 @@
     <element id="ResearchStudy.description">
       <path value="ResearchStudy.description"/>
       <short value="Detailed narrative of the study"/>
-      <definition value="A detailed and human-readable narrative of the study. E.g., study abstract."/>
+      <definition value="A detailed and human-readable narrative of the study."/>
       <min value="0"/>
       <max value="1"/>
       <type>
