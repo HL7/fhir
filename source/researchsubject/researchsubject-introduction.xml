@@ -1,9 +1,14 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
-<blockquote class="ballot-note" data-augury-generated="true" id="bn1">
-    <p><b>Note to Balloters:</b> The only change to
-        ResearchSubject in this ballot corrected the terminology binding on
+
+
+
+<blockquote class="ballot-note" id="bn1">
+<p><b>Note to Balloters:</b> The key change made since FHIR 6.0.0-ballot5:</p>
+<p>Change ResearchSubject.status isModifierReason text to say: This is labeled as 'Is Modifier' because applications should not use a retired or draft resource without due consideration"</p>
+<p><b>Note to Balloters:</b> The key change made since FHIR 6.0.0-ballot4:</p>
+<p>Corrected the terminology binding on
         <code>ResearchSubject.subjectMilestone.milestone</code>, updating the bound value set's canonical URL and
         binding name.</p>
     <p><b>Compatible substantive</b></p>
@@ -11,6 +16,14 @@
         <li>Corrected the terminology binding on <code>ResearchSubject.subjectMilestone.milestone</code> - the bound
             value set's canonical URL and name were updated to reference the intended value set [<a href="https://jira.hl7.org/browse/FHIR-56598">FHIR-56598</a>]</li>
     </ul>
+</p>
+</blockquote>
+<blockquote style="background-color: lightblue">
+	<p><b>Release Notes:</b></p>
+	<ul>
+		<li><a href="https://jira.hl7.org/browse/FHIR-58345">FHIR-58345</a></li>
+		<li><a href="https://jira.hl7.org/browse/FHIR-56598">FHIR-56598</a></li>
+	</ul>
 </blockquote>
 </div>
 
