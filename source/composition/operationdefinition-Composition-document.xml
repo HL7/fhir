@@ -64,7 +64,7 @@
   </jurisdiction>
   <affectsState value="false"/>
   <code value="document"/>
-  <comment value="Notes:&#xA;&#xA;* The server implementing the operation SHOULD determine a 'high-level water-mark' for the document security tags ([Bundle.meta.security](resource.html#Meta))) as a whole, based on an analysis of the resources contained within the document"/>
+  <comment value="Notes:&#xA;&#xA;* The server implementing the operation SHOULD determine a 'high-level water-mark' for the document security tags ([Bundle.meta.security](resource.html#Meta)) as a whole, based on an analysis of the resources contained within the document"/>
   <resource value="Composition"/>
   <system value="false"/>
   <type value="false"/>
@@ -82,7 +82,7 @@
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="Canonical reference to a GraphDefinition. If a URL is provided, it is the canonical reference to a [GraphDefinition](http://build.fhir.org/HL7/api-incubator/StructureDefinition-GraphDefinition) that it controls what resources are to be added to the bundle when building the document. The GraphDefinition can also specify profiles that apply to the various resources"/>
+    <documentation value="Canonical reference to a GraphDefinition. If a URL is provided, it is the canonical reference to a [GraphDefinition](http://build.fhir.org/HL7/api-incubator/StructureDefinition-GraphDefinition) that controls what resources are to be added to the bundle when building the document. The GraphDefinition can also specify profiles that apply to the various resources"/>
     <type value="uri"/>
   </parameter>
   <parameter>
