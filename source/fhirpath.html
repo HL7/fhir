@@ -32,6 +32,7 @@
       <li><a href="https://jira.hl7.org/browse/FHIR-54601">FHIR-54601</a>: Handling of difference in range of FHIR.decimal and System.Decimal</li>
       <li><a href="https://jira.hl7.org/browse/FHIR-53811">FHIR-53811</a>: Clarify hasValue() and getValue()</li>
       <li><a href="https://jira.hl7.org/browse/FHIR-40271">FHIR-40271</a>: FHIR is() example use non-singleton examples</li>
+      <li><a href="https://jira.hl7.org/browse/FHIR-53962">FHIR-53962</a>: `slice()` should this only be available in invariant definitions</li>
     </ul>
   </li>
 </ul>
@@ -239,8 +240,8 @@ for the few edge cases where the automatic conversion is not appropriate. Note
 that ofType() does not have such restrictions - both of the following are valid:
 </p>
 <pre class="fhirpath">
-Patient.name.given.ofType(FHIR.string)
-Patient.name.given.ofType(System.String)
+Patient.name.given.ofType(FHIR.string)   // returns all the given names (as they are fhir strings)
+Patient.name.given.ofType(System.String) // {} ; returns the empty set, as these are not System.String values
 </pre>
 
 
@@ -393,8 +394,8 @@ Patient.birthDate.getValue() // returns just the primitive, does not include ext
 <h4>resolve() : collection</h4>
 <p>
   For each item in the collection, if it is a string that is a <a href="datatypes.html#uri">uri</a>
-   (or <a href="datatypes.html#canonical">canonical</a> or <a href="datatypes.html#url">url</a>), locate the 
-   target of the reference, and add it to the resulting collection. If the item does not resolve to a resource, 
+  (or <a href="datatypes.html#canonical">canonical</a> or <a href="datatypes.html#url">url</a>), locate the 
+  target of the reference, and add it to the resulting collection. If the item does not resolve to a resource, 
   the item is ignored and nothing is added to the output collection.
 </p>
 <p>
@@ -439,14 +440,17 @@ DocumentReference.content.attachment.url.resolve() // When using DocumentReferen
   (if the sliceName is unique in the snapshot), or the <code>ElementDefinition.id</code> of the element slice.
 </p>
 <p>
-  The <code>structure</code> argument can also be the special variable <code>%profile</code> which refers to the profile in which the ElementDefinition.constraint
-  containing the FHIRPath is defined.  (This variable can only be used for FHIRPath appearing in constraints)
-</p>
-<p>
   If the <code>structure</code> cannot be resolved, or the <code>name</code> of the slice is not present in the profile, or those parameters are empty,
   the return value will be an empty collection.
 </p>
-<p>If the slice does not match any element in the input collection, or if the input collection is empty, the return value will be an empty collection.</p>
+<p>
+  If the slice does not match any element in the input collection, or if the input collection is empty, the return value will be an empty collection.
+</p>
+
+<p>
+  When using <code>slice</code> in a profile constraint (invariant) the <code>structure</code> argument can use the special variable <a href="conformance-rules.html#constraints-variables"><code>%profile</code></a> which refers to the profile in which the ElementDefinition.constraint
+  containing the FHIRPath is defined.
+</p>
 
 <p>
 For example, this invariant could appear in a Patient profile:
