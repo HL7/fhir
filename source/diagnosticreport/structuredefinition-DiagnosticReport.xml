@@ -771,8 +771,8 @@
     <element id="DiagnosticReport.composition">
       <path value="DiagnosticReport.composition"/>
       <short value="Reference to a Composition resource for the DiagnosticReport structure"/>
-      <definition value="Reference to a Composition resource instance that provides structure for organizing the contents of the DiagnosticReport."/>
-      <comment value="The Composition provides structure to the content of the DiagnosticReport (and only contains contents referenced in the DiagnosticReport) - e.g., to order the sections of an anatomic pathology structured report."/>
+      <definition value="Reference to a Composition resource instance that provides structure for organizing the contents of the DiagnosticReport. The content of the composition needs to be an equivalent structured alternative to the content of the entire diagnostic report as issued."/>
+      <comment value="The Composition provides structure to the content of the DiagnosticReport. It only contains contents referenced in the DiagnosticReport. - e.g., to order the sections of an anatomic pathology structured report."/>
       <min value="0"/>
       <max value="1"/>
       <type>

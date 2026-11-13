@@ -53,26 +53,26 @@ If the report has been withdrawn following a previous final release, the Diagnos
 </li>
 </ul>
 
+	<a name="report-content"></a>
 	<h3>Report Content</h3>
 	<p>
-Typically, a report is either: all data, no narrative (e.g. Core lab) or a mix of data with some concluding narrative (e.g. Structured Pathology Report, Bone Density), or all narrative (for example a typical imaging report, histopathology).  This resource provides for these 3 different presentations:
+A diagnostic report can include discrete results, a human-readable narrative, and a formatted copy of the report as issued.
+Use the elements below according to how the report will be exchanged and displayed:
 </p>
 	<ul>
-	    <li>As atomic data items: a hierarchical set of nested references to Observation resources often including pathologist/radiologist interpretation(s) (in .result), one or more images (in .study with reference to imagingStudy or in .media), and possibly with a conclusion and/or one or more coded diagnoses (in .conclusionCode)</li>
-	    <li>As narrative: an XHTML presentation in .text </li>
-	    <li>As a rich text representation of the report - typically a PDF (in .presentedForm)</li>
+	    <li><code>DiagnosticReport.result</code> references individual Observations or groups of Observations for processing as discrete data. The report can also include images, a conclusion, and coded interpretations.</li>
+	    <li><code>DiagnosticReport.text</code> is the human-readable XHTML narrative of the resource. It can summarize the report without reproducing the full layout or content of the issued report. When its status is other than <code>empty</code>, the narrative must meet the <a href="narrative.html#narrative">FHIR narrative rules</a>: it must convey the essential clinical and business information and be safe to display on its own.</li>
+	    <li><a href="diagnosticreport-definitions.html#DiagnosticReport.presentedForm"><code>DiagnosticReport.presentedForm</code></a> carries the entire report as issued, typically as a PDF. Use it when recipients need the diagnostic service's formatted report, for example to see the original layout, tables, or images.</li>
+	    <li><a href="diagnosticreport-definitions.html#DiagnosticReport.composition"><code>DiagnosticReport.composition</code></a> points to a Composition that organizes the full report into sections using content already represented in or referenced by the DiagnosticReport. Use it when recipients need an equivalent structured representation of the issued report.</li>
 	</ul>
 	<p>
-The narrative and the presented form serve the same function: a representation of the report for a human. The presented form is included since diagnostic service reports
-often contain presentation features that are not easy to reproduce in the HTML narrative. Whether or not the presented form is included, the narrative must be a
-clinically safe view of the diagnostic report; at a minimum, this could be fulfilled by a note indicating that the narrative is not proper representation of
-the report, and that the presented form must be used, or a generated view from the atomic data. However, consumers of the report will best be served if the
-narrative contains clinically relevant data from the form. Commonly, the following patterns are used:
+A DiagnosticReport can include a presented form, a Composition, or both. When both are present, they represent the same version of the issued report. The Composition preserves the meaning of the report without having to reproduce its visual layout.
 </p>
+	<p>Common patterns include:</p>
 	<ul>
 		<li>Simple Laboratory Reports: A single set of atomic observations, and a tabular presentation in narrative. This is typically encountered in high volume areas such as Biochemistry and Hematology</li>
-		<li>Histopathology Report: A document report in a presented form and the narrative. Possibly a few key images, and some coded diagnoses for registries. If the service is creating a structured report, some atomic data may be included</li>
-		<li>imaging Report: A document report in a presented form and the narrative, with an imaging study reference and possibly some key images. Some imaging reports such as a Bone Density Scan may include some atomic data</li>
+		<li>Histopathology Report: A narrative and a presented form, with optional key images and coded diagnoses. For a structured anatomic pathology report, a Composition can order the report sections and organize the referenced results.</li>
+		<li>Imaging Report: A document report in a presented form and the narrative, with an imaging study reference and possibly some key images. Some imaging reports such as a Bone Density Scan may include some atomic data</li>
 	</ul>
 	<p>
 Note that the nature of reports from the various disciplines that provide diagnostic reports are changing quickly,
