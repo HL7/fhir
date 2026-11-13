@@ -24,6 +24,7 @@
       <li><a href="https://jira.hl7.org/browse/FHIR-53959">FHIR-53959</a>: Additional Functions cleanup</li>
       <li><a href="https://jira.hl7.org/browse/FHIR-53948">FHIR-53948</a>: Clarification in Using FHIR Types in Expressions</li>
       <li><a href="https://jira.hl7.org/browse/FHIR-53950">FHIR-53950</a>: Use of FHIR Quantity - clarification on units systems and internal representation</li>
+      <li><a href="https://jira.hl7.org/browse/FHIR-53952">FHIR-53952</a>: FHIR specific variables - clarifications and missing documentation on %profile</li>
     </ul>
   </li>
   <li>Non-substantive Changes
@@ -284,15 +285,25 @@ For more details on using functions and operations with quantities, refer to the
 <a name="variables"></a>
 <h3>FHIR Specific Variables</h3>
 
-<p>FHIR defines two specific variables that are always in scope when FHIRPath is used
+<p>FHIR defines several specific variables that are always in scope when FHIRPath is used
 in any of the contexts above:
 </p>
-<pre class="fhirpath">
-%resource     // the resource that contains the original node that is in %context
-%rootResource // the container resource for the resource identified by %resource
-%profile      // the canonical URL of a profile that contains the invariant's fhirpath expression (only defined in profile invariants)
-              // Note: not all fhirpath engines support this profile variable, or the slice() function that usually uses it.
-</pre>
+
+<table class="grid">
+<tr>
+<th>Variable</th><th>Description</th>
+</tr>
+<tr>
+<td><code>%context</code></td><td>The entry point for the evaluation of the FHIRPath expression (can be any element in a resource depending on usage context)</td>
+</tr>
+<tr>
+<td><code>%resource</code></td><td>The resource that contains the original node that is in %context</td>
+</tr>
+<tr>
+<td><code>%rootResource</code></td><td>The container resource for the resource identified by %resource</td>
+</tr>
+</table>
+
 <p>
 The resource is very often the context, such that %resource = %context.
 When a DomainResource contains another resource, and that contained resource
@@ -301,14 +312,28 @@ Note that in most cases, the resource is not contained by another resource, and
 then %rootResource is the same as %resource.
 </p>
 
+<p>For example, a profile could define an invariant on <code>Patient.identifier</code> to ensure usage of a particular system is unique:</p>
+<pre class="fhirpath">
+system = 'http://example.org/unique-identifier' implies %resource.identifier.where(system.getValue() = %context.system).count() = 1
+</pre>
+<p>
+  Inside the invariant we can refer to %resource to access all identifiers, and then use %context inside the <code>where</code> clause
+  to compare the iterated identifier's system with the system of the specific identifier being validated.
+</p>
+
 <p>
 In addition to the general purpose variables above, additional variables and/or guidance about variable use are defined when working with specific resources.  Refer to the following for additional FHIRPath guidance defined for:
 </p>
 <ul>
-  <li><a href="subscriptiontopic.html#resource-trigger-update">SubscriptionTopic</a></li>
-  <li><a href="questionnaireresponse.html#fhirpath">QuestionnaireResponse</a></li>
-  <li><a href="activitydefinition.html#apply">ActivityDefinition and its $apply operation</a></li>
+  <li><a href="conformance-rules.html#constraints">Resource Invariants</a> (%profile)</li>
+  <li><a href="subscriptiontopic.html#resource-trigger-update">SubscriptionTopic</a> (<code>%previous</code>, <code>%current</code>)</li>
+  <li><a href="questionnaireresponse.html#fhirpath">QuestionnaireResponse</a> (<code>%questionnaire</code>, <code>%qItem</code>)</li>
+  <li><a href="activitydefinition.html#apply">ActivityDefinition and its $apply operation</a> (input parameters available as variables in <a href="activitydefinition-definitions.html#ActivityDefinition.dynamicValue.expression">dynamicValue</a> expressions, e.g. <code>%subject</code>, <code>%practitioner</code>)</li>
 </ul>
+
+<blockquote>
+  Note: Other implementation guides can define additional variables and guidance for use in their specific context.
+</blockquote>
 
 <a name="functions"></a>
 <h3>Additional functions</h3>
