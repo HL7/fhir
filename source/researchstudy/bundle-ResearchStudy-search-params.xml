@@ -290,6 +290,25 @@
   <entry>
     <resource>
       <SearchParameter>
+        <id value="ResearchStudy-acronym"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ResearchStudy.acronym"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ResearchStudy-acronym"/>
+        <description value="Study acronym or abbreviation"/>
+        <code value="acronym"/>
+        <type value="string"/>
+        <expression value="ResearchStudy.acronym"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
         <id value="ResearchStudy-description"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="normative"/>

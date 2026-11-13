@@ -12,7 +12,7 @@
 <p>Removed ResearchStudy.name and Removed ResearchStudy.label elements</p>
 <p>Modified ResearchStudy.title definition to be Primary title for the study, used in listing for search results</p>
 <p>Added new elements: ResearchStudy.officialTitle 0..1 string, ResearchStudy.layTitle 0..1 string, ResearchStudy.shortTitle 0..1 string, ResearchStudy.acronym 0..1 string</p>
-<p>Removed the ResearchStudy.name search parameter and added one for officialTitle instead</p>
+<p>Removed the ResearchStudy.name search parameter and added one for officialTitle and acronym instead</p>
 <p><b>Note to Balloters:</b> The key changes made since FHIR 6.0.0-ballot4 include:</p>
 <p>Changed the ResearchStudy.studyDesign ValueSet binding to be HL7 Terminology.</p>
 <p>Changed the ResearchStudy.associatedParty.role ValueSet binding to be HL7 Terminology and &quot;preferred&quot; binding.</p>
