@@ -771,8 +771,8 @@
     <element id="DiagnosticReport.composition">
       <path value="DiagnosticReport.composition"/>
       <short value="Reference to a Composition resource for the DiagnosticReport structure"/>
-      <definition value="Reference to a Composition resource instance that provides structure for organizing the contents of the DiagnosticReport."/>
-      <comment value="The Composition provides structure to the content of the DiagnosticReport (and only contains contents referenced in the DiagnosticReport) - e.g., to order the sections of an anatomic pathology structured report."/>
+      <definition value="Reference to a Composition resource instance that organizes the contents of the DiagnosticReport. Together with the content it references, the Composition provides an equivalent structured representation of the entire diagnostic report as issued."/>
+      <comment value="The Composition organizes report content already represented in the DiagnosticReport. Its section entries reference only resources already referenced by the DiagnosticReport, either directly or through its results. For example, it can define the order of sections in a structured anatomic pathology report."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -862,8 +862,8 @@
     <element id="DiagnosticReport.presentedForm">
       <path value="DiagnosticReport.presentedForm"/>
       <short value="Entire report as issued"/>
-      <definition value="Rich text representation of the entire result as issued by the diagnostic service. Multiple formats are allowed but they SHALL be semantically equivalent."/>
-      <comment value="&quot;application/pdf&quot; is recommended as the most reliable and interoperable in this context."/>
+      <definition value="Formatted representation of the entire diagnostic report as issued by the diagnostic service. If more than one format is provided, all formats SHALL be semantically equivalent."/>
+      <comment value="&quot;application/pdf&quot; is recommended as the most reliable and interoperable in this context. See [Report Content](diagnosticreport.html#report-content) for how the presented form relates to the resource narrative and the Composition."/>
       <requirements value="Gives laboratory the ability to provide its own fully formatted report for clinical fidelity."/>
       <min value="0"/>
       <max value="*"/>
