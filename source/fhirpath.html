@@ -32,7 +32,8 @@
       <li><a href="https://jira.hl7.org/browse/FHIR-54601">FHIR-54601</a>: Handling of difference in range of FHIR.decimal and System.Decimal</li>
       <li><a href="https://jira.hl7.org/browse/FHIR-53811">FHIR-53811</a>: Clarify hasValue() and getValue()</li>
       <li><a href="https://jira.hl7.org/browse/FHIR-40271">FHIR-40271</a>: FHIR is() example use non-singleton examples</li>
-      <li><a href="https://jira.hl7.org/browse/FHIR-53962">FHIR-53962</a>: `slice()` should this only be available in invariant definitions</li>
+      <li><a href="https://jira.hl7.org/browse/FHIR-53962">FHIR-53962</a>: slice() should this only be available in invariant definitions</li>
+      <li><a href="https://jira.hl7.org/browse/FHIR-53951">FHIR-53951</a>: all functions/features should have examples, return and argument types/cardinality should be explicit</li>
     </ul>
   </li>
 </ul>
@@ -349,12 +350,13 @@ In addition to the general purpose functions below, additional functions functio
 </ul>
 
 <a name="fn-extension"> </a>
-<h4>extension(url : string) : collection</h4>
+<h4>extension(url : String) : collection</h4>
 <p>Will filter the input collection for items named "extension" with the given <code>url</code>. 
   This is a syntactical shortcut for <code>.extension.where(url = string)</code>, 
   but is simpler to write. If the input collection is empty or the url is empty, 
   the return value will be an empty collection.</p>
 
+<p>For example, to read the mother's maiden name extension:</p>
 <pre class="fhirpath">
 Patient.extension('http://hl7.org/fhir/StructureDefinition/patient-mothersMaidenName').value
 </pre>
@@ -375,8 +377,12 @@ Patient.extension('http://hl7.org/fhir/StructureDefinition/patient-mothersMaiden
 <p>In FHIRPath, this means that FHIR primitives have a <code>value</code> child, but, as described above, they are automatically cast to FHIRPath primitives when comparisons are made, and that the primitive value will be included in the set returned by <code>children()</code> or <code>descendants()</code>.</p>
 </blockquote>
 
+<p>For example:</p>
 <pre class="fhirpath">
 Patient.active.hasValue()
+// true ; if active has a Boolean value, whether active is either true or false
+// false ; if active is present with only id and/or extensions
+// {} ; if active is absent
 </pre>
 
 <hr/>
@@ -385,8 +391,10 @@ Patient.active.hasValue()
 <p>Return the underlying value from the FHIR primitive as a system primitive if the input collection contains a single value which is a FHIR primitive, 
   and it has a primitive value (see discussion for hasValue()). Otherwise, the result is an empty collection.</p>
 
+<p>For example:</p>
 <pre class="fhirpath">
-Patient.birthDate.getValue() // returns just the primitive, does not include extensions (such as the birthTime extension)
+Patient.birthDate.getValue()
+// returns just the primitive, does not include extensions (such as the birthTime extension)
 </pre>
 
   <hr/>
@@ -409,16 +417,22 @@ Patient.birthDate.getValue() // returns just the primitive, does not include ext
 </p>
 
 <pre class="fhirpath">
-Patient.managingOrganization.resolve().name
+Patient.managingOrganization.resolve().contact
+// returns all the contact details for the organization
+
 Observation.subject.where(resolve() is Patient)
+// returns the reference to the subject if it resolves to a patient (commonly used in search parameters to index by a specific resource type - noting that it doesn't actually return any data from the resource resolved)
 </pre>
 
 <p>
 When implementing <code>resolve()</code>, it is at the discretion of the engine what protocols, 
 FHIR formats and versions are supported and whether and which logical models are handled.
 </p>
+
+<p>For example:</p>
 <pre class="fhirpath">
-DocumentReference.content.attachment.url.resolve() // When using DocumentReference as an index entry to resources stored elsewhere
+DocumentReference.content.attachment.url.resolve()
+// When using DocumentReference as an index entry to resources stored elsewhere
 </pre>
 
   <hr/>
@@ -427,6 +441,12 @@ DocumentReference.content.attachment.url.resolve() // When using DocumentReferen
 <p>Returns the FHIR element definition information for each element in the input collection. If the 
   input collection is empty, the return value will be an empty collection.
 </p>
+
+<p>For example:</p>
+<pre class="fhirpath">
+Patient.identifier.first().elementDefinition()
+// returns the element definition for the patient's identifier element
+</pre>
 
 <hr/>
 <a name="fn-slice"> </a>
@@ -461,7 +481,7 @@ Patient.telecom.slice(%profile, 'homephone').exists() and Patient.telecom.slice(
 </pre>
 
 <blockquote>
-NOTE: not all FHIRPath engines are in a position to implement <code>slice()</code> as implementation requires implementation of a FHIR validation engine, which is not a small undertaking.
+Note: not all FHIRPath engines are in a position to implement <code>slice()</code> as implementation requires implementation of a FHIR validation engine, which is not a small undertaking.
 </blockquote>
 
 <hr/>
@@ -471,15 +491,26 @@ NOTE: not all FHIRPath engines are in a position to implement <code>slice()</cod
 <p>For each element in the input collection, verifies that there are no modifying extensions defined other than the ones given by the <code>modifier</code> argument (comma-separated string). 
   If the check passes, the input collection is returned. Otherwise, an error is thrown, including if modifier is empty.</p>
 
-  <hr/>
+<p>For example:</p>
+<pre class="fhirpath">
+MedicationRequest.checkModifiers('http://example.org/fhir/StructureDefinition/anti-prescription')
+// true ; If the resource doesn't have any modifier extensions (other than the ones specified)
+
+Task.checkModifiers('http://hl7.org/fhir/StructureDefinition/request-doNotPerform,http://example.org/fhir/StructureDefinition/known-modifier')
+// true ; If the resource doesn't have any other modifier extensions (comma separated)
+</pre>
+
+<hr/>
 <a name="fn-conformsTo"> </a>
 <h4>conformsTo(structure : string) : Boolean</h4>
 <p>Returns <code>true</code> if the single input element conforms to the profile specified by the <code>structure</code> argument, 
   and false otherwise. If the input is not a single item, the structure is empty, or the structure cannot be resolved to a valid profile, 
   the return value is empty.</p>
 
+<p>For example:</p>
 <pre class="fhirpath">
-Patient.conformsTo('http://hl7.org/fhir/StructureDefinition/Patient')
+Patient.conformsTo('http://example.org/fhir/StructureDefinition/Patient-local-strict')
+// true ; If the resource conforms to this profile
 </pre>
 
   <hr/>
@@ -497,11 +528,9 @@ only contains one codesystem. If the valueset in this case contains more than on
 <p>Note that implementations are encouraged to make use of a terminology service to provide this functionality.</p>
 
 <p>For example:</p>
-
 <pre class="fhirpath">
 Observation.component.where(code.memberOf('http://hl7.org/fhir/ValueSet/observation-vitalsignresult'))
 </pre>
-
 <p>This expression returns components that have a code that is a member of the observation-vitalsignresult valueset.</p>
 
 <hr/>
@@ -514,9 +543,16 @@ Observation.component.where(code.memberOf('http://hl7.org/fhir/ValueSet/observat
 <p>If either the input or the code parameter are not single value collections, the return value is empty.</p>
 <p>Note that implementations are encouraged to make use of a terminology service to provide this functionality.</p>
 
+<p>For example:</p>
 <pre class="fhirpath">
-%terminologies.subsumes(Procedure.category, Procedure.code) = 'subsumes'
+Condition.code.subsumes(Coding { system: 'http://snomed.info/sct', code: '3738000' })
+// true ; if the condition is equivalent or subsumes the SNOMED CT concept 3738000, Viral hepatitis
+// $subsumes operation returned 'equivalent' or 'subsumes'
 </pre>
+
+<p>
+  For more information, see <a href="terminology-service.html#subsumes">Subsumption Testing</a> in the FHIR terminology service documentation.
+</p>
 
 <hr/>
 <a name="fn-subsumedBy"> </a>
@@ -528,6 +564,17 @@ Observation.component.where(code.memberOf('http://hl7.org/fhir/ValueSet/observat
 <p>If either the input or the code parameter are not single value collections, the return value is empty.</p>
 <p>Note that implementations are encouraged to make use of a terminology service to provide this functionality.</p>
 
+<p>For example:</p>
+<pre class="fhirpath">
+Condition.code.subsumedBy(Coding { system: 'http://snomed.info/sct', code: '235856003' })
+// true ; if the condition is equivalent or subsumed by the SNOMED CT concept 235856003, Disorder of liver
+// $subsumes operation returns 'subsumed-by' or 'equivalent'
+</pre>
+
+<p>
+  For more information, see <a href="terminology-service.html#subsumes">Subsumption Testing</a> in the FHIR terminology service documentation.
+</p>
+
 <hr/>
 <a name="fn-htmlChecks"> </a>
 <h4>htmlChecks : Boolean</h4>
@@ -538,6 +585,16 @@ parsed as the content of a div and the function returns false if the string does
 The return value is empty on any other kind of element or if invoked on a collection of elements.
 </p>
 
+<p>For example:</p>
+<pre class="fhirpath">
+Patient.text.div.htmlChecks()
+// true ; if the div element meets the rules around HTML usage
+
+Questionnaire.item.extension('http://hl7.org/fhir/StructureDefinition/rendering-xhtml').valueString.htmlChecks()
+// true ; also supported on string where required.
+</pre>
+
+
 <hr/>
 <a name="fn-weight"> </a>
 <h4>weight() : decimal</h4>
@@ -547,8 +604,14 @@ The return value is empty on any other kind of element or if invoked on a collec
 <p>  
   This function will typically be used to support scoring of Questionnaires, but it can be used with observations or potentially other elements as well.
 </p>
-<hr/>
 
+<p>For example:</p>
+<pre class="fhirpath">
+Questionnaire.item.where(linkId='123').item.sum(weight())
+// sum of the weights for all items with the specified linkId
+</pre>
+
+<hr/>
 <a name="overloads"></a>
 <h3>Function Overrides</h3>
 <p>FHIR also includes overrides to some functions providing details on how the function will work with FHIR specific types.
@@ -565,9 +628,13 @@ The return value is empty on any other kind of element or if invoked on a collec
   For example, if a FHIR decimal element contained no value and only has a data absent reason extension, then the result would be an empty collection.
 </p>
 
+<p>For example:</p>
 <pre class="fhirpath">
-Patient.birthDate.toString()  // return the string representation of the birthDate if it has an actual value, otherwise an empty collection
-Patient.contact.toString()    // returns an empty string as the contact element is not a FHIR primitive datatype
+Patient.birthDate.toString()
+// return the string representation of the birthDate if it has an actual value, otherwise an empty collection
+
+Patient.contact.toString()
+// returns an empty string as the contact element is not a FHIR primitive datatype
 </pre>
 
 <hr/>
@@ -579,9 +646,20 @@ Patient.contact.toString()    // returns an empty string as the contact element 
   types (so <code>canonical</code> is <strong>not</strong> a subclass of <code>string</code>, but <code>markdown</code> is, as indicated on the <a href="datatypes.html">datatypes page</a>). Profiled types are 
   not allowed, so to select <code>SimpleQuantity</code> one would pass <code>Quantity</code> as an argument.</p>
 
+<p>For example:</p>
 <pre class="fhirpath">
-Observation.value.ofType(canonical)
-Observation.value.ofType(dateTime) | Observation.value.ofType(Period).start // selects either dateTime or Period starts (both of type dateTime)
+Observation.value.ofType(CodeableConcept)
+// filter the observation value to only include CodeableConcept instances
+
+Observation.value.ofType(dateTime) | Observation.value.ofType(Period).start
+// selects either dateTime or the start of a period value (both of type dateTime)
+
+Observation.extension.value.ofType(string)
+// filters the extension values to only include string instances
+// or datatypes derived from string (such as valueMarkdown, valueCode or valueId)
+
+QuestionnaireResponse.questionnaire.ofType(string)
+// {} ; as this property is a canonical, this will return an empty collection
 </pre>
 
 <hr/>
@@ -659,6 +737,13 @@ The following locations use this restricted FHIRPath language:
  <li><a href="operationoutcome-definitions.html#OperationOutcome.issue.expression">OperationOutcome.issue.expression</a></li>
 </ul>
     
+<p>For example:</p>
+<pre class="fhirpath">
+Patient.birthDate
+Patient.name[0].family
+Patient.name[2].given[1]
+QuestionnaireResponse.item[0].item[2].answer[0].value
+</pre>
 
 [%file newfooter%]
 </body>

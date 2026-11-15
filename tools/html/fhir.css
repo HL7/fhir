@@ -1080,3 +1080,9 @@ ol.fmmlist li::before {
   background: #F0FFFF ; 
   width: 780px;
 }
+
+p:has(+ pre.fhirpath) {
+    padding-bottom: 0;
+    margin-top: 10px;
+    margin-bottom: 4px;
+}
