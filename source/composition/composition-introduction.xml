@@ -2,6 +2,10 @@
 
 <div>
 <blockquote class="ballot-note" id="bn1">
+<p><b>Note to Balloters:</b> The Key changes made since FHIR 6.0.0-ballot5 include:</p>
+<p>Updated text in the introduction to now read: The Composition resource organizes clinical and administrative content into sections, each of which contains one or more of the following: a narrative, entries referencing other resources, or subsections.</p>
+<p>Updated the Composition.relatesTo comment example format to reflect the Composition.relatesTo structure since then.</p>
+<p>Small fixes on the "Operation $document on Composition" page</p>
 <p><b>Note to Balloters:</b> The Key changes made since FHIR 6.0.0-ballot4 include:</p>
 <p>Changed the Composition.participant.type short description to &quot;Meaning and purpose of participation, in creation of the clinical document&quot; as a correction.</p>
 <p>Added Composition.classification BackboneElement to provide classification data.</p>
@@ -42,6 +46,9 @@
 		<li><a href="https://jira.hl7.org/browse/FHIR-55509">FHIR-55509</a></li>
 		<li><a href="https://jira.hl7.org/browse/FHIR-55529">FHIR-55529</a></li>
 		<li><a href="https://jira.hl7.org/browse/FHIR-57263">FHIR-57263</a></li>
+		<li><a href="https://jira.hl7.org/browse/FHIR-58321">FHIR-58321</a></li>
+		<li><a href="https://jira.hl7.org/browse/FHIR-59614">FHIR-59614</a></li>
+		<li><a href="https://jira.hl7.org/browse/FHIR-59615">FHIR-59615</a></li>
 	</ul>
 </blockquote>
 <a name="scope"></a>
@@ -119,12 +126,11 @@ questions that must be asked and answered and rules that guide which questions a
 </li>
 </ul>
 <p>
-The Composition resource organizes clinical and administrative content into sections, each of which contains a narrative, 
-and references other resources for supporting data. The narrative content of the various sections in a Composition is 
-supported by the resources referenced in the section entries.  The complete set of content to make up a document includes 
-the Composition resource together with various resources pointed to or indirectly
-connected to the Composition. See the <a href="documents.html">FHIR Documents</a> documentation for guidance on how a Composition 
-is used when creating a document bundle.
+The Composition resource organizes clinical and administrative content into sections, each of which contains one or more of the
+following: a narrative, entries referencing other resources, or subsections. The narrative content of the various sections in a
+Composition is supported by the resources referenced in the section entries.  The complete set of content to make up a document
+includes the Composition resource together with various resources pointed to or indirectly connected to the Composition.
+See the <a href="documents.html">FHIR Documents</a> documentation for guidance on how a Composition is used when creating a document bundle.
 </p>
 </div>
 
