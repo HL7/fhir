@@ -13,6 +13,27 @@ in order to support consistent definitions for schema and UML derived code.
     [%file newnavbar%]
 
     
+<blockquote class="ballot-note" id="bn1">
+<p><b>Note to Balloters:</b> Key changes made since FHIR 6.0.0-ballot5:</p>
+<ul>
+  <li>Non-compatible Changes
+    <ul>
+      <li>(none)</li>
+    </ul>
+  </li>
+  <li>Compatible, Substantive Changes
+    <ul>
+      <li>(none)</li>
+    </ul>
+  </li>
+  <li>Non-substantive Changes
+    <ul>
+      	<li><a href="https://jira.hl7.org/browse/FHIR-58437">FHIR-58437</a>: Administration Module: Normative page with informative text</li>
+    </ul>
+  </li>
+</ul>
+</blockquote>
+
         <table class="colsi"><tr><td id="wg">Responsible Owner: Work Group <a _target="blank" href="[%wg pa%]">[%wgt pa%]</a> </td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
 
         <a name="root"></a>
@@ -105,7 +126,7 @@ in order to support consistent definitions for schema and UML derived code.
                 conditions that reference the linked patients too. We are currently seeking feedback on this.
 [%end-note%]
 [%impl-note%]
-                The Person resource may be used as a centralized register of people that may
+                The Person resource might be used as a centralized register of people that might
                 eventually be involved in healthcare, and could be used as the central core demographics register.<br />
                 However, the fields/values in Person are duplicated in the other resources, and in many cases the
                 Person resource will be hosted on external systems.
@@ -139,7 +160,7 @@ in order to support consistent definitions for schema and UML derived code.
             Some use cases might require a <a href="https://build.fhir.org/ig/HL7/admin-incubator/StructureDefinition-PersonalRelationship.html">PersonalRelationship</a> resource which can overlap with the relationship defined inside the <a href="relatedperson.html">RelatedPerson</a> resource.
         </p>
         <p>
-            <a href="https://build.fhir.org/ig/HL7/admin-incubator/StructureDefinition-PersonalRelationship.html">PersonalRelationship</a> can be used to document "possible/suspected" relationships, such as a doctor recording that 2 people may be related, or in an evacuation centre trying to locate and connect people may record possible connections (individuals may be unconscious).
+            <a href="https://build.fhir.org/ig/HL7/admin-incubator/StructureDefinition-PersonalRelationship.html">PersonalRelationship</a> can be used to document "possible/suspected" relationships, such as a doctor recording that 2 people might be related, or in an evacuation centre trying to locate and connect people might record possible connections (individuals might be unconscious).
         </p>
 
         <a name="agg-pop"></a>
@@ -170,13 +191,13 @@ in order to support consistent definitions for schema and UML derived code.
                 <code>Coverage</code> and <code>Claim</code> are from the <a href="financial-module.html">section on Finance</a>.
 [%end-note%]
 [%impl-note%]
-                This diagram shows the relationships between resource types.  Relationships between instances of resources may include references to multiple instances of the same type. For example, an Encounter and an Account for the same human being may reference separate Patient resource instances, as noted in <code>Account.subject</code>.  Those Patient resources should be linked using <code>Patient.link</code> with a type of <code>seealso</code>.
+                This diagram shows the relationships between resource types.  Relationships between instances of resources might include references to multiple instances of the same type. For example, an Encounter and an Account for the same human being might reference separate Patient resource instances, as noted in <code>Account.subject</code>.  Those Patient resources should be linked using <code>Patient.link</code> with a type of <code>seealso</code>.
 [%end-note%]
 
         <a name="dir-reg"></a>
         <h4>Service Provider Directory Resources</h4>
         <p>
-            Service Provider Directory resources are usually stored in the administration section of applications, and may even be synchronized from external systems.
+            Service Provider Directory resources are usually stored in the administration section of applications, and might even be synchronized from external systems.
         </p>
         <table class="bare">
             <tr><td><b>Name</b></td><td><b>Aliases</b></td><td><b>Description</b></td></tr>
@@ -211,7 +232,7 @@ in order to support consistent definitions for schema and UML derived code.
             <img src="administration-module-scheduling.png" alt="Image showing the scheduling interactions" width="600px" />
         </div>
         <p>
-            When the scheduling resources need to identify the specific activity or service that is being scheduled, they may use either a HealthcareService or a coding to represent that activity.
+            When the scheduling resources need to identify the specific activity or service that is being scheduled, they might use either a HealthcareService or a coding to represent that activity.
         </p>
         <p></p>
 
@@ -279,9 +300,9 @@ in order to support consistent definitions for schema and UML derived code.
             When considering how a User Identity could be represented in FHIR resources:
         </p>
         <ul>
-            <li>Systems MAY use .identifier on the Patient, RelatedPerson, Practitioner or Person resources for user identities.</li>
-            <li>When using a Person resource, this identifier MAY be duplicated to the other related resources, however is not required.</li>
-            <li>User identities MAY be handled completely outside of the FHIR and not represented on FHIR resources at all.</li>
+            <li>Systems might use .identifier on the Patient, RelatedPerson, Practitioner or Person resources for user identities.</li>
+            <li>When using a Person resource, this identifier might be duplicated to the other related resources, however is not required.</li>
+            <li>User identities might be handled completely outside of the FHIR and not represented on FHIR resources at all.</li>
             <li>DO NOT use .telecom properties to represent user identities.</li>
         </ul>
         <p>
@@ -304,18 +325,18 @@ in order to support consistent definitions for schema and UML derived code.
 </pre>
         [%impl-note%]
         <p>
-            Some systems may use e-mail as a unique user identifier.  Other systems may use e-mail as one piece of potentially uniquely identifying information.  And other systems may use it for communication (where communication may be to validate identity, or for other purposes).
+            Some systems might use e-mail as a unique user identifier.  Other systems might use e-mail as one piece of potentially uniquely identifying information.  And other systems might use it for communication (where communication might be to validate identity, or for other purposes).
         </p>
         <p>
             If an e-mail is used as both a user identifier and as a method of communication, then you'd put the same e-mail in both spots (identifier and telecom).
         </p>
         <p>
-            Also, consider that not all individuals that need to be identified may have e-mails, for example, kids in a pediatric setting.
+            Also, consider that not all individuals that need to be identified might have e-mails, for example, kids in a pediatric setting.
         </p>
         [%end-note%]
         [%impl-note%]
         <p>
-            The FHIR SMART App Launch specification MAY refer to a FHIR Patient, RelatedPerson, Practitioner, PractitionerRole or Person resource instance in its <code>fhirUser</code> claim.
+            The FHIR SMART App Launch specification might refer to a FHIR Patient, RelatedPerson, Practitioner, PractitionerRole or Person resource instance in its <code>fhirUser</code> claim.
         </p>
         [%end-note%]
 
