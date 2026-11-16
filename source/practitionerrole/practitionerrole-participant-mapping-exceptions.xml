@@ -36,7 +36,7 @@
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="Description of the practitioner role as presented to a consumer while searching."/>
-            <resource value="Roles which this practitioner is authorized to perform for the organization."/>
+            <resource value="Roles which this practitioner can perform for the organization.  Some specific roles may have associated qualifications necessary."/>
         </definitionUnmatched>
     </divergentElement>
 </mappingExceptions>
