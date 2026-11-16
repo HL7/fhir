@@ -13,6 +13,13 @@
       <li>(none)</li>
     </ul>
   </li>
+  <li>Non-substantive Changes
+    <ul>
+      	<li><a href="https://jira.hl7.org/browse/FHIR-56374">FHIR-56374</a>: Narrative cleanup of Scope &amp; Usage Section - PractitionerRole</li>
+      	<li><a href="https://jira.hl7.org/browse/FHIR-56377">FHIR-56377</a>: Narrative revisions of 'notes' section - PractitionerRole</li>
+      	<li><a href="https://jira.hl7.org/browse/FHIR-58586">FHIR-58586</a>: Clarify definitions of .code and .specialty for PractitionerRole</li>
+    </ul>
+  </li>
 </ul>
 </blockquote>
 
@@ -29,7 +36,7 @@ Feedback is welcome <a href="http://hl7.org/fhir-issues">here</a>.
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
 <p>
-The PractitionerRole describes the types of services that practitioners provide for an organization at specific location(s).
+The PractitionerRole resource describes the types of services that practitioners provide for an organization at specific location(s).
 </p>
 <p>
 The PractitionerRole resource can be used in multiple contexts including:
@@ -41,19 +48,20 @@ The PractitionerRole resource can be used in multiple contexts including:
 </ul>
 
 <p>
-The code, specialty, location, contact and healthcareService properties can be repeated if required in other instances
+The code (aka role), specialty, location, telecom, healthcareService, and other properties can be repeated if required in other instances
 of the PractitionerRole. Some systems record a collection of service values for a single location, others record the 
 single service and the list of locations it is available. Both are acceptable options for representing this data.<br/>
-Where availability, telecom, or other details are not the same across all healthcareservices, or locations 
-a separate PractitionerRole instance should be created.
+Implementations should create separate PractitionerRole instances when repeated properties are not consistent across all 
+other content in an instance. (e.g. where all the HealthcareServices referenced in an instance are not available at all Locations referenced by that instance)
 </p>
 <p>
 Many resource types have a choice of a reference to either a Practitioner resource or a PractitionerRole resource. The latter
-provides organizational context for the practitioners participation when it is required, otherwise a direct reference to the
-practitioner may be used.<br/>
+provides organizational context for the practitioner's participation when it is required, otherwise a direct reference to the practitioner can be used.<br/>
 Many implementations may choose to profile the PractitionerRole to a single location/role/healthcareservice for their specific usage.<br/>
-As the property that references a PractitionerRole typically has a specific context, the code on the PractitionerRole having duplicate code values is not a big concern (and is used for discovery where required).<br/>
-e.g. These references are all very context specific: Patient.GeneralPractitioner, CarePlan.reported, CarePlan.contributor, Appointment.participant (through the participant.role), Immunization.informationSource, Immunization.performer (through the performer.function property)
+References to PractitionerRole from other resources sometimes describe a specific context or type of role. For example, Patient.generalPractitioner implies
+a role of General Practitioner. Likewise, Appointment.participant (through the .type property) defines roles such as admitter, discharger, translator, etc.
+Implementations can use practitionerRole.code to express these roles as well; having duplicate values across the resources is not a concern
+(and can be used for discovery). Other examples include CarePlan.contributor, Immunization.informationSource, and Immunization.performer (through the .function property)
 </p>
 <p>
 For use cases where an organization has activities where a practitioner is not defined/pre-allocated for a specific role 
