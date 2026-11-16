@@ -339,7 +339,7 @@
         <description value="The value in any kind of contact"/>
         <code value="telecom"/>
         <type value="token"/>
-        <expression value="Organization.contact.telecom"/>
+        <expression value="HealthcareService.contact.telecom"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

@@ -16,7 +16,7 @@
   </li>
   <li>Non-substantive Changes
     <ul>
-      <li>(none)</li>
+      <li><a href="https://jira.hl7.org/browse/FHIR-58265">FHIR-58265</a>: Clarify Location.code and Location.partOf Usage</li>
     </ul>
   </li>
 </ul>
