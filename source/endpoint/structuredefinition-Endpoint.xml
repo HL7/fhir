@@ -274,7 +274,7 @@
       <definition value="The times the endpoint is expected to be available, including transient downtimes and any exceptions."/>
       <comment value="Endpoint.availability is meant to represent specific availability, including temporary downtimes or other short term changes in availability.  Conversely, Endpoint.period is meant to represent the general **planned** period of time when the Endpoint may be used, for example when an endpoint is being commissioned or decommissioned.  For example, if an Endpoint is only available during business hours (9-5), the lack of availability during the night would not be reflected in Endpoint.period,but would be reflected in Endpoint.availability."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="Availability"/>
       </type>
