@@ -64,7 +64,7 @@
   </jurisdiction>
   <affectsState value="false"/>
   <code value="match"/>
-  <comment value="The response from an &quot;mpi&quot; query is a bundle containing patient records, ordered from most likely to least likely. If there are no patient matches, the MPI SHALL return an empty search set with no error, but may include an operation outcome with further advice regarding patient selection. All patient records SHALL have a search score from 0 to 1, where 1 is the most certain match, along with an extension &quot;[[[http://hl7.org/fhir/StructureDefinition/match-grade]]]&quot; that indicates the MPI's position on the match quality."/>
+  <comment value="The response from an &quot;mpi&quot; query is a bundle containing patient records, ordered from most likely to least likely. If there are no patient matches, the MPI SHALL return an empty search set with no error, but may include an operation outcome with further advice regarding patient selection. All patient records SHALL have a search score from 0 to 1, where 1 is the most certain match, along with an extension &quot;[[[http://hl7.org/fhir/StructureDefinition/match-grade]]]&quot; that indicates the MPI's position on the match quality.&#xD;&#xD;Note: Care should be taken if handling score values across multiples systems, as the calculation between them could be meaningfully different."/>
   <resource value="Patient"/>
   <system value="false"/>
   <type value="true"/>
@@ -100,6 +100,14 @@
     <max value="1"/>
     <documentation value="The maximum number of records to return. If no value is provided, the server decides how many matches to return. Note that clients should be careful when using this, as it may prevent probable - and valid - matches from being returned"/>
     <type value="integer"/>
+  </parameter>
+  <parameter>
+    <name value="minimumScore"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="Filter the results of the match to include only patients where the Bundle.entry.search.score is greater than, or equal to the provided value.&#xD;&#xD;Note: Care should be taken if handling score values across multiples systems, as the calculation between them could be meaningfully different."/>
+    <type value="decimal"/>
   </parameter>
   <parameter>
     <name value="return"/>
