@@ -566,8 +566,8 @@
       <path value="Patient.contact.role"/>
       <short value="The kind of functional role"/>
       <definition value="The nature of the functional role between the patient and the contact person."/>
-      <requirements value="Used to determine which contact person is the most relevant to approach, depending on circumstances."/>
       <comment value="This property is for functional relationships.  Personal relationships would be represented in `Patient.contact.relationship`."/>
+      <requirements value="Used to determine which contact person is the most relevant to approach, depending on circumstances."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -575,10 +575,10 @@
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ContactRelationship"/>
+          <valueString value="PatientContactFunctionalRole"/>
         </extension>
         <strength value="preferred"/>
-        <description value="The nature of the personal relationship between the patient and the contact person. "/>
+        <description value="The nature of the functional relationship between the patient and the contact person. "/>
         <valueSet value="http://hl7.org/fhir/ValueSet/relatedperson-relationshiptype"/>
       </binding>
       <mapping>
