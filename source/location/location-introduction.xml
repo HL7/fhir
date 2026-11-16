@@ -11,7 +11,7 @@
   </li>
   <li>Compatible, Substantive Changes
     <ul>
-      <li>(none)</li>
+      <li><a href="https://jira.hl7.org/browse/FHIR-58765">FHIR-58765</a>: Add telecom-based search params where missing on entity resources</li>
     </ul>
   </li>
   <li>Non-substantive Changes
@@ -20,7 +20,6 @@
     </ul>
   </li>
 </ul>
-<p></p>
 </blockquote>
 </div>
 
