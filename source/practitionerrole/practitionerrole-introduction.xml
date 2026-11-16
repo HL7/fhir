@@ -74,9 +74,9 @@ and the other relevant role properties populated - i.e. code, organization.
 <a name="bnr"></a>
 <h2>Boundaries and Relationships</h2>
 <p>
-	Qualifications (from the Practitioner resource) do not imply a Role, but might be considered when an Organization 
-  allocates practitioners to roles within their organization, and could provide useful information (such as expiry information)
-  which could need to be tracked in some situations to ensure they continue to be eligible for a specific role.
+	Qualifications (from the Practitioner resource) do not imply a role, but for some roles and/or specialties a 
+  qualification might be relevant/required, and could provide useful information (such as expiry information) 
+  which could need to be tracked in some situations to ensure they continue to be eligible.
 </p>
 <p>
   The <a href="careteam.html">CareTeam</a> resource is also often used to provide details of a role that a practitioner is
