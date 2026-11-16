@@ -531,8 +531,8 @@
     </element>
     <element id="Account.diagnosis.type">
       <path value="Account.diagnosis.type"/>
-      <short value="Type that this diagnosis has relevant to the account (e.g. working, final …)"/>
-      <definition value="Type that this diagnosis has relevant to the account (e.g. admission, billing, discharge …)."/>
+      <short value="Role that this diagnosis has within to the account (e.g. working, final …)"/>
+      <definition value="Role that this diagnosis has within to the account (e.g. admission, billing, discharge …)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -722,9 +722,10 @@
         <code value="BackboneElement"/>
       </type>
     </element>
-    <element id="Account.balance.aggregate">
-      <path value="Account.balance.aggregate"/>
-      <short value="Who is expected to pay this part of the balance"/>
+    <element id="Account.balance.aggregateType">
+      <path value="Account.balance.aggregateType"/>
+      <short value="The type by which the balance is aggregated"/>
+      <definition value="The type of responsible party expected to pay this part of the balance."/>
       <min value="0"/>
       <max value="1"/>
       <type>
