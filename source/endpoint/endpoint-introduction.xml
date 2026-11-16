@@ -12,6 +12,7 @@
   <li>Compatible, Substantive Changes
     <ul>
       <li><a href="https://jira.hl7.org/browse/FHIR-59544">FHIR-59544</a>: Endpoint does not allow discovery by url - new search parameter</li>
+      <li><a href="https://jira.hl7.org/browse/FHIR-55915">FHIR-55915</a>: Endpoint.connectionType is mandatory but without an unknown or notavailable</li>
     </ul>
   </li>
   <li>Non-substantive Changes
