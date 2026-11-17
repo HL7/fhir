@@ -234,7 +234,7 @@
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
             <_pattern value="Textual reasons can be captured using reasonCode.text."/>
-            <resource value=""/>
+            <resource value="This property describes reasons for an encounter.  Those reasons may be Conditions.  Those conditions may have been initially captured in previous encounters, in which case Condition.encounter would point to that past encounter, while Encounter.reason.value for the new encounter points to that previously captured Condition.&#13;&#13;If this Encounter is the first time when that Condition is captured, then there may apparent redundant references between Condition.encounter and Encounter.reason.value, however these properties carry different semantics, and thus are not semantically circular."/>
         </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.reason" resourcePath="Encounter.diagnosis.condition">
@@ -248,7 +248,7 @@
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
             <_pattern value="Textual reasons can be captured using reasonCode.text."/>
-            <resource value=""/>
+            <resource value="Note that the meaning of the Encounter.diagnosis.condition and Condition.encounter references are different, and thus not semantically circular. The link from Condition.encounter to Encounter simply says 'this diagnosis was made during the encounter'.  The link from Encounter.diagnosis.condition to Condition represents one or more problem(s) or diagnosis/diagnoses to support clinical, administrative and financial uses, including the differentiation of primarily diagnosis, comorbidity, working, final, discharge diagnosis, etc. This is distinctly different from Condition.encounter, which represents the establishment of a condition during an encounter."/>
         </commentsUnmatched>
     </divergentElement>
     <unmappedElement patternPath="Event.reported" reason="Unknown"/>

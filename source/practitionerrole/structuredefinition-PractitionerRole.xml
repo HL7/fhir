@@ -246,9 +246,9 @@
     <element id="PractitionerRole.code">
       <path value="PractitionerRole.code"/>
       <short value="Roles which this practitioner may perform"/>
-      <definition value="Roles which this practitioner is authorized to perform for the organization."/>
-      <comment value="A person may have more than one role."/>
-      <requirements value="Need to know what authority the practitioner has - what can they do?"/>
+      <definition value="Roles which this practitioner can perform for the organization.  Some specific roles may have associated qualifications necessary."/>
+      <comment value="An individual may have more than one role."/>
+      <requirements value="Need to know what activity(s) the practitioner is allocated/assigned for the organization - what can they do?"/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -295,8 +295,8 @@
     <element id="PractitionerRole.specialty">
       <path value="PractitionerRole.specialty"/>
       <short value="Specific specialty of the practitioner"/>
-      <definition value="The specialty of a practitioner that describes the functional role they are practicing at a given organization or location."/>
-      <comment value="The specialty represents the functional role a practitioner is playing within an organization/location. This role may require the individual have certain qualifications, which would be represented in the Practitioner.qualifications property.  Note that qualifications may or might not relate to or be required by the practicing specialty."/>
+      <definition value="The specialty of a practitioner describes the functional area of expertise they are practicing at a given organization or location."/>
+      <comment value="The specialty represents the functional area of expertise a practitioner is playing within an organization/location. Some specific specialties may have associated qualifications necessary."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -445,7 +445,7 @@
       <definition value="A collection of times the practitioner is available or performing this role at the location and/or healthcareservice."/>
       <comment value="More detailed availability information may be provided in associated Schedule/Slot resources.&#xA;&#xA;Systems may choose to render availability differently than it is exchanged on the interface. For example, rather than &quot;Mon, Tue, Wed, Thur, Fri from 9am-12am; Mon, Tue, Wed, Thur, Fri from 1pm-5pm&quot; as would be implied by two availableTime repetitions, an application could render this information as &quot;Mon-Fri 9-12am and 1-5pm&quot;.&#xD;&#xD;The NotAvailableTime(s) included indicate the general days/periods where the practitioner is not available (for things such as vacation time, or public holidays)."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="Availability"/>
       </type>

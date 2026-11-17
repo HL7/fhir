@@ -806,6 +806,7 @@
       <path value="Encounter.reason.value"/>
       <short value="Reason the encounter takes place (core or reference)"/>
       <definition value="Reason the encounter takes place, expressed as a code or a reference to another resource. For admissions, this can be used for a coded admission diagnosis."/>
+      <comment value="This property describes reasons for an encounter.  Those reasons may be Conditions.  Those conditions may have been initially captured in previous encounters, in which case Condition.encounter would point to that past encounter, while Encounter.reason.value for the new encounter points to that previously captured Condition.&#xD;&#xD;If this Encounter is the first time when that Condition is captured, then there may apparent redundant references between Condition.encounter and Encounter.reason.value, however these properties carry different semantics, and thus are not semantically circular."/>
       <alias value="Indication"/>
       <alias value="Admission diagnosis"/>
       <min value="0"/>
@@ -866,6 +867,7 @@
       <path value="Encounter.diagnosis.condition"/>
       <short value="The diagnosis relevant to the encounter"/>
       <definition value="The coded diagnosis or a reference to a Condition (with other resources referenced in the evidence.detail), the use property will indicate the purpose of this specific diagnosis."/>
+      <comment value="Note that the meaning of the Encounter.diagnosis.condition and Condition.encounter references are different, and thus not semantically circular. The link from Condition.encounter to Encounter simply says 'this diagnosis was made during the encounter'.  The link from Encounter.diagnosis.condition to Condition represents one or more problem(s) or diagnosis/diagnoses to support clinical, administrative and financial uses, including the differentiation of primarily diagnosis, comorbidity, working, final, discharge diagnosis, etc. This is distinctly different from Condition.encounter, which represents the establishment of a condition during an encounter."/>
       <alias value="Admission diagnosis"/>
       <alias value="discharge diagnosis"/>
       <alias value="indication"/>
@@ -1103,7 +1105,7 @@
     </element>
     <element id="Encounter.admission.reAdmission">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="This concept doesn’t exist in v3 and since unlikely to start adopting v3 encounters, will leave until a direct request comes in."/>
+        <valueString value="This concept doesn't exist in v3 and since unlikely to start adopting v3 encounters, will leave until a direct request comes in."/>
       </extension>
       <path value="Encounter.admission.reAdmission"/>
       <short value="Indicates that the patient is being re-admitted"/>
