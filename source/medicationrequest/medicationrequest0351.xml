@@ -14,7 +14,7 @@
             <coding>
                 <system value="http://snomed.info/sct"/>
                 <code value="895694008"/>
-                <display value="Helium 0.79 mL/mL and oxygen 0.21 mL/mL gas for inhalation"/>
+                <display value="Helium 790 microliter/mL and oxygen 210 microliter/mL gas for inhalation"/>
             </coding>
             <text value="HeliOx 79/21 (helium 79% / oxygen 21%)"/>
         </concept>
