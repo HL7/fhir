@@ -36,6 +36,7 @@
       <li><a href="https://jira.hl7.org/browse/FHIR-53951">FHIR-53951</a>: all functions/features should have examples, return and argument types/cardinality should be explicit</li>
       <li><a href="https://jira.hl7.org/browse/FHIR-57259">FHIR-57259</a>: Clarify "complex types" in discussion of equality for structured values</li>
       <li><a href="https://jira.hl7.org/browse/FHIR-58514">FHIR-58514</a>: Outdated links to resources with other FHIRPath variables/functions</li>
+      <li><a href="https://jira.hl7.org/browse/FHIR-53956">FHIR-53956</a>: FHIRPath page heading levels refined</li>
     </ul>
   </li>
 </ul>
@@ -129,7 +130,7 @@ These statements apply to any resource that specializes <a href="domainresource.
 </p>
 
 <a name="types"></a>
-<h4>Using FHIR types in expressions</h4>
+<h3>Using FHIR types in expressions</h3>
 <p>
 The namespace for the types defined in FHIR (primitive datatypes, datatypes, resources) is
 <code>FHIR</code>. So, for example:
@@ -249,7 +250,7 @@ Patient.name.given.ofType(System.String) // {} ; returns the empty set, as these
 
 
 <a name="quantity"></a>
-<h4>Use of FHIR Quantity</h4>
+<h3>Use of FHIR Quantity</h3>
 
 <p>
 The Mapping from FHIR.Quantity to FHIRPath System.Quantity can only be applied if the FHIR Quantity has a valid code present
