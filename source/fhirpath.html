@@ -35,6 +35,7 @@
       <li><a href="https://jira.hl7.org/browse/FHIR-53962">FHIR-53962</a>: slice() should this only be available in invariant definitions</li>
       <li><a href="https://jira.hl7.org/browse/FHIR-53951">FHIR-53951</a>: all functions/features should have examples, return and argument types/cardinality should be explicit</li>
       <li><a href="https://jira.hl7.org/browse/FHIR-57259">FHIR-57259</a>: Clarify "complex types" in discussion of equality for structured values</li>
+      <li><a href="https://jira.hl7.org/browse/FHIR-58514">FHIR-58514</a>: Outdated links to resources with other FHIRPath variables/functions</li>
     </ul>
   </li>
 </ul>
@@ -328,9 +329,9 @@ system = 'http://example.org/unique-identifier' implies %resource.identifier.whe
 In addition to the general purpose variables above, additional variables and/or guidance about variable use are defined when working with specific resources.  Refer to the following for additional FHIRPath guidance defined for:
 </p>
 <ul>
-  <li><a href="conformance-rules.html#constraints">Resource Invariants</a> (%profile)</li>
+  <li><a href="conformance-rules.html#constraints">Resource Invariants</a> (<code>%profile</code>)</li>
   <li><a href="subscriptiontopic.html#resource-trigger-update">SubscriptionTopic</a> (<code>%previous</code>, <code>%current</code>)</li>
-  <li><a href="questionnaireresponse.html#fhirpath">QuestionnaireResponse</a> (<code>%questionnaire</code>, <code>%qItem</code>)</li>
+  <li><a href="questionnaire.html#fhirpath">Questionnaire</a> (<code>%questionnaire</code>, <code>%qItem</code>)</li>
   <li><a href="activitydefinition.html#apply">ActivityDefinition and its $apply operation</a> (input parameters available as variables in <a href="activitydefinition-definitions.html#ActivityDefinition.dynamicValue.expression">dynamicValue</a> expressions, e.g. <code>%subject</code>, <code>%practitioner</code>)</li>
 </ul>
 
@@ -342,13 +343,6 @@ In addition to the general purpose variables above, additional variables and/or 
 <h3>Additional functions</h3>
 <p>FHIR adds (compatible) functionality to the set of common FHIRPath functions.
 </p>
-
-<p>
-In addition to the general purpose functions below, additional functions function use are defined when working with specific resources.  Refer to the following for additional FHIRPath guidance defined for:
-</p>
-<ul>
-  <li><a href="questionnaireresponse.html#fhirpath">QuestionnaireResponse</a></li>
-</ul>
 
 <a name="fn-extension"> </a>
 <h4>extension(url : String) : collection</h4>
