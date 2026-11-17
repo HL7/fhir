@@ -158,7 +158,7 @@ Properties are defined using the following elements:
  <tr>
   <td>uri</td>
   <td>optional <a href="datatypes.html#code">uri</a></td>
-  <td>Reference to the formal meaning of the property. One possible source of meaning is the <a href="codesystem-concept-properties.html">Concept Properties</a> code system.
+  <td>Reference to the formal meaning of the property. One possible source of meaning is the <a href="https://terminology.hl7.org/en/CodeSystem-concept-properties.html">Concept Properties</a> code system.
     This part of the definition is optional, but is recommended to provide an additional level of definitional consistency. See further comments below</td>
  </tr>
  <tr>
@@ -181,7 +181,7 @@ this is particularly important when using properties across multiple code system
   <li>The convention {canonical}#{code} is also used in some contexts to refer directly to a concept defined by the CodeSystem, so 
      if there is a concept defined with the same code as the property, it is treated as a 'backing' concept, to allow reasoning and use in value sets</li>
   <li>Properties are explicitly defined, not implied by the existence of a concept with the same code, and the definitions and properties of the concept to not contribute to the definition of the property</li>
-  <li>CodeSystems MAY (and should!) use properties defined in other code system. The <a href="codesystem-concept-properties.html">Concept Properties</a> Code System exists for this purpose, and the properties defined there SHOULD always be used where applicable</li>
+  <li>CodeSystems MAY (and should!) use properties defined in other code system. The <a href="https://terminology.hl7.org/en/CodeSystem-concept-properties.html">Concept Properties</a> Code System exists for this purpose, and the properties defined there SHOULD always be used where applicable</li>
   <li>When using a property defined in another code system, a code system SHOULD provide a full definition - <code>code</code>, <code>uri</code>, <code>description</code>, <code>type</code>, and <a href="https://hl7.org/fhir/extensions/StructureDefinition-codesystem-property-valueset.html">valueSet</a> where applicable</li>
   <li>In such cases, the definition of the property must be consistent with the source CodeSystem. CodeSystems MAY contain additional descriptive text around the use of the property, and MAY narrow the applicable value set if there is one</li>
   <li>If any of these features are not redeclared, applications SHOULD assume that the source CodeSystem definitions apply</li>
@@ -198,7 +198,7 @@ by the FHIR specification.
 <a name="defined-props"></a>
 <h2>Defined Concept Properties</h2>
 
-<p>In order to assist with consistency between code systems, the following basic property URIs are defined in the <a href="codesystem-concept-properties.html">Concept Properties</a> code system:</p>
+<p>In order to assist with consistency between code systems, the following basic property URIs are defined in the <a href="https://terminology.hl7.org/en/CodeSystem-concept-properties.html">Concept Properties</a> code system:</p>
 
 <p>
 Note: all the properties in the table below are prefixed by <code>http://hl7.org/fhir/concept-properties#</code>
@@ -338,7 +338,7 @@ in the concept properties code system.
 <p>
 In the absence of CodeSystem.property data elements being provided, when properties with these code values
 are added to a concept (in CodeSystem.concept.property.code) the intended property SHOULD be assumed to refer
-to the defined concept properties in the <a href="codesystem-concept-properties.html">http://hl7.org/fhir/concept-properties</a> code system.
+to the defined concept properties in the <a href="https://terminology.hl7.org/en/CodeSystem-concept-properties.html">http://hl7.org/fhir/concept-properties</a> code system.
 </p>
 <p>
 The parent and child properties are used when performing concept lookup (using the <a href="codesystem-operations.html#lookup">$lookup</a> operation),

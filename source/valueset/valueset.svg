@@ -1030,7 +1030,7 @@
        class="diagram-class-detail"><a
    id="n1630"
    xlink:href="valueset-definitions.html#ValueSet.expansion.property.uri"><title
-   id="title120191">Reference to the formal meaning of the property. One possible source of meaning is the [Concept Properties](codesystem-concept-properties.html) code system</title>uri</a> : <a
+   id="title120191">Reference to the formal meaning of the property. One possible source of meaning is the [Concept Properties](https://terminology.hl7.org/en/CodeSystem-concept-properties.html) code system</title>uri</a> : <a
    id="n1631"
    xlink:href="datatypes.html#uri">uri</a> [0..1]</text>
   </g>

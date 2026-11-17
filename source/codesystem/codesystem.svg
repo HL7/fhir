@@ -593,7 +593,7 @@ code</a>
        class="diagram-class-detail"><a
    xlink:href="codesystem-definitions.html#CodeSystem.property.uri"
    id="n829"><title
-   id="title178">Reference to the formal meaning of the property. One possible source of meaning is the [Concept Properties](codesystem-concept-properties.html) code system</title>
+   id="title178">Reference to the formal meaning of the property. One possible source of meaning is the [Concept Properties](https://terminology.hl7.org/en/CodeSystem-concept-properties.html) code system</title>
 uri</a>
  : <a
    xlink:href="datatypes.html#uri"
