@@ -34,6 +34,7 @@
       <li><a href="https://jira.hl7.org/browse/FHIR-40271">FHIR-40271</a>: FHIR is() example use non-singleton examples</li>
       <li><a href="https://jira.hl7.org/browse/FHIR-53962">FHIR-53962</a>: slice() should this only be available in invariant definitions</li>
       <li><a href="https://jira.hl7.org/browse/FHIR-53951">FHIR-53951</a>: all functions/features should have examples, return and argument types/cardinality should be explicit</li>
+      <li><a href="https://jira.hl7.org/browse/FHIR-57259">FHIR-57259</a>: Clarify "complex types" in discussion of equality for structured values</li>
     </ul>
   </li>
 </ul>
@@ -673,7 +674,7 @@ QuestionnaireResponse.questionnaire.ofType(string)
 
 <a name="fn-Equivalence"> </a>
 <h4>~ (Equivalence)</h4>
-<p>Equivalence works in exactly the same manner, but with the addition that for complex types, equality requires all child properties to be equal, <strong>except for "id" elements</strong>.</p>
+<p>Equivalence works in exactly the same manner, but with the addition that for complex types (including resources), equivalence requires all child properties to be equivalent recursively, <strong>except for "id" elements</strong>.</p>
 <p>In addition, for Coding values, equivalence is defined based on the code and system elements only. The version, display, and userSelected elements are ignored for the purposes of determining Coding equivalence.</p>
 <p>For CodeableConcept values, equivalence is defined as a non-empty intersection of Coding elements, using equivalence. In other words, two CodeableConcepts are considered equivalent if any Coding in one is equivalent to any Coding in the other.</p>
 
