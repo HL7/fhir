@@ -19,8 +19,8 @@
   </li>
   <li>Compatible, Substantive Changes
     <ul>
-      <li><a href="https://jira.hl7.org/browse/FHIR-54174">FHIR-54174</a>: FHIR should refer to the latest version of the fhirpath specification</li>
-      <li><a href="https://jira.hl7.org/browse/FHIR-53947">FHIR-53947</a>: FHIRpath Intro section(s) general improvements</li>
+      <li><a href="https://jira.hl7.org/browse/FHIR-54174">FHIR-54174</a>: FHIR should refer to the latest version of the FHIRPath specification</li>
+      <li><a href="https://jira.hl7.org/browse/FHIR-53947">FHIR-53947</a>: FHIRPath Intro section(s) general improvements</li>
       <li><a href="https://jira.hl7.org/browse/FHIR-53959">FHIR-53959</a>: Additional Functions cleanup</li>
       <li><a href="https://jira.hl7.org/browse/FHIR-53948">FHIR-53948</a>: Clarification in Using FHIR Types in Expressions</li>
       <li><a href="https://jira.hl7.org/browse/FHIR-53950">FHIR-53950</a>: Use of FHIR Quantity - clarification on units systems and internal representation</li>
@@ -57,7 +57,7 @@ FHIRPath is used in several places in the FHIR and related specifications:
 <li><a href="elementdefinition-definitions.html#ElementDefinition.constraint.expression">Invariants in ElementDefinition</a> - used to apply co-occurrence and other rules to the contents (e.g., <code>value.empty() or code!=component.code</code>)</li>
 <li><a href="elementdefinition-definitions.html#ElementDefinition.slicing.discriminator.path">Slicing discriminator</a> - used to indicate what element(s) define uniqueness (e.g., <code>Observation.category</code>)</li>
 <li><a href="searchparameter-definitions.html#SearchParameter.expression">Search parameter paths</a> - used to define what contents the parameter refers to (e.g., <code>telecom.where(system='phone')</code>)</li>
-<li><a href="operationoutcome-definitions.html#OperationOutcome.issue.expression">Error message locations in OperationOutcome</a> - used to identify/reference elements via a simple subset of fhirpath limited to element names and indexers (e.g. <code>Questionnaire.item[1].item[0].item[5].text</code>)</li>
+<li><a href="operationoutcome-definitions.html#OperationOutcome.issue.expression">Error message locations in OperationOutcome</a> - used to identify/reference elements via a simple subset of FHIRPath limited to element names and indexers (e.g. <code>Questionnaire.item[1].item[0].item[5].text</code>)</li>
 <li><a href="fhirpatch.html">FHIRPath-based Patch</a> - used to select the elements to be modified in a FHIR resource (e.g. <code>Patient.identifier.where(use='official').period</code>)</li>
 <li><a href="[%ig testing%]/StructureDefinitions-TestScript-definitions.html#TestScript.setup.action.assert.expression">Assertions in the TestScript resource</a></li>
 </ul>
@@ -144,11 +144,11 @@ The first element - the type name (Bundle) - is not namespaced, but the paramete
 <p>
 Understanding the primitive types is critical: <code>FHIR.string</code> is a different type to <code>System.String</code>.
 The <code>FHIR.string</code> type specializes <code>FHIR.Element</code>, and has the properties <code>id</code>, <code>extension</code>, and also
-an internal value of type <code>System.String</code> which is the fhirpath primitive value.
+an internal value of type <code>System.String</code> which is the FHIRPath primitive value.
 This primitive value can be explicitly accessed using the <a href="#fn-getValue">getValue()</a> function defined below
 (e.g., <code>Patient.birthDate.getValue()</code>).
-However just referring to a FHIR primitive property will implicitly use the internal value (fhirpath primitive type) 
-if a function or operator is defined as requiring a specific fhirpath primitive type.
+However just referring to a FHIR primitive property will implicitly use the internal value (FHIRPath primitive type) 
+if a function or operator is defined as requiring a specific FHIRPath primitive type.
 </p>
 
 <p>
@@ -201,7 +201,7 @@ This implicit conversion will use the following mapping:
 </table>
 
 <p>
-  Note that not all FHIR types have the same level of precision/range as their fhirpath equivalent types.
+  Note that not all FHIR types have the same level of precision/range as their FHIRPath equivalent types.
 </p>
 <ul>
   <li>The range of decimal in FHIR is 1e18 and in FHIRPath is 1e28,</li>
@@ -619,7 +619,7 @@ Questionnaire.item.where(linkId='123').item.sum(weight())
 <a name="fn-toString"> </a>
 <h4>toString() : string</h4>
 <p>
-  The native fhirpath <a href="https://hl7.org/fhirpath/STU3/#tostring--string"><code>toString()</code></a> function works with FHIR datatypes by implicitly converting FHIR primitive elements to their corresponding FHIRPath system types before invoking the standard `toString()` operation.
+  The native FHIRPath <a href="https://hl7.org/fhirpath/STU3/#tostring--string"><code>toString()</code></a> function works with FHIR datatypes by implicitly converting FHIR primitive elements to their corresponding FHIRPath system types before invoking the standard `toString()` operation.
   Any other types, or FHIR primitives that do not have an actual value (such as those with only extensions or an element id) will result in an empty collection.<br/>
 </p>
 <p>
