@@ -36,6 +36,16 @@
     <definition value="Read the state of a specific version of the resource."/>
   </concept>
   <concept>
+    <code value="read-conditional-modified-since"/>
+    <display value="read-conditional-modified-since"/>
+    <definition value="Read the current state of the resource with support for the If-Modified-Since HTTP header."/>
+  </concept>
+  <concept>
+    <code value="read-conditional-not-match"/>
+    <display value="read-conditional-not-match"/>
+    <definition value="Read the current state of the resource with support for the If-None-Match HTTP header."/>
+  </concept>
+  <concept>
     <code value="update"/>
     <display value="update"/>
     <definition value="Update an existing resource by its id (or create it if it is new)."/>
@@ -157,5 +167,10 @@
     <code value="operation"/>
     <display value="operation"/>
     <definition value="Perform an operation as defined by an OperationDefinition."/>
+  </concept>
+  <concept>
+    <code value="other"/>
+    <display value="other"/>
+    <definition value="An interaction type that is not one of the standard interaction types defined in this version of FHIR."/>
   </concept>
 </CodeSystem>

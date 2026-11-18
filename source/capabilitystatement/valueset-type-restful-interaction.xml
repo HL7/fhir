@@ -70,6 +70,34 @@
               <td>Read the state of a specific version of the resource.</td>
             
             </tr>
+
+            <tr>
+              
+              <td>
+                
+                <a href="codesystem-restful-interaction.html#restful-interaction-read-conditional-modified-since">read-conditional-modified-since</a>
+              
+              </td>
+              
+              <td>read-conditional-modified-since</td>
+              
+              <td>Read the current state of the resource with support for the If-Modified-Since HTTP header.</td>
+            
+            </tr>
+
+            <tr>
+              
+              <td>
+                
+                <a href="codesystem-restful-interaction.html#restful-interaction-read-conditional-not-match">read-conditional-not-match</a>
+              
+              </td>
+              
+              <td>read-conditional-not-match</td>
+              
+              <td>Read the current state of the resource with support for the If-None-Match HTTP header.</td>
+            
+            </tr>
             
             <tr>
               
@@ -266,6 +294,20 @@
               <td>Search all resources of the specified type based on some filter criteria.</td>
             
             </tr>
+            
+            <tr>
+              
+              <td>
+                
+                <a href="codesystem-restful-interaction.html#restful-interaction-other">other</a>
+              
+              </td>
+              
+              <td>other</td>
+              
+              <td>An interaction type that is not one of the standard interaction types defined in this version of FHIR.</td>
+            
+            </tr>
           
           </table>
         
@@ -327,6 +369,12 @@
         <code value="vread"/>
       </concept>
       <concept>
+        <code value="read-conditional-modified-since"/>
+      </concept>
+      <concept>
+        <code value="read-conditional-not-match"/>
+      </concept>
+      <concept>
         <code value="update"/>
       </concept>
       <concept>
@@ -367,6 +415,9 @@
       </concept>
       <concept>
         <code value="search-type"/>
+      </concept>
+      <concept>
+        <code value="other"/>
       </concept>
     </include>
   </compose>
