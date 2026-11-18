@@ -145,6 +145,14 @@
     <type value="code"/>
   </parameter>
   <parameter>
+    <name value="useSupplement"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="*"/>
+    <documentation value="When using this input parameter, all provided supplements must be used when validating the display or properties of the concept code. Use of this parameter should result in $validate-code behaving the same way as if the supplements were included in an &quot;all codes&quot; value set definition using the [ValueSet Supplement](http://hl7.org/fhir/StructureDefinition/valueset-supplement) extension"/>
+    <type value="canonical"/>
+  </parameter>
+  <parameter>
     <name value="result"/>
     <use value="out"/>
     <min value="1"/>
