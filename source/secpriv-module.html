@@ -217,7 +217,7 @@ User Identity and Access Context
 <p>
 <em>Use case:</em> "How to represent User identity in FHIR Resources"
 </p><p>
-The user identity shall be communicated in the business <code>.identifier</code> element. Where the user identifier has other uses, such as an email address, it may also be recorded in <code>.telecom</code>, these replications of the user identity are expected, but the formal user identity mapping shall be found in <code>.identifier</code>. For encoding guidance see <a href="administration-module.html#8.0.3.1">Administrative Page - Privacy and Security section</a>
+The user identity SHALL be communicated in the business <code>.identifier</code> element. Where the user identifier has other uses, such as an email address, it MAY also be recorded in <code>.telecom</code>, these replications of the user identity are expected, but the formal user identity mapping SHALL be found in <code>.identifier</code>. For encoding guidance see <a href="administration-module.html#8.0.3.1">Administrative Page - Privacy and Security section</a>
 </p>
 <p>
 
@@ -354,7 +354,7 @@ For details, see <a href="search.html#revinclude">_revinclude</a>.
 <p>
 <em>Use case:</em> For any given Resource, there is a need to determine the Consent that authorized the 
 given Resource to be created or updated. For example, a Privacy audit tracking down some data was recorded 
-when it is reported that the data should not have been gathered.
+when it is reported that the data SHOULD NOT have been gathered.
 </p>
 <p>
   <em>Trigger:</em> When there is a need to trace Resource create / update that were authorized by a Consent.
