@@ -17,6 +17,7 @@
   <li>Non-substantive Changes
     <ul>
       <li><a href="https://jira.hl7.org/browse/FHIR-54561">FHIR-54561</a>: Value Set Naming Mismatch PatientContactFunctionalRole</li>
+      <li><a href="https://jira.hl7.org/browse/FHIR-56376">FHIR-56376</a>: Incorrect guidance in comment on communication</li>
     </ul>
   </li>
 </ul>

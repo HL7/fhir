@@ -18,6 +18,7 @@
       	<li><a href="https://jira.hl7.org/browse/FHIR-56374">FHIR-56374</a>: Narrative cleanup of Scope &amp; Usage Section - PractitionerRole</li>
       	<li><a href="https://jira.hl7.org/browse/FHIR-56377">FHIR-56377</a>: Narrative revisions of 'notes' section - PractitionerRole</li>
       	<li><a href="https://jira.hl7.org/browse/FHIR-58586">FHIR-58586</a>: Clarify definitions of .code and .specialty for PractitionerRole</li>
+        <li><a href="https://jira.hl7.org/browse/FHIR-56376">FHIR-56376</a>: Incorrect guidance in PractitionerRole.communication</li>
     </ul>
   </li>
 </ul>

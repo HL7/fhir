@@ -831,7 +831,7 @@
       <path value="Patient.communication.language"/>
       <short value="The language which can be used to communicate with the patient about his or her health"/>
       <definition value="The language which may be used to communicate with the individual." />
-      <comment value="The language is commonly represented using the ISO-639-1 alpha code in lower case for the language, optionally followed by a hyphen and the ISO-3166-1 alpha code for the region in upper case.  For example, &quot;en&quot; for English, or &quot;en-US&quot; for American English versus &quot;en-AU&quot; for Australian English, sgn-US for American Sign Language, sgn-NL for Dutch Sign Language, etc.&#xD;&#xD;Not all systems actually code this but instead have it as free text. Hence CodeableConcept instead of code as the data type." />
+      <comment value="The language is commonly represented using the ISO-639-1 alpha code in lower case for the language, optionally followed by a hyphen and the ISO-3166-1 alpha code for the region in upper case.  For example, &quot;en&quot; for English, or &quot;en-US&quot; for American English versus &quot;en-AU&quot; for Australian English, sgn-US for American Sign Language, sgn-NL for Dutch Sign Language, etc.&#xD;&#xD;Not all systems actually code this but instead have it as free text. Hence CodeableConcept instead of code as the data type. To exchange free text languages, implementers may use the &quot;und&quot; code from the value set to meet the required binding obligation." />
       <requirements value="Most systems in multilingual countries will want to convey language. Not all systems actually need the regional dialect."/>
       <min value="1"/>
       <max value="1"/>

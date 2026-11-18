@@ -17,6 +17,7 @@
   <li>Non-substantive Changes
     <ul>
       <li><a href="https://jira.hl7.org/browse/FHIR-58262">FHIR-58262</a>: Missing definition of fetal record</li>
+      <li><a href="https://jira.hl7.org/browse/FHIR-56376">FHIR-56376</a>: Incorrect guidance in comment on communication</li>
     </ul>
   </li>
 </ul>
