@@ -71,6 +71,7 @@ or version of a resource.
 <p>
 The Provenance resource is based on the <a href="http://www.w3.org/TR/2013/NOTE-prov-overview-20130430/">W3C Provenance specification</a>, 
 and mappings are provided. The Provenance resource is tailored to fit the FHIR use-cases for provenance more directly. 
+FHIR Provenance is explicitly modeled as functional capabilities in ISO/HL7 10781 EHR System Functional Model Release 2 and ISO 21089 Trusted End-to-End Information Flows.
 In terms of <a href="http://www.w3.org/TR/prov-dm/">W3C Provenance</a> the FHIR <a href="provenance.html">Provenance resource</a> covers "Generation" of "Entity" with 
 respect to FHIR defined resources for creation or updating; 
 whereas <a href="auditevent.html">AuditEvent</a> covers "Usage" of "Entity" and all other "Activity" as defined in W3C Provenance.
@@ -132,6 +133,6 @@ If a resource, entity, or agent can have different versions that must be identif
 versioning information included.
 </p><p>
 Versioning and unique identification are not mandated for all systems that provide Resources, entities, and agents. 
-But, inclusion of Provenance requirements MAY introduce requirements for versioning and unique identification on those systems
+But, inclusion of Provenance requirements MAY introduce requirements for versioning and unique identification on those systems.
 </p>
 </div>
