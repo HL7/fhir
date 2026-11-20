@@ -441,4 +441,53 @@
       </SearchParameter>
     </resource>
   </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ServiceRequest-reason-code"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ServiceRequest.reason.concept"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ServiceRequest-reason-code"/>
+        <description value="Reason for the service request (code)"/>
+        <code value="reason-code"/>
+        <type value="token"/>
+        <expression value="ServiceRequest.reason.concept"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ServiceRequest-reason-reference"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ServiceRequest.reason.reference"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ServiceRequest-reason-reference"/>
+        <description value="Reason for the service request (reference)"/>
+        <code value="reason-reference"/>
+        <type value="reference"/>
+        <expression value="ServiceRequest.reason.reference"/>
+        <processingMode value="normal"/>
+        <target value="Condition"/>
+        <target value="Observation"/>
+        <target value="DiagnosticReport"/>
+        <target value="DocumentReference"/>
+        <target value="DetectedIssue"/>
+        <target value="Procedure"/>
+        <target value="RiskAssessment"/>
+        <target value="FamilyMemberHistory"/>
+        <target value="MedicationAdministration"/>
+        <target value="MedicationRequest"/>
+        <target value="AllergyIntolerance"/>
+      </SearchParameter>
+    </resource>
+  </entry>
 </Bundle>
