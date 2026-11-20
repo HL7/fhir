@@ -70,7 +70,7 @@
     </divergentElement>
     <divergentElement patternPath="Request.intent" resourcePath="RequestOrchestration.intent">
         <shortUnmatched reason="Unknown">
-            <_pattern value="proposal | plan | order (immutable)"/>
+            <_pattern value="proposal | plan | order etc (immutable)"/>
             <resource value="proposal | solicit-offer | offer-response | plan | directive | order | original-order | reflex-order | filler-order | instance-order | option"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">

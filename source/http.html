@@ -1069,7 +1069,7 @@ status code when the server wishes to indicate that the resource is deleted. For
 server may return other status codes as defined under <a href="security.html#AccessDenied">Access Denied Response Handling</a>.
 Upon successful deletion, or if the resource does not exist at all, the server should return either a
 <code>200 OK</code> if the response contains a payload, or a <code>204 No Content</code> with no response payload.  Servers
-using the <a href="https://build.fhir.org/ig/HL7/api-incubator/async-bundle.html">Asynchronous Interaction Request Pattern</a> may return a <code>202 Accepted</code>, if 
+using the <a href="https://build.fhir.org/ig/HL7/api-incubator-ig/async-bundle.html">Asynchronous Interaction Request Pattern</a> may return a <code>202 Accepted</code>, if 
 the server wishes to be non-committal about the outcome of the delete.
 <!--, or 200 OK status code, with an <a href="operationoutcome.html">OperationOutcome</a>
 resource containing hints and warnings about the deletion; if one is sent it SHALL NOT include any errors. -->
@@ -1185,7 +1185,7 @@ code when it does not. For security reasons, the
 server may return other status codes as defined under <a href="security.html#AccessDenied">Access Denied Response Handling</a>.
 Upon successful deletion, or if the resource does not exist at all, the server should return either a
 <code>200 OK</code> if the response contains a payload, or a <code>204 No Content</code> with no response payload.  Servers
-using the <a href="https://build.fhir.org/ig/HL7/api-incubator/async-bundle.html">Asynchronous Interaction Request Pattern</a> may return a <code>202 Accepted</code> if 
+using the <a href="https://build.fhir.org/ig/HL7/api-incubator-ig/async-bundle.html">Asynchronous Interaction Request Pattern</a> may return a <code>202 Accepted</code> if 
 the server wishes to be non-committal about the outcome of the delete.
 </p>
 <p>
@@ -1227,7 +1227,7 @@ code when it does not. For security reasons, the
 server may return other status codes as defined under <a href="security.html#AccessDenied">Access Denied Response Handling</a>.
 Upon successful deletion, or if the resource does not exist at all, the server should return either a
 <code>200 OK</code> if the response contains a payload, or a <code>204 No Content</code> with no response payload.  Servers
-using the <a href="https://build.fhir.org/ig/HL7/api-incubator/async-bundle.html">Asynchronous Interaction Request Pattern</a> may return a <code>202 Accepted</code> if 
+using the <a href="https://build.fhir.org/ig/HL7/api-incubator-ig/async-bundle.html">Asynchronous Interaction Request Pattern</a> may return a <code>202 Accepted</code> if 
 the server wishes to be non-committal about the outcome of the delete.
 </p>
 <p>
@@ -1285,7 +1285,7 @@ Servers SHOULD return an <code>ETag</code> header with the <code>versionId</code
 The body of response is as described in <a href="http.html#return">Managing Return Content</a>.
 </p>
 <p>
-Servers using the <a href="https://build.fhir.org/ig/HL7/api-incubator/async-bundle.html">Asynchronous Interaction Request Pattern</a> may return a <code>202 Accepted</code> if 
+Servers using the <a href="https://build.fhir.org/ig/HL7/api-incubator-ig/async-bundle.html">Asynchronous Interaction Request Pattern</a> may return a <code>202 Accepted</code> if 
 the server wishes to be non-committal about the outcome of the create.  Note that when returning a <code>202 Accepted</code>, the server
 is not expected to return a <code>Location</code> or <code>eTag</code>.
 </p>
@@ -1312,7 +1312,7 @@ Common HTTP Status codes returned (in addition to normal HTTP errors related to 
 </p>
 <ul>
   <li><b><code>201 Created</code></b> - success code - resource has been created</li>
-  <li><b><code>202 Accepted</code></b> - the server wishes to be non-committal about the outcome of the create - see <a href="https://build.fhir.org/ig/HL7/api-incubator/async-bundle.html">Asynchronous Interaction Request Pattern</a> for details.</li>
+  <li><b><code>202 Accepted</code></b> - the server wishes to be non-committal about the outcome of the create - see <a href="https://build.fhir.org/ig/HL7/api-incubator-ig/async-bundle.html">Asynchronous Interaction Request Pattern</a> for details.</li>
  <li><b><code>400 Bad Request</code></b> - error code - resource could not be parsed or failed basic FHIR validation rules</li>
  <li><b><code>404 Not Found</code></b> - error code - resource type not supported, or not a FHIR end-point</li>
  <li><b><code>422 Unprocessable Entity</code></b> - error code - the proposed resource violated applicable FHIR profiles or server business rules. This should be accompanied by an <a href="operationoutcome.html">OperationOutcome</a> resource providing additional detail</li>

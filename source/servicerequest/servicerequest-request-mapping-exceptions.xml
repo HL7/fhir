@@ -79,7 +79,7 @@
     <divergentElement patternPath="Request.status" resourcePath="ServiceRequest.status">
         <shortUnmatched reason="Unknown">
             <_pattern value="draft | active | on-hold | revoked | completed | entered-in-error | unknown"/>
-            <resource value="draft | active | on-hold | entered-in-error | ended | completed | revoked | unknown"/>
+            <resource value="draft | active | on-hold | entered-in-error | ended | completed | revoked | unknown | ended"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="The current state of the service request."/>
@@ -102,7 +102,7 @@
     </divergentElement>
     <divergentElement patternPath="Request.intent" resourcePath="ServiceRequest.intent">
         <shortUnmatched reason="Unknown">
-            <_pattern value="proposal | plan | order (immutable)"/>
+            <_pattern value="proposal | plan | order etc (immutable)"/>
             <resource value="proposal | solicit-offer | offer-response | plan | directive | order | original-order | reflex-order | filler-order | instance-order | option"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">

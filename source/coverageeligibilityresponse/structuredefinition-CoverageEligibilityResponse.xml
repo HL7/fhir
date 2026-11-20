@@ -586,7 +586,7 @@
     </element>
     <element id="CoverageEligibilityResponse.insurance.item.network">
       <path value="CoverageEligibilityResponse.insurance.item.network"/>
-      <short value="In or out of network"/>
+      <short value="In or out of network (or negotiated)"/>
       <definition value="Is a flag to indicate whether the benefits refer to in-network providers or out-of-network providers."/>
       <requirements value="Needed as in or out of network providers are treated differently under the coverage."/>
       <min value="0"/>
@@ -624,7 +624,7 @@
     </element>
     <element id="CoverageEligibilityResponse.insurance.item.term">
       <path value="CoverageEligibilityResponse.insurance.item.term"/>
-      <short value="Annual or lifetime"/>
+      <short value="Annual or lifetime (or day)"/>
       <definition value="The term or period of the values such as 'maximum lifetime benefit' or 'maximum annual visits'."/>
       <requirements value="Needed for the understanding of the benefits."/>
       <min value="0"/>

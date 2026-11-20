@@ -977,7 +977,7 @@
     </element>
     <element id="Encounter.specialArrangement">
       <path value="Encounter.specialArrangement"/>
-      <short value="Wheelchair, interpreter, attendant, etc"/>
+      <short value="Wheelchair, interpreter, attendant, Additional bedding needs, Guide dog, etc"/>
       <definition value="Any special requests that have been made for this encounter, such as the provision of specific equipment or other things."/>
       <min value="0"/>
       <max value="*"/>
@@ -1079,8 +1079,8 @@
     </element>
     <element id="Encounter.admission.admitSource">
       <path value="Encounter.admission.admitSource"/>
-      <short value="From where patient was admitted (physician referral, transfer)"/>
-      <definition value="From where patient was admitted (physician referral, transfer)."/>
+      <short value="From where patient was admitted (e.g. physician referral, transfer)"/>
+      <definition value="From where patient was admitted (e.g. physician referral, transfer)."/>
       <min value="0"/>
       <max value="1"/>
       <type>

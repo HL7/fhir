@@ -33,6 +33,7 @@
         <ordered value="true"/>
         <rules value="closed"/>
       </slicing>
+      <min value="2"/>
     </element>
     <element id="Composition.section:procedure">
       <path value="Composition.section"/>

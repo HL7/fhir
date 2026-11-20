@@ -555,7 +555,7 @@
     </element>
     <element id="MeasureReport.group.scoring">
       <path value="MeasureReport.group.scoring"/>
-      <short value="What scoring method (e.g. proportion, ratio, continuous-variable)"/>
+      <short value="What scoring method (e.g. proportion, ratio, continuous-variable, attestation, cohort, composite)"/>
       <definition value="Indicates how the calculation is performed for the measure, including proportion, ratio, continuous-variable, and cohort. The value set is extensible, allowing additional measure scoring types to be represented. It is expected to be the same as the scoring element on the referenced Measure."/>
       <min value="0"/>
       <max value="1"/>
@@ -955,7 +955,7 @@
     </element>
     <element id="MeasureReport.group.stratifier.stratum.value[x]">
       <path value="MeasureReport.group.stratifier.stratum.value[x]"/>
-      <short value="The stratum value, e.g. northwest"/>
+      <short value="The stratum value, e.g. northwest, northeast, southeast, southwest"/>
       <definition value="The value for this stratum, expressed as a CodeableConcept. When defining stratifiers on complex values, the value must be rendered such that the value for each stratum within the stratifier is unique."/>
       <comment value="Note that the string choice for stratum values should only be used when the data would not typically be coded; use CodeableConcept for data that would typically be coded, but a code is not known."/>
       <min value="0"/>
@@ -1061,7 +1061,7 @@
     </element>
     <element id="MeasureReport.group.stratifier.stratum.component.value[x]">
       <path value="MeasureReport.group.stratifier.stratum.component.value[x]"/>
-      <short value="The stratum component value, e.g. northwest"/>
+      <short value="The stratum component value, e.g. northwest, northeast, southeast, southwest"/>
       <definition value="The stratum component value."/>
       <comment value="Note that the string choice for stratum values should only be used when the data would not typically be coded; use CodeableConcept for data that would typically be coded, but a code is not known."/>
       <min value="1"/>

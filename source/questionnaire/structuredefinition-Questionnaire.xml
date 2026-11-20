@@ -864,9 +864,6 @@
 		</mapping>
 		</element>
 		<element id="Questionnaire.item.linkId">
-			<extension url="http://hl7.org/fhir/StructureDefinition/regex">
-        <valueString value="[^\s]+( [^\s]+)*"/>
-      </extension>
 			<path value="Questionnaire.item.linkId"/>
 			<short value="Unique id for item in questionnaire"/>
 			<definition value="An identifier that is unique within the Questionnaire allowing linkage to the equivalent item in a QuestionnaireResponse resource."/>
