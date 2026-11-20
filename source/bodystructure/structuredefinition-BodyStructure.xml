@@ -46,7 +46,7 @@
       <value value="http://www.hl7.org/Special/committees/orders/index.cfm"/>
     </telecom>
   </contact>
-  <description value="Record details about an anatomical structure.  This resource may be used when a coded concept does not provide the necessary detail needed for the use case."/>
+  <description value="An anatomical or pathological structure within the body. This resource may be used when a coded concept does not provide the necessary detail needed for the use case."/>
   <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="rim"/>
@@ -82,7 +82,7 @@
     <element id="BodyStructure">
       <path value="BodyStructure"/>
       <short value="Specific and identified anatomical structure"/>
-      <definition value="Record details about an anatomical structure.  This resource may be used when a coded concept does not provide the necessary detail needed for the use case."/>
+      <definition value="An anatomical or pathological structure within the body. This resource may be used when a coded concept does not provide the necessary detail needed for the use case."/>
       <alias value="anatomical location"/>
       <min value="0"/>
       <max value="*"/>
@@ -148,7 +148,7 @@
     </element>
     <element id="BodyStructure.morphology">
       <path value="BodyStructure.morphology"/>
-      <short value="Morphology of the body structure"/>
+      <short value="Morphology spanning multiple included structures"/>
       <definition value="A single morphologic entity that spans multiple anatomical entries in the included structures."/>
       <comment value="Use this element when a morphology applies to the overall body structure or spans multiple structures and cannot be attributed to a single included structure. Morphologies specific to an individual included or excluded structure should be represented using BodyStructure.includedStructure.morphology or BodyStructure.excludedStructure.morphology."/>
       <min value="0"/>
@@ -446,7 +446,7 @@
         <valueString value="#13394."/>
       </extension>
       <path value="BodyStructure.includedStructure.morphology"/>
-      <short value="Structure morphology"/>
+      <short value="Morphology of included structure"/>
       <definition value="The morphology of the included anatomical or pathological structure. This can define both normal and abnormal morphologies."/>
       <comment value="The minimum cardinality of 0 supports the use case of specifying a location without defining a morphology. When multiple morphologic characteristics apply to the same body structure, a single pre-coordinated terminology concept or post-coordinated expression may be used when an appropriate representation exists. Multiple repetitions of morphology can be used to represent individual morphologic characteristics when no suitable single concept or expression is available."/>
       <min value="0"/>

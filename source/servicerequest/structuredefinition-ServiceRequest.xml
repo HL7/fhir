@@ -677,6 +677,12 @@
       <type>
         <code value="Period"/>
       </type>
+      <type>
+        <code value="time"/>
+      </type>
+      <type>
+        <code value="dateTime"/>
+      </type>
       <isSummary value="true"/>
     </element>    
     <element id="ServiceRequest.quantity[x]">

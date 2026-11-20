@@ -32,6 +32,8 @@
     <blockquote class="stu-note" style="background-color: lightblue">
       <p><b>Changes since 6.0.0-ballot5:</b></p>
       <ul>
+        <li><a href="https://jira.hl7.org/browse/FHIR-54459">FHIR-54459</a> - Removed <code>cannot-be-obtained</code> from the shared observation-status terminology and the <code>Observation.status</code> short description.</li>
+        <li><a href="https://jira.hl7.org/browse/FHIR-54890">FHIR-54890</a> - Clarified that <code>Observation.bodyStructure</code> identifies a site on the focus when present, and removed the body-structure and device-metric examples from the <code>focus</code> comment.</li>
         <li><a href="https://jira.hl7.org/browse/FHIR-57683">FHIR-57683</a> - Added <code>valueReference(Location)</code> and <code>component.valueReference(Location)</code>, with reference-value search parameters.</li>
         <li><a href="https://jira.hl7.org/browse/FHIR-58250">FHIR-58250</a> - Added the <code>organizer</code> search parameter for finding organizer Observations.</li>
         <li><a href="https://jira.hl7.org/browse/FHIR-54569">FHIR-54569</a> - Clarified in the grouping guidance that <code>Observation.organizer</code> can mark an Observation using <code>hasMember</code> as a grouper.</li>
