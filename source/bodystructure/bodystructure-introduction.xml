@@ -22,6 +22,7 @@
 <blockquote class="stu-note" style="background-color: lightblue">
   <p><b>Changes since 6.0.0-ballot5:</b></p>
   <ul>
+    <li><a href="https://jira.hl7.org/browse/FHIR-58608">FHIR-58608</a> - Clarified that BodyStructure represents an anatomical or pathological entity, when other resources should reference it, and the short descriptions for overall and included-structure morphology.</li>
     <li><a href="https://jira.hl7.org/browse/FHIR-57928">FHIR-57928</a> - Added a dermatology example showing facial skin as an included structure with eyelid skin excluded</li>
     <li><a href="https://jira.hl7.org/browse/FHIR-57929">FHIR-57929</a> - Added guidance to <code>BodyStructure.includedStructure</code> and <code>BodyStructure.excludedStructure</code> to avoid specifying the same anatomical area as both included and excluded</li>
     <li><a href="https://jira.hl7.org/browse/FHIR-58415">FHIR-58415</a> - Corrected the <code>BodyStructure.includedStructure.morphology</code> definition to describe the included structure without referencing the removed <code>BodyStructure.location</code> element</li>
@@ -35,10 +36,11 @@
 </blockquote>
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
-<p>The BodyStructure resource contains details about an anatomical or pathological structure (e.g. a cyst) and may include patient information, identifiers, text descriptions, images, and spatially relevant characteristics.
+<p>The BodyStructure resource represents an entity within the body which may be an anatomical structure (e.g. the tibia or a lobe of the liver), an artificial structure (e.g. a stent or sponge), or a pathological structure (e.g. a cyst or a piece of shrapnel) and may include patient information, identifiers, text descriptions, images, and spatially relevant characteristics.
 </p>
-<p>BodyStructure is used when a coded concept alone does not provide sufficient detail, identity, persistence, or reuse for the use case. It supports representation of complex anatomical structures and locations using included and excluded structures and can provide additional detail such as laterality, directionality, qualifiers, morphology, images, landmark-based positioning, and spatial references.</p>
-<p>Some anatomical structures are discontiguous or consist of multiple related structures. A single BodyStructure instance may represent multiple included structures when they are considered a single anatomical or pathological entity for recording, tracking, or clinical management purposes. Separate BodyStructure instances should be used when structures need to be identified, assessed, tracked, treated, or managed independently over time.
+<p>BodyStructure is used when a coded concept alone does not provide sufficient detail, identity, persistence, or reuse for the use case.</p>
+<p>It supports representation of complex structures and locations using included and excluded structures and can provide additional detail such as laterality, directionality, qualifiers, morphology, images, landmark-based positioning, and spatial references.</p>
+<p>It also supports structures that are discontiguous or consist of multiple related structures. A single BodyStructure instance may represent multiple included structures when they are considered a single anatomical or pathological entity for recording, tracking, or clinical management purposes. Separate BodyStructure instances should be used when separate entities need to be identified, assessed, tracked, treated, or managed independently over time.
 </p>
 <p>Use <code>BodyStructure.morphology</code> when a single morphology applies across multiple included structures and cannot be assigned to one entry. Use <code>includedStructure.morphology</code> for a morphology specific to an individual included structure.</p>
 <p>Use <code>BodyStructure.predecessor</code> to identify earlier structures that contributed to the formation of the current structure. When two lesions merge, the resulting lesion references both original lesions as predecessors. When a lesion splits, each resulting lesion references the original lesion as its predecessor. The <a href="bodystructure-example-liver-neoplasm3.html">merged liver neoplasm example</a> illustrates this directional relationship.</p>
@@ -50,11 +52,10 @@
 <div>
 <a name="bnr"></a>
 <h2>Boundaries and Relationships</h2>
-<p>A BodyStructure instance is appropriate when the anatomical structure or pathological structures need to be recorded and tracked outside the context of a single resource, reused across resources, or described with additional detail such as laterality, qualifiers, morphology, images, or spatial description.
+<p>Resources, such as <a href="procedure.html">Procedure</a> or <a href="observation.html">Observation</a>, can reference one or more BodyStructure instances to identify the anatomical or pathological entities being observed or involved in the procedure.</p>
+<p>A BodyStructure reference is appropriate when the anatomical structure or pathological structure needs to be recorded and tracked outside the context of a single resource, reused across resources, or described with detail beyond what is possible with a single anatomy code, such as laterality, qualifiers, morphology, images, or spatial description.
 </p>
-<p>The <code>bodyStructure</code> element in resources that support it can be used when the resource's code does not fully specify the relevant body structure. As a <a href="references.html#CodeableReference">CodeableReference</a>, it supports both simple coded body structure concepts and references to a BodyStructure instance when additional detail or site-specific identity is needed; repeating elements allow multiple body structures to be represented.
-</p>
-<p>Referencing resources, such as <a href="procedure.html">Procedure</a> or <a href="observation.html">Observation</a>, can use one or more BodyStructure instances to identify the relevant structures consistently across multiple records and over time.
+<p>As a <a href="references.html#CodeableReference">CodeableReference</a>, the <code>bodyStructure</code> reference element supports both simple coded body structure concepts and references to a BodyStructure instance when additional detail or site-specific identity is needed; repeating elements allow multiple body structures to be represented.
 </p>
 <p>Resources that support references to BodyStructure should generally allow multiple references where multiple anatomical or pathological structures may be relevant to the clinical context. A resource may reference multiple BodyStructure instances when the structures are distinct entities that need to be identified or managed independently. A single BodyStructure instance may represent multiple related structures through its includedStructure elements when those structures are treated as a single anatomical or pathological entity.
 </p>
