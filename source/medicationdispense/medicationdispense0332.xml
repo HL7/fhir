@@ -30,7 +30,7 @@
                         <coding>
                             <system value="http://hl7.org/fhir/sid/ndc"/>
                             <code value="0409-5779-01"/>
-                            <display value="TPN Electrolytes, 25 VIAL, SINGLE-DOSE in 1 CARTON (0409-5779-01) > 20 mL in 1 VIAL, SINGLE-DOSE (0409-5779-11) (package)"/>
+                            <display value="TPN Electrolytes, 25 VIAL, SINGLE-DOSE in 1 CARTON (0409-5779-01) / 20 mL in 1 VIAL, SINGLE-DOSE (0409-5779-11) (package)"/>
                         </coding>
                     </concept>
                 </item>
