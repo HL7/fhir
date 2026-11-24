@@ -218,6 +218,7 @@ Methylphenidate 10 mg tablets — 10 mg at 07:30 and 12:00, 5 mg at 16:00 Mon–
     <li><code>Dosage.timing.repeat.dayOfWeek</code> and <code>...timeOfDay</code> for fixed administrations.</li> 
     <li><code>Dosage.asNeededBoolean</code> for PRN (evening); optionally <code>…when = EVE</code>.</li> 
     <li><code>Dosage.maxDosePerPeriod</code> (Ratio) for 150&nbsp;mg per week.</li> 
+    <li><code>safety.doseLimit</code> in the PRN <code>component</code> (scope=<code>period</code>, period 1 week) for at most 2 tablets per week.</li> 
     <li><code>MedicationRequest.dosageInstruction.safety.doseLimit</code> (scope=<code>period</code>) for 150&nbsp;mg per week.</li> 
   </ul> 
 
@@ -259,7 +260,8 @@ MedicationRequest
         safety
           doseLimit
             valueQuantity: 2 tablets
-            scope: administration
+            scope: period
+            period: 1 week
     safety
       doseLimit
         valueQuantity: 150 mg
@@ -360,7 +362,13 @@ MedicationRequest
                 "system": "http://unitsofmeasure.org",
                 "code": "tbl"
               },
-              "scope": "administration"
+              "scope": "period",
+              "period": {
+                "value": 1,
+                "unit": "week",
+                "system": "http://unitsofmeasure.org",
+                "code": "wk"
+              }
             }]
           }
         }
@@ -480,7 +488,13 @@ MedicationRequest
               &lt;system value=&quot;http://unitsofmeasure.org&quot;/&gt;
               &lt;code value=&quot;tbl&quot;/&gt;
             &lt;/valueQuantity&gt;
-            &lt;scope value=&quot;administration&quot;/&gt;
+            &lt;scope value=&quot;period&quot;/&gt;
+            &lt;period&gt;
+              &lt;value value=&quot;1&quot;/&gt;
+              &lt;unit value=&quot;week&quot;/&gt;
+              &lt;system value=&quot;http://unitsofmeasure.org&quot;/&gt;
+              &lt;code value=&quot;wk&quot;/&gt;
+            &lt;/period&gt;
           &lt;/doseLimit&gt;
         &lt;/safety&gt;
       &lt;/component&gt;  

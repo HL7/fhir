@@ -489,7 +489,7 @@
       </type>
       <mapping>
         <identity value="rim"/>
-        <map value="TBD"/>
+        <map value=".outboundRelationship[typeCode=PERT].target[classCode=OBS, moodCode=EVN] (for Condition: code=ASSERTION, value&lt;Diagnosis)"/>
       </mapping>
     </element>
     <element id="MedicationStatement.dosage">
