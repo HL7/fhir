@@ -2,7 +2,7 @@
 	<id value="example-breakglass-start"/>
 	<text>
 		<status value="generated"/>
-		<div xmlns="http://www.w3.org/1999/xhtml">Authorized Break-Glass period has been declared to enable immediate emergent treatment condition. This AuditEvent indicates the start of the Break-Glass event. Another would indicate the stop of that Break-Glass period, provided there is a session or state that can detect the end of the break-glass event.</div>
+		<div xmlns="http://www.w3.org/1999/xhtml">Authorized Break-Glass period has been declared to enable immediate emergent treatment condition. This AuditEvent indicates the start of the Break-Glass event. Another would indicate the stop of that Break-Glass period, provided there is a session or state that can detect the end of the break-glass event. Note this is purely an example, this is not a requirement or a recommendation from FHIR.</div>
 	</text>
 	<type>
 	   <coding>

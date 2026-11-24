@@ -30,20 +30,23 @@ dependencies {
     implementation("org.hl7.fhir:kindling:${property("kindlingVersion")}")
 }
 
+// -XX:-UseBASE64Intrinsics mitigates CVE-2026-114938 (Java4Shell). Remove it once the JDK is patched.
+val cveMitigationJvmArgs = listOf("-XX:-UseBASE64Intrinsics")
+
+fun publisherJvmArgs(): List<String> = cveMitigationJvmArgs + listOfNotNull(
+    properties["logback.configurationFile"]?.let { "-Dlogback.configurationFile=$it" }
+)
+
 task("publish", JavaExec::class) {
     dependsOn(":printVersion")
-    if (properties["logback.configurationFile"] != null) {
-        jvmArgs = listOf("-Dlogback.configurationFile=${properties["logback.configurationFile"]}")
-    }
+    jvmArgs = publisherJvmArgs()
     main = "org.hl7.fhir.tools.publisher.Publisher"
     classpath = sourceSets["main"].compileClasspath
 }
 
 task("publishFull", JavaExec::class) {
     dependsOn(":printVersion")
-    if (properties["logback.configurationFile"] != null) {
-        jvmArgs = listOf("-Dlogback.configurationFile=${properties["logback.configurationFile"]}")
-    }
+    jvmArgs = publisherJvmArgs()
     main = "org.hl7.fhir.tools.publisher.Publisher"
     classpath = sourceSets["main"].compileClasspath
     args("-nopartial")

@@ -83,8 +83,8 @@
       <constraint>
         <key value="isl-1"/>
         <severity value="error"/>
-        <human value="At least one of seriesUid or imageRegion3D SHALL be present"/>
-        <expression value="seriesUid.exists() or imageRegion3D.exists()"/>
+        <human value="At least one of seriesUid, imageRegion3D, or a derivedFrom reference to a DocumentReference SHALL be present"/>
+        <expression value="seriesUid.exists() or imageRegion3D.exists() or derivedFrom.resolve().ofType(DocumentReference).exists()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ImagingSelection"/>
       </constraint>
       <constraint>
@@ -478,6 +478,7 @@
       <path value="ImagingSelection.derivedFrom"/>
       <short value="The imaging study from which the imaging selection is derived"/>
       <definition value="The imaging study from which the imaging selection is made."/>
+      <requirements value="If the imaging selection is derived from an imaging study and the `studyUid` element is present, both elements SHALL refer to the same DICOM Study."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -490,6 +491,7 @@
     <element id="ImagingSelection.studyUid">
       <path value="ImagingSelection.studyUid"/>
       <short value="DICOM Study Instance UID"/>
+      <requirements value="If present and the `derivedFrom` element is present and references an ImagingStudy resource, both elements SHALL refer to the same DICOM Study."/>
       <definition value="The Study Instance UID for the DICOM Study from which the images were selected."/>
       <comment value="See [DICOM PS3.3 C.7.2](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.7.2.html)."/>
       <alias value="StudyInstanceUID"/>
@@ -714,7 +716,7 @@
     <element id="ImagingSelection.instance.frameNumber">
       <path value="ImagingSelection.instance.frameNumber"/>
       <short value="Selected frames"/>
-      <definition value="A list of frame numbers selected from a multiframe SOP Instance (See [DICOM PS3.3 Table 10.3](https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_10.3.html#table_10-3))."/>
+      <definition value="A list of frame numbers selected from a multiframe SOP Instance (see [DICOM PS3.3 C.7.6.1.1](https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.7.6.6.html#sect_C.7.6.6.1.1))."/>
       <requirements value="Only allowed if the value of `instance.sopClass` corresponds to a multiframe SOP Class."/>
       <min value="0"/>
       <max value="*"/>
@@ -727,7 +729,7 @@
     <element id="ImagingSelection.instance.referencedContentItemIdentifier">
       <path value="ImagingSelection.instance.referencedContentItemIdentifier"/>
       <short value="Selected content item"/>
-      <definition value="A sequence of positive integers that identify a single Referenced Content Item selected from a DICOM SR or other structured document SOP Instance (See [DICOM PS3.3 C.17.3.2.5](https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.17.3.2.5.html))."/>
+      <definition value="A sequence of positive integers that identify a single Referenced Content Item selected from a DICOM SR or other structured document SOP Instance (see [DICOM PS3.3 C.17.3.2.5](https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.17.3.2.5.html))."/>
       <requirements value="Only allowed if the value of `instance.sopClass` corresponds to a DICOM SR or other structured document SOP Class."/>
       <comment value="The Content Item Identifier is only reliable if the order of sequence items in the referenced DICOM SOP Instance is consistent. Some applications may re-order sequence items, invalidating this reference."/>
       <min value="0"/>
@@ -741,7 +743,7 @@
     <element id="ImagingSelection.instance.segmentNumber">
       <path value="ImagingSelection.instance.segmentNumber"/>
       <short value="Selected segments"/>
-      <definition value="A list of segment numbers selected from a segmentation SOP Instance (See [DICOM PS3.3 Table C.8.20-4](https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.8.20.4.html#table_C.8.20-4))."/>
+      <definition value="A list of segment numbers selected from a segmentation SOP Instance (see [DICOM PS3.3 Table C.8.20-4](https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.8.20.4.html#table_C.8.20-4))."/>
       <requirements value="Only allowed if the value of `instance.sopClass` corresponds to a segmentation SOP Class."/>
       <min value="0"/>
       <max value="*"/>
@@ -767,7 +769,7 @@
     <element id="ImagingSelection.instance.waveFormChannel">
       <path value="ImagingSelection.instance.waveFormChannel"/>
       <short value="Selected waveform channel"/>
-      <definition value="A list of channels in a Waveform selected from an instance of a waveform SOP Class.&#xA;Each channel is specified as a pair of values where the first value is the Multiplex Group Number, and the second value is the Channel Number within the multiplex group (See [DICOM PS3.3 C.18.5.1.1](https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.18.5.html#sect_C.18.5.1.1))."/>
+      <definition value="A list of channels in a Waveform selected from an instance of a waveform SOP Class.&#xA;Each channel is specified as a pair of values where the first value is the Multiplex Group Number, and the second value is the Channel Number within the multiplex group (see [DICOM PS3.3 C.18.5.1.1](https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.18.5.html#sect_C.18.5.1.1))."/>
       <requirements value="Only allowed if the value of `instance.sopClass` corresponds to a waveform  structure set SOP Class."/>
       <min value="0"/>
       <max value="*"/>

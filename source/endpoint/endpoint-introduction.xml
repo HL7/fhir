@@ -2,22 +2,22 @@
 
   <div>
 <blockquote class="ballot-note" id="bn1">
-<p><b>Note to Balloters:</b> Key changes made since FHIR 6.0.0-ballot4:</p>
+<p><b>Note to Balloters:</b> Key changes made since FHIR 6.0.0-ballot5:</p>
 <ul>
   <li>Non-compatible Changes
     <ul>
-      <li>(none)</li>
+      	<li><a href="https://jira.hl7.org/browse/FHIR-57939">FHIR-57939</a>: The hoursOfOperation property cardinality was changed from * to 1. This should be put back to *</li>
     </ul>
   </li>
   <li>Compatible, Substantive Changes
     <ul>
-      <li><a href="https://jira.hl7.org/browse/FHIR-57362">FHIR-57362</a>: Add test to the Endpoint status CodeSystem</li>
-      <li><a href="https://jira.hl7.org/browse/FHIR-55293">FHIR-55293</a>: Add "unknown" to the endpoint status</li>
+      <li><a href="https://jira.hl7.org/browse/FHIR-59544">FHIR-59544</a>: Endpoint does not allow discovery by url - new search parameter</li>
+      <li><a href="https://jira.hl7.org/browse/FHIR-55915">FHIR-55915</a>: Endpoint.connectionType is mandatory but without an unknown or notavailable</li>
     </ul>
   </li>
   <li>Non-substantive Changes
     <ul>
-      <li><a href="https://jira.hl7.org/browse/FHIR-53615">FHIR-53615</a>: Endpoint.header definition request</li>
+      <li><a href="https://jira.hl7.org/browse/FHIR-57757">FHIR-57757</a>: Endpoint needs clarification of ContactPoint and .contact use-case</li>
     </ul>
   </li>
 </ul>
@@ -65,20 +65,18 @@
       Where the endpoint resource describes the technical details for how to connect, and for what purposes 
       (which could be a small sub-set of the system's capabilities, and might not be a FHIR endpoint).
     </p>
-	<h3>ContactPoint</h3>
-	<p>
-	Endpoints are used to facilitate system to system communication, providing the details of the addressing of the system, purpose of use, 
-  protocols required/provided, and any other details required to communicate between the systems. (such as configuration parameters, 
-  require headers ...) The address value in the endpoint can only be used in the context of the provided details.
-</p><p>
-E.g. If the endpoint has a URL for an XDS service, using that in a browser by a user is meaningless.
-</p><p>
-E.g.2 If the endpoint has a US Direct address, using this to send a normal email message will not work, as they are not true email addresses (even though they appear to be)
-</p><p>
-
-A ContactPoint contains contact information, such as a phone number, web address that a user can directly interact with, no additional 
-information would be required to use the value. The value is generally used to communicate with an entity directly, not a system.
-</p>
+	<h3>ContactPoint vs. Endpoint</h3>
+    <p>
+      ContactPoint describes how to reach a person, for example, via phone, email, fax, for human-mediated communication. 
+      It's embedded in resources like Patient, Practitioner, and Organization.
+    </p>
+    <p>
+      Endpoint is a full resource describing a system-to-system connection - an API or messaging interface, with protocol, address, etc., for automated exchange.
+    </p>
+    <p>
+      A ContactPoint and an Endpoint can coexist on the same resource. 
+      An Organization might list a phone number (ContactPoint) for patients to call, alongside an API address (Endpoint) for automated referrals.
+    </p>
   </div>
 
   <div>

@@ -2,7 +2,7 @@
 
   <div>
 <blockquote class="ballot-note" id="bn1">
-<p><b>Note to Balloters:</b> Key changes made since FHIR 6.0.0-ballot4:</p>
+<p><b>Note to Balloters:</b> Key changes made since FHIR 6.0.0-ballot5:</p>
 <ul>
   <li>Non-compatible Changes
     <ul>
@@ -11,12 +11,12 @@
   </li>
   <li>Compatible, Substantive Changes
     <ul>
-      <li><a href="https://jira.hl7.org/browse/FHIR-55295">FHIR-55295</a>: Add "unknown" to the episode of care status</li>
+      <li>(none)</li>
     </ul>
   </li>
   <li>Non-substantive Changes
     <ul>
-      <li>(none)</li>
+      <li><a href="https://jira.hl7.org/browse/FHIR-57240">FHIR-57240</a>: Clarify use of EpisodeOfCare across organizations</li>
     </ul>
   </li>
 </ul>
@@ -43,12 +43,13 @@
     <p></p>
     <h3>Multiple Organizations and Transfer of Care</h3>
     <p>
-      Many organizations can be involved in an EpisodeOfCare; however each organization will have its own EpisodeOfCare resource instance
-      that tracks its responsibility with the patient(s).
+      Many organizations can be involved in an episode of care; however each organization will have its own EpisodeOfCare resource instance
+      that tracks its responsibility with the patient(s).<br/>
+      (Other organizations can be involved in the EpisodeOfCare, via the <code>careTeam</code> element)
     </p>
     <p>
-      When an Organization completes their involvement with the patient(s) and transfers care to another Organization.
-      This is often in the form of a referral to another Organization (or Organizations).<br/>
+      When an Organization completes their involvement with the patient(s) it could transfer care to other Organizations.
+      This is often in the form of a referral.<br/>
     </p>
     <p>
       When an incoming referral is received a new EpisodeOfCare may be created for this organization.

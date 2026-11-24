@@ -34,6 +34,7 @@
     <clinicalRecommendationStatement
         value="The logic is not meant to guide or alter the care patients receive. The purpose of this core clinical data elements logic is to extract clinical data that are already routinely captured in EHRs from encounters for hospitalized adult patients. It is not intended to require that clinical staff perform additional measurements or tests that are not needed for diagnostic assessment or treatment of patients."/>
     <group id="6385011c4ba3d47c885c02aa">
+       <linkId value="Group_1"/>
        <type>
            <coding>
                <system value="http://terminology.hl7.org/CodeSystem/measure-type"/>
@@ -50,6 +51,7 @@
             </coding>
         </scoring>
         <population id="24BB5BA9-820F-4958-B8AA-AA8962E9E398">
+            <linkId value="Population_1"/>
             <code>
                 <coding>
                     <system value="http://terminology.hl7.org/CodeSystem/measure-population"/>
@@ -66,6 +68,7 @@
         </population>
     </group>
     <supplementalData id="results">
+        <linkId value="SupplementalData_1"/>
         <usage>
             <coding>
                 <system value="http://terminology.hl7.org/CodeSystem/measure-data-usage"/>

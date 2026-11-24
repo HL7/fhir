@@ -533,7 +533,7 @@
       <path value="HealthcareService.communication"/>
       <short value="The language that this service is offered in"/>
       <definition value="Some services are specifically made available in multiple languages, this property permits a directory to declare the languages this is offered in. Typically this is only provided where a service operates in communities with mixed languages used."/>
-      <comment value="When using this property it indicates that the service is available with this language, it is not derived from the practitioners, and not all are required to use this language, just that this language is available while scheduling."/>
+      <comment value="When using this property it indicates that the service is available with this language, it is not derived from the practitioners, and not all are required to use this language, just that this language is available while scheduling.&#xD;&#xD;The language is commonly represented using the ISO-639-1 alpha code in lower case for the language, optionally followed by a hyphen and the ISO-3166-1 alpha code for the region in upper case.  For example, &quot;en&quot; for English, or &quot;en-US&quot; for American English versus &quot;en-AU&quot; for Australian English, sgn-US for American Sign Language, sgn-NL for Dutch Sign Language, etc.&#xD;&#xD;Not all systems actually code this but instead have it as free text. Hence CodeableConcept instead of code as the data type. To exchange free text languages, implementers may use the &quot;und&quot; code from the value set to meet the required binding obligation."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -616,7 +616,7 @@
       <definition value="A collection of times that the healthcare service is available."/>
       <comment value="More detailed availability information may be provided in associated Schedule/Slot resources.&#xA;&#xA;Systems may choose to render availability differently than it is exchanged on the interface. For example, rather than &quot;Mon, Tue, Wed, Thur, Fri from 9am-12am; Mon, Tue, Wed, Thur, Fri from 1pm-5pm&quot; as would be implied by two availableTime repetitions, an application could render this information as &quot;Mon-Fri 9-12am and 1-5pm&quot;.&#xD;&#xD;The NotAvailableTime(s) included indicate the general days/periods where the service is not available (for things such as public holidays)."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="Availability"/>
       </type>
