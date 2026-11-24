@@ -60,6 +60,7 @@ The <a href="dosage-examples.html">examples</a> page shows how many different co
 <li><a href="https://jira.hl7.org/browse/FHIR-54340">FHIR-54340</a> - Renamed the <code>DosageDetails</code> data type to <a href="#DosageInstruction">DosageInstruction</a>. The content of the type is unchanged.</li>
 <li><a href="https://jira.hl7.org/browse/FHIR-58907">FHIR-58907</a> (also <a href="https://jira.hl7.org/browse/FHIR-58386">FHIR-58386</a>) - <code>renderedInstruction</code> stays optional (0..1, reverting FHIR-54014); its definition no longer says it must always be present, and the comment says when it SHOULD be present (when people read and act on the dosage) and that it SHALL be consistent with the structured dosage.</li>
 <li><a href="https://jira.hl7.org/browse/FHIR-54333">FHIR-54333</a> - Example 2: the dose limit of the as-needed component (at most 2 tablets) is now per week (<code>scope</code> = <code>period</code>, <code>period</code> = 1 week) instead of per administration.</li>
+<li><a href="https://jira.hl7.org/browse/FHIR-59410">FHIR-59410</a> - <code>patientInstruction</code> is now <code>markdown</code> (was <code>string</code>), like <code>renderedInstruction</code>, so that it can carry formatting and images such as dosing pictograms (see <a href="narrative.html#id">Image References</a>).</li>
 </ul>
 </blockquote>  
 
