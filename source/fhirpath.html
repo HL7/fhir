@@ -10,29 +10,33 @@
 
 
 <blockquote class="ballot-note" id="bn1">
-<p><b>Note to Balloters:</b> Key changes made since FHIR 6.0.0-ballot4:</p>
+<p><b>Note to Balloters:</b> Key changes made since FHIR 6.0.0-ballot5:</p>
 <ul>
   <li>Non-compatible Changes
     <ul>
-      <li><a href="https://jira.hl7.org/browse/FHIR-54745">FHIR-54745</a>: FHIRpath - <a href="https://build.fhir.org/ig/HL7/api-incubator-ig/fhirpath.html#type-factory">Type Factory moved to incubator</a></li>
-      <li><a href="https://jira.hl7.org/browse/FHIR-54742">FHIR-54742</a>: FHIRpath - <a href="https://build.fhir.org/ig/HL7/api-incubator-ig/fhirpath.html#general-service-api">General Service API</a> moved to incubator</li>
-      <li><a href="https://jira.hl7.org/browse/FHIR-54746">FHIR-54746</a>: FHIRpath - <a href="https://build.fhir.org/ig/HL7/api-incubator-ig/fhirpath.html#terminology-service-api">Terminology Service API</a> moved to incubator</li>
+      <li>(none)</li>
     </ul>
   </li>
   <li>Compatible, Substantive Changes
     <ul>
-      <li><a href="https://jira.hl7.org/browse/FHIR-56303">FHIR-56303</a>: Allow htmlChecks() to be invoked on strings in addition to xhtml</li>
-      <li><a href="https://jira.hl7.org/browse/FHIR-55637">FHIR-55637</a>: FHIRPath FHIR.date maps to System.Date not System.DateTime</li>
+      <li><a href="https://jira.hl7.org/browse/FHIR-54174">FHIR-54174</a>: FHIR should refer to the latest version of the FHIRPath specification</li>
+      <li><a href="https://jira.hl7.org/browse/FHIR-53947">FHIR-53947</a>: FHIRPath Intro section(s) general improvements</li>
+      <li><a href="https://jira.hl7.org/browse/FHIR-53959">FHIR-53959</a>: Additional Functions cleanup</li>
+      <li><a href="https://jira.hl7.org/browse/FHIR-53948">FHIR-53948</a>: Clarification in Using FHIR Types in Expressions</li>
+      <li><a href="https://jira.hl7.org/browse/FHIR-53950">FHIR-53950</a>: Use of FHIR Quantity - clarification on units systems and internal representation</li>
+      <li><a href="https://jira.hl7.org/browse/FHIR-53952">FHIR-53952</a>: FHIR specific variables - clarifications and missing documentation on %profile</li>
     </ul>
   </li>
   <li>Non-substantive Changes
     <ul>
-      <li><a href="https://jira.hl7.org/browse/FHIR-55495">FHIR-55495</a>: fhirpath pages refers to System.string instead of System.string</li>
-      <li><a href="https://jira.hl7.org/browse/FHIR-53958">FHIR-53958</a>: Additional Functions section cleanup - remove comparable (now in fhirpath stu3) and re-organize headings</li>
-      <li><a href="https://jira.hl7.org/browse/FHIR-55417">FHIR-55417</a>: missing ".where" in fhirpath example</li>
-      <li><a href="https://jira.hl7.org/browse/FHIR-53949">FHIR-53949</a>: fhirpath page refers to functions as operations</li>
-      <li><a href="https://jira.hl7.org/browse/FHIR-54084">FHIR-54084</a>: FHIRpath resolve() should include an example on its use on uri's</li>
-      <li><a href="https://jira.hl7.org/browse/FHIR-36040">FHIR-36040</a>: Include link to ActivityDefinition $apply usage of FHIRPath expressions</li>
+      <li><a href="https://jira.hl7.org/browse/FHIR-54601">FHIR-54601</a>: Handling of difference in range of FHIR.decimal and System.Decimal</li>
+      <li><a href="https://jira.hl7.org/browse/FHIR-53811">FHIR-53811</a>: Clarify hasValue() and getValue()</li>
+      <li><a href="https://jira.hl7.org/browse/FHIR-40271">FHIR-40271</a>: FHIR is() example use non-singleton examples</li>
+      <li><a href="https://jira.hl7.org/browse/FHIR-53962">FHIR-53962</a>: slice() should this only be available in invariant definitions</li>
+      <li><a href="https://jira.hl7.org/browse/FHIR-53951">FHIR-53951</a>: all functions/features should have examples, return and argument types/cardinality should be explicit</li>
+      <li><a href="https://jira.hl7.org/browse/FHIR-57259">FHIR-57259</a>: Clarify "complex types" in discussion of equality for structured values</li>
+      <li><a href="https://jira.hl7.org/browse/FHIR-58514">FHIR-58514</a>: Outdated links to resources with other FHIRPath variables/functions</li>
+      <li><a href="https://jira.hl7.org/browse/FHIR-53956">FHIR-53956</a>: FHIRPath page heading levels refined</li>
     </ul>
   </li>
 </ul>
@@ -43,19 +47,19 @@
 <table class="colsn"><tr><td id="wg">Responsible Owner: <a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
 
 <p>
-The FHIR Specification uses <a href="http://hl7.org/fhirpath/r2">FHIRPath (release 2)</a> for path-based navigation and extraction.
-FHIRPath is a separate specification published at <a href="http://hl7.org/fhirpath/r2">http://hl7.org/fhirpath</a> in order to support wider re-use across multiple specifications.
+The FHIR Specification uses <a href="https://hl7.org/fhirpath/STU3">FHIRPath (release 3)</a> for path-based navigation and extraction.
+FHIRPath is a separate specification published at <a href="https://hl7.org/fhirpath/STU3">http://hl7.org/fhirpath</a> in order to support wider re-use across multiple specifications.
 </p>
 <p>
 FHIRPath is used in several places in the FHIR and related specifications:
 </p>
 <ul>
-<li><a href="elementdefinition-definitions.html#ElementDefinition.constraint.expression">invariants in ElementDefinition</a> - used to apply co-occurrence and other rules to the contents (e.g., value.empty() or code!=component.code)</li>
-<li><a href="elementdefinition-definitions.html#ElementDefinition.slicing.discriminator.path">slicing discriminator</a> - used to indicate what element(s) define uniqueness (e.g., Observation.category)</li>
-<li><a href="searchparameter-definitions.html#SearchParameter.expression">search parameter paths</a> - used to define what contents the parameter refers to (e.g., Observation.dataAbsentReason)</li>
-<li><a href="operationoutcome-definitions.html#OperationOutcome.issue.expression">error message locations in OperationOutcome</a></li>
-<li><a href="fhirpatch.html">FHIRPath-based Patch</a></li>
-<li><a href="[%ig testing%]/StructureDefinitions-TestScript-definitions.html#TestScript.setup.action.assert.expression">Invariants in the TestScript resource</a></li>
+<li><a href="elementdefinition-definitions.html#ElementDefinition.constraint.expression">Invariants in ElementDefinition</a> - used to apply co-occurrence and other rules to the contents (e.g., <code>value.empty() or code!=component.code</code>)</li>
+<li><a href="elementdefinition-definitions.html#ElementDefinition.slicing.discriminator.path">Slicing discriminator</a> - used to indicate what element(s) define uniqueness (e.g., <code>Observation.category</code>)</li>
+<li><a href="searchparameter-definitions.html#SearchParameter.expression">Search parameter paths</a> - used to define what contents the parameter refers to (e.g., <code>telecom.where(system='phone')</code>)</li>
+<li><a href="operationoutcome-definitions.html#OperationOutcome.issue.expression">Error message locations in OperationOutcome</a> - used to identify/reference elements via a simple subset of FHIRPath limited to element names and indexers (e.g. <code>Questionnaire.item[1].item[0].item[5].text</code>)</li>
+<li><a href="fhirpatch.html">FHIRPath-based Patch</a> - used to select the elements to be modified in a FHIR resource (e.g. <code>Patient.identifier.where(use='official').period</code>)</li>
+<li><a href="[%ig testing%]/StructureDefinitions-TestScript-definitions.html#TestScript.setup.action.assert.expression">Assertions in the TestScript resource</a></li>
 </ul>
 <p>
 FHIRPath is used and extended in many other contexts beyond those listed above. For additional examples and information about other usage patterns and extensions, refer to the <a href="https://confluence.hl7.org/spaces/FHIRI/pages/391650086/FHIRPath+Usage+and+Extensions">FHIRPath Usage and Extensions page</a> on HL7's confluence.
@@ -64,7 +68,7 @@ FHIRPath is used and extended in many other contexts beyond those listed above. 
 [%dragons-start%]
 <h4>FHIR Inter-version issues</h4>
 <p>
-FHIR inter-version compatibility rules allow for non-repeating elements to be made repeating in future FHIR versions.
+<a href="versions.html#change">FHIR inter-version compatibility rules</a> allow for non-repeating elements to be made repeating in future FHIR versions.
 For this reason, FHIRPath expressions SHOULD be written presuming all elements will repeat, even if the current version
 of the model has a maximum cardinality of '1'.
 </p>
@@ -87,10 +91,12 @@ of primitives).
 </p>
 <p>More specifically:</p>
 <ul>
- <li>A FHIRPath may optionally start with a full resource name</li>
+ <li>A FHIRPath may optionally start with a full resource name (the type of the object)</li>
  <li>Elements of datatypes and resources are used as the name of the nodes which can be navigated over, except for choice elements (ending with '[x]'), see below.</li>
- <li>The <code>contained</code> element node does not have the name of the Resource as its first and only child (instead it directly contains the contained resource&#8217;s children)</li>
- <li>There is no difference between an attribute and an element</li>
+ <li>The json 'resourceType' property is not present in the object model - that is the type of the object (can restrict to specific types using <code>ofType(Patient)</code>)</li>
+ <li>Elements of FHIR type <code>Resource</code> do not have the name of the resource as their first and only child, instead they directly contain the resource's children (as found in <code>DomainResource.contained</code>, <code>Parameters.parameter.resource</code>, <code>Bundle.entry.resource</code>, <code>Bundle.issues</code>, <code>Bundle.entry.response.outcome</code>)</li>
+ <li>There is no difference between an attribute and an element in XML (<code>url</code> and <code>id</code> are just considered elements in the object model)</li>
+ <li>Primitive FHIR types do not have a <code>value</code> element, but they do have <code>id</code> and <code>extension</code> elements</li>
  <li>Repeating elements turn into multiple nodes with the same name</li>
 </ul>
 
@@ -110,13 +116,13 @@ as a specific type using the <code>ofType</code> function:</p>
 <p>
 FHIRPath statements can start with a full resource name:
 </p>
-<pre>
+<pre class="fhirpath">
 Patient.name.given
 </pre>
 <p>
 The name can also include super types such as DomainResource:
 </p>
-<pre>
+<pre class="fhirpath">
 DomainResource.contained.where(id = 23).exists()
 </pre>
 <p>
@@ -124,26 +130,31 @@ These statements apply to any resource that specializes <a href="domainresource.
 </p>
 
 <a name="types"></a>
-<h4>Using FHIR types in expressions</h4>
+<h3>Using FHIR types in expressions</h3>
 <p>
 The namespace for the types defined in FHIR (primitive datatypes, datatypes, resources) is
 <code>FHIR</code>. So, for example:
 </p>
-<pre>
-Patient.is(FHIR.Patient)
+<pre class="fhirpath">
+Bundle.entry.resource.ofType(FHIR.Patient)
 </pre>
 <p>
-The first element - the type name - is not namespaced, but the parameter to the <code>is()</code> function is.
+The first element - the type name (Bundle) - is not namespaced, but the parameter to the <code>ofType()</code> function is.
 </p>
 <p>
 Understanding the primitive types is critical: <code>FHIR.string</code> is a different type to <code>System.String</code>.
 The <code>FHIR.string</code> type specializes <code>FHIR.Element</code>, and has the properties <code>id</code>, <code>extension</code>, and also
-the implicit <code>value</code> property that is actually of type <code>System.String</code>.
+an internal value of type <code>System.String</code> which is the FHIRPath primitive value.
+This primitive value can be explicitly accessed using the <a href="#fn-getValue">getValue()</a> function defined below
+(e.g., <code>Patient.birthDate.getValue()</code>).
+However just referring to a FHIR primitive property will implicitly use the internal value (FHIRPath primitive type) 
+if a function or operator is defined as requiring a specific FHIRPath primitive type.
 </p>
 
 <p>
 The evaluation engine will automatically convert the value of FHIR types representing primitives
-to FHIRPath types when they are used in expressions according to the following mapping:
+to FHIRPath types when the function or operator requires a system primitive type.
+This implicit conversion will use the following mapping:
 </p>
 
 <table class="grid">
@@ -189,6 +200,20 @@ to FHIRPath types when they are used in expressions according to the following m
 </tr>
 </table>
 
+<p>
+  Note that not all FHIR types have the same level of precision/range as their FHIRPath equivalent types.
+</p>
+<ul>
+  <li>The range of decimal in FHIR is 1e18 and in FHIRPath is 1e28,</li>
+  <li>
+    FHIRPath datetimes can contain partial times, whereas fhir datetimes can be partial dates,
+    or include a complete date and time (including timezone).
+  </li>
+</ul>
+<p>
+  Some use cases may need to craft expressions carefully to handle these differences.
+</p>
+
 <p>Since FHIR primitives may contain extensions, the following expressions are <em>not</em> mutually exclusive:</p>
 
 <pre class="fhirpath">
@@ -219,29 +244,22 @@ for the few edge cases where the automatic conversion is not appropriate. Note
 that ofType() does not have such restrictions - both of the following are valid:
 </p>
 <pre class="fhirpath">
-Patient.name.given.ofType(FHIR.string)
-Patient.name.given.ofType(System.String)
+Patient.name.given.ofType(FHIR.string)   // returns all the given names (as they are fhir strings)
+Patient.name.given.ofType(System.String) // {} ; returns the empty set, as these are not System.String values
 </pre>
 
 
 <a name="quantity"></a>
-<h4>Use of FHIR Quantity</h4>
+<h3>Use of FHIR Quantity</h3>
 
 <p>
-The Mapping from FHIR Quantity to FHIRPath System.Quantity can only be applied if the FHIR Quantity has a UCUM code
-- i.e., a system of <code>http://unitsofmeasure.org</code>, and a code is present.
+The Mapping from FHIR.Quantity to FHIRPath System.Quantity can only be applied if the FHIR Quantity has a valid code present
+and also has either the UCUM system (<code>http://unitsofmeasure.org</code>), 
+or the FHIRPath calendar system (<code>http://hl7.org/fhirpath/CodeSystem/calendar-units</code>).
 </p>
 <p>
-As part of the mapping, time-valued UCUM units are mapped to the <a href="http://hl7.org/fhirpath/R2/index.html#time-valued-quantities">calendar duration units</a> defined in FHIRPath, according to the following map:
+When performing date arithmetic or other places where conversion is mandated by context, time-valued UCUM units are mapped to the approximate or equivalent relationships shown in the <a href="http://hl7.org/fhirpath/STU3/index.html#time-valued-quantities">calendar duration units table</a> in the base FHIRPath specification
 </p>
-<table class="grid">
-<tr><td>a</td><td>year</td></tr>
-<tr><td>mo</td><td>month</td></tr>
-<tr><td>d</td><td>day</td></tr>
-<tr><td>h</td><td>hour</td></tr>
-<tr><td>min</td><td>minute</td></tr>
-<tr><td>s</td><td>second</td></tr>
-</table>
 
 [%dragons-start%]
 <p>
@@ -251,24 +269,46 @@ Note that there's a subtle difference between the UCUM definitions
 for <code>a</code> and <code>mo</code>, which are definition durations 
 of <code>365.25</code> and <code>30</code> days respectively, while 
 <code>year</code> and <code>month</code> are calendar based durations,
-and their length of time varies. See <a href="http://hl7.org/fhirpath/N1/#time-valued-quantities">Time-valued Quantities</a>
+and their length of time varies. See <a href="http://hl7.org/fhirpath/STU3/#time-valued-quantities">Time-valued Quantities</a>
 for further discussion. Implementers should be aware of these subtle differences,
 but in general, this approach matches what users expect most closely.
 </p>
 [%dragons-end%]
 
+<p>
+If an expression attempts to perform math requiring unit conversion on a Quantity with a code and system
+combination not supported by the engine (i.e. not one of the two systems above or any other codes the 
+engine has been customized to support), the operation will return an empty collection.
+</p>
+<p>
+For more details on using functions and operations with quantities, refer to the following sections:
+<a href="http://hl7.org/fhirpath/STU3/#datetime-arithmetic">DateTime Arithmetic</a>,
+<a href="http://hl7.org/fhirpath/STU3/#toquantityunit--string--quantity">toQuantity()</a>, and
+<a href="http://hl7.org/fhirpath/STU3/#quantity-equality">Quantity Equality</a>
+</p>
+
 <a name="variables"></a>
 <h3>FHIR Specific Variables</h3>
 
-<p>FHIR defines two specific variables that are always in scope when FHIRPath is used
+<p>FHIR defines several specific variables that are always in scope when FHIRPath is used
 in any of the contexts above:
 </p>
-<pre>
-%resource     // the resource that contains the original node that is in %context
-%rootResource // the container resource for the resource identified by %resource
-%profile      // the canonical URL of a profile that contains the invariant's fhirpath expression (only defined in profile invariants)
-              // Note: not all fhirpath engines support this profile variable, or the slice() function that usually uses it.
-</pre>
+
+<table class="grid">
+<tr>
+<th>Variable</th><th>Description</th>
+</tr>
+<tr>
+<td><code>%context</code></td><td>The entry point for the evaluation of the FHIRPath expression (can be any element in a resource depending on usage context)</td>
+</tr>
+<tr>
+<td><code>%resource</code></td><td>The resource that contains the original node that is in %context</td>
+</tr>
+<tr>
+<td><code>%rootResource</code></td><td>The container resource for the resource identified by %resource</td>
+</tr>
+</table>
+
 <p>
 The resource is very often the context, such that %resource = %context.
 When a DomainResource contains another resource, and that contained resource
@@ -277,34 +317,42 @@ Note that in most cases, the resource is not contained by another resource, and
 then %rootResource is the same as %resource.
 </p>
 
+<p>For example, a profile could define an invariant on <code>Patient.identifier</code> to ensure usage of a particular system is unique:</p>
+<pre class="fhirpath">
+system = 'http://example.org/unique-identifier' implies %resource.identifier.where(system.getValue() = %context.system).count() = 1
+</pre>
+<p>
+  Inside the invariant we can refer to %resource to access all identifiers, and then use %context inside the <code>where</code> clause
+  to compare the iterated identifier's system with the system of the specific identifier being validated.
+</p>
+
 <p>
 In addition to the general purpose variables above, additional variables and/or guidance about variable use are defined when working with specific resources.  Refer to the following for additional FHIRPath guidance defined for:
 </p>
 <ul>
-  <li><a href="subscriptiontopic.html#resource-trigger-update">SubscriptionTopic</a></li>
-  <li><a href="questionnaireresponse.html#fhirpath">QuestionnaireResponse</a></li>
-  <li><a href="activitydefinition.html#apply">ActivityDefinition and its $apply operation</a></li>
+  <li><a href="conformance-rules.html#constraints">Resource Invariants</a> (<code>%profile</code>)</li>
+  <li><a href="subscriptiontopic.html#resource-trigger-update">SubscriptionTopic</a> (<code>%previous</code>, <code>%current</code>)</li>
+  <li><a href="questionnaire.html#fhirpath">Questionnaire</a> (<code>%questionnaire</code>, <code>%qItem</code>)</li>
+  <li><a href="activitydefinition.html#apply">ActivityDefinition and its $apply operation</a> (input parameters available as variables in <a href="activitydefinition-definitions.html#ActivityDefinition.dynamicValue.expression">dynamicValue</a> expressions, e.g. <code>%subject</code>, <code>%practitioner</code>)</li>
 </ul>
+
+<blockquote>
+  Note: Other implementation guides can define additional variables and guidance for use in their specific context.
+</blockquote>
 
 <a name="functions"></a>
 <h3>Additional functions</h3>
 <p>FHIR adds (compatible) functionality to the set of common FHIRPath functions.
 </p>
 
-<p>
-In addition to the general purpose functions below, additional functions function use are defined when working with specific resources.  Refer to the following for additional FHIRPath guidance defined for:
-</p>
-<ul>
-  <li><a href="questionnaireresponse.html#fhirpath">QuestionnaireResponse</a></li>
-</ul>
-
 <a name="fn-extension"> </a>
-<h4>extension(url : string) : collection</h4>
+<h4>extension(url : String) : collection</h4>
 <p>Will filter the input collection for items named "extension" with the given <code>url</code>. 
   This is a syntactical shortcut for <code>.extension.where(url = string)</code>, 
   but is simpler to write. If the input collection is empty or the url is empty, 
   the return value will be an empty collection.</p>
 
+<p>For example, to read the mother's maiden name extension:</p>
 <pre class="fhirpath">
 Patient.extension('http://hl7.org/fhir/StructureDefinition/patient-mothersMaidenName').value
 </pre>
@@ -312,10 +360,11 @@ Patient.extension('http://hl7.org/fhir/StructureDefinition/patient-mothersMaiden
 <hr/>
 <a name="fn-hasValue"> </a>
 <h4>hasValue() : Boolean</h4>
-<p>If the input collection contains a single value which is a FHIR primitive, then will
-  return true if the single value is a primitive value (e.g., as opposed to not having a
-  value and just having extensions) and false if not. If the input collection is not a
-  single FHIR primitive, the return value is empty.
+<p>
+  If the input collection contains a single value which is a FHIR primitive, this function
+  will return true if that primitive has a value (as opposed to not having a value and just
+  having extensions) and false if not. If the input collection isn't a single FHIR primitive,
+  the result is an empty collection.
 </p>
 
 <blockquote>
@@ -324,41 +373,62 @@ Patient.extension('http://hl7.org/fhir/StructureDefinition/patient-mothersMaiden
 <p>In FHIRPath, this means that FHIR primitives have a <code>value</code> child, but, as described above, they are automatically cast to FHIRPath primitives when comparisons are made, and that the primitive value will be included in the set returned by <code>children()</code> or <code>descendants()</code>.</p>
 </blockquote>
 
+<p>For example:</p>
 <pre class="fhirpath">
 Patient.active.hasValue()
+// true ; if active has a Boolean value, whether active is either true or false
+// false ; if active is present with only id and/or extensions
+// {} ; if active is absent
 </pre>
 
 <hr/>
 <a name="fn-getValue"> </a>
 <h4>getValue() : System.[type]</h4>
-<p>Return the underlying system value for the FHIR primitive if the input collection contains a single value which is a FHIR primitive, 
-  and it has a primitive value (see discussion for hasValue()). Otherwise, the return value is empty.</p>
+<p>Return the underlying value from the FHIR primitive as a system primitive if the input collection contains a single value which is a FHIR primitive, 
+  and it has a primitive value (see discussion for hasValue()). Otherwise, the result is an empty collection.</p>
 
+<p>For example:</p>
 <pre class="fhirpath">
-Patient.birthDate.getValue() // returns just the primitive, does not include extensions (such as the birthTime extension)
+Patient.birthDate.getValue()
+// returns just the primitive, does not include extensions (such as the birthTime extension)
 </pre>
 
   <hr/>
 <a name="fn-resolve"> </a>
 <h4>resolve() : collection</h4>
-<p>For each item in the collection, if it is a string that is a <a href="datatypes.html#uri">uri</a>
-   (or <a href="datatypes.html#canonical">canonical</a> or <a href="datatypes.html#url">url</a>), locate the 
-   target of the reference, and add it to the resulting collection. If the item does not resolve to a resource, 
-   the item is ignored and nothing is added to the output collection.</p>
-<p>The items in the collection may also represent a Reference, in which case the <code>Reference.reference</code> is resolved. 
-  If the input is empty, the return value will be an empty collection.</p>
+<p>
+  For each item in the collection, if it is a string that is a <a href="datatypes.html#uri">uri</a>
+  (or <a href="datatypes.html#canonical">canonical</a> or <a href="datatypes.html#url">url</a>), locate the 
+  target of the reference, and add it to the resulting collection. If the item does not resolve to a resource, 
+  the item is ignored and nothing is added to the output collection.
+</p>
+<p>
+  The items in the collection may also represent a Reference, in which case the <code>Reference.reference</code> is resolved. 
+  If the input is empty, the return value will be an empty collection.
+</p>
+<p>
+  Resources can be resolved from contained resources, bundles, or other locations as supported by the engine (such as a FHIR server).<br/>
+  Where the reference is via a canonical uri, the engine should resolve it to the appropriate resource, potentially considering the version if specified (e.g. http://hl7.org/fhir/StructureDefinition/Patient|4.0.1).<br/>
+  Where the reference is via a Reference, and the value is a versioned reference, the engine should resolve it to the appropriate version of the resource if available (e.g. Patient/pat1/_history/23).
+</p>
 
 <pre class="fhirpath">
-Patient.managingOrganization.resolve().name
+Patient.managingOrganization.resolve().contact
+// returns all the contact details for the organization
+
 Observation.subject.where(resolve() is Patient)
+// returns the reference to the subject if it resolves to a patient (commonly used in search parameters to index by a specific resource type - noting that it doesn't actually return any data from the resource resolved)
 </pre>
 
 <p>
 When implementing <code>resolve()</code>, it is at the discretion of the engine what protocols, 
 FHIR formats and versions are supported and whether and which logical models are handled.
 </p>
+
+<p>For example:</p>
 <pre class="fhirpath">
-DocumentReference.content.attachment.url.resolve() // When using DocumentReference as an index entry to resources stored elsewhere
+DocumentReference.content.attachment.url.resolve()
+// When using DocumentReference as an index entry to resources stored elsewhere
 </pre>
 
   <hr/>
@@ -367,6 +437,12 @@ DocumentReference.content.attachment.url.resolve() // When using DocumentReferen
 <p>Returns the FHIR element definition information for each element in the input collection. If the 
   input collection is empty, the return value will be an empty collection.
 </p>
+
+<p>For example:</p>
+<pre class="fhirpath">
+Patient.identifier.first().elementDefinition()
+// returns the element definition for the patient's identifier element
+</pre>
 
 <hr/>
 <a name="fn-slice"> </a>
@@ -380,14 +456,17 @@ DocumentReference.content.attachment.url.resolve() // When using DocumentReferen
   (if the sliceName is unique in the snapshot), or the <code>ElementDefinition.id</code> of the element slice.
 </p>
 <p>
-  The <code>structure</code> argument can also be the special variable <code>%profile</code> which refers to the profile in which the ElementDefinition.constraint
-  containing the FHIRPath is defined.  (This variable can only be used for FHIRPath appearing in constraints)
-</p>
-<p>
   If the <code>structure</code> cannot be resolved, or the <code>name</code> of the slice is not present in the profile, or those parameters are empty,
   the return value will be an empty collection.
 </p>
-<p>If the slice does not match any element in the input collection, or if the input collection is empty, the return value will be an empty collection.</p>
+<p>
+  If the slice does not match any element in the input collection, or if the input collection is empty, the return value will be an empty collection.
+</p>
+
+<p>
+  When using <code>slice</code> in a profile constraint (invariant) the <code>structure</code> argument can use the special variable <a href="conformance-rules.html#constraints-variables"><code>%profile</code></a> which refers to the profile in which the ElementDefinition.constraint
+  containing the FHIRPath is defined.
+</p>
 
 <p>
 For example, this invariant could appear in a Patient profile:
@@ -398,7 +477,7 @@ Patient.telecom.slice(%profile, 'homephone').exists() and Patient.telecom.slice(
 </pre>
 
 <blockquote>
-NOTE: not all FHIRPath engines are in a position to implement <code>slice()</code> as implementation requires implementation of a FHIR validation engine, which is not a small undertaking.
+Note: not all FHIRPath engines are in a position to implement <code>slice()</code> as implementation requires implementation of a FHIR validation engine, which is not a small undertaking.
 </blockquote>
 
 <hr/>
@@ -408,15 +487,26 @@ NOTE: not all FHIRPath engines are in a position to implement <code>slice()</cod
 <p>For each element in the input collection, verifies that there are no modifying extensions defined other than the ones given by the <code>modifier</code> argument (comma-separated string). 
   If the check passes, the input collection is returned. Otherwise, an error is thrown, including if modifier is empty.</p>
 
-  <hr/>
+<p>For example:</p>
+<pre class="fhirpath">
+MedicationRequest.checkModifiers('http://example.org/fhir/StructureDefinition/anti-prescription')
+// true ; If the resource doesn't have any modifier extensions (other than the ones specified)
+
+Task.checkModifiers('http://hl7.org/fhir/StructureDefinition/request-doNotPerform,http://example.org/fhir/StructureDefinition/known-modifier')
+// true ; If the resource doesn't have any other modifier extensions (comma separated)
+</pre>
+
+<hr/>
 <a name="fn-conformsTo"> </a>
 <h4>conformsTo(structure : string) : Boolean</h4>
 <p>Returns <code>true</code> if the single input element conforms to the profile specified by the <code>structure</code> argument, 
   and false otherwise. If the input is not a single item, the structure is empty, or the structure cannot be resolved to a valid profile, 
   the return value is empty.</p>
 
+<p>For example:</p>
 <pre class="fhirpath">
-Patient.conformsTo('http://hl7.org/fhir/StructureDefinition/Patient')
+Patient.conformsTo('http://example.org/fhir/StructureDefinition/Patient-local-strict')
+// true ; If the resource conforms to this profile
 </pre>
 
   <hr/>
@@ -434,11 +524,9 @@ only contains one codesystem. If the valueset in this case contains more than on
 <p>Note that implementations are encouraged to make use of a terminology service to provide this functionality.</p>
 
 <p>For example:</p>
-
 <pre class="fhirpath">
 Observation.component.where(code.memberOf('http://hl7.org/fhir/ValueSet/observation-vitalsignresult'))
 </pre>
-
 <p>This expression returns components that have a code that is a member of the observation-vitalsignresult valueset.</p>
 
 <hr/>
@@ -451,9 +539,16 @@ Observation.component.where(code.memberOf('http://hl7.org/fhir/ValueSet/observat
 <p>If either the input or the code parameter are not single value collections, the return value is empty.</p>
 <p>Note that implementations are encouraged to make use of a terminology service to provide this functionality.</p>
 
+<p>For example:</p>
 <pre class="fhirpath">
-%terminologies.subsumes(Procedure.category, Procedure.code) = 'subsumes'
+Condition.code.subsumes(Coding { system: 'http://snomed.info/sct', code: '3738000' })
+// true ; if the condition is equivalent or subsumes the SNOMED CT concept 3738000, Viral hepatitis
+// $subsumes operation returned 'equivalent' or 'subsumes'
 </pre>
+
+<p>
+  For more information, see <a href="terminology-service.html#subsumes">Subsumption Testing</a> in the FHIR terminology service documentation.
+</p>
 
 <hr/>
 <a name="fn-subsumedBy"> </a>
@@ -465,6 +560,17 @@ Observation.component.where(code.memberOf('http://hl7.org/fhir/ValueSet/observat
 <p>If either the input or the code parameter are not single value collections, the return value is empty.</p>
 <p>Note that implementations are encouraged to make use of a terminology service to provide this functionality.</p>
 
+<p>For example:</p>
+<pre class="fhirpath">
+Condition.code.subsumedBy(Coding { system: 'http://snomed.info/sct', code: '235856003' })
+// true ; if the condition is equivalent or subsumed by the SNOMED CT concept 235856003, Disorder of liver
+// $subsumes operation returns 'subsumed-by' or 'equivalent'
+</pre>
+
+<p>
+  For more information, see <a href="terminology-service.html#subsumes">Subsumption Testing</a> in the FHIR terminology service documentation.
+</p>
+
 <hr/>
 <a name="fn-htmlChecks"> </a>
 <h4>htmlChecks : Boolean</h4>
@@ -475,17 +581,36 @@ parsed as the content of a div and the function returns false if the string does
 The return value is empty on any other kind of element or if invoked on a collection of elements.
 </p>
 
+<p>For example:</p>
+<pre class="fhirpath">
+Patient.text.div.htmlChecks()
+// true ; if the div element meets the rules around HTML usage
+
+Questionnaire.item.extension('http://hl7.org/fhir/StructureDefinition/rendering-xhtml').valueString.htmlChecks()
+// true ; also supported on string where required.
+</pre>
+
+
 <hr/>
 <a name="fn-weight"> </a>
 <h4>weight() : decimal</h4>
 <p>
-  This functions returns the ordinal value for an element. This may be based on an <a href="[%extensions-location%]StructureDefinition-itemWeight.html">itemWeight extension</a> defined on an element such as QuestionnaireResponse answer, or it may be based on the <a href="codesystem.html#defined-props">weight property</a> defined on a code.  In some cases, this may require looking across resources.  For example, QuestionnaireResponse.item.where(linkId='123').answer.first().weight() may need to find the corresponding item in the Questionnaire and then look up the coding specified in 'answer' with the corresponding answerOption in Questionnaire.item with the same linkId.  If no weight is defined for the context element, the return value is empty. If the FHIRPath engine is unable to resolve the corresponding value set, code system or questionnaire options, it SHOULD cause the expression to fail.
+ This functions returns the ordinal value for an element. This may be based on an <a href="[%extensions-location%]StructureDefinition-itemWeight.html">itemWeight extension</a>
+ defined on an element such as QuestionnaireResponse answer, or it may be based on the <a href="codesystem.html#defined-props">weight property</a> defined
+ on a code.  In some cases, this may require looking across resources.  
+For example, <code>QuestionnaireResponse.item.where(linkId='123').answer.first().weight()</code> may need to find the corresponding item in the Questionnaire and then look up the coding specified in 'answer' with the corresponding answerOption in Questionnaire.item with the same linkId.  If no weight is defined for the context element, the return value is empty. If the FHIRPath engine is unable to resolve the corresponding value set, code system or questionnaire options, it SHOULD cause the expression to fail.
 </p>
 <p>  
   This function will typically be used to support scoring of Questionnaires, but it can be used with observations or potentially other elements as well.
 </p>
-<hr/>
 
+<p>For example:</p>
+<pre class="fhirpath">
+Questionnaire.item.where(linkId='123').item.sum(weight())
+// sum of the weights for all items with the specified linkId
+</pre>
+
+<hr/>
 <a name="overloads"></a>
 <h3>Function Overrides</h3>
 <p>FHIR also includes overrides to some functions providing details on how the function will work with FHIR specific types.
@@ -493,14 +618,22 @@ The return value is empty on any other kind of element or if invoked on a collec
 
 <a name="fn-toString"> </a>
 <h4>toString() : string</h4>
-<p>If the input collection contains a single item, this function will return a single String if the type 
-  is a FHIR primitive, and it has a value (e.g. if <code>hasValue() = true</code>), and the primitive type 
-  has a System type for which <a href="https://hl7.org/fhirpath/N1/#tostring-string">toString() is defined</a>.
-  Otherwise the result is an empty collection.
+<p>
+  The native FHIRPath <a href="https://hl7.org/fhirpath/STU3/#tostring--string"><code>toString()</code></a> function works with FHIR datatypes by implicitly converting FHIR primitive elements to their corresponding FHIRPath system types before invoking the standard `toString()` operation.
+  Any other types, or FHIR primitives that do not have an actual value (such as those with only extensions or an element id) will result in an empty collection.<br/>
+</p>
+<p>
+  I.e. this will only return a value where the input collection is a single value, <code>hasValue()</code> returns true, and the FHIR primitive has a corresponding FHIRPath system type.<br/>
+  For example, if a FHIR decimal element contained no value and only has a data absent reason extension, then the result would be an empty collection.
 </p>
 
+<p>For example:</p>
 <pre class="fhirpath">
 Patient.birthDate.toString()
+// return the string representation of the birthDate if it has an actual value, otherwise an empty collection
+
+Patient.contact.toString()
+// returns an empty string as the contact element is not a FHIR primitive datatype
 </pre>
 
 <hr/>
@@ -509,12 +642,23 @@ Patient.birthDate.toString()
 <p>Returns a collection that contains all items in the input collection that are of the given <code>type</code> or a subclass thereof.
   This is as defined as in the base FHIRPath specification, but implementers should be aware that in FHIR, 
   only concrete core types are allowed as an argument. All primitives are considered to be independent 
-  types (so <code>markdown</code> is <strong>not</strong> a subclass of <code>string</code>). Profiled types are 
+  types (so <code>canonical</code> is <strong>not</strong> a subclass of <code>string</code>, but <code>markdown</code> is, as indicated on the <a href="datatypes.html">datatypes page</a>). Profiled types are 
   not allowed, so to select <code>SimpleQuantity</code> one would pass <code>Quantity</code> as an argument.</p>
 
+<p>For example:</p>
 <pre class="fhirpath">
-Observation.value.ofType(canonical)
-Observation.value.ofType(dateTime) | Observation.value.ofType(Period).start // selects either dateTime or Period starts (both of type dateTime)
+Observation.value.ofType(CodeableConcept)
+// filter the observation value to only include CodeableConcept instances
+
+Observation.value.ofType(dateTime) | Observation.value.ofType(Period).start
+// selects either dateTime or the start of a period value (both of type dateTime)
+
+Observation.extension.value.ofType(string)
+// filters the extension values to only include string instances
+// or datatypes derived from string (such as valueMarkdown, valueCode or valueId)
+
+QuestionnaireResponse.questionnaire.ofType(string)
+// {} ; as this property is a canonical, this will return an empty collection
 </pre>
 
 <hr/>
@@ -525,7 +669,7 @@ Observation.value.ofType(dateTime) | Observation.value.ofType(Period).start // s
 
 <a name="fn-Equivalence"> </a>
 <h4>~ (Equivalence)</h4>
-<p>Equivalence works in exactly the same manner, but with the addition that for complex types, equality requires all child properties to be equal, <strong>except for "id" elements</strong>.</p>
+<p>Equivalence works in exactly the same manner, but with the addition that for complex types (including resources), equivalence requires all child properties to be equivalent recursively, <strong>except for "id" elements</strong>.</p>
 <p>In addition, for Coding values, equivalence is defined based on the code and system elements only. The version, display, and userSelected elements are ignored for the purposes of determining Coding equivalence.</p>
 <p>For CodeableConcept values, equivalence is defined as a non-empty intersection of Coding elements, using equivalence. In other words, two CodeableConcepts are considered equivalent if any Coding in one is equivalent to any Coding in the other.</p>
 
@@ -592,6 +736,13 @@ The following locations use this restricted FHIRPath language:
  <li><a href="operationoutcome-definitions.html#OperationOutcome.issue.expression">OperationOutcome.issue.expression</a></li>
 </ul>
     
+<p>For example:</p>
+<pre class="fhirpath">
+Patient.birthDate
+Patient.name[0].family
+Patient.name[2].given[1]
+QuestionnaireResponse.item[0].item[2].answer[0].value
+</pre>
 
 [%file newfooter%]
 </body>

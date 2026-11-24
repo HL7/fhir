@@ -30,6 +30,7 @@
   </effectivePeriod>
   <library value="http://hl7.org/fhir/Library/BCSComponent"/>
   <group>
+    <linkId value="Group_1"/>
     <type>
       <coding>
         <system value="http://terminology.hl7.org/CodeSystem/measure-type"/>
@@ -51,6 +52,7 @@
       </coding>
     </improvementNotation>
     <population id="2851A1BA-FBF8-4945-812E-6273F881CE13">
+      <linkId value="Population_1"/>
       <code>
         <coding>
           <system value="http://terminology.hl7.org/CodeSystem/measure-population"/>
@@ -64,6 +66,7 @@
       </criteria>
     </population>
     <population id="349C20C9-EA7E-4311-9E2D-CF81F1EBCEEF">
+      <linkId value="Population_2"/>
       <code>
         <coding>
           <system value="http://terminology.hl7.org/CodeSystem/measure-population"/>
@@ -77,6 +80,7 @@
       </criteria>
     </population>
     <population id="369D1C75-B5D3-43EC-AEFC-2FF7F462306C">
+      <linkId value="Population_3"/>
       <code>
         <coding>
           <system value="http://terminology.hl7.org/CodeSystem/measure-population"/>
@@ -90,6 +94,7 @@
       </criteria>
     </population>
     <population id="6F1617E3-99D7-47E4-8392-85107BAA5311">
+      <linkId value="Population_4"/>
       <code>
         <coding>
           <system value="http://terminology.hl7.org/CodeSystem/measure-population"/>
@@ -104,6 +109,7 @@
     </population>
   </group>
   <supplementalData id="25a16429-e866-438f-990a-3e3a5f2f8443">
+    <linkId value="SupplementalData_1"/>
     <usage>
       <coding>
         <system value="http://terminology.hl7.org/CodeSystem/measure-data-usage"/>

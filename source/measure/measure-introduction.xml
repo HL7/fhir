@@ -9,6 +9,9 @@
                         <li><a href="https://jira.hl7.org/browse/FHIR-56502">FHIR-56502</a>: Remove stratifier/supplementalData parameters in $evaluate</li>
                         <li><a href="https://jira.hl7.org/browse/FHIR-55967">FHIR-55967</a>: Align reporter parameters in $evaluate, $care-gaps, and $collect-data</li>
                         <li><a href="https://jira.hl7.org/browse/FHIR-51028">FHIR-51028</a>: Clarified examples are experimental content</li>
+                        <li><a href="https://jira.hl7.org/browse/FHIR-58210">FHIR-58210</a>: Correct $care-gaps parameter definitions</li>
+                        <li><a href="https://jira.hl7.org/browse/FHIR-58568">FHIR-58568</a>: Measure.group.population.linkId should be mandatory</li>
+                        <li><a href="https://jira.hl7.org/browse/FHIR-58565">FHIR-58565</a>: Measure.group.population.linkId - Usage as "meaningful" identifier is counterproductive</li>
                     </ul>
                 </li>
                 <li>Compatible, Substantive Changes

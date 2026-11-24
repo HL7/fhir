@@ -163,7 +163,7 @@ This variability is due to the timing when it is recorded and the purpose for wh
 	</ul>
 <p>
 During a maternity encounter, the Patient and Encounter resources for the mother will be present.
-After the child is born, new Patient, Encounter and RelatedPerson (for the mother) records will be created, if required (unless a fetal record exists).
+If a <a href="https://hl7.org/fhir/uv/ibcm/2024Sep/background.html#which-fhir-resource-do-we-use">fetal record</a> doesn't exist at the time of birth, a new Patient, Encounter and RelatedPerson (for the mother) records can be created. 
 The Child's encounter should reference the Mother's encounter using the partOf property.<br/>
 The Patient/RelatedPerson structure should also be created for ongoing usage, as shown in this example:
 </p>
