@@ -669,6 +669,7 @@ For example:  &#xA;&#xA;
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
@@ -836,7 +837,7 @@ For example:  &#xA;&#xA;
     <element id="MedicationRequest.effectiveTiming[x]">
       <path value="MedicationRequest.effectiveTiming[x]"/>
       <short value="Period over which the medication is to be taken, can be specified as a duration or a range"/>
-      <definition value="The period over which the medication is to be taken. Can be specified as a duration or a range. Where there are multiple dosageInstruction lines (for example, tapering doses), this is the earliest date and the latest end date of the dosageInstructions."/>
+      <definition value="The period over which the medication is to be taken. Can be specified as a duration or a range. Where the `dosageInstruction` has multiple steps (for example, tapering doses), this covers the whole dosage course, from the start of the first step to the end of the last step."/>
       <min value="0"/>
       <max value="1"/>
       <type>
