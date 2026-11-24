@@ -524,7 +524,7 @@
         <description value="This Appointment is a part of a recurring series of appointments (has a template or an originating appointment)"/>
         <code value="is-recurring"/>
         <type value="token"/>
-        <expression value="Appointment.recurrenceTemplate.exists() | Appointment.originatingAppointment.exists()"/>
+        <expression value="Appointment.recurrenceTemplate.exists() or Appointment.originatingAppointment.exists()"/>
         <processingMode value="normal"/>
         <multipleOr value="true"/>
         <multipleAnd value="true"/>

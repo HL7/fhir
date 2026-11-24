@@ -86,7 +86,52 @@ Mobile Services (kind)
 	<p>
 		<i>Note: Wards/departments are not part of this structure - these would form part of the Organizational Hierarchy.</i>
 	</p>
-  
+
+<a name="loc-and-terms"></a>
+	<h2>Locations and Terminologies</h2>
+	<p>
+As shown in the example above, Locations can be nested within other Locations, however in many other cases
+there is a need to represent other types of relationships between Locations.
+Many locations are represented in CodeSystem resources, such as the countries,
+states, provinces, counties, cities, and postal codes, etc.<br/>
+This information is often managed externally by an applicable authoritative source, e.g. Government agency. This content is often quite large and may be distributed in various formats (and converted to CodeSystems).
+To bridge the gap between these representations and the FHIR Location resource, the <code>Location.code</code> property can be used to link a Location resource to a concept in a CodeSystem.
+    </p>    
+    <p>
+Relationships in the terminology could be of many different types/dimensions/directions including: hierarchical, organizational, logical, administrative or purely associative.
+This permits linking to locations in different relationships in different ways.
+    </p>    
+
+<a name="loc-as-terms"></a>
+	<h2>Locations as Terminologies</h2>
+	<p>
+Terminologies are more than just codes. They can contain properties, and also relationships. It is the combination of these things that make it suitable for representing location hierarchies.
+Also within the terminology space are mappings (via the ConceptMap resource) which can link concepts, which is particularly useful to map between different versions of terminologies.
+    </p>    
+    <p>
+If location relationships are represented using terminologies, then standard Terminology Service operations can be used to navigate the relationships between the concepts.
+    </p>    
+    <p>
+Note: This representation of the same content as both coded and/or structured data also exists among the medications resources. The coded representation of the medication includes properties such as categories of medication, packaging of medications, and also relationships between drug classes and brand vs generic content.
+The terminology service in FHIR is then able to provide ways to navigate those relationships.
+    </p>    
+    <p>
+In many cases systems already use terminologies to represent countries, states, counties, towns etc, often  stored in simple lookup lists (a code system) and used in address finders, binding the valueset to multiple address properties to provide a level of validation.
+The relationships between these is not always available, but sometimes is.
+    </p>    
+    <p>
+Some examples of locations in terminologies:
+    </p>    
+    <ul>
+        <li>FHIR Country codes</li>
+        <li>FHIR US States and Territories</li>
+        <li>Australian Bureau of Statistics: Countries (including regions)</li>
+        <li>Australian Bureau of Statistics: LGAs (Local Govt Areas)</li>
+        <li>Australian Geoscape Geocoded National Address File (G-NAF)</li>
+        <li>US Census Bureau: 2006-2010 County Sets</li>
+        <li>US Census Bureau: 2009 Census Bureau Region and Division Codes and State FIPS Codes</li>
+    </ul>
+
 <a name="positional"></a>
     <h3>Positional Searching</h3>
     <h4>Near: Locations within a specified distance of a provided geocode</h4>

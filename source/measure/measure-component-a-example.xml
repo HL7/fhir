@@ -21,7 +21,9 @@
   </scoring>
   -->
   <group id="Main">
+    <linkId value="Group_1"/>
     <population>
+      <linkId value="Population_1"/>
       <code>
         <coding>
           <code value="initial-population"/>
@@ -33,6 +35,7 @@
       </criteria>
     </population>
     <population>
+      <linkId value="Population_2"/>
       <code>
         <coding>
           <code value="denominator"/>
@@ -44,6 +47,7 @@
       </criteria>
     </population>
     <population>
+      <linkId value="Population_3"/>
       <code>
         <coding>
           <code value="numerator"/>

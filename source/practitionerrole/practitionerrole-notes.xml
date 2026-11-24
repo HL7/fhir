@@ -10,18 +10,13 @@ Notes
   </li>
   <li>
     <a name="mult-locations"></a>
-    As briefly noted in the boundaries and relationships section the PractitionerRole resource can be used
-    to represent multiple locations in the one resource instance, however this should be done with care.
-    When representing multiple locations in an instance, and/or multiple specialties, all details apply
-    to all locations. Using that approach you cannot differentiate a different contact number, different
-    availabilities, or different services at each location.<br/>
-    Hence maintaining these records needs to ensure that when changing a value, such as availability, 
-    it applies to all locations. If different values are required for the different locations, then a new 
-    instance will need to be created, and then split as appropriate. Existing resources referencing the
-    original PractitionerRole instance will need to be updated to refer to the appropriate record.<br/>
-    For this reason we expect that it will be common to profile the location element down to a single location,
-    simplifying overall usage, and the availabilities are clear that they apply to this location, and any
-    referenced healthcare services.
+    As noted in the 'Scope and Usage' section, many of the elements of the PractitionerRole resource can have multiple values in a single resource instance
+    (i.e., cardinality > 1). However, care should be taken when producing resource instances with multiple values for these elements, as each value must be
+    valid across all the other elements in the resource instance. For example, when representing multiple locations in an instance, the rest of the content
+    of the resource must be true for every location, including contact details, services, availabilities, endpoints, etc. When updating content in the
+    resource, new values may break the internal consistency of that resource. In such cases, new resource instances will need to be created. Any other
+    resources which reference the original resource instance may need to be updated to refer to the appropriate record. For this reason, IGs profile
+    the cardinality of these repeated elements to a maximum of 1, preventing the issues described above.
   </li>
 </ul>
 </div>

@@ -50,7 +50,10 @@
 
   <provision>
     <data>
-      <meaning value="related"/>
+      <meaning>
+          <system value="http://hl7.org/fhir/consent-data-meaning"/>
+          <code value="related"/>
+      </meaning>
       <reference>
         <reference value="MedicationRequest/medrx0305"/>
       </reference>
