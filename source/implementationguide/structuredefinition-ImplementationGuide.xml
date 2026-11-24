@@ -592,7 +592,7 @@
 			<path value="ImplementationGuide.definition"/>
 			<short value="Information needed to build the IG"/>
 			<definition value="The information needed by an IG publisher tool to publish the whole implementation guide."/>
-			<comment value="Principally, this consists of information abuot source resource and file locations, and build parameters and templates."/>
+			<comment value="Principally, this consists of information about source resource and file locations, and build parameters and templates."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>

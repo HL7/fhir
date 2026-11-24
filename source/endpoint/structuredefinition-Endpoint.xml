@@ -135,7 +135,7 @@
       <path value="Endpoint.connectionType"/>
       <short value="Protocol/Profile/Standard to be used with this endpoint connection"/>
       <definition value="A coded value that represents the technical details of the usage of this endpoint, such as what WSDLs should be used in what way. (e.g. XDS.b/DICOM/cds-hook)."/>
-      <comment value="For additional connectivity details for the protocol, extensions will be used at this point, as in the XDS example. If there are multiple payload types or mimetypes they are all applicable for all connection types, and all have the same status."/>
+      <comment value="For additional connectivity details for the protocol, extensions will be used at this point, as in the XDS example. If there are multiple payload types or mimetypes they are all applicable for all connection types, and all have the same status.  If a connection type is not known, or not known yet then a comment may be added to the `connectionType.text`."/>
       <min value="1"/>
       <max value="*"/>
       <type>
@@ -236,7 +236,7 @@
     </element>
     <element id="Endpoint.contact">
       <path value="Endpoint.contact"/>
-      <short value="Contact details for source (e.g. troubleshooting)"/>
+      <short value="Who to contact for troubleshooting or maintenance"/>
       <definition value="Contact details for a human to contact about the endpoint. The primary use of this for system administrator troubleshooting."/>
       <min value="0"/>
       <max value="*"/>
@@ -274,7 +274,7 @@
       <definition value="The times the endpoint is expected to be available, including transient downtimes and any exceptions."/>
       <comment value="Endpoint.availability is meant to represent specific availability, including temporary downtimes or other short term changes in availability.  Conversely, Endpoint.period is meant to represent the general **planned** period of time when the Endpoint may be used, for example when an endpoint is being commissioned or decommissioned.  For example, if an Endpoint is only available during business hours (9-5), the lack of availability during the night would not be reflected in Endpoint.period,but would be reflected in Endpoint.availability."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="Availability"/>
       </type>
