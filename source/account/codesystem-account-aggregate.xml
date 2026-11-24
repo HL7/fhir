@@ -33,7 +33,7 @@
   <concept>
     <code value="patient"/>
     <display value="Patient"/>
-    <definition value="This (aggregated) balance is expected to be paid by the Patient"/>
+    <definition value="This (aggregated) balance is expected to be paid by the Patient/guarantor(s)"/>
   </concept>
   <concept>
     <code value="insurance"/>
