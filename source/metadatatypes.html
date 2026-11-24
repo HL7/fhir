@@ -9,6 +9,27 @@
 [%file newnavbar%]
 
 
+<blockquote class="ballot-note" id="bn1">
+<p><b>Note to Balloters:</b> Key changes made since FHIR 6.0.0-ballot5:</p>
+<ul>
+  <li>Non-compatible Changes
+    <ul>
+      <li>(none)</li>
+    </ul>
+  </li>
+  <li>Compatible, Substantive Changes
+    <ul>
+      <li>(none)</li>
+    </ul>
+  </li>
+  <li>Non-substantive Changes
+    <ul>
+      	<li><a href="https://jira.hl7.org/browse/FHIR-43009">FHIR-43009</a>: Clarify ChargeItemDefinition.factor</li>
+    </ul>
+  </li>
+</ul>
+</blockquote>
+<p></p>
 
 <%mdtheader base%>
 
@@ -472,6 +493,88 @@ VirtualServiceDetail is used in the following places: [%dtusage VirtualServiceDe
 <p>
   MonetaryComponent is used in the following places: [%dtusage MonetaryComponent%]
 </p>
+
+
+<p>
+  When using the MonetaryComponent in resources it usually has multiple cardinality which enables the provision of the various components
+  that contribute to the total cost of an item, and also total of an invoice (or other). The ordering of the items in these collections is
+  important, and the property should be marked as such.
+</p>
+
+<p>
+  Each component "type" has a different impact on the contribution, specifically some amounts will be added (e.g. surcharge), others will
+  be deducted (e.g. tax).
+</p>
+
+<p>Typically this will be something like this example demonstrates:</p>
+
+<table class="grid">
+ <tr>
+  <th>Type</th>
+  <th>Code</th>
+  <th>Factor</th>
+  <th>Amount</th>
+  <th>Description</th>
+ </tr>
+ <tr>
+  <td>base</td>
+  <td></td>
+  <td></td>
+  <td align="right">$100</td>
+  <td>This is the base amount of the item before any taxes/discounts etc are applied</td>
+ </tr>
+ <tr>
+  <td>discount</td>
+  <td>pre-pay</td>
+  <td align="right">0.25</td>
+  <td align="right">$25</td>
+  <td>A 25% discount is applied to the item<br/>
+  (which will be deducted from the base amount)<br/>
+  The amount here is the calculated value based on the base*factor (any rounding is therefore explicit as to what is used)</td>
+ </tr>
+ <tr>
+  <td>discount</td>
+  <td>staff</td>
+  <td></td>
+  <td align="right">$10</td>
+  <td>All staff get a $10 fixed value discount<br/>
+  (not a percentage value)</td>
+ </tr>
+ <tr>
+  <td>surcharge</td>
+  <td></td>
+  <td></td>
+  <td align="right">$50</td>
+  <td>The surcharge might have just an explicit amount to add to the total</td>
+ </tr>
+ <tr>
+  <td>tax</td>
+  <td>state</td>
+  <td align="right">0.10</td>
+  <td align="right">$10</td>
+  <td>This is applied after all the other items</td>
+ </tr>
+ <tr>
+  <td>tax</td>
+  <td>local</td>
+  <td align="right">0.02</td>
+  <td align="right"></td>
+  <td></td>
+ </tr>
+</table>
+
+<p>
+  The total amount to be charged is in dedicated properties such as Invoice.totalNet.  However, if there are multiple discounts,
+  totaling those discounts may be represented in a component, such a single entry in Invoice.totalPriceComponent with a type of
+  discount that aggregates all the discounts into one component.
+</p>
+
+<p>
+  Whether the factor/amount will increase or decrease the total depends on the MonetaryComponent.type.  Surcharges and taxes will
+  be added to the total cost, so a positive surcharge ($25) will increase the total cost.  Discounts will be subtracted from the
+  total cost, so a positive discount ($25) will decrease the cost.
+</p>
+
 
 [%file newfooter%]
 
