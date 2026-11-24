@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicationAdministration xmlns="http://hl7.org/fhir">
+    <id value="medadmin0315"/>
+    <!-- Supplementary oxygen given as ordered in medicationrequest0352. The request names the type of device
+         (a contained DeviceDefinition "Oxygen nasal cannula"); the administration records the actual device used:
+         a Device whose definition is that DeviceDefinition (canonical) and whose type is the same. -->
+    <contained>
+        <Device>
+            <id value="cannula"/>
+            <definition value="http://example.org/fhir/DeviceDefinition/oxygen-nasal-cannula"/>
+            <status value="active"/>
+            <name>
+                <value value="Oxygen nasal cannula"/>
+                <type>
+                    <coding>
+                        <system value="http://terminology.hl7.org/CodeSystem/device-nametype"/>
+                        <code value="user-friendly-name"/>
+                    </coding>
+                </type>
+            </name>
+            <type>
+                <coding>
+                    <system value="http://snomed.info/sct"/>
+                    <code value="336623009"/>
+                    <display value="Oxygen nasal cannula"/>
+                </coding>
+            </type>
+        </Device>
+    </contained>
+    <status value="completed"/>
+    <medication>
+        <concept>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="320917000"/>
+                <display value="Oxygen only product in gas for inhalation"/>
+            </coding>
+        </concept>
+    </medication>
+    <subject>
+        <reference value="Patient/pat1"/>
+        <display value="Donald Duck"/>
+    </subject>
+    <occurrencePeriod>
+        <start value="2026-02-10T14:20:00+01:00"/>
+        <end value="2026-02-10T18:00:00+01:00"/>
+    </occurrencePeriod>
+    <performer>
+        <actor>
+            <reference>
+                <reference value="Practitioner/f007"/>
+            </reference>
+        </actor>
+    </performer>
+    <request>
+        <reference value="MedicationRequest/medrx0352"/>
+    </request>
+    <device>
+        <reference>
+            <reference value="#cannula"/>
+        </reference>
+    </device>
+    <dosage>
+        <text value="Oxygen 2 L/min via nasal cannula (SpO2 below 88%)"/>
+        <route>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="447694001"/>
+                <display value="Respiratory tract route"/>
+            </coding>
+        </route>
+        <rateQuantity>
+            <value value="2"/>
+            <unit value="L/min"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="L/min"/>
+        </rateQuantity>
+    </dosage>
+</MedicationAdministration>
