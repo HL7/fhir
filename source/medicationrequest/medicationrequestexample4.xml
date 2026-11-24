@@ -9,10 +9,10 @@
                 <code>
                     <coding>
                         <system value="http://snomed.info/sct"/>
-                        <code value="116805008"/>
-                        <display value="Immune serum globulin administration by intravascular infusion"/>
+                        <code value="324689003"/>
+                        <display value="Nystatin 100000 unit/mL oral suspension"/>
                     </coding>
-                    <text value="GAMMAGARD Liquid"/>
+                    <text value="Nystatin 100,000 u/ml oral suspension"/>
                 </code>
         </Medication>
     </contained>

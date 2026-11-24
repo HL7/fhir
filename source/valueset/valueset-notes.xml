@@ -206,7 +206,7 @@ Union:
 For expansion guidance, and how to manage <em>exclude</em>, see <a href="valueset.html#expansion">Value Set Expansion</a>
 </p>
 <p>
-When a ValueSet definition includes other ValueSets, use the <a href="[%extensions-location%]StructureDefinition-valueset-compose-include-valueSetTitle.html">ValueSet.valueset-compose-include-ValueSetTitle</a> extension to provide the human readable name of the included Value Set.
+When a ValueSet definition includes other ValueSets, use the <a href="[%extensions-location%]StructureDefinition-display.html">ValueSet.valueset-compose-include-ValueSetTitle</a> extension to provide the human readable name of the included Value Set.
 </p>
 
 <a name="fragments"></a>

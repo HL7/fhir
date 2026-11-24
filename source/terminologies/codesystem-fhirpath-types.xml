@@ -10,7 +10,7 @@
   <name value="FHIRPathTypesCodeSystem"/>
   <title value="FHIRPath Types"/>
   <status value="active"/>
-  <experimental value="true"/>
+  <experimental value="false"/>
   <description value="Data types defined by FHIRPath and used within the FHIR specification"/>
   <caseSensitive value="true"/>
   <content value="complete"/>

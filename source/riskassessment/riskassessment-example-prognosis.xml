@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <RiskAssessment xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/riskassessment.xsd">
  <id value="prognosis"/>
   <text>
@@ -20,10 +20,9 @@
     <outcome>
       <coding>
         <system value="http://snomed.info/sct"/>
-        <version value="http://snomed.info/sct/900000000000207008/version/20250301"/>
-        <code value="249943000:260868000=6934004,{363698007=72098002}"/>
+        <code value="249943000:263502005=62459000,{363698007=72098002}"/>
       </coding>
-      <text value="permanent weakness of the left arm"/>
+      <text value="Chronic weakness of the left arm"/>
     </outcome>
     <qualitativeRisk>
       <coding>

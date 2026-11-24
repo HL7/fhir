@@ -54,6 +54,7 @@
   <differential>
     <element id="Bundle.type">
       <path value="Bundle.type" />
+      <short value="history" />
       <patternCode value="history" />
     </element>
     <element id="Bundle.entry">

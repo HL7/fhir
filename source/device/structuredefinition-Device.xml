@@ -462,7 +462,7 @@
     </element>
     <element id="Device.availabilityStatus">
       <path value="Device.availabilityStatus"/>
-      <short value="lost | damaged | destroyed | available"/>
+      <short value="lost | damaged | charging | available +"/>
       <definition value="The availability of the device."/>
       <min value="0"/>
       <max value="1"/>
@@ -1000,7 +1000,7 @@
     </element>
     <element id="Device.conformsTo.category">
       <path value="Device.conformsTo.category"/>
-      <short value="Describes the common type of the standard, specification, or formal guidance.  communication | performance | measurement"/>
+      <short value="Describes the common type of the standard, specification, or formal guidance. E.g. communication | performance | measurement"/>
       <definition value="Describes the type of the standard, specification, or formal guidance."/>
       <min value="0"/>
       <max value="1"/>

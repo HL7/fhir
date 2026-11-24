@@ -89,7 +89,7 @@
         <key value="vsp-1"/>
         <severity value="error"/>
         <human value="if Observation.effective[x] (as dateTime) has a value then that value shall be precise at least to the day"/>
-        <expression value="(effective as dateTime).toString().length() >= 8"/>
+        <expression value="effective is dateTime implies (effective as dateTime).toString().length() >= 8"/>
         <source value="http://hl7.org/fhir/StructureDefinition/vitalsigns"/>
       </constraint>
       <constraint>

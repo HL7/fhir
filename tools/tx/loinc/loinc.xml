@@ -199,10 +199,12 @@
   <concept id="LP65487-8" short="" long="Body temperature"/>
   <concept id="LP6822-3" short="" long="Len"/>
   <concept id="LP6826-4" short="" long="Mass"/>
+  <concept id="LP6827-2" short="" long="MCnc"/>
   <concept id="LP6831-4" short="" long="MFr"/>
   <concept id="LP6839-7" short="" long="NRat"/>
   <concept id="LP6847-0" short="" long="Pres"/>
   <concept id="LP6852-0" short="" long="Ratio"/>
+  <concept id="LP6860-3" short="" long="SCnc"/>
   <concept id="LP6872-8" short="" long="Temp"/>
   <concept id="LP6960-1" short="" long="Pt"/>
   <concept id="LP7034-4" short="" long="Arterial system"/>
@@ -213,6 +215,7 @@
   <concept id="LP7281-1" short="" long="Head"/>
   <concept id="LP72831-8" short="" long="Intravascular diastolic"/>
   <concept id="LP72836-7" short="" long="Intravascular systolic"/>
+  <concept id="LP7751-3" short="" long="Ord"/>
   <concept id="LP7753-9" short="" long="Qn"/>
   <concept id="LP7767-9" short="" long="BDYCRC.MOLEC"/>
   <concept id="LP7768-7" short="" long="BDYHGT.ATOM"/>

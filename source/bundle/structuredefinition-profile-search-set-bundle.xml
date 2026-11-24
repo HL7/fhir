@@ -42,6 +42,7 @@
   <differential>
     <element id="Bundle.type">
       <path value="Bundle.type" />
+      <short value="searchset" />
       <patternCode value="searchset" />
     </element>
     <element id="Bundle.entry">
