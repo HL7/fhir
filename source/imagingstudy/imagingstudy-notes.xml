@@ -78,8 +78,9 @@ See below for the details on the use of imaging-related Endpoint connection type
 <a name="wado-rs"></a>
 <h4>WADO-RS</h4>
 <p>
-An <code>Endpoint.connectionType</code> of code <code>dicom-wado-rs</code>, system <code>http://terminology.hl7.org/CodeSystem/endpoint-connection-type</code>,   identifies a DICOM WADO-RS service (see <a href="endpoint-example-wadors.html">example of DICOM WADO-RS endpoint)</a>.
+An <code>Endpoint.connectionType</code> of code <code>dicom-wado-rs</code>, system <code>http://terminology.hl7.org/CodeSystem/endpoint-connection-type</code>, identifies a DICOM WADO-RS service (see <a href="endpoint-example-wadors.html">example of DICOM WADO-RS endpoint)</a>.
 </p>
+  <p>Note: in the current DICOM standard this is referred to as the Retrieve Transaction of the Studies Service rather than "WADO-RS".</p>
 <p>
 The DICOM WADO-RS (Web Access to DICOM Objects, RESTful mode) service uses a RESTful approach to study, series, and instance retrieval.
 This service allows for retrieval of native DICOM SOP instances, or instances “rendered” into other formats, including
@@ -141,6 +142,7 @@ see <a href="https://dicom.nema.org/medical/dicom/current/output/chtml/part18/se
 <p>
   An <code>Endpoint.connectionType</code> of code <code>dicom-wado-uri</code>, system <code>http://terminology.hl7.org/CodeSystem/endpoint-connection-type</code>, identifies a DICOM WADO-URI service (see <a href="endpoint-example-wado-uri.html">example of DICOM WADO-URI endpoint</a>).
 </p>
+  <p>Note: in the current DICOM standard this is referred to as the URI Service rather than "WADO-URI".</p>
 <p>
 The DICOM WADO-URI (Web Access to DICOM Objects, URI mode) service uses HTTP query parameter syntax. This service allows
 for retrieval of native DICOM instances, or instances “rendered” into other formats, including JPEG and MPEG. The preferred media

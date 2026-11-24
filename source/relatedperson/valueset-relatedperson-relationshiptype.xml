@@ -24,8 +24,8 @@
     <value value="urn:oid:2.16.840.1.113883.4.642.2.259"/>
   </identifier>
   <version value="6.0.0"/>
-  <name value="PatientRelationshipType"/>
-  <title value="Patient Relationship Type"/>
+  <name value="PatientContactFunctionalRole"/>
+  <title value="Patient Contact Functional Role"/>
   <status value="active"/>
   <experimental value="true"/>
   <publisher value="FHIR Project team"/>
@@ -35,7 +35,7 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="A set of codes that can be used to indicate the relationship between a Patient and a Related Person."/>
+  <description value="A set of codes that can be used to indicate the functional role of an individual to a Patient (used on Patient contacts and RelatedPerson)."/>
   <compose>
     <include>
       <system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>

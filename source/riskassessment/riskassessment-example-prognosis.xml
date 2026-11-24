@@ -20,6 +20,7 @@
     <outcome>
       <coding>
         <system value="http://snomed.info/sct"/>
+        <version value="http://snomed.info/sct/900000000000207008/version/20250301"/>
         <code value="249943000:260868000=6934004,{363698007=72098002}"/>
       </coding>
       <text value="permanent weakness of the left arm"/>

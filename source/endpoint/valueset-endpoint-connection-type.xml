@@ -22,7 +22,7 @@
   <name value="EndpointConnectionType"/>
   <title value="Endpoint Connection Type"/>
   <status value="active"/>
-  <experimental value="true"/>
+  <experimental value="false"/>
   <publisher value="HL7 Patient Administration"/>
   <contact>
     <telecom>
@@ -34,6 +34,13 @@
   <compose>
     <include>
       <system value="http://terminology.hl7.org/CodeSystem/endpoint-connection-type"/>
+    </include>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-NullFlavor"/>
+      <concept>
+        <code value="UNK"/>
+        <display value="unknown"/>
+      </concept>
     </include>
   </compose>
 </ValueSet>

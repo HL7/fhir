@@ -135,4 +135,23 @@
       </SearchParameter>
     </resource>
   </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Endpoint-address"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Endpoint.address"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Endpoint-address"/>
+        <description value="The technical base address for connecting to this endpoint"/>
+        <code value="address"/>
+        <type value="uri"/>
+        <expression value="Endpoint.address"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
 </Bundle>
