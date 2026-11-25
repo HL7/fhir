@@ -59,7 +59,7 @@
     <whenPrepared value="2015-01-15T10:20:00Z"/>
     <whenHandedOver value="2015-01-15T16:20:00Z"/>
     <note>
-        <text value="Partial fill: only 10 of the 30 tablets prescribed were in stock. The remaining 20 tablets are to be dispensed when stock is available."/>
+        <text value="Partial fill: 10 of the 30 tablets prescribed were dispensed."/>
     </note>
     <dosageInstruction>
         <step><component>
