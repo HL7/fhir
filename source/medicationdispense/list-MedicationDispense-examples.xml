@@ -414,6 +414,18 @@
   </entry>    
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Partial fill (first fill - part fill) of an oxycodone prescription: 10 of 30 tablets dispensed"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationdispense0336"/>
+    </extension>
+    <item>
+      <reference value="MedicationDispense/meddisp0336"/>
+      <display value="Partial fill"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="Dispense with the authorizing prescription contained, showing the authorized repeats (Pulmicort, 5 repeats, third supply)"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
